@@ -2,6 +2,7 @@
 var config = require("config");
 var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
+var dialogManager = require("dialogManager");
 
 cc.Class({
     extends: cc.Component,
@@ -31,15 +32,11 @@ cc.Class({
     // onLoad () {},
     start () {
        var self = this;
-    
-        // EventHelper.AddCustomEvent(config.MyNode,"EnterHallOK",function(event){
-            self.setHeadUrl("");
-            self.setNickName(PlayerDetailModel.getNickName());
-            self.setLevel(PlayerDetailModel.getTitle());
-            self.setLeDou(PlayerDetailModel.getCoin());
-            self.setLuQuan(PlayerDetailModel.getCoupon());
-        // });
-
+        self.setHeadUrl("");
+        self.setNickName(PlayerDetailModel.getNickName());
+        self.setLevel(PlayerDetailModel.getTitle());
+        self.setLeDou(PlayerDetailModel.getCoin());
+        self.setLuQuan(PlayerDetailModel.getCoupon());
     },
     setHeadUrl(url){
         var self = this;
@@ -79,63 +76,22 @@ cc.Class({
     },
     btnSetClick(){
         console.log("btnSetClick");
-        // 加载 Prefab
-        cc.loader.loadRes("prefab/setDialog", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showSetDialog();
     },
     btnTaskClick(){
         console.log("btnTaskClick");
-        // 加载 Prefab
-        cc.loader.loadRes("prefab/taskDialog", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showTaskDialog();
     },
     btnEmailClick(){
         console.log("btnEmailClick");
-        // 加载 Prefab
-        cc.loader.loadRes("prefab/emailDialog", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showEmailDialog();
     },
     btnBagClick(){
         console.log("btnBagClick");
-        // 加载 Prefab
-        cc.loader.loadRes("prefab/bagDialog", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showBagDialog();
     },
     btnShopClick(){
         console.log("btnShopClick");
-        // 加载 Prefab
-        // cc.loader.loadRes("bagDialog", function (err, prefab) {
-        //     if (err) {
-        //         console.log(err);
-        //         return;
-        //     }
-        //     var newNode = cc.instantiate(prefab);
-        //     cc.director.getScene().addChild(newNode);
-        // });
     },
     btnShareClick(){
         console.log("btnShareClick");

@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5811d180-be5b-4b03-bf3e-7624284ce500",
+  "atlasJson": "{\"width\":32,\"height\":32,\"name\":\"dengdaiwanjia\",\"imagePath\":\"dengdaiwanjia_tex.png\",\"SubTexture\":[{\"y\":1,\"frameY\":0,\"frameWidth\":29,\"width\":28,\"frameX\":0,\"frameHeight\":29,\"height\":27,\"name\":\"dian\",\"x\":1}]}",
+  "texture": "76304dcd-7925-45d1-91dc-6e055ccc6844",
+  "subMetas": {}
+}

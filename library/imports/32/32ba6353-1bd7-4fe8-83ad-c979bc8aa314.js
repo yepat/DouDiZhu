@@ -180,7 +180,7 @@ PlayerDetailModel.setRoom = function (room) {
 };
 PlayerDetailModel.getRoomByModel = function (modelId) {
     var zrooms = {};
-    for (k in PlayerDetailModel.room) {
+    for (var k in PlayerDetailModel.room) {
         var v = PlayerDetailModel.room[k];
         if (modelId == v.modelId) {
             return v.rooms;

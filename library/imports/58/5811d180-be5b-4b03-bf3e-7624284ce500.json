@@ -1,0 +1,10 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "dengdaiwanjia_tex",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_atlasJson": "{\"width\":32,\"height\":32,\"name\":\"dengdaiwanjia\",\"imagePath\":\"dengdaiwanjia_tex.png\",\"SubTexture\":[{\"y\":1,\"frameY\":0,\"frameWidth\":29,\"width\":28,\"frameX\":0,\"frameHeight\":29,\"height\":27,\"name\":\"dian\",\"x\":1}]}",
+  "texture": {
+    "__uuid__": "76304dcd-7925-45d1-91dc-6e055ccc6844"
+  }
+}

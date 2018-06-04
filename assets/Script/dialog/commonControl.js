@@ -26,7 +26,12 @@ cc.Class({
         // }
         // this.show("xx","但想啊想啊啊想啊",enter,null);
     },   
-    show(title,content,enterClick,cancelClick){
+    show(args){
+        var title = args.arg1;
+        var content = args.arg2;
+        var enterClick = args.arg3;
+        var cancelClick = args.arg4;
+
         this.title.string = title;
         this.content.string = content;
         if(cancelClick){

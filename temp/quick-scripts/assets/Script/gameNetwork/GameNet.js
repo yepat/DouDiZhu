@@ -8,6 +8,7 @@ var ByteArray = require("ByteArray");
 var config = require("config");
 var EventHelper = require("EventHelper");
 var Protocol = require("Protocol");
+var Events = require("Events");
 
 var GameNet = cc.Class({
     extends: cc.Component,
@@ -81,9 +82,10 @@ var GameNet = cc.Class({
                 self.isPinging = false;
             };
         },
-        send: function send(event, data) {
-            console.log(event);
-            if (this.sio) this.sio.send(data);
+        send: function send(event, cmd, params) {
+            console.log("send:" + event);
+            var view = ByteArray.getView(params, cmd);
+            if (this.sio) this.sio.send(view);
         },
         close: function close() {
             if (this.sio) this.sio.close();
@@ -109,6 +111,55 @@ var GameNet = cc.Class({
                     EventHelper.DispatchCustomEvent(config.MyNode, "LoginOK", data);
                 }
             }
+
+            if (cmd == Protocol.Command.Game) {
+                console.log(data);
+                if (data.code == Protocol.Response.Game.NoLogin) {
+                    this.handleLoginRoomResult(data, data.code);
+                } else if (data.code == Protocol.Response.Game.InitOk) {
+                    this.handleLoginRoomResult(data, data.code);
+                } else if (data.code == Protocol.Response.Game.CoinsNoMatchRoom) {
+                    this.handleLoginRoomResult(data, data.code);
+                }
+            }
+        },
+        handleLoginRoomResult: function handleLoginRoomResult(response, code) {
+            var succ = true;
+            var coinsNoMatchRoom = false;
+            var inGaming = false;
+            var msg = null;
+            var newRoomId = null;
+
+            if (code == Protocol.Response.Game.NoLogin) {
+                succ = false;
+                console.log("未登录");
+                return;
+            } else if (code == Protocol.Response.Game.InitOk) {
+                console.log("进入房间成功");
+                if (response["data"]["isGaming"] == 1) {
+                    console.log("进入未完成牌局");
+                    inGaming = true;
+                    succ = false;
+                    CompatibleHelper.RoomId = response["data"]["roomId"];
+                }
+            } else if (code == Protocol.Response.Game.CoinsNoMatchRoom) {
+                console.log("进入房间失败");
+                succ = false;
+                coinsNoMatchRoom = true;
+                msg = response["data"]["msg"];
+                newRoomId = response["data"]["newRoomId"];
+            }
+
+            var params = {};
+            params.name = Events.Network.LoginRoomResult;
+            params.ok = succ;
+            params.payload = response;
+            params.noCoin = coinsNoMatchRoom;
+            params.inGaming = inGaming;
+            params.msg = msg;
+            params.newRoomId = newRoomId;
+
+            EventHelper.DispatchCustomEvent(config.MyNode, Events.Network.LoginRoomResult, params);
         }
     }
 });

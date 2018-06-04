@@ -13,16 +13,12 @@ config.temppassword = "";
 config.playGameId = 0; //断线
 config.playGameMsg = "";
 
-config.roomModelId = 0; //房间模式
+config.curRoomModelId = 0; //房间模式
 
 //房间模式
 config.ModelId = { normal: 0, contest: 3, lazarillo: 2 };
 
 config.pokerCardType = {
-    // spade : "spade",//黑桃
-    // hearts : "hearts",//红桃
-    // redslice : "redslice",//红方
-    // blackberry : "blackberry",//黑梅
     spade: 1, //黑桃
     hearts: 2, //红桃
     redslice: 3, //红方
@@ -138,19 +134,19 @@ config.GlobalRouterUpdate = function (json) {
 };
 
 //房间配置
-RoomConfig = {
-    0: { name: "新手场", umengEvent: "novice_room", pot: 5, min: 1000, max: 80000, texture: "room_1.png", roomId: 1000, roomNameTexture: "p_novice_bar.png" },
-    1: { name: "初级场", umengEvent: "primary_room", pot: 10, min: 2000, max: 200000, texture: "room_2.png", roomId: 1001, roomNameTexture: "p_primary_bar.png" },
-    2: { name: "中级场", umengEvent: "intermediate_room", pot: 10, min: 2000, max: 200000, texture: "room_3.png", roomId: 1002, roomNameTexture: "p_intermediate_bar.png" },
-    3: { name: "高级场", umengEvent: "senior_room", pot: 10, min: 2000, max: 200000, texture: "room_4.png", roomId: 1003, roomNameTexture: "p_senior_bar.png" },
-    4: { name: "竞技场", umengEvent: "contest_room", pot: 10, min: 5000, max: 50000, texture: "room_JJC.png", roomId: 1004, roomNameTexture: "p_primary_arena_bar.png" },
-    5: { name: "无限场", umengEvent: "advanced_room", pot: 50, min: 10000, max: 1000000, texture: "room_5.png", roomId: 1006, roomNameTexture: "p_advanced_bar.png" },
+config.RoomConfig = {
+    1: { name: "新手场", umengEvent: "novice_room", pot: 5, min: 1000, max: 80000, texture: "room_1.png", roomId: 1000, roomNameTexture: "p_novice_bar.png" },
+    2: { name: "初级场", umengEvent: "primary_room", pot: 10, min: 2000, max: 200000, texture: "room_2.png", roomId: 1001, roomNameTexture: "p_primary_bar.png" },
+    3: { name: "中级场", umengEvent: "intermediate_room", pot: 10, min: 2000, max: 200000, texture: "room_3.png", roomId: 1002, roomNameTexture: "p_intermediate_bar.png" },
+    4: { name: "高级场", umengEvent: "senior_room", pot: 10, min: 2000, max: 200000, texture: "room_4.png", roomId: 1003, roomNameTexture: "p_senior_bar.png" },
+    5: { name: "竞技场", umengEvent: "contest_room", pot: 10, min: 5000, max: 50000, texture: "room_JJC.png", roomId: 1004, roomNameTexture: "p_primary_arena_bar.png" },
+    6: { name: "无限场", umengEvent: "advanced_room", pot: 50, min: 10000, max: 1000000, texture: "room_5.png", roomId: 1006, roomNameTexture: "p_advanced_bar.png" },
 
-    6: { name: "新手场", umengEvent: "l_novice_room", pot: 50, min: 10000, max: 1000000, texture: "room_1.png", roomId: 1007, roomNameTexture: "p_novice_bar.png" },
-    7: { name: "初级场", umengEvent: "l_primary_room", pot: 50, min: 10000, max: 1000000, texture: "room_2.png", roomId: 1008, roomNameTexture: "p_primary_bar.png" },
-    8: { name: "中级场", umengEvent: "l_intermediate_room", pot: 50, min: 10000, max: 1000000, texture: "room_3.png", roomId: 1009, roomNameTexture: "p_intermediate_bar.png" },
-    9: { name: "高级场", umengEvent: "l_senior_room", pot: 50, min: 10000, max: 1000000, texture: "room_4.png", roomId: 1010, roomNameTexture: "p_senior_bar.png" },
-    10: { name: "无限场", umengEvent: "l_noRate_room", pot: 50, min: 10000, max: 1000000, texture: "room_5.png", roomId: 1011, roomNameTexture: "p_senior_bar.png" }
+    7: { name: "新手场", umengEvent: "l_novice_room", pot: 50, min: 10000, max: 1000000, texture: "room_1.png", roomId: 1007, roomNameTexture: "p_novice_bar.png" },
+    8: { name: "初级场", umengEvent: "l_primary_room", pot: 50, min: 10000, max: 1000000, texture: "room_2.png", roomId: 1008, roomNameTexture: "p_primary_bar.png" },
+    9: { name: "中级场", umengEvent: "l_intermediate_room", pot: 50, min: 10000, max: 1000000, texture: "room_3.png", roomId: 1009, roomNameTexture: "p_intermediate_bar.png" },
+    10: { name: "高级场", umengEvent: "l_senior_room", pot: 50, min: 10000, max: 1000000, texture: "room_4.png", roomId: 1010, roomNameTexture: "p_senior_bar.png" },
+    11: { name: "无限场", umengEvent: "l_noRate_room", pot: 50, min: 10000, max: 1000000, texture: "room_5.png", roomId: 1011, roomNameTexture: "p_senior_bar.png" }
 };
 
 module.exports = config;

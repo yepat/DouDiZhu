@@ -146,9 +146,9 @@ cc.Class({
         // var info = '{"t":0}';
         var params = {};
         params.t = Protocol.Request.HeartBeat.Alive;
-        var info = JSON.stringify(params);
-        var view = ByteArray.getView(info,Protocol.Command.HeartBeat);
-        cc.vv.net.send("HeartBeat",view);
+        // var info = JSON.stringify(params);
+        // var view = ByteArray.getView(params,Protocol.Command.HeartBeat);
+        cc.vv.net.send("HeartBeat",Protocol.Command.HeartBeat,params);
     },
     sendRegist(){
         //注册请求
@@ -161,9 +161,9 @@ cc.Class({
         params.c = "sjweichat";
         params.e = "defaults";
         params.type = "guest";
-        var info = JSON.stringify(params);
-        var view = ByteArray.getView(info,Protocol.Command.Login);
-        cc.vv.net.send("Regist",view);  
+        // var info = JSON.stringify(params);
+        // var view = ByteArray.getView(params,Protocol.Command.Login);
+        cc.vv.net.send("Regist",Protocol.Command.Login,params);  
     },
     sendLogin(){
         var params = {};
@@ -177,9 +177,9 @@ cc.Class({
         params.wn = "";
         params.wurl = "";
 
-        var info = JSON.stringify(params);
-        var view = ByteArray.getView(info,Protocol.Command.Login);
-        cc.vv.net.send("Login",view);  
+        // var info = JSON.stringify(params);
+        // var view = ByteArray.getView(params,Protocol.Command.Login);
+        cc.vv.net.send("Login",Protocol.Command.Login,params);  
     },
     setPlayerDetailModel(response){
         var room = response.data.room

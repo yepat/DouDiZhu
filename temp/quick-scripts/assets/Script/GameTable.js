@@ -7,11 +7,10 @@ cc._RF.push(module, '1393cipeeNFZbpX9aJxYpTG', 'GameTable', __filename);
 var PokerData = require("PokerData");
 var PokerControl = require("PokerControl");
 var config = require("config");
-
 var CardUtil = require("CardUtil");
 var PopCardUtil = require("PopCardUtil");
-
 var opratOutCardControl = require("opratOutCardControl");
+var dialogManager = require("dialogManager");
 
 cc.Class({
     extends: cc.Component,
@@ -604,7 +603,7 @@ cc.Class({
         }
 
         //出牌
-        var cards = [6, 6, 6, 9, 9, 9, 10, 10, 10, "J", "J", "J"]; //,5,5,5,5,6,6,6,6
+        var cards = [3, 5, 5, 5, 5, 6, 6, 6, 9, 9, 9, 10, 10, 10, "J", "J", "J"]; //,5,5,5,5,6,6,6,6
         // cards.sort(config.arrayDown);
         var index = 0;
         for (var i = rightPokerData.length - 1; i > -1; i--) {
@@ -695,26 +694,11 @@ cc.Class({
     },
     btnDelegateClick: function btnDelegateClick() {
         console.log("btnDelegateClick");
-        cc.loader.loadRes("prefab/CancelDelegate", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showCancelDelegate();
     },
     btnSetClick: function btnSetClick() {
         console.log("btnSetClick");
-        // 加载 Prefab
-        cc.loader.loadRes("prefab/setDialog", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showSetDialog();
     },
     btnJiPaiQiClick: function btnJiPaiQiClick() {
         console.log("btnJiPaiQiClick");

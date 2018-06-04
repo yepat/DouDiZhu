@@ -56,7 +56,8 @@ ByteArray.getHead = function (len, cmd) {
 };
 
 //获取数据视图
-ByteArray.getView = function (info, cmd) {
+ByteArray.getView = function (params, cmd) {
+    var info = JSON.stringify(params);
     var bytes = ByteArray.encodeUtf8(info);
     var buffer = new ArrayBuffer(bytes.length + ByteArray.PACKET_HEADER_LENGTH);
     var view = new DataView(buffer);
