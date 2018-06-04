@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "guangxiao-3",
+    "texture": "27025d54-cf22-494c-9bc7-5f9b04b91efe",
+    "atlas": "",
+    "rect": [
+      3,
+      0,
+      244,
+      221
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      250,
+      221
+    ]
+  }
+}

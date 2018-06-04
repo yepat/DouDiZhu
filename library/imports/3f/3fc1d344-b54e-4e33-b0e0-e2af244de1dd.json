@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_room_2",
+    "texture": "679a533c-3e6c-4e4a-a9fd-66fd1dfdc2db",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      492,
+      315
+    ],
+    "offset": [
+      -2,
+      0
+    ],
+    "originalSize": [
+      496,
+      315
+    ]
+  }
+}

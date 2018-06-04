@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tishi",
+    "texture": "10cb5cb5-a99f-43d6-84e5-d68efea76d50",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      121,
+      55
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      121,
+      55
+    ]
+  }
+}

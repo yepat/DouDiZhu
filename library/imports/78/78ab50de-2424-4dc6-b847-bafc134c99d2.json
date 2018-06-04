@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tip_jiaodizhuno",
+    "texture": "359a6fe9-b2dd-4cbd-aa5d-6c60ba3ced49",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      155,
+      78
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      155,
+      79
+    ]
+  }
+}

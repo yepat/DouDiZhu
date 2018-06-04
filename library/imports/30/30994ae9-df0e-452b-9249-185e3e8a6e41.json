@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_ledou",
+    "texture": "886b4809-42c1-40f3-86cc-d0451ab192ae",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      83,
+      82
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      83,
+      82
+    ]
+  }
+}

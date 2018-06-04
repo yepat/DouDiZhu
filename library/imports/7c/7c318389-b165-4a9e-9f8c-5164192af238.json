@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_addno",
+    "texture": "0aba3321-d9c1-487e-ba47-f9e414b2ccea",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      179,
+      56
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      181,
+      57
+    ]
+  }
+}

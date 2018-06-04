@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tips_noSeletcedCrad",
+    "texture": "f275891a-02d3-4bd4-b88c-3924ccde5eb9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      300,
+      55
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      300,
+      55
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_email",
+    "texture": "363d57ff-9ec6-4fd3-8f9c-379209e89871",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      193,
+      51
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      193,
+      51
+    ]
+  }
+}

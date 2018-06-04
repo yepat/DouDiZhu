@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_email_readtag",
+    "texture": "67b0e73b-f46e-483a-8750-34a9e18a7fa5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      90,
+      91
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      90,
+      91
+    ]
+  }
+}

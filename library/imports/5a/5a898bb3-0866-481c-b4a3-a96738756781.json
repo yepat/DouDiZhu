@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hongfang_1",
+    "texture": "532387e1-ea03-4b28-879b-c9a68ab9e77c",
+    "atlas": "",
+    "rect": [
+      2,
+      0,
+      46,
+      47
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      49,
+      48
+    ]
+  }
+}

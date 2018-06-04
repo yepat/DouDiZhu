@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_dz_icon",
+    "texture": "c6b37c08-e2aa-4dca-84c9-8556f4fe0cc0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      127,
+      130
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      127,
+      130
+    ]
+  }
+}

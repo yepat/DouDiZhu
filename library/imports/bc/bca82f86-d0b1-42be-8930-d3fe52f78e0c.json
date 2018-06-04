@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tip_yaobuqi",
+    "texture": "343d30a2-94f0-461c-b02f-74b74e030c7f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      228,
+      80
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      228,
+      80
+    ]
+  }
+}

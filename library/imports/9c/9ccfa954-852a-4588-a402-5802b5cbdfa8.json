@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_sameple",
+    "texture": "35bff479-9ac8-4c6e-b5d6-93b95ec69eee",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2436,
+      1125
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2436,
+      1125
+    ]
+  }
+}

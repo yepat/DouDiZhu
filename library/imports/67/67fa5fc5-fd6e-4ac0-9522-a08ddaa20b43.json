@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_victory_caidai",
+    "texture": "738d0346-6a13-4d64-9e97-1d987c92b344",
+    "atlas": "",
+    "rect": [
+      2,
+      0,
+      561,
+      275
+    ],
+    "offset": [
+      1,
+      1.5
+    ],
+    "originalSize": [
+      563,
+      278
+    ]
+  }
+}

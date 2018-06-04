@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tip_qiangdizhu",
+    "texture": "0e331e66-0ae8-48e8-ba74-9428c913b08e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      229,
+      77
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      229,
+      77
+    ]
+  }
+}

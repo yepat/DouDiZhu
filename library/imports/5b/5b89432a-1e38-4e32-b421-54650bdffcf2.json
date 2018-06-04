@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_room_quickstar",
+    "texture": "bd84241b-178c-40dc-8127-36b380800b46",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      629,
+      172
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      629,
+      172
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_jpq",
+    "texture": "cffc39bc-2566-483d-8daa-181d21a7902f",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      90,
+      92
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      94,
+      96
+    ]
+  }
+}

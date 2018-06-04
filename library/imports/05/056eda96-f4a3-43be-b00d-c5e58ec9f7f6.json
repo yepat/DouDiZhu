@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "poke_14",
+    "texture": "c1db9774-1cf6-46f1-bb81-b4ea9ca87df4",
+    "atlas": "",
+    "rect": [
+      6,
+      1,
+      45,
+      55
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      58,
+      58
+    ]
+  }
+}

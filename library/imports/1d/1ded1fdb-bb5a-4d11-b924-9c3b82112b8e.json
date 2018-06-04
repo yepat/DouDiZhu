@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_qiangno",
+    "texture": "072c9494-5853-4757-8568-cc3c0e7f6618",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      118,
+      55
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      120,
+      57
+    ]
+  }
+}

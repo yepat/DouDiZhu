@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_jiaoyes",
+    "texture": "56f62e11-e316-449f-b776-1058857187af",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      178,
+      55
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      179,
+      56
+    ]
+  }
+}

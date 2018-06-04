@@ -1,0 +1,129 @@
+{
+  "__type__": "cc.LabelAtlas",
+  "_name": "clock_LabelAtlas",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "fntDataStr": "",
+  "spriteFrame": {
+    "__uuid__": "6eb2fe87-0392-487d-adf3-a8c27bf4d65e"
+  },
+  "fontSize": 50.160000000000004,
+  "_fntConfig": {
+    "commonHeight": 57,
+    "fontSize": 50,
+    "atlasName": "p_clockNum",
+    "fontDefDictionary": {
+      "48": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "49": {
+        "rect": {
+          "x": 43,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "50": {
+        "rect": {
+          "x": 86,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "51": {
+        "rect": {
+          "x": 129,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "52": {
+        "rect": {
+          "x": 172,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "53": {
+        "rect": {
+          "x": 215,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "54": {
+        "rect": {
+          "x": 258,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "55": {
+        "rect": {
+          "x": 301,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "56": {
+        "rect": {
+          "x": 344,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      },
+      "57": {
+        "rect": {
+          "x": 387,
+          "y": 0,
+          "width": 43,
+          "height": 57
+        },
+        "xOffset": 0,
+        "yOffset": 0,
+        "xAdvance": 43
+      }
+    },
+    "kerningDict": {}
+  }
+}

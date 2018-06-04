@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tuoguanno",
+    "texture": "e46a81a4-cab1-45c5-9c99-d7cc6b5b4c9a",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      38,
+      239
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      38,
+      240
+    ]
+  }
+}

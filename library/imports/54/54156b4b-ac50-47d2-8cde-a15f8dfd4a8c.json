@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hongxin",
+    "texture": "f878cef3-e37a-4358-bebb-37778013bce8",
+    "atlas": "",
+    "rect": [
+      0,
+      8,
+      110,
+      95
+    ],
+    "offset": [
+      -0.5,
+      -1.5
+    ],
+    "originalSize": [
+      111,
+      108
+    ]
+  }
+}
