@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_alarm_1",
+    "texture": "45752060-9039-4e95-8217-484a0f9db9da",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      43,
+      33
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      45,
+      35
+    ]
+  }
+}

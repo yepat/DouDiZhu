@@ -33,44 +33,9 @@ var GameNet = cc.Class({
             this.sio.onmessage = function (evt) {
                 // console.log(evt.data);
                 // console.log("length:"+evt.data.length)
-
-                // var arr=[];
-                // var dataLength = 0;
                 var cmd = -1; //第八位是大协议号
-                // arr = evt.data.slice(0,16);
-                // for(var i = 0;i<arr.length;i++){
-                //     // var code  = arr[i].charCodeAt();
-                //     // console.log(a);
-                //     // if( i == 0){
-                //     //     dataLength = arr[i].charCodeAt();
-                //     //     console.log("0--:"+dataLength);
-                //     // }
-                //     // if( i == 1){
-                //     //     dataLength = arr[i].charCodeAt();
-                //     //     console.log("1--:"+dataLength);
-                //     // }
-                //     // if( i == 2){
-                //     //     dataLength = arr[i].charCodeAt();
-                //     //     console.log("2--:"+dataLength);
-                //     // }
-                //     if( i == 3){
-                //         dataLength = arr[i].charCodeAt();
-                //     }
-                //     if(i == 7){
-                //         cmd = arr[i].charCodeAt();
-                //     }
-                // }
-
-                // console.log("cmd:"+cmd+" dataLength:"+dataLength);
-                // var strdata = evt.data.slice(16,evt.data.length);
                 var strdata = evt.data;
-
-                // console.log(typeof(strdata));
-                // console.log(strdata)
                 var data = JSON.parse(strdata);
-
-                // console.log(data)
-
                 self.receivedMsg(data, cmd);
             };
             this.sio.onclose = function (evt) {

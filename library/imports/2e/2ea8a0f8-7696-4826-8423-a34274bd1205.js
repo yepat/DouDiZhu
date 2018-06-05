@@ -34,25 +34,32 @@ ByteArray.decodeUtf8 = function (bytes) {
     return decodeURIComponent(encoded);
 };
 
-//前16个字节 len字节长度 cmd 大协议号
 ByteArray.getHead = function (len, cmd) {
     var _bytes = [len, cmd, 1, 2];
-    var strBytes = [];
+    var allBytes = [];
     for (var i = 0; i < _bytes.length; i++) {
-        // console.log(_bytes[i].toString(16));
-        var str16 = _bytes[i].toString(16);
-        // (parseInt(str16,16)
-        strBytes.push(parseInt(str16, 16));
-    }
-    var xx_Bytes = [];
-    for (var i = 0; i < strBytes.length; i++) {
-        for (var j = 0; j < 3; j++) {
-            xx_Bytes.push(0);
+        var arr = ByteArray.complementByte(_bytes[i]);
+        for (var j = 0; j < arr.length; j++) {
+            allBytes.push(arr[j]);
         }
-        xx_Bytes.push(strBytes[i]);
     }
-    // console.log(xx_Bytes);
-    return xx_Bytes;
+    return allBytes;
+};
+
+ByteArray.complementByte = function (code) {
+    var strHed = code.toString(2);
+    //补齐32位
+    var complement = "";
+    for (var i = 0; i < 32 - strHed.length; i++) {
+        complement += "0";
+    }
+    var allBytes = complement + strHed;
+    var arr = [];
+    for (var i = 0; i < 32; i += 8) {
+        var strByte = allBytes.substring(i, i + 8);
+        arr.push(parseInt(strByte, 2));
+    }
+    return arr;
 };
 
 //获取数据视图

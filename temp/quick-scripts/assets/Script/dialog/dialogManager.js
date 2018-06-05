@@ -53,6 +53,9 @@ var dialogManager = cc.Class({
         showTaskDialog: function showTaskDialog() {
             this.showDialog("prefab/taskDialog");
         },
+        showJpqNode: function showJpqNode() {
+            this.showDialog("prefab/jpqNode");
+        },
 
 
         //牌桌操作界面

@@ -14,10 +14,10 @@ config.curRoomModelId = 0;//房间模式
 config.ModelId = {normal : 0, contest : 3, lazarillo : 2}
 
 config.pokerCardType = {
-    spade : 1,//黑桃
-    hearts : 2,//红桃
-    redslice : 3,//红方
-    blackberry : 4,//黑梅
+    spade : 4,//黑桃
+    hearts : 3,//红桃
+    redslice : 1,//红方
+    blackberry : 2,//梅花
 }
 
 config.ghostCardType = {
@@ -144,6 +144,71 @@ config.RoomConfig = {
     10:{name : "高级场", umengEvent : "l_senior_room" ,pot : 50, min : 10000, max : 1000000, texture : "room_4.png", roomId : 1010, roomNameTexture : "p_senior_bar.png"},
     11:{name : "无限场", umengEvent : "l_noRate_room" ,pot : 50, min : 10000, max : 1000000, texture : "room_5.png", roomId : 1011, roomNameTexture : "p_senior_bar.png"},
 }
+
+config.CardMapping = {
+    ["00"] : "joker_black.png",
+    ["01"] : "joker_red.png",        // A 2 3 4 5 6 7 8 9 10 J Q K 
+  
+    //黑桃
+    ["41"] : "a_b_1.png",   
+    ["42"] : "2_b_1.png",
+    ["43"] : "3_b_1.png",
+    ["44"] : "4_b_1.png",
+    ["45"] : "5_b_1.png",
+    ["46"] : "6_b_1.png",
+    ["47"] : "7_b_1.png",
+    ["48"] : "8_b_1.png",
+    ["49"] : "9_b_1.png",
+    ["4a"] : "10_b_1.png",
+    ["4b"] : "j_b_1.png",
+    ["4c"] : "q_b_1.png",
+    ["4d"] : "k_b_1.png",  
+  
+    //红桃
+    ["31"] : "a_r_1.png",   
+    ["32"] : "2_r_1.png",
+    ["33"] : "3_r_1.png",
+    ["34"] : "4_r_1.png",
+    ["35"] : "5_r_1.png",
+    ["36"] : "6_r_1.png",
+    ["37"] : "7_r_1.png",
+    ["38"] : "8_r_1.png",
+    ["39"] : "9_r_1.png",
+    ["3a"] : "10_r_1.png",
+    ["3b"] : "j_r_1.png",
+    ["3c"] : "q_r_1.png",
+    ["3d"] : "k_r_1.png",
+  
+    //梅花
+    ["21"] : "a_b_1.png",   
+    ["22"] : "2_b_1.png",
+    ["23"] : "3_b_1.png",
+    ["24"] : "4_b_1.png",
+    ["25"] : "5_b_1.png",
+    ["26"] : "6_b_1.png",
+    ["27"] : "7_b_1.png",
+    ["28"] : "8_b_1.png",
+    ["29"] : "9_b_1.png",
+    ["2a"] : "10_b_1.png",
+    ["2b"] : "j_b_1.png",
+    ["2c"] : "q_b_1.png",
+    ["2d"] : "k_b_1.png",    
+  
+    //方块
+    ["11"] : "a_r_1.png",   
+    ["12"] : "2_r_1.png",
+    ["13"] : "3_r_1.png",
+    ["14"] : "4_r_1.png",
+    ["15"] : "5_r_1.png",
+    ["16"] : "6_r_1.png",
+    ["17"] : "7_r_1.png",
+    ["18"] : "8_r_1.png",
+    ["19"] : "9_r_1.png",
+    ["1a"] : "10_r_1.png",
+    ["1b"] : "j_r_1.png",
+    ["1c"] : "q_r_1.png",
+    ["1d"] : "k_r_1.png",
+  }
 
 
 module.exports = config;

@@ -1,374 +1,75 @@
-2018-06-04T02:54:33.971Z - normal: Load ~/.CocosCreator/settings.json
-2018-06-04T02:54:33.975Z - normal: checking language setting...
-2018-06-04T02:54:33.975Z - normal: Language: zh
-2018-06-04T02:54:34.501Z - success: protocol editor-framework registered
-2018-06-04T02:54:34.501Z - success: protocol app registered
-2018-06-04T02:54:34.501Z - success: protocol theme registered
-2018-06-04T02:54:34.501Z - success: protocol packages registered
-2018-06-04T02:54:34.501Z - success: protocol unpack registerred
-2018-06-04T02:54:34.502Z - success: protocol disable-commonjs registerred
-2018-06-04T02:54:34.813Z - normal: connected!
-2018-06-04T02:54:34.814Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-06-04T02:54:34.815Z - normal: Initializing Cocos2d
-2018-06-04T02:54:34.957Z - normal: Initializing Asset Database
-2018-06-04T02:54:34.981Z - success: protocol uuid registerred
-2018-06-04T02:54:34.981Z - success: protocol db registerred
-2018-06-04T02:54:34.981Z - success: protocol thumbnail registerred
-2018-06-04T02:54:34.981Z - normal: Loading editor/builtin packages
-2018-06-04T02:54:34.996Z - success: anysdk loaded
-2018-06-04T02:54:35.087Z - success: assets loaded
-2018-06-04T02:54:35.090Z - success: builder loaded
-2018-06-04T02:54:35.091Z - success: cocos-analytics loaded
-2018-06-04T02:54:35.095Z - success: console loaded
-2018-06-04T02:54:35.122Z - success: fb-instant-games loaded
-2018-06-04T02:54:35.125Z - success: hierarchy loaded
-2018-06-04T02:54:35.129Z - success: inspector loaded
-2018-06-04T02:54:35.130Z - success: keystore loaded
-2018-06-04T02:54:35.137Z - success: node-library loaded
-2018-06-04T02:54:35.138Z - success: package-asset loaded
-2018-06-04T02:54:35.140Z - success: preferences loaded
-2018-06-04T02:54:35.142Z - success: project-exporter loaded
-2018-06-04T02:54:35.154Z - success: project-importer loaded
-2018-06-04T02:54:35.157Z - success: project-settings loaded
-2018-06-04T02:54:35.160Z - success: ui-kit loaded
-2018-06-04T02:54:35.164Z - success: ui-grid loaded
-2018-06-04T02:54:35.167Z - success: scene loaded
-2018-06-04T02:54:35.168Z - success: sprite-editor loaded
-2018-06-04T02:54:35.172Z - success: store loaded
-2018-06-04T02:54:35.176Z - success: timeline loaded
-2018-06-04T02:54:35.176Z - normal: Loading builtin packages
-2018-06-04T02:54:35.179Z - success: asset-db-debugger loaded
-2018-06-04T02:54:35.180Z - success: color-picker loaded
-2018-06-04T02:54:35.183Z - success: package-manager loaded
-2018-06-04T02:54:35.187Z - success: sdkbox loaded
-2018-06-04T02:54:35.192Z - success: tester loaded
-2018-06-04T02:54:35.196Z - success: ui-kit-preview-extra loaded
-2018-06-04T02:54:35.198Z - success: ui-kit-preview loaded
-2018-06-04T02:54:35.201Z - success: ui-tree loaded
-2018-06-04T02:54:35.963Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-06-04T02:54:35.964Z - normal: Loading packages
-2018-06-04T02:54:35.968Z - normal: Watching packages
-2018-06-04T02:54:35.977Z - normal: Run Application
-2018-06-04T02:54:36.436Z - warn: [db-task][init] Backup unused meta file: db://assets/Script/3rdparty.meta
-2018-06-04T02:54:48.938Z - success: preview server running at http://localhost:7456
-2018-06-04T02:54:52.880Z - normal: 1.9.1
-2018-06-04T02:54:53.472Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.473Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.478Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.480Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.482Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.485Z - error: A Class already exists with the same __classname__ : "config".
-    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
-    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
-    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:16:4)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:730:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:737:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:740:3)
-2018-06-04T02:54:53.485Z - error: A Class already exists with the same __cid__ : "51232MuRg1Etoh6eMoOYPIJ".
-    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:16:4)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:730:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:737:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/GameTable.js:740:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-2018-06-04T02:54:53.489Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.490Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.491Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.496Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.496Z - error: A Class already exists with the same __classname__ : "config".
-    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
-    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
-    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:11:4)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:179:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:186:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:189:3)
-2018-06-04T02:54:53.498Z - error: A Class already exists with the same __cid__ : "51232MuRg1Etoh6eMoOYPIJ".
-    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:11:4)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:179:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:186:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/RoomLayerControl.js:189:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-2018-06-04T02:54:53.499Z - failed: load script [/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.519Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.521Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.525Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.525Z - error: A Class already exists with the same __classname__ : "config".
-    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
-    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
-    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:12:18)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:119:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:126:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:129:3)
-2018-06-04T02:54:53.525Z - error: A Class already exists with the same __cid__ : "51232MuRg1Etoh6eMoOYPIJ".
-    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:12:18)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:119:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:126:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/gameNetwork/GameNet.js:129:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-2018-06-04T02:54:53.531Z - failed: load script [config] failed : ReferenceError: RoomConfig is not defined
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:141:12)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:161:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:168:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/config.js:171:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:488:32)
-    at tryModuleLoad (module.js:447:12)
-    at Function.Module._load (module.js:439:3)
-    at Module.require (module.js:498:17)
-2018-06-04T02:54:53.532Z - error: A Class already exists with the same __classname__ : "config".
-    at /Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24
-    at Object.js.setClassName (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:403:9)
-    at doDefine (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:339:8)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:358:15)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:8:4)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:130:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:137:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:140:3)
-2018-06-04T02:54:53.532Z - error: A Class already exists with the same __cid__ : "51232MuRg1Etoh6eMoOYPIJ".
-    at Object._setClassId (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/js.js:373:24)
-    at define (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:364:20)
-    at Object.CCClass [as Class] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCClass.js:920:15)
-    at __define (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:8:4)
-    at /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:130:13
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:137:11)
-    at Object.<anonymous> (/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/temp/quick-scripts/assets/Script/opratCallLordControl.js:140:3)
-    at Module._compile (module.js:571:32)
-    at Object.Module._extensions..js (module.js:580:10)
-2018-06-04T02:54:53.603Z - warn: Script attached to "Canvas" in scene "LoadingScene.fire" is missing or invalid. Detailed information:
-Node path: "Canvas"
-Asset url: "db://assets/Scene/LoadingScene.fire"
-Script UUID: "b138e380-2de2-49c4-9f86-9bc1a0315fa5"
-Class ID: "b138eOALeJJxJ+Gm8GgMV+l"
-
-2018-06-04T03:19:50.436Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:10064
-2018-06-04T03:19:50.440Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:10067
-2018-06-04T03:20:24.179Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:10590
-2018-06-04T03:37:40.947Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:28292
-2018-06-04T03:37:40.951Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:28296
-2018-06-04T03:40:10.100Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:31533
-2018-06-04T03:48:24.560Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:40334
-2018-06-04T03:48:24.562Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:40337
-2018-06-04T10:39:59.647Z - failed: [db-task][sync-changes] Failed to import asset /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js, message: Compile error: SyntaxError: /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js: Unexpected token (278:27)
-  276 |             if(sended && sended > 0){
-  277 |                 args["givecoins"] = {
-> 278 |                     sended = sended,
-      |                            ^
-  279 |                     totalTimes = totalTimes,
-  280 |                     curTimes = curTimes,
-  281 |                 }
-    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
-    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3370:10)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3367:23)
-    at Parser.pp$3.parseExpression (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3306:19)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1906:19)
-    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
-    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1868:19)
-    at Parser.pp$1.parseIfStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2059:26)
-2018-06-04T10:42:21.697Z - failed: [db-task][sync-changes] Failed to import asset /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js, message: Compile error: SyntaxError: /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js: Unexpected token (278:27)
-  276 |             if(sended && sended > 0){
-  277 |                 args["givecoins"] = {
-> 278 |                     sended = m_sended,
-      |                            ^
-  279 |                     totalTimes = m_totalTimes,
-  280 |                     curTimes = m_curTimes,
-  281 |                 }
-    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
-    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3370:10)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3367:23)
-    at Parser.pp$3.parseExpression (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3306:19)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1906:19)
-    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
-    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1868:19)
-    at Parser.pp$1.parseIfStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2059:26)
-2018-06-04T10:42:56.657Z - failed: [db-task][sync-changes] Failed to import asset /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js, message: Compile error: SyntaxError: /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js: Unexpected token (278:27)
-  276 |             if(m_sended && m_sended > 0){
-  277 |                 args["givecoins"] = {
-> 278 |                     sended = m_sended,
-      |                            ^
-  279 |                     totalTimes = m_totalTimes,
-  280 |                     curTimes = m_curTimes,
-  281 |                 }
-    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
-    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3370:10)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3367:23)
-    at Parser.pp$3.parseExpression (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3306:19)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1906:19)
-    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
-    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1868:19)
-    at Parser.pp$1.parseIfStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2059:26)
-2018-06-04T10:44:18.373Z - failed: [db-task][sync-changes] Failed to import asset /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js, message: Compile error: SyntaxError: /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js: Unexpected token (278:27)
-  276 |             if(m_sended && m_sended > 0){
-  277 |                 args.givecoins = {
-> 278 |                     sended = m_sended,
-      |                            ^
-  279 |                     totalTimes = m_totalTimes,
-  280 |                     curTimes = m_curTimes,
-  281 |                 }
-    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
-    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3370:10)
-    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3367:23)
-    at Parser.pp$3.parseExpression (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3306:19)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1906:19)
-    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
-    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1868:19)
-    at Parser.pp$1.parseIfStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2059:26)
+2018-06-05T13:38:06.168Z - normal: Load ~/.CocosCreator/settings.json
+2018-06-05T13:38:06.172Z - normal: checking language setting...
+2018-06-05T13:38:06.172Z - normal: Language: zh
+2018-06-05T13:38:06.986Z - error: { Error: getaddrinfo ENOTFOUND creator-api.cocos.com creator-api.cocos.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'creator-api.cocos.com',
+  host: 'creator-api.cocos.com',
+  port: 443 }
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/share/login/lib/user.js:1:1441
+    at ClientRequest.Https.request.on.e (/Applications/CocosCreator.app/Contents/Resources/app.asar/share/login/lib/network.js:1:873)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at TLSSocket.socketErrorListener (_http_client.js:358:9)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at connectErrorNT (net.js:1032:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+2018-06-05T13:38:06.991Z - normal: failed to connect login server... skipping login
+2018-06-05T13:38:06.992Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-06-05T13:38:06.994Z - success: protocol editor-framework registered
+2018-06-05T13:38:06.994Z - success: protocol app registered
+2018-06-05T13:38:06.994Z - success: protocol theme registered
+2018-06-05T13:38:06.994Z - success: protocol packages registered
+2018-06-05T13:38:06.994Z - success: protocol unpack registerred
+2018-06-05T13:38:06.994Z - success: protocol disable-commonjs registerred
+2018-06-05T13:38:06.995Z - normal: Initializing Cocos2d
+2018-06-05T13:38:07.234Z - normal: Initializing Asset Database
+2018-06-05T13:38:07.270Z - success: protocol uuid registerred
+2018-06-05T13:38:07.271Z - success: protocol db registerred
+2018-06-05T13:38:07.271Z - success: protocol thumbnail registerred
+2018-06-05T13:38:07.271Z - normal: Loading editor/builtin packages
+2018-06-05T13:38:07.300Z - success: anysdk loaded
+2018-06-05T13:38:07.420Z - success: assets loaded
+2018-06-05T13:38:07.424Z - success: builder loaded
+2018-06-05T13:38:07.427Z - success: cocos-analytics loaded
+2018-06-05T13:38:07.432Z - success: console loaded
+2018-06-05T13:38:07.460Z - success: fb-instant-games loaded
+2018-06-05T13:38:07.466Z - success: hierarchy loaded
+2018-06-05T13:38:07.472Z - success: inspector loaded
+2018-06-05T13:38:07.474Z - success: keystore loaded
+2018-06-05T13:38:07.482Z - success: node-library loaded
+2018-06-05T13:38:07.485Z - success: package-asset loaded
+2018-06-05T13:38:07.488Z - success: preferences loaded
+2018-06-05T13:38:07.492Z - success: project-exporter loaded
+2018-06-05T13:38:07.508Z - success: project-importer loaded
+2018-06-05T13:38:07.511Z - success: project-settings loaded
+2018-06-05T13:38:07.514Z - success: ui-kit loaded
+2018-06-05T13:38:07.519Z - success: ui-grid loaded
+2018-06-05T13:38:07.523Z - success: scene loaded
+2018-06-05T13:38:07.524Z - success: sprite-editor loaded
+2018-06-05T13:38:07.528Z - success: store loaded
+2018-06-05T13:38:07.533Z - success: timeline loaded
+2018-06-05T13:38:07.533Z - normal: Loading builtin packages
+2018-06-05T13:38:07.537Z - success: asset-db-debugger loaded
+2018-06-05T13:38:07.537Z - success: color-picker loaded
+2018-06-05T13:38:07.541Z - success: package-manager loaded
+2018-06-05T13:38:07.546Z - success: sdkbox loaded
+2018-06-05T13:38:07.551Z - success: tester loaded
+2018-06-05T13:38:07.555Z - success: ui-kit-preview-extra loaded
+2018-06-05T13:38:07.558Z - success: ui-kit-preview loaded
+2018-06-05T13:38:07.561Z - success: ui-tree loaded
+2018-06-05T13:38:08.616Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-06-05T13:38:08.618Z - normal: Loading packages
+2018-06-05T13:38:08.622Z - normal: Watching packages
+2018-06-05T13:38:08.632Z - normal: Run Application
+2018-06-05T13:38:09.535Z - success: preview server running at http://localhost:7456
+2018-06-05T13:38:14.239Z - normal: 1.9.1
+2018-06-05T13:38:15.168Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-05T13:40:10.707Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-05T13:41:05.966Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-05T14:43:20.809Z - info: shutdown preview server

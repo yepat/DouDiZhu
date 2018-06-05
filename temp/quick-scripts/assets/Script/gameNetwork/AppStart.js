@@ -9,6 +9,7 @@ var ByteArray = require("ByteArray");
 var Protocol = require("Protocol");
 var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
+var dialogManager = require("dialogManager");
 
 function initMgr() {
     cc.vv = {};
@@ -19,7 +20,6 @@ function initMgr() {
 
 cc.Class({
     extends: cc.Component,
-
     properties: {
         labLoading: {
             default: null,
@@ -30,10 +30,10 @@ cc.Class({
     onLoad: function onLoad() {
         initMgr();
         this.getServerInfo();
-
         //设置常驻节点
         var myNode = new cc.Node("myNode");
         EventHelper.addPersistRootNode(myNode);
+        this.isShow = false;
     },
     getServerInfo: function getServerInfo() {
         var params = {};
@@ -58,9 +58,7 @@ cc.Class({
                 complete = true;
                 config.GlobalRouterUpdate(ret);
                 console.log("host:" + config.GlobalRouter.host + ":" + config.GlobalRouter.port);
-
                 self.connectGameServer();
-                // self.connectGameServer2();
             }, config.GlobalRouter.director);
             setTimeout(fn, 5000);
         };
@@ -81,49 +79,31 @@ cc.Class({
         };
         fn();
     },
-    connectGameServer2: function connectGameServer2() {
-
-        console.log(">>>>>>>>>>>>connectGameServer");
-        // this.dissoveData = null;
-        cc.vv.net.ip = config.GlobalRouter.host + ":" + config.GlobalRouter.port;
-        console.log(cc.vv.net.ip);
-        var self = this;
-
-        var onConnectOK = function onConnectOK() {
-            console.log("onConnectOK");
-            // var sd = {
-            //     token:data.token,
-            //     roomid:data.roomid,
-            //     time:data.time,
-            //     sign:data.sign,
-            // };
-            // cc.vv.net.send("login",sd);
-        };
-
-        var onConnectFailed = function onConnectFailed() {
-            console.log("failed.");
-            // cc.vv.wc.hide();
-        };
-        // cc.vv.wc.show("正在进入房间");
-        cc.vv.net.connect(onConnectOK, onConnectFailed);
-    },
     connectGameServer: function connectGameServer() {
-
         var self = this;
-
         cc.vv.net.connect(config.GlobalRouter.host, config.GlobalRouter.port, function (ret) {
             //WebSocket连接成功
             self.sendRegist();
         });
 
+        var ConnectionClosedShow = function ConnectionClosedShow() {
+            self.isShow = true;
+            dialogManager.showCommonDialog("提示", "与服务器断开连接！", function () {
+                self.isShow = false;
+                cc.director.loadScene("LoadingScene");
+            });
+        };
+
         setInterval(function () {
-            if (cc.vv.net.isPinging) self.sendHeartBeat();
+            if (cc.vv.net.isPinging) {
+                self.sendHeartBeat();
+            } else {
+                if (!self.isShow) ConnectionClosedShow();
+            }
         }.bind(this), 10000);
 
         EventHelper.AddCustomEvent(config.MyNode, "Regist", function (event) {
             console.log("Regist---");
-            // console.log(event.getUserData());
-
             var data = event.getUserData();
             config.temppassword = data.data.data.password;
             self.sendLogin();
@@ -131,7 +111,6 @@ cc.Class({
 
         EventHelper.AddCustomEvent(config.MyNode, "HeartBeat", function (event) {
             // console.log("HeartBeat---");
-            // console.log(event.getUserData());
         });
 
         EventHelper.AddCustomEvent(config.MyNode, "LoginOK", function (event) {
@@ -143,16 +122,12 @@ cc.Class({
     },
     sendHeartBeat: function sendHeartBeat() {
         //发送心跳
-        // var info = '{"t":0}';
         var params = {};
         params.t = Protocol.Request.HeartBeat.Alive;
-        // var info = JSON.stringify(params);
-        // var view = ByteArray.getView(params,Protocol.Command.HeartBeat);
         cc.vv.net.send("HeartBeat", Protocol.Command.HeartBeat, params);
     },
     sendRegist: function sendRegist() {
         //注册请求
-        // var info = '{"t":6,"type":"guest","u":"50ee8041a7fd8baa6348252ea114432bb3be23bd","d":"23c686a260c586ee03ea5fb2b8252770","v":"2.1.1","c":"weichatgame","e":"defaults"}';
         var params = {};
         params.t = Protocol.Request.Login.Regist;
         params.d = "23c686a260c586ee03ea5fb2b8252770";
@@ -161,8 +136,6 @@ cc.Class({
         params.c = "sjweichat";
         params.e = "defaults";
         params.type = "guest";
-        // var info = JSON.stringify(params);
-        // var view = ByteArray.getView(params,Protocol.Command.Login);
         cc.vv.net.send("Regist", Protocol.Command.Login, params);
     },
     sendLogin: function sendLogin() {
@@ -176,15 +149,11 @@ cc.Class({
         params.e = "defaults";
         params.wn = "";
         params.wurl = "";
-
-        // var info = JSON.stringify(params);
-        // var view = ByteArray.getView(params,Protocol.Command.Login);
         cc.vv.net.send("Login", Protocol.Command.Login, params);
     },
     setPlayerDetailModel: function setPlayerDetailModel(response) {
         var room = response.data.room;
         console.log(room);
-
         if (response["code"] == Protocol.Response.Login.OK) {
             var isDevData = response["data"]["isDev"];
             if (isDevData && typeof isDevData == "number") {} else {
@@ -238,15 +207,13 @@ cc.Class({
             PlayerDetailModel.isDev = isDevData;
 
             this.labLoading.string = "进入游戏大厅...";
-
             cc.director.loadScene("HallScene");
-
-            // EventHelper.DispatchCustomEvent(config.MyNode,"EnterHallOK",{});
-            // console.log(PlayerDetailModel);
         } else {
             console.log("登陆游戏失败！");
-
             this.labLoading.string = "登陆游戏失败！";
+            dialogManager.showCommonDialog("提示", "登陆游戏失败！", function () {
+                cc.director.loadScene("LoadingScene");
+            });
         }
     }
 });

@@ -6,7 +6,7 @@
       "url": "app://editor/index.html",
       "windowType": "dockable",
       "x": 79,
-      "y": 24,
+      "y": 33,
       "width": 1361,
       "height": 756,
       "layout": {
@@ -115,8 +115,8 @@
       "height": 731
     },
     "preferences": {
-      "x": 507,
-      "y": 207,
+      "x": 323,
+      "y": 193,
       "width": 580,
       "height": 564
     },
