@@ -4,10 +4,6 @@ cc._RF.push(module, '51232MuRg1Etoh6eMoOYPIJ', 'config');
 
 "use strict";
 
-var _config$CardMapping;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var config = {};
 
 config.MyNode = null; //常驻节点
@@ -17,10 +13,36 @@ config.temppassword = "";
 config.playGameId = 0; //断线
 config.playGameMsg = "";
 
-config.curRoomModelId = 0; //房间模式
+config.RoomId = 0; //未完成牌桌
 
+config.curRoomModelId = 0; //房间模式
 //房间模式
-config.ModelId = { normal: 0, contest: 3, lazarillo: 2 };
+config.ModelId = { normal: 0, contest: 3, lazarillo: 2
+
+    //叫地主时间
+};config.CallLordTimeout = 15;
+//抢地主超时时间
+config.GrabLordTimeout = 15;
+//出牌倒计时时间
+config.SendCardTimeout = 25;
+//过牌时间--要不起
+config.CheckCardTimeout = 25;
+//加倍时间
+config.AddRatioTime = 3.5;
+
+config.hintType = {
+    callLoad: 1, //叫地主
+    callLoadNo: 2, //不叫
+    grabLoad: 3, //抢地主
+    grabLoadNo: 4, //不抢
+    dont: 5 //不要
+};
+
+config.opratType = {
+    callLoad: 1, //叫地主
+    grabLoad: 2, //抢地主
+    mustOutCard: 3 //自己必须出牌
+};
 
 config.pokerCardType = {
     spade: 4, //黑桃
@@ -87,14 +109,6 @@ config.seatPos = {
         positionY: 860
     }
 
-};
-
-config.opratType = {
-    callLoad: 1, //叫地主
-    grabLoad: 2, //抢地主
-    mustOutCard: 3 //自己必须出牌
-
-
     //牌型编号
 };config.CardType = {
     Single: 1, //单张
@@ -153,7 +167,50 @@ config.RoomConfig = {
     11: { name: "无限场", umengEvent: "l_noRate_room", pot: 50, min: 10000, max: 1000000, texture: "room_5.png", roomId: 1011, roomNameTexture: "p_senior_bar.png" }
 };
 
-config.CardMapping = (_config$CardMapping = {}, _defineProperty(_config$CardMapping, "00", "joker_black.png"), _defineProperty(_config$CardMapping, "01", "joker_red.png"), _defineProperty(_config$CardMapping, "41", "a_b_1.png"), _defineProperty(_config$CardMapping, "42", "2_b_1.png"), _defineProperty(_config$CardMapping, "43", "3_b_1.png"), _defineProperty(_config$CardMapping, "44", "4_b_1.png"), _defineProperty(_config$CardMapping, "45", "5_b_1.png"), _defineProperty(_config$CardMapping, "46", "6_b_1.png"), _defineProperty(_config$CardMapping, "47", "7_b_1.png"), _defineProperty(_config$CardMapping, "48", "8_b_1.png"), _defineProperty(_config$CardMapping, "49", "9_b_1.png"), _defineProperty(_config$CardMapping, "4a", "10_b_1.png"), _defineProperty(_config$CardMapping, "4b", "j_b_1.png"), _defineProperty(_config$CardMapping, "4c", "q_b_1.png"), _defineProperty(_config$CardMapping, "4d", "k_b_1.png"), _defineProperty(_config$CardMapping, "31", "a_r_1.png"), _defineProperty(_config$CardMapping, "32", "2_r_1.png"), _defineProperty(_config$CardMapping, "33", "3_r_1.png"), _defineProperty(_config$CardMapping, "34", "4_r_1.png"), _defineProperty(_config$CardMapping, "35", "5_r_1.png"), _defineProperty(_config$CardMapping, "36", "6_r_1.png"), _defineProperty(_config$CardMapping, "37", "7_r_1.png"), _defineProperty(_config$CardMapping, "38", "8_r_1.png"), _defineProperty(_config$CardMapping, "39", "9_r_1.png"), _defineProperty(_config$CardMapping, "3a", "10_r_1.png"), _defineProperty(_config$CardMapping, "3b", "j_r_1.png"), _defineProperty(_config$CardMapping, "3c", "q_r_1.png"), _defineProperty(_config$CardMapping, "3d", "k_r_1.png"), _defineProperty(_config$CardMapping, "21", "a_b_1.png"), _defineProperty(_config$CardMapping, "22", "2_b_1.png"), _defineProperty(_config$CardMapping, "23", "3_b_1.png"), _defineProperty(_config$CardMapping, "24", "4_b_1.png"), _defineProperty(_config$CardMapping, "25", "5_b_1.png"), _defineProperty(_config$CardMapping, "26", "6_b_1.png"), _defineProperty(_config$CardMapping, "27", "7_b_1.png"), _defineProperty(_config$CardMapping, "28", "8_b_1.png"), _defineProperty(_config$CardMapping, "29", "9_b_1.png"), _defineProperty(_config$CardMapping, "2a", "10_b_1.png"), _defineProperty(_config$CardMapping, "2b", "j_b_1.png"), _defineProperty(_config$CardMapping, "2c", "q_b_1.png"), _defineProperty(_config$CardMapping, "2d", "k_b_1.png"), _defineProperty(_config$CardMapping, "11", "a_r_1.png"), _defineProperty(_config$CardMapping, "12", "2_r_1.png"), _defineProperty(_config$CardMapping, "13", "3_r_1.png"), _defineProperty(_config$CardMapping, "14", "4_r_1.png"), _defineProperty(_config$CardMapping, "15", "5_r_1.png"), _defineProperty(_config$CardMapping, "16", "6_r_1.png"), _defineProperty(_config$CardMapping, "17", "7_r_1.png"), _defineProperty(_config$CardMapping, "18", "8_r_1.png"), _defineProperty(_config$CardMapping, "19", "9_r_1.png"), _defineProperty(_config$CardMapping, "1a", "10_r_1.png"), _defineProperty(_config$CardMapping, "1b", "j_r_1.png"), _defineProperty(_config$CardMapping, "1c", "q_r_1.png"), _defineProperty(_config$CardMapping, "1d", "k_r_1.png"), _config$CardMapping);
+config.parseNumber = function (number) {
+    if (typeof number == "string") number = parseInt(number);
+    if (number >= 100000000) {
+        number = Math.floor(number / 100000000);
+        number = "" + number + "亿";
+    } else if (number >= 1000000) {
+        number = Math.floor(number / 10000);
+        number = "" + number + "万";
+    } else {
+        number = "" + number;
+    }
+    return number;
+};
+config.parseString = function (string) {
+    var str = string.substring(0, 4);
+    str = str + "...";
+    // console.log(">>string:"+string);
+    return str;
+};
+
+//根据自己的mySeatId和玩家SeatId 算出玩家位置
+config.getPlayerSeatNum = function (mySeatId, curSeatId) {
+    var seatNum = 1;
+    if (mySeatId == 0) {
+        if (curSeatId == 1) {
+            seatNum = 2;
+        } else if (curSeatId == 2) {
+            seatNum = 0;
+        }
+    } else if (mySeatId == 1) {
+        if (curSeatId == 0) {
+            seatNum = 0;
+        } else if (curSeatId == 2) {
+            seatNum = 2;
+        }
+    } else if (mySeatId == 2) {
+        if (curSeatId == 0) {
+            seatNum = 2;
+        } else if (curSeatId == 1) {
+            seatNum = 0;
+        }
+    }
+    return seatNum;
+};
 
 module.exports = config;
 

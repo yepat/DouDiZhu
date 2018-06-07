@@ -29,63 +29,122 @@ CardUtil.cardGrade = {
     G: 17
 };
 
-//牌直转换（文本转数值）
+//文本转数值
 CardUtil.StringToNumber = function (str) {
     var num = 0;
-    if (str == "J") {
-        num = 11;
-    } else if (str == "Q") {
-        num = 12;
-    } else if (str == "K") {
-        num = 13;
-    } else if (str == "A") {
-        num = 14;
-    } else if (str == "2") {
-        num = 15;
-    } else if (str == "g") {
-        num = 16;
-    } else if (str == "G") {
-        num = 17;
+    if (typeof str == "string") {
+        num = parseInt(str);
     } else {
-        if (typeof str == "string") {
-            num = parseInt(str);
-        } else {
-            num = str;
-        }
+        num = str;
     }
     return num;
 };
-
-CardUtil.NumberToString = function (num) {
-    var str = "";
-    if (num == 11) {
-        str = "J";
-    } else if (num == 12) {
-        str = "Q";
-    } else if (num == 13) {
-        str = "K";
-    } else if (num == 14) {
-        str = "A";
-    } else if (num == 15) {
-        str = "2";
-    } else if (num == 16) {
-        str = "g";
-    } else if (num == 17) {
-        str = "G";
-    } else {
-        str = str + num;
-    }
-    return str;
-};
-
 //降序排列
 CardUtil.gradeDown = function (card1, card2) {
-    return CardUtil.cardGrade[card2.showTxt] - CardUtil.cardGrade[card1.showTxt];
+    return card2.showTxt - card1.showTxt;
 };
-
 //升序排列
 CardUtil.gradeUp = function (card1, card2) {
-    return CardUtil.cardGrade[card1.showTxt] - CardUtil.cardGrade[card2.showTxt];
+    return card1.showTxt - card2.showTxt;
+};
+//服务器牌值转化
+CardUtil.serverCardsToClient = function (serverCards) {
+    var pokerData = [];
+    for (var i = 0; i < serverCards.length; i++) {
+        var card = serverCards[i];
+        pokerData.push(CardUtil.convertCardToClient(card));
+    }
+    pokerData.sort(CardUtil.gradeDown);
+    return pokerData;
+};
+CardUtil.convertCardToClient = function (value) {
+    var cardValue = 0;
+    var cardType = 0;
+    var cardItem = {};
+    if (value == "00") {
+        cardValue = 16;
+        cardType = config.ghostCardType.smallG;
+    } else if (value == "01") {
+        cardValue = 17;
+        cardType = config.ghostCardType.bigG;
+    } else {
+        var str1 = value.substring(0, 1);
+        var str2 = value.substring(1);
+        if (str1 == "4") {
+            cardType = config.pokerCardType.spade;
+        } else if (str1 == "3") {
+            cardType = config.pokerCardType.hearts;
+        } else if (str1 == "2") {
+            cardType = config.pokerCardType.blackberry;
+        } else if (str1 == "1") {
+            cardType = config.pokerCardType.redslice;
+        }
+
+        if (str2 == "1") {
+            cardValue = 14;
+        } else if (str2 == "2") {
+            cardValue = 15;
+        } else if (str2 == "a") {
+            cardValue = 10;
+        } else if (str2 == "b") {
+            cardValue = 11;
+        } else if (str2 == "c") {
+            cardValue = 12;
+        } else if (str2 == "d") {
+            cardValue = 13;
+        } else {
+            cardValue = parseInt(str2);
+        }
+    }
+    cardItem.showTxt = cardValue;
+    cardItem.showType = cardType;
+    return cardItem;
+};
+
+//客户端牌转成服务器格式
+CardUtil.clientCardsToServer = function (clientCards) {
+    var serverCardData = [];
+    for (var i = 0; i < clientCards.length; i++) {
+        serverCardData.push(CardUtil.convertCardToServer(clientCards[i]));
+    }
+    return serverCardData;
+};
+CardUtil.convertCardToServer = function (cardItem) {
+    var cardValue = cardItem.showTxt;
+    var cardType = cardItem.showType;
+    var str1 = "";
+    var str2 = "";
+    if (cardType == config.pokerCardType.spade) {
+        str1 = "4";
+    } else if (cardType == config.pokerCardType.hearts) {
+        str1 = "3";
+    } else if (cardType == config.pokerCardType.blackberry) {
+        str1 = "2";
+    } else if (cardType == config.pokerCardType.redslice) {
+        str1 = "1";
+    }
+    if (cardValue == 14) {
+        str2 = "1";
+    } else if (cardValue == 15) {
+        str2 = "2";
+    } else if (cardValue == 10) {
+        str2 = "a";
+    } else if (cardValue == 11) {
+        str2 = "b";
+    } else if (cardValue == 12) {
+        str2 = "c";
+    } else if (cardValue == 13) {
+        str2 = "d";
+    } else {
+        str2 = "" + cardValue;
+    }
+    var str = str1 + str2;
+    if (cardValue == 16) {
+        str = "00";
+    } else if (cardValue == 17) {
+        str = "01";
+    }
+    return str;
 };
 
 //获取提起的牌值
@@ -123,8 +182,6 @@ CardUtil.AutoChooseLiftUpCard = function (myPokerNode, PokerControl, cards) {
     }
 
     console.log("maxLenght:" + maxLenght);
-
-    // myPokerData.sort(CardUtil.gradeDown);
 
     for (var i = myPokerNode.length - 1; i >= 0; i--) {
         var pokerControl = myPokerNode[i].getComponent(PokerControl);
@@ -195,6 +252,8 @@ CardUtil.get_topCard_type = function (topCards) {
         console.log("这是个数字");
         topCards = [topCards];
     } else {}
+
+    console.log(topCards);
 
     //相同值归类并统计
     var sameValues = PopCardUtil.getSameCards(topCards);
@@ -632,7 +691,7 @@ CardUtil.find_single_card = function (last_cards_type, prop, myCards) {
                 all_result.push(v);
             }
         }
-        return all_result;
+        // return all_result;
     }
 
     //没有适合单张 就拆分牌
@@ -672,7 +731,7 @@ CardUtil.find_pair_card = function (last_cards_type, prop, myCards) {
                 all_result.push(v);
             }
         }
-        return all_result;
+        // return all_result;
     }
     //没有适合对子 就拆分牌
     var allcards = []; //所有牌值

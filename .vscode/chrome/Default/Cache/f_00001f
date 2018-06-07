@@ -1,0 +1,1848 @@
+window._CCSettings = {
+    designWidth: 1920,
+    designHeight: 1080,
+    groupList: [
+        "default"
+    ],
+    collisionMatrix: [
+        [
+            true
+        ]
+    ],
+    platform: "web-desktop",
+    scripts: [
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/CancelDelegateController.js"
+        },
+        {
+            deps: {
+                config: 15,
+                PopCardUtil: 10
+            },
+            file: "preview-scripts/assets/Script/CardUtil.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/ClockControl.js"
+        },
+        {
+            deps: {
+                PokerData: 9,
+                PokerControl: 8,
+                config: 15,
+                CardUtil: 1,
+                PopCardUtil: 10,
+                opratOutCardControl: 42,
+                dialogManager: 18,
+                PlayerDetailModel: 37,
+                Player: 6
+            },
+            file: "preview-scripts/assets/Script/GameTable.js"
+        },
+        {
+            deps: {
+                config: 15,
+                dialogManager: 18
+            },
+            file: "preview-scripts/assets/Script/HallCanvasControl.js"
+        },
+        {
+            deps: {
+                config: 15,
+                EventHelper: 31,
+                PlayerDetailModel: 37,
+                dialogManager: 18
+            },
+            file: "preview-scripts/assets/Script/HallLayerControl.js"
+        },
+        {
+            deps: {
+                PokerControl: 8,
+                config: 15,
+                CardUtil: 1,
+                PopCardUtil: 10
+            },
+            file: "preview-scripts/assets/Script/Player.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/PlayerControl.js"
+        },
+        {
+            deps: {
+                config: 15,
+                CardUtil: 1
+            },
+            file: "preview-scripts/assets/Script/PokerControl.js"
+        },
+        {
+            deps: {
+                config: 15,
+                helper: 39,
+                CardUtil: 1
+            },
+            file: "preview-scripts/assets/Script/PokerData.js"
+        },
+        {
+            deps: {
+                config: 15
+            },
+            file: "preview-scripts/assets/Script/PopCardUtil.js"
+        },
+        {
+            deps: {
+                config: 15,
+                EventHelper: 31,
+                PlayerDetailModel: 37,
+                GameNetMgr: 34,
+                Events: 32,
+                dialogManager: 18
+            },
+            file: "preview-scripts/assets/Script/RoomLayerControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/animation/blinkAlarmControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/animation/loadingControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/animation/watingStarControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/config.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/BagControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/commonControl.js"
+        },
+        {
+            deps: {
+                commonControl: 17
+            },
+            file: "preview-scripts/assets/Script/dialog/dialogManager.js"
+        },
+        {
+            deps: {
+                emailItemControl: 20
+            },
+            file: "preview-scripts/assets/Script/dialog/emailControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/emailItemControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/exchangeControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/exchangeRecordControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/fankuiControl.js"
+        },
+        {
+            deps: {
+                resoultInfoItemControl: 25
+            },
+            file: "preview-scripts/assets/Script/dialog/gameResultControl.js"
+        },
+        {
+            deps: {
+                emailItemControl: 20
+            },
+            file: "preview-scripts/assets/Script/dialog/resoultInfoItemControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/setControl.js"
+        },
+        {
+            deps: {
+                taskItemControl: 28
+            },
+            file: "preview-scripts/assets/Script/dialog/taskControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/dialog/taskItemControl.js"
+        },
+        {
+            deps: {
+                config: 15,
+                ByteArray: 30,
+                Protocol: 38,
+                EventHelper: 31,
+                PlayerDetailModel: 37,
+                dialogManager: 18,
+                HTTP: 35,
+                GameNet: 33
+            },
+            file: "preview-scripts/assets/Script/gameNetwork/AppStart.js"
+        },
+        {
+            deps: {
+                config: 15
+            },
+            file: "preview-scripts/assets/Script/gameNetwork/ByteArray.js"
+        },
+        {
+            deps: {
+                config: 15
+            },
+            file: "preview-scripts/assets/Script/gameNetwork/EventHelper.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/gameNetwork/Events.js"
+        },
+        {
+            deps: {
+                ByteArray: 30,
+                config: 15,
+                EventHelper: 31,
+                Protocol: 38,
+                Events: 32
+            },
+            file: "preview-scripts/assets/Script/gameNetwork/GameNet.js"
+        },
+        {
+            deps: {
+                Protocol: 38
+            },
+            file: "preview-scripts/assets/Script/gameNetwork/GameNetMgr.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/gameNetwork/HTTP.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/gameNetwork/Net.js"
+        },
+        {
+            deps: {
+                config: 15
+            },
+            file: "preview-scripts/assets/Script/gameNetwork/PlayerDetailModel.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/gameNetwork/Protocol.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/helper.js"
+        },
+        {
+            deps: {
+                config: 15
+            },
+            file: "preview-scripts/assets/Script/opratCallLordControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/opratDoubleControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/opratOutCardControl.js"
+        },
+        {
+            deps: {},
+            file: "preview-scripts/assets/Script/opratShowCardControl.js"
+        }
+    ],
+    rawAssets: {
+        assets: {
+            "47876c39-2eb6-4d96-ab4c-f54f6bee8bbd": [
+                "Texture/img_hall/btn_bag.png",
+                "cc.Texture2D"
+            ],
+            "363d57ff-9ec6-4fd3-8f9c-379209e89871": [
+                "Texture/img_hall/btn_email.png",
+                "cc.Texture2D"
+            ],
+            "afd24b72-9561-4e94-a6d1-80a25e655f7e": [
+                "Texture/img_hall/btn_set.png",
+                "cc.Texture2D"
+            ],
+            "548c30e1-dcc1-4bd0-b6cf-e335d884105f": [
+                "Texture/img_hall/btn_shop.png",
+                "cc.Texture2D"
+            ],
+            "5682dea5-df9d-4e73-823d-77567d2411d9": [
+                "Texture/img_hall/btn_task.png",
+                "cc.Texture2D"
+            ],
+            "409cbf3f-0b3e-4d53-b99d-092b99d491ce": [
+                "Texture/img_hall/p_bg.png",
+                "cc.Texture2D"
+            ],
+            "6747f516-8a91-4c4c-a31d-6fc45e92e7cb": [
+                "Texture/img_hall/p_head_1.png",
+                "cc.Texture2D"
+            ],
+            "3ac4fe60-08bf-4673-b1dd-d2cdfe725162": [
+                "Texture/img_hall/p_head_2.png",
+                "cc.Texture2D"
+            ],
+            "886b4809-42c1-40f3-86cc-d0451ab192ae": [
+                "Texture/img_hall/p_ledou.png",
+                "cc.Texture2D"
+            ],
+            "22003b6d-07f2-4bd9-8925-aba32b9f292f": [
+                "Texture/img_hall/p_lequan.png",
+                "cc.Texture2D"
+            ],
+            "4e3df372-367b-420e-a230-949301212035": [
+                "Texture/img_hall/p_line.png",
+                "cc.Texture2D"
+            ],
+            "b8704fc3-2801-4357-8688-28a43fda4671": [
+                "Texture/img_hall/p_namebg.png",
+                "cc.Texture2D"
+            ],
+            "22ba1760-d591-4e42-abd5-b0fe9a0cdc4b": [
+                "Texture/img_hall/p_numberbg.png",
+                "cc.Texture2D"
+            ],
+            "99043a87-0722-406e-8377-f856ff485c5e": [
+                "Texture/img_hall/p_room_1.png",
+                "cc.Texture2D"
+            ],
+            "6773a4bb-7b6d-4194-b019-e8ce16b3bef4": [
+                "Texture/img_hall/p_room_2.png",
+                "cc.Texture2D"
+            ],
+            "e2b562e3-88b5-4c85-b214-42e2ba5bce5e": [
+                "Texture/img_hall/p_roomicon_1.png",
+                "cc.Texture2D"
+            ],
+            "865f7d86-df70-4a84-a3b5-194f107c941a": [
+                "Texture/img_hall/p_roomicon_2.png",
+                "cc.Texture2D"
+            ],
+            "339e6168-3a18-4bf7-b0c1-c2cf63a520b4": [
+                "Texture/img_hall/p_roomname_1.png",
+                "cc.Texture2D"
+            ],
+            "aca364ee-2f87-4967-9ab7-63032eda221f": [
+                "Texture/img_hall/p_roomname_2.png",
+                "cc.Texture2D"
+            ],
+            "1e6e264e-d5f7-418f-ac65-a4565470124e": [
+                "Texture/img_hall/p_sample.jpg",
+                "cc.Texture2D"
+            ],
+            "75d6729b-58d7-492f-929d-6aa40e30ce5a": [
+                "Texture/img_hall/p_share.png",
+                "cc.Texture2D"
+            ],
+            "6b8af693-8abf-4371-9689-5f18c94b5111": [
+                "Texture/img_room/p_roomA.png",
+                "cc.Texture2D"
+            ],
+            "d4d6dbfe-62f7-46ef-ad72-56c9a2ef54a9": [
+                "Texture/img_room/p_roomA_num_1.png",
+                "cc.Texture2D"
+            ],
+            "af6a5de1-315f-4da4-98a2-8dad99a79845": [
+                "Texture/img_room/p_roomA_num_2.png",
+                "cc.Texture2D"
+            ],
+            "47b8e599-0d7f-405e-aee4-60cfa8ec8552": [
+                "Texture/img_room/p_roomA_num_3.png",
+                "cc.Texture2D"
+            ],
+            "68e59f08-8ebc-491d-88a0-6e51ef292ddb": [
+                "Texture/img_room/p_roomA_num_4.png",
+                "cc.Texture2D"
+            ],
+            "09741cd9-d3b3-4b3b-bba0-6a25cd7bffe9": [
+                "Texture/img_room/p_roomB.png",
+                "cc.Texture2D"
+            ],
+            "4a309571-e6aa-4e8e-b60c-28179acd3d87": [
+                "Texture/img_room/p_roomB_num_1.png",
+                "cc.Texture2D"
+            ],
+            "2b17fa0f-d99f-404d-8317-7d2689ca0463": [
+                "Texture/img_room/p_roomB_num_2.png",
+                "cc.Texture2D"
+            ],
+            "1ee7190f-82e4-4757-8537-88fdbf266ba5": [
+                "Texture/img_room/p_roomB_num_3.png",
+                "cc.Texture2D"
+            ],
+            "d944f1a3-989f-4dc9-94bb-d3e98dfdefb3": [
+                "Texture/img_room/p_roomB_num_4.png",
+                "cc.Texture2D"
+            ],
+            "13e93e1c-6856-4275-8655-c3d94786bd3f": [
+                "Texture/img_room/p_room_1.png",
+                "cc.Texture2D"
+            ],
+            "679a533c-3e6c-4e4a-a9fd-66fd1dfdc2db": [
+                "Texture/img_room/p_room_2.png",
+                "cc.Texture2D"
+            ],
+            "8e1436a1-a4e7-4448-a795-0934f52d0042": [
+                "Texture/img_room/p_room_3.png",
+                "cc.Texture2D"
+            ],
+            "fd88abd7-38d8-4dd8-a098-426bcab67338": [
+                "Texture/img_room/p_room_4.png",
+                "cc.Texture2D"
+            ],
+            "9bf8c3c4-b9cc-49b0-962d-241cf1c49f65": [
+                "Texture/img_room/p_room_back.png",
+                "cc.Texture2D"
+            ],
+            "bd84241b-178c-40dc-8127-36b380800b46": [
+                "Texture/img_room/p_room_quickstar.png",
+                "cc.Texture2D"
+            ],
+            "138ab255-9192-4bac-a8d3-c436a6ad0448": [
+                "Texture/img_table/btn_chat.png",
+                "cc.Texture2D"
+            ],
+            "cffc39bc-2566-483d-8daa-181d21a7902f": [
+                "Texture/img_table/btn_jpq.png",
+                "cc.Texture2D"
+            ],
+            "4b693886-edd9-45bf-821b-9d50be89e9ec": [
+                "Texture/img_table/btn_set.png",
+                "cc.Texture2D"
+            ],
+            "f64d988c-2dd5-4c42-b210-0b7466c231ec": [
+                "Texture/img_table/btn_tuoguan.png",
+                "cc.Texture2D"
+            ],
+            "45752060-9039-4e95-8217-484a0f9db9da": [
+                "Texture/img_table/p_alarm_1.png",
+                "cc.Texture2D"
+            ],
+            "f021d84b-83c6-4e85-bf2f-e338e69af5f7": [
+                "Texture/img_table/p_alarm_2.png",
+                "cc.Texture2D"
+            ],
+            "86ad942b-6775-49e6-b081-3e035320c45a": [
+                "Texture/img_table/p_bg1.png",
+                "cc.Texture2D"
+            ],
+            "33ef597c-af89-4a51-a207-b859fff60445": [
+                "Texture/img_table/p_bg2.png",
+                "cc.Texture2D"
+            ],
+            "28e21c52-95ce-4cc8-bf41-c98820d73963": [
+                "Texture/img_table/p_card_1.png",
+                "cc.Texture2D"
+            ],
+            "75e679ce-8baa-4df4-a6d2-8fdabacf180f": [
+                "Texture/img_table/p_card_bg.png",
+                "cc.Texture2D"
+            ],
+            "49a5848f-0bb3-4729-bcde-678d003e7ffe": [
+                "Texture/img_table/p_delegate.png",
+                "cc.Texture2D"
+            ],
+            "ca020d2c-90f0-42da-8343-fd8ad7152a45": [
+                "Texture/img_table/p_dz_card.png",
+                "cc.Texture2D"
+            ],
+            "c6b37c08-e2aa-4dca-84c9-8556f4fe0cc0": [
+                "Texture/img_table/p_dz_icon.png",
+                "cc.Texture2D"
+            ],
+            "6074aade-d49c-444d-be77-524a473cbd2a": [
+                "Texture/img_table/p_head_1.png",
+                "cc.Texture2D"
+            ],
+            "6dc054a0-5516-4db0-8042-1c96369e1047": [
+                "Texture/img_table/p_head_2.png",
+                "cc.Texture2D"
+            ],
+            "2245ca08-4d51-40c6-b621-bcef16297bf1": [
+                "Texture/img_table/p_jpq_1.png",
+                "cc.Texture2D"
+            ],
+            "6a54f8ba-17ff-486d-99f2-1dca94fee24d": [
+                "Texture/img_table/p_jpq_2.png",
+                "cc.Texture2D"
+            ],
+            "7858b03b-4a32-4b57-9f8f-113d65e5f371": [
+                "Texture/img_table/p_labnum.png",
+                "cc.Texture2D"
+            ],
+            "ffff6104-3bc0-484b-a0f8-f45636a79496": [
+                "Texture/img_table/p_table_double.png",
+                "cc.Texture2D"
+            ],
+            "3c263b1c-8b64-4513-a5a5-c341e3764f90": [
+                "Texture/img_table/p_table_icon.png",
+                "cc.Texture2D"
+            ],
+            "28aac8bb-1b13-483b-bea4-c6e34868db0a": [
+                "Texture/img_table/p_task_1.png",
+                "cc.Texture2D"
+            ],
+            "a8027877-d8d6-4645-97a0-52d4a0123dba": [
+                "Texture/singleColor.png",
+                "cc.Texture2D"
+            ],
+            "9d56c9a2-ad50-444f-a4ee-927b11fd7b68": [
+                "resources/animatiom/alarm.prefab",
+                "cc.Prefab"
+            ],
+            "48bde02d-4b91-408f-a012-967169a0b14c": [
+                "resources/animatiom/loading.prefab",
+                "cc.Prefab"
+            ],
+            "0f722733-7c05-4a81-a98d-32f381d004df": [
+                "resources/animatiom/loading/dengdaiwanjia_ske.json",
+                "dragonBones.DragonBonesAsset"
+            ],
+            "e909ac80-bce5-4dd9-a94e-e1315d07ab7e": [
+                "resources/animatiom/loading/dengdaiwanjia_tex",
+                "cc.SpriteFrame",
+                1
+            ],
+            "5811d180-be5b-4b03-bf3e-7624284ce500": [
+                "resources/animatiom/loading/dengdaiwanjia_tex.json",
+                "dragonBones.DragonBonesAtlasAsset"
+            ],
+            "76304dcd-7925-45d1-91dc-6e055ccc6844": [
+                "resources/animatiom/loading/dengdaiwanjia_tex.png",
+                "cc.Texture2D"
+            ],
+            "dfa11e94-7420-43c7-b5ac-ed4cba418baf": [
+                "resources/animatiom/loading/p_loding",
+                "cc.SpriteFrame",
+                1
+            ],
+            "18184dbf-448d-4ac1-8f84-4d6124e48de9": [
+                "resources/animatiom/loading/p_loding.png",
+                "cc.Texture2D"
+            ],
+            "829ec074-fa3a-4e0a-af52-d009a0c16225": [
+                "resources/animatiom/loading/p_starNum",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0746ef22-6471-4d27-95bd-35f9ad138442": [
+                "resources/animatiom/loading/p_starNum.png",
+                "cc.Texture2D"
+            ],
+            "06ccdaa9-6847-4aef-b6b5-3bd13024b633": [
+                "resources/animatiom/watingStartGame.prefab",
+                "cc.Prefab"
+            ],
+            "a60f7a13-31ec-4589-9156-8b414abca290": [
+                "resources/cards/blank_card",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e73104d6-fa45-40f6-affe-e5d01ac373db": [
+                "resources/cards/blank_card.png",
+                "cc.Texture2D"
+            ],
+            "2e38fd79-9773-4f65-8c10-d101733fb9c7": [
+                "resources/cards/heimei",
+                "cc.SpriteFrame",
+                1
+            ],
+            "ec43c88c-42fa-4362-b97e-715d3f51aef5": [
+                "resources/cards/heimei.png",
+                "cc.Texture2D"
+            ],
+            "46f69ac1-9e1c-46af-bdd4-9c69ac0031ab": [
+                "resources/cards/heimei_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "5c7caf5b-44ec-4940-ab90-a44c63120bef": [
+                "resources/cards/heimei_1.png",
+                "cc.Texture2D"
+            ],
+            "7988bea7-c0d7-4559-8690-3992d4c1f7d9": [
+                "resources/cards/heitao",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c97e2005-c73c-4429-97dd-386855f2fbe9": [
+                "resources/cards/heitao.png",
+                "cc.Texture2D"
+            ],
+            "0fe558cb-d8ec-4599-8cc0-24dc9f352fa5": [
+                "resources/cards/heitao_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "42ef9db2-8ffd-467e-bbcd-e5318f1786c3": [
+                "resources/cards/heitao_1.png",
+                "cc.Texture2D"
+            ],
+            "e80c1d4a-971e-4f7c-a306-b3eec45c4561": [
+                "resources/cards/hongfang",
+                "cc.SpriteFrame",
+                1
+            ],
+            "93078394-9224-47d5-899b-00bcd0d0f286": [
+                "resources/cards/hongfang.png",
+                "cc.Texture2D"
+            ],
+            "5a898bb3-0866-481c-b4a3-a96738756781": [
+                "resources/cards/hongfang_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "532387e1-ea03-4b28-879b-c9a68ab9e77c": [
+                "resources/cards/hongfang_1.png",
+                "cc.Texture2D"
+            ],
+            "54156b4b-ac50-47d2-8cde-a15f8dfd4a8c": [
+                "resources/cards/hongxin",
+                "cc.SpriteFrame",
+                1
+            ],
+            "f878cef3-e37a-4358-bebb-37778013bce8": [
+                "resources/cards/hongxin.png",
+                "cc.Texture2D"
+            ],
+            "057492ea-e223-45b5-bf48-f39e2a7005f0": [
+                "resources/cards/hongxin_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a252878d-f8f9-4934-a4a8-3c7434875a99": [
+                "resources/cards/hongxin_1.png",
+                "cc.Texture2D"
+            ],
+            "106b2d02-3b47-4bdf-9cc5-720963da97fd": [
+                "resources/cards/joker_black",
+                "cc.SpriteFrame",
+                1
+            ],
+            "b7c64f2e-0872-41da-976c-07810e8e7ed4": [
+                "resources/cards/joker_black.png",
+                "cc.Texture2D"
+            ],
+            "e3cec38d-b316-40ba-9f07-907242585dd3": [
+                "resources/cards/joker_red",
+                "cc.SpriteFrame",
+                1
+            ],
+            "516f1f27-04bb-45b3-be7b-2467f619e097": [
+                "resources/cards/joker_red.png",
+                "cc.Texture2D"
+            ],
+            "f4e551c4-1c54-4186-b49f-5195ec46cfe5": [
+                "resources/cards/laizi",
+                "cc.SpriteFrame",
+                1
+            ],
+            "88cb9cf1-0989-4aed-ab9d-3c576c5a1f34": [
+                "resources/cards/laizi.png",
+                "cc.Texture2D"
+            ],
+            "1ddf0eb7-2491-44aa-a19e-dbaf0871c1d2": [
+                "resources/cards/laizi_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "32f4131c-f13c-4459-8032-a463778d25f5": [
+                "resources/cards/laizi_1.png",
+                "cc.Texture2D"
+            ],
+            "5469e777-c299-49de-ba80-1d9d0785ad1c": [
+                "resources/cards/poke_10",
+                "cc.SpriteFrame",
+                1
+            ],
+            "b2dad411-24e4-42f0-98b5-a0565e98f85e": [
+                "resources/cards/poke_10.png",
+                "cc.Texture2D"
+            ],
+            "b7af9107-d7a7-4551-9ea6-2dd090565dbf": [
+                "resources/cards/poke_11",
+                "cc.SpriteFrame",
+                1
+            ],
+            "6d4d6e4a-6ccd-4f73-bd53-fad4cafeb3e0": [
+                "resources/cards/poke_11.png",
+                "cc.Texture2D"
+            ],
+            "d047e717-85c9-425e-926d-9203a9885d04": [
+                "resources/cards/poke_12",
+                "cc.SpriteFrame",
+                1
+            ],
+            "13665e39-69cf-48ab-afc2-7a72015687e9": [
+                "resources/cards/poke_12.png",
+                "cc.Texture2D"
+            ],
+            "3e80b425-7150-4917-8788-8da5941a1c32": [
+                "resources/cards/poke_13",
+                "cc.SpriteFrame",
+                1
+            ],
+            "85b8b59a-305c-4dee-b508-b2301dfcd4c4": [
+                "resources/cards/poke_13.png",
+                "cc.Texture2D"
+            ],
+            "056eda96-f4a3-43be-b00d-c5e58ec9f7f6": [
+                "resources/cards/poke_14",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c1db9774-1cf6-46f1-bb81-b4ea9ca87df4": [
+                "resources/cards/poke_14.png",
+                "cc.Texture2D"
+            ],
+            "4752de06-6ed8-466f-acd9-d2cdb330a16d": [
+                "resources/cards/poke_15",
+                "cc.SpriteFrame",
+                1
+            ],
+            "04060116-e761-4794-b767-b9c1743d62c1": [
+                "resources/cards/poke_15.png",
+                "cc.Texture2D"
+            ],
+            "16d5cd4a-f256-41d4-a050-4affa6579f97": [
+                "resources/cards/poke_3",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e76f44c2-cf15-4c48-9f56-7b108696a66a": [
+                "resources/cards/poke_3.png",
+                "cc.Texture2D"
+            ],
+            "68f4d089-89ef-4295-9223-e99871f340ee": [
+                "resources/cards/poke_4",
+                "cc.SpriteFrame",
+                1
+            ],
+            "684f7e6d-0575-4769-b745-9b465769ca0b": [
+                "resources/cards/poke_4.png",
+                "cc.Texture2D"
+            ],
+            "eab33185-cc69-455b-91da-30cd385d6312": [
+                "resources/cards/poke_5",
+                "cc.SpriteFrame",
+                1
+            ],
+            "83c5c117-126d-4abe-8d3d-47d72c43424b": [
+                "resources/cards/poke_5.png",
+                "cc.Texture2D"
+            ],
+            "e1010fba-6324-4e30-8487-65805d18688b": [
+                "resources/cards/poke_6",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0c0e81d0-8809-41c7-b6a0-8cbca857472b": [
+                "resources/cards/poke_6.png",
+                "cc.Texture2D"
+            ],
+            "6f24e0d9-6ce5-42e2-8606-c9c0a8289260": [
+                "resources/cards/poke_7",
+                "cc.SpriteFrame",
+                1
+            ],
+            "677519dd-ce0c-4d00-99db-11e652f6d15a": [
+                "resources/cards/poke_7.png",
+                "cc.Texture2D"
+            ],
+            "12786f3a-e5b6-4f99-86ff-3489bfcbf385": [
+                "resources/cards/poke_8",
+                "cc.SpriteFrame",
+                1
+            ],
+            "615177e8-0822-44da-aca6-5db7e5003fa5": [
+                "resources/cards/poke_8.png",
+                "cc.Texture2D"
+            ],
+            "74d8eff0-e756-4701-9a90-09b270ca62cf": [
+                "resources/cards/poke_9",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a796bdd2-2247-4dbf-be2d-c335165a5418": [
+                "resources/cards/poke_9.png",
+                "cc.Texture2D"
+            ],
+            "da3c222d-12f2-4076-8b0a-eab501078bf1": [
+                "resources/cards/poker_selected",
+                "cc.SpriteFrame",
+                1
+            ],
+            "88696005-837c-45b0-9225-2266e2731482": [
+                "resources/cards/poker_selected.png",
+                "cc.Texture2D"
+            ],
+            "7e15f1d9-c89e-4cbc-877e-fb491d830b81": [
+                "resources/common_cancel",
+                "cc.SpriteFrame",
+                1
+            ],
+            "604980bb-0853-44ab-83c8-a82f6733caba": [
+                "resources/common_cancel.png",
+                "cc.Texture2D"
+            ],
+            "a120b114-ccf4-42ec-848c-15f6d7178f01": [
+                "resources/common_enter",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a867b0fc-1191-4425-8061-3dfc9dbb67be": [
+                "resources/common_enter.png",
+                "cc.Texture2D"
+            ],
+            "87f12897-4b8a-4ceb-af57-59cd6ec4d769": [
+                "resources/gameResult/btn_continue",
+                "cc.SpriteFrame",
+                1
+            ],
+            "2e57d88b-dca4-403d-9bc2-dbe6fe5a6286": [
+                "resources/gameResult/btn_continue.png",
+                "cc.Texture2D"
+            ],
+            "bb0ccdd8-8e70-44c3-ad7d-ec2f64c0b530": [
+                "resources/gameResult/btn_opendeal",
+                "cc.SpriteFrame",
+                1
+            ],
+            "35f60bcb-7e97-4f2c-b042-f0410e2b0440": [
+                "resources/gameResult/btn_opendeal.png",
+                "cc.Texture2D"
+            ],
+            "0a80ddb6-f49a-44ef-b6cb-d7dd891f7b3a": [
+                "resources/gameResult/guangxiao-1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "51967de2-8a13-4e15-ad07-92bbea232ea3": [
+                "resources/gameResult/guangxiao-1.png",
+                "cc.Texture2D"
+            ],
+            "bd728235-d1e7-48bc-968b-eb15df2ab174": [
+                "resources/gameResult/guangxiao-2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "cbf72d2f-a3e5-4c38-a334-a2762e9a6b1a": [
+                "resources/gameResult/guangxiao-2.png",
+                "cc.Texture2D"
+            ],
+            "f7bbbe70-7558-4f37-9a79-1620a21c7029": [
+                "resources/gameResult/guangxiao-3",
+                "cc.SpriteFrame",
+                1
+            ],
+            "27025d54-cf22-494c-9bc7-5f9b04b91efe": [
+                "resources/gameResult/guangxiao-3.png",
+                "cc.Texture2D"
+            ],
+            "1bf0d155-70ab-418f-8fcf-c4ed965a55fa": [
+                "resources/gameResult/guangxiao-4",
+                "cc.SpriteFrame",
+                1
+            ],
+            "7a2b669a-ff81-46e4-8218-e70c90ffe1f0": [
+                "resources/gameResult/guangxiao-4.png",
+                "cc.Texture2D"
+            ],
+            "1d0c1241-47b2-4318-9f62-d3ea5e836fbe": [
+                "resources/gameResult/guangxiao-5",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d5f3c9f7-7c9b-4737-90fb-f1e2ef70a0ea": [
+                "resources/gameResult/guangxiao-5.png",
+                "cc.Texture2D"
+            ],
+            "c456ecb3-75a6-4a4c-8b25-e12df920ad7e": [
+                "resources/gameResult/guangxiao-6",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a2c2ab76-dd26-4136-9e2b-7d220e2d090a": [
+                "resources/gameResult/guangxiao-6.png",
+                "cc.Texture2D"
+            ],
+            "94efae10-8ad4-482c-a19b-03f8e6cda44c": [
+                "resources/gameResult/p_bg",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d31c8738-7e07-44f8-8d07-3e79af3ca6bf": [
+                "resources/gameResult/p_bg.png",
+                "cc.Texture2D"
+            ],
+            "9b94a3c1-78d2-4515-834b-c5195891f4dc": [
+                "resources/gameResult/p_dizhu",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d8e7580a-afb5-42ae-8dc3-b5d529c24df6": [
+                "resources/gameResult/p_dizhu.png",
+                "cc.Texture2D"
+            ],
+            "da6ddc77-e6b0-4b25-9625-8cfe42d08bef": [
+                "resources/gameResult/p_fail",
+                "cc.SpriteFrame",
+                1
+            ],
+            "470a6349-7887-4cfd-8d7a-00a8357c9ff1": [
+                "resources/gameResult/p_fail.png",
+                "cc.Texture2D"
+            ],
+            "f30937d7-bf37-40b9-9ece-f774ccf9f66a": [
+                "resources/gameResult/p_fail_caidai",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d5319664-619a-4b4b-95bd-53a360967cdc": [
+                "resources/gameResult/p_fail_caidai.png",
+                "cc.Texture2D"
+            ],
+            "7d1e0776-7aeb-45df-a933-642699b09ab4": [
+                "resources/gameResult/p_star_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a054a6d1-9487-488a-b422-dff72e62f11c": [
+                "resources/gameResult/p_star_1.png",
+                "cc.Texture2D"
+            ],
+            "546e5bfd-390e-4257-89b8-a17f87cbabac": [
+                "resources/gameResult/p_star_2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d1c871ab-f98a-48fa-82b3-44d94b2cf047": [
+                "resources/gameResult/p_star_2.png",
+                "cc.Texture2D"
+            ],
+            "5b5d3cec-a90f-4153-8996-bae55d4c7050": [
+                "resources/gameResult/p_star_3",
+                "cc.SpriteFrame",
+                1
+            ],
+            "9af6e29a-a60d-4ddb-be6b-ab70cc7393ff": [
+                "resources/gameResult/p_star_3.png",
+                "cc.Texture2D"
+            ],
+            "8b422a20-e5e6-44b6-a596-4b5f3cbe0d1e": [
+                "resources/gameResult/p_victory",
+                "cc.SpriteFrame",
+                1
+            ],
+            "1a6a92c7-885b-4fd0-9efe-3b57fa03b63b": [
+                "resources/gameResult/p_victory.png",
+                "cc.Texture2D"
+            ],
+            "67fa5fc5-fd6e-4ac0-9522-a08ddaa20b43": [
+                "resources/gameResult/p_victory_caidai",
+                "cc.SpriteFrame",
+                1
+            ],
+            "738d0346-6a13-4d64-9e97-1d987c92b344": [
+                "resources/gameResult/p_victory_caidai.png",
+                "cc.Texture2D"
+            ],
+            "da3d6aa7-bdcd-4b42-b4c3-f795e197b704": [
+                "resources/img_dialog/btn_off",
+                "cc.SpriteFrame",
+                1
+            ],
+            "23729a42-673e-428f-8fe7-24160ea5c5d3": [
+                "resources/img_dialog/btn_off.png",
+                "cc.Texture2D"
+            ],
+            "b69716fc-6fbd-4662-a059-77d9c51a6dce": [
+                "resources/img_dialog/btn_on",
+                "cc.SpriteFrame",
+                1
+            ],
+            "170044b9-c384-4726-8692-d11798633789": [
+                "resources/img_dialog/btn_on.png",
+                "cc.Texture2D"
+            ],
+            "00c6ec06-c0c9-4399-8542-436565cf046d": [
+                "resources/img_dialog/p_about",
+                "cc.SpriteFrame",
+                1
+            ],
+            "1df42b15-36b9-4607-9ffc-1b0788d2155f": [
+                "resources/img_dialog/p_about.png",
+                "cc.Texture2D"
+            ],
+            "55b0c640-830b-4c3e-b5f0-b66dbc0b1df6": [
+                "resources/img_dialog/p_about_border",
+                "cc.SpriteFrame",
+                1
+            ],
+            "28632984-30b8-485d-8842-76bffecddbdf": [
+                "resources/img_dialog/p_about_border.png",
+                "cc.Texture2D"
+            ],
+            "a75619b9-4862-464d-8d3b-9b9df3f02fbd": [
+                "resources/img_dialog/p_beibao",
+                "cc.SpriteFrame",
+                1
+            ],
+            "303da7a0-9244-4b18-87f4-78bdf9d64e92": [
+                "resources/img_dialog/p_beibao.png",
+                "cc.Texture2D"
+            ],
+            "ed49dfba-5fc8-4ade-88a4-3fa54356cc86": [
+                "resources/img_dialog/p_effect",
+                "cc.SpriteFrame",
+                1
+            ],
+            "9cf355ee-ac3e-462a-8de2-42dac4af1ed1": [
+                "resources/img_dialog/p_effect.png",
+                "cc.Texture2D"
+            ],
+            "78252e6b-60be-4ad5-acf2-0616e53b1951": [
+                "resources/img_dialog/p_email",
+                "cc.SpriteFrame",
+                1
+            ],
+            "8808e893-b5fa-4865-aa27-3a77aeb8428c": [
+                "resources/img_dialog/p_email.png",
+                "cc.Texture2D"
+            ],
+            "44061cad-d2f0-4575-a7f0-1c5414cb9560": [
+                "resources/img_dialog/p_email_di",
+                "cc.SpriteFrame",
+                1
+            ],
+            "21d4dae5-c9bc-4a83-ab64-f3cb3181c578": [
+                "resources/img_dialog/p_email_di.png",
+                "cc.Texture2D"
+            ],
+            "c0aef060-f2d8-4c62-887b-d15bc5ab8fe5": [
+                "resources/img_dialog/p_email_dian",
+                "cc.SpriteFrame",
+                1
+            ],
+            "dce55b39-3c6c-4ef8-9131-8505bcb3a8b9": [
+                "resources/img_dialog/p_email_dian.png",
+                "cc.Texture2D"
+            ],
+            "0de80c90-92d1-4f4f-8ac8-b6335cc6faf8": [
+                "resources/img_dialog/p_email_read",
+                "cc.SpriteFrame",
+                1
+            ],
+            "47666dcb-2cea-4fe1-9e45-380bede5f296": [
+                "resources/img_dialog/p_email_read.png",
+                "cc.Texture2D"
+            ],
+            "c588dddc-adda-43ea-bb8a-294012828cc1": [
+                "resources/img_dialog/p_email_readno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "4c8425bd-911a-40b9-91a8-4c9195812f80": [
+                "resources/img_dialog/p_email_readno.png",
+                "cc.Texture2D"
+            ],
+            "07b22899-da8f-4c08-99a4-87ef9a1312e9": [
+                "resources/img_dialog/p_email_readtag",
+                "cc.SpriteFrame",
+                1
+            ],
+            "67b0e73b-f46e-483a-8750-34a9e18a7fa5": [
+                "resources/img_dialog/p_email_readtag.png",
+                "cc.Texture2D"
+            ],
+            "8483fe71-6d9e-4e0f-bee9-4181ad7375cb": [
+                "resources/img_dialog/p_email_seletced",
+                "cc.SpriteFrame",
+                1
+            ],
+            "71f4730d-c0e7-43e4-bb04-ab82314a543f": [
+                "resources/img_dialog/p_email_seletced.png",
+                "cc.Texture2D"
+            ],
+            "5bdcd934-0884-41f9-b385-ec3d7ea44fe8": [
+                "resources/img_dialog/p_email_seletcedno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0ddd4306-63f5-4944-80f7-bd49317eea39": [
+                "resources/img_dialog/p_email_seletcedno.png",
+                "cc.Texture2D"
+            ],
+            "03ade6ea-65b0-4199-970d-9d1485718fe6": [
+                "resources/img_dialog/p_exchange",
+                "cc.SpriteFrame",
+                1
+            ],
+            "89b0c21a-328b-4ffa-bafe-a701f2334871": [
+                "resources/img_dialog/p_exchange.png",
+                "cc.Texture2D"
+            ],
+            "d9cac7f3-4517-4cb9-9ed6-763e7cdf28ef": [
+                "resources/img_dialog/p_exchange_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c5472f64-89b1-4336-8f15-f0637252306f": [
+                "resources/img_dialog/p_exchange_1.png",
+                "cc.Texture2D"
+            ],
+            "90b8b98e-f3fc-4aa5-99b1-069373a9e61f": [
+                "resources/img_dialog/p_fankui",
+                "cc.SpriteFrame",
+                1
+            ],
+            "521bbc48-83bb-4d41-a1e3-7f4423982aa5": [
+                "resources/img_dialog/p_fankui.png",
+                "cc.Texture2D"
+            ],
+            "30fd47e3-10f1-40d5-97cb-b7927fde267a": [
+                "resources/img_dialog/p_item_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c4975026-72d2-4aa3-b0dd-ea8f4765e057": [
+                "resources/img_dialog/p_item_1.png",
+                "cc.Texture2D"
+            ],
+            "81896927-c428-461c-a5ff-8d6f99930b16": [
+                "resources/img_dialog/p_itembg",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e2c3bcec-506c-4fee-86db-fc5d045c9ef2": [
+                "resources/img_dialog/p_itembg.png",
+                "cc.Texture2D"
+            ],
+            "92bf906c-6981-49b7-a196-62f194a9aa96": [
+                "resources/img_dialog/p_music",
+                "cc.SpriteFrame",
+                1
+            ],
+            "3e55f822-06d4-41f9-902b-2d6ad0fda685": [
+                "resources/img_dialog/p_music.png",
+                "cc.Texture2D"
+            ],
+            "9ccfa954-852a-4588-a402-5802b5cbdfa8": [
+                "resources/img_dialog/p_sameple",
+                "cc.SpriteFrame",
+                1
+            ],
+            "35bff479-9ac8-4c6e-b5d6-93b95ec69eee": [
+                "resources/img_dialog/p_sameple.jpg",
+                "cc.Texture2D"
+            ],
+            "bb946058-5572-487d-9839-499c7753fea1": [
+                "resources/img_dialog/p_set",
+                "cc.SpriteFrame",
+                1
+            ],
+            "1bfb05db-f96a-42a5-a090-a628fef8e810": [
+                "resources/img_dialog/p_set.png",
+                "cc.Texture2D"
+            ],
+            "96dc683e-c945-48da-b961-6d4006358a76": [
+                "resources/img_dialog/p_task",
+                "cc.SpriteFrame",
+                1
+            ],
+            "79d6f499-07c9-440a-8337-a23042ee0bd6": [
+                "resources/img_dialog/p_task.png",
+                "cc.Texture2D"
+            ],
+            "0ad114f0-df2c-40fe-bd61-429db55597fe": [
+                "resources/img_dialog/p_task_get",
+                "cc.SpriteFrame",
+                1
+            ],
+            "71d9fe09-42d5-46cd-b124-d73ce9fad817": [
+                "resources/img_dialog/p_task_get.png",
+                "cc.Texture2D"
+            ],
+            "47226f0a-ffe9-44d6-904f-9ef32661ca5a": [
+                "resources/operation_btn/btn_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "9aab390e-1653-4649-a3c6-847bf9d3e54e": [
+                "resources/operation_btn/btn_1.png",
+                "cc.Texture2D"
+            ],
+            "53cff425-32df-473e-ac4b-8cd8cb0504c7": [
+                "resources/operation_btn/btn_2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a97c40fc-426a-4d8c-8656-0d078198c7e4": [
+                "resources/operation_btn/btn_2.png",
+                "cc.Texture2D"
+            ],
+            "e6a757e9-50ec-438d-b4c6-3a01ec95633e": [
+                "resources/operation_btn/btn_chupai_2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d3c1c56c-2c15-4456-aa02-2dce2f93ffa0": [
+                "resources/operation_btn/btn_chupai_2.png",
+                "cc.Texture2D"
+            ],
+            "e25bbb7c-cf2d-4d5d-a69c-9addc61d7221": [
+                "resources/operation_btn/btn_star",
+                "cc.SpriteFrame",
+                1
+            ],
+            "16f164fc-e5f1-42a5-9606-65b87d73d309": [
+                "resources/operation_btn/btn_star.png",
+                "cc.Texture2D"
+            ],
+            "7d6ef016-4d0d-4529-8c04-45578180178e": [
+                "resources/operation_btn/btn_tuoguanno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c23ed663-951d-424d-8467-0d460c21abf7": [
+                "resources/operation_btn/btn_tuoguanno.png",
+                "cc.Texture2D"
+            ],
+            "b4abd0a5-2c49-4d47-ab71-09a0b70a393c": [
+                "resources/operation_btn/p_add2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "73d6866c-aa96-4f3b-acff-7f237f86bec0": [
+                "resources/operation_btn/p_add2.png",
+                "cc.Texture2D"
+            ],
+            "958e2974-6f01-44c0-a657-4e2fbaacb73e": [
+                "resources/operation_btn/p_add3",
+                "cc.SpriteFrame",
+                1
+            ],
+            "996394e1-1e82-4b80-9530-e34192dc6508": [
+                "resources/operation_btn/p_add3.png",
+                "cc.Texture2D"
+            ],
+            "aee8e2bd-a40c-4af7-acfa-48324135e192": [
+                "resources/operation_btn/p_add4",
+                "cc.SpriteFrame",
+                1
+            ],
+            "3ff78e31-2c66-49c5-a150-cbc7740cad91": [
+                "resources/operation_btn/p_add4.png",
+                "cc.Texture2D"
+            ],
+            "58c738dd-3fd9-4f7a-94e5-8c8e5a68d267": [
+                "resources/operation_btn/p_add5",
+                "cc.SpriteFrame",
+                1
+            ],
+            "7d5d462d-c49d-41db-b33a-87f9c7388b62": [
+                "resources/operation_btn/p_add5.png",
+                "cc.Texture2D"
+            ],
+            "7c318389-b165-4a9e-9f8c-5164192af238": [
+                "resources/operation_btn/p_addno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0aba3321-d9c1-487e-ba47-f9e414b2ccea": [
+                "resources/operation_btn/p_addno.png",
+                "cc.Texture2D"
+            ],
+            "d18adee8-d619-461d-a9a1-342a6f61a074": [
+                "resources/operation_btn/p_addx",
+                "cc.SpriteFrame",
+                1
+            ],
+            "810202c7-ac11-416d-8288-c11245ea8818": [
+                "resources/operation_btn/p_addx.png",
+                "cc.Texture2D"
+            ],
+            "a3f1de5a-74c6-4990-9183-4a728f23b21e": [
+                "resources/operation_btn/p_addyes",
+                "cc.SpriteFrame",
+                1
+            ],
+            "63e0469d-2e28-4f64-b23a-ad4d1539b6c2": [
+                "resources/operation_btn/p_addyes.png",
+                "cc.Texture2D"
+            ],
+            "ec6651d0-065f-4340-b0f3-d2c0d0b74bf1": [
+                "resources/operation_btn/p_cancel",
+                "cc.SpriteFrame",
+                1
+            ],
+            "187b1cd1-4667-4054-bd73-b15ce9267a18": [
+                "resources/operation_btn/p_cancel.png",
+                "cc.Texture2D"
+            ],
+            "521a2825-2228-4268-b4f0-bcdd87773218": [
+                "resources/operation_btn/p_cardno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c41a00f3-94a8-4241-b3ec-c5a428bc7d42": [
+                "resources/operation_btn/p_cardno.png",
+                "cc.Texture2D"
+            ],
+            "c249357f-71fd-4d63-9e68-d9489ac85438": [
+                "resources/operation_btn/p_cardout",
+                "cc.SpriteFrame",
+                1
+            ],
+            "7e2402d6-be32-46af-8bfe-5ef2426c3822": [
+                "resources/operation_btn/p_cardout.png",
+                "cc.Texture2D"
+            ],
+            "3694f769-8a60-4a40-9333-b4c645c59c7f": [
+                "resources/operation_btn/p_clock",
+                "cc.SpriteFrame",
+                1
+            ],
+            "67ff8d71-07f3-4406-9e7a-2af7a19b31c7": [
+                "resources/operation_btn/p_clock.png",
+                "cc.Texture2D"
+            ],
+            "4f64ca9e-13e5-4216-bc04-a7a9dcfac277": [
+                "resources/operation_btn/p_clock_num",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0b0519d9-e936-4337-9f2e-e07712530339": [
+                "resources/operation_btn/p_clock_num.png",
+                "cc.Texture2D"
+            ],
+            "4db523c5-55a2-46eb-a8da-44a5944efd73": [
+                "resources/operation_btn/p_jiaono",
+                "cc.SpriteFrame",
+                1
+            ],
+            "1843af89-1617-4e04-a508-b2739f34cd3b": [
+                "resources/operation_btn/p_jiaono.png",
+                "cc.Texture2D"
+            ],
+            "92f5824e-4255-47ec-a0bd-769f54c94aa2": [
+                "resources/operation_btn/p_jiaoyes",
+                "cc.SpriteFrame",
+                1
+            ],
+            "56f62e11-e316-449f-b776-1058857187af": [
+                "resources/operation_btn/p_jiaoyes.png",
+                "cc.Texture2D"
+            ],
+            "1ded1fdb-bb5a-4d11-b924-9c3b82112b8e": [
+                "resources/operation_btn/p_qiangno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "072c9494-5853-4757-8568-cc3c0e7f6618": [
+                "resources/operation_btn/p_qiangno.png",
+                "cc.Texture2D"
+            ],
+            "c2ecabe3-48b4-416a-8704-f0dfd577da83": [
+                "resources/operation_btn/p_qiangyes",
+                "cc.SpriteFrame",
+                1
+            ],
+            "f7316fe1-d28f-4d15-96ca-bcf3b30a56b9": [
+                "resources/operation_btn/p_qiangyes.png",
+                "cc.Texture2D"
+            ],
+            "e91ec0a1-0492-489b-8cc8-fcda2beba119": [
+                "resources/operation_btn/p_sample",
+                "cc.SpriteFrame",
+                1
+            ],
+            "53809729-4034-4f5b-9c18-94c50262c118": [
+                "resources/operation_btn/p_sample.png",
+                "cc.Texture2D"
+            ],
+            "15b2e194-9856-4d99-9d83-b4c6e736fb24": [
+                "resources/operation_btn/p_showX",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d23400ed-5861-424e-a25a-68384a2b3efb": [
+                "resources/operation_btn/p_showX.png",
+                "cc.Texture2D"
+            ],
+            "ccd92f97-4757-4599-9263-2f493b95a99e": [
+                "resources/operation_btn/p_tishi",
+                "cc.SpriteFrame",
+                1
+            ],
+            "10cb5cb5-a99f-43d6-84e5-d68efea76d50": [
+                "resources/operation_btn/p_tishi.png",
+                "cc.Texture2D"
+            ],
+            "b52914c7-3e27-4afa-ae5b-b018ae4360cf": [
+                "resources/operation_btn/p_tuoguanno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e46a81a4-cab1-45c5-9c99-d7cc6b5b4c9a": [
+                "resources/operation_btn/p_tuoguanno.png",
+                "cc.Texture2D"
+            ],
+            "80b17408-4b25-401a-84b7-d015df640e1c": [
+                "resources/operation_btn/p_yaobuqi",
+                "cc.SpriteFrame",
+                1
+            ],
+            "047f98ed-9d49-4852-b725-69625f5669a8": [
+                "resources/operation_btn/p_yaobuqi.png",
+                "cc.Texture2D"
+            ],
+            "6eb2fe87-0392-487d-adf3-a8c27bf4d65e": [
+                "resources/p_clockNum",
+                "cc.SpriteFrame",
+                1
+            ],
+            "ac3a743f-711c-4573-aa8b-eec69976b2b8": [
+                "resources/p_clockNum.png",
+                "cc.Texture2D"
+            ],
+            "6c1e58e1-ab9c-49d3-8adb-6fdee843b538": [
+                "resources/p_close",
+                "cc.SpriteFrame",
+                1
+            ],
+            "27403ae8-f63f-4eb2-971c-ea2f3fbdc385": [
+                "resources/p_close.png",
+                "cc.Texture2D"
+            ],
+            "9b51570d-bc01-4df7-829c-29d316ca4b87": [
+                "resources/p_diban",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e6dc1b92-4a2d-45b4-88cc-9931c20ace7b": [
+                "resources/p_diban.png",
+                "cc.Texture2D"
+            ],
+            "5e618e37-f157-4122-9142-04052e350108": [
+                "resources/p_line",
+                "cc.SpriteFrame",
+                1
+            ],
+            "1f0873c2-e007-4a4c-b77f-d1fb721e864c": [
+                "resources/p_line.png",
+                "cc.Texture2D"
+            ],
+            "2479153a-0191-43be-a016-6108e97e0d6c": [
+                "resources/prefab/CancelDelegate.prefab",
+                "cc.Prefab"
+            ],
+            "84e34780-5258-4f7f-9a5e-bcd7164a4154": [
+                "resources/prefab/bagDialog.prefab",
+                "cc.Prefab"
+            ],
+            "ab5b47be-1813-4802-95f9-3c8f2909512b": [
+                "resources/prefab/bagItem.prefab",
+                "cc.Prefab"
+            ],
+            "627a7c64-2c5f-4d9e-80c7-8910a412b508": [
+                "resources/prefab/commonDialog.prefab",
+                "cc.Prefab"
+            ],
+            "d8c1bfea-fda2-4b1d-8c17-2de7ae65c223": [
+                "resources/prefab/emailDialog.prefab",
+                "cc.Prefab"
+            ],
+            "756bcc27-ce37-4a4a-a14a-30585fe5a6c4": [
+                "resources/prefab/emailItem.prefab",
+                "cc.Prefab"
+            ],
+            "a7582735-a0b3-4aa2-ba45-187f6aaf2862": [
+                "resources/prefab/exchangeDialog.prefab",
+                "cc.Prefab"
+            ],
+            "20f2b9c0-6eeb-41d1-b2c1-002f7ae7609e": [
+                "resources/prefab/exchangeRecordDialog.prefab",
+                "cc.Prefab"
+            ],
+            "f72b6291-77c0-4908-a068-0292afb9235f": [
+                "resources/prefab/exchangeRecordItem.prefab",
+                "cc.Prefab"
+            ],
+            "d59d8f4d-1fee-4e79-98aa-b62db3fadbbd": [
+                "resources/prefab/fankuiDialog.prefab",
+                "cc.Prefab"
+            ],
+            "77d11e0f-51dd-4e36-9185-a4e8ef1ae0b3": [
+                "resources/prefab/gameResultLose.prefab",
+                "cc.Prefab"
+            ],
+            "c3671028-1242-462e-a72b-162cc5158993": [
+                "resources/prefab/gameResultWin.prefab",
+                "cc.Prefab"
+            ],
+            "440488f2-6cdb-4367-82d5-3d6175c6fbd7": [
+                "resources/prefab/jpqNode.prefab",
+                "cc.Prefab"
+            ],
+            "a68071e0-d437-4e20-881f-5fd04b20faed": [
+                "resources/prefab/opratCallLord.prefab",
+                "cc.Prefab"
+            ],
+            "d3b306cb-9bfa-46df-b89f-370f6c01c3d8": [
+                "resources/prefab/opratDouble.prefab",
+                "cc.Prefab"
+            ],
+            "764ae265-a557-4737-8734-a45ad015783a": [
+                "resources/prefab/opratOutCard.prefab",
+                "cc.Prefab"
+            ],
+            "adfaf6c4-cf24-433f-9efe-80b01f5ec3f1": [
+                "resources/prefab/opratShowCard.prefab",
+                "cc.Prefab"
+            ],
+            "661c29b3-bc4a-40a4-b879-38137705fcc6": [
+                "resources/prefab/resoultInfoItem.prefab",
+                "cc.Prefab"
+            ],
+            "1304a085-d650-4482-848e-e80011027615": [
+                "resources/prefab/setDialog.prefab",
+                "cc.Prefab"
+            ],
+            "b5ecacdd-a9b2-4612-a34f-eff8fb6da6ec": [
+                "resources/prefab/taskDialog.prefab",
+                "cc.Prefab"
+            ],
+            "31364be6-d893-4507-b93d-58ecc9701e5b": [
+                "resources/prefab/taskItem.prefab",
+                "cc.Prefab"
+            ],
+            "c9c3bb20-ec23-41f8-be53-2b402dc6072d": [
+                "resources/showTips/p_addX",
+                "cc.SpriteFrame",
+                1
+            ],
+            "ac88a464-73c2-4b9c-8898-7d222a0dfa7a": [
+                "resources/showTips/p_addX.png",
+                "cc.Texture2D"
+            ],
+            "f81ba67e-102f-42b1-bc88-cb3c42f4f65e": [
+                "resources/showTips/p_addX2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "49f832d4-6140-449f-9e13-b8cf9e112bc5": [
+                "resources/showTips/p_addX2.png",
+                "cc.Texture2D"
+            ],
+            "964a5a5d-c043-4eb1-9e63-8e8c701136ee": [
+                "resources/showTips/p_addX3",
+                "cc.SpriteFrame",
+                1
+            ],
+            "7c1ec58e-7ab2-4b9d-b89c-ba93f6dc3808": [
+                "resources/showTips/p_addX3.png",
+                "cc.Texture2D"
+            ],
+            "4bf1bf40-f4a0-4308-9a2b-326e46298f3c": [
+                "resources/showTips/p_addX4",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0a10b5c3-7b70-48ec-9ed5-f2d439e98763": [
+                "resources/showTips/p_addX4.png",
+                "cc.Texture2D"
+            ],
+            "ed781f1d-fcc3-4103-bd1c-b33c16687e72": [
+                "resources/showTips/p_addX5",
+                "cc.SpriteFrame",
+                1
+            ],
+            "da6f54fd-3bd7-46f0-ad93-c8ea4488ed50": [
+                "resources/showTips/p_addX5.png",
+                "cc.Texture2D"
+            ],
+            "ebd4a5dd-2cd0-4b20-8af0-901f16e37113": [
+                "resources/showTips/p_cardtype_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c8f1897e-b121-40df-a4d8-0cd9cdefb60f": [
+                "resources/showTips/p_cardtype_1.png",
+                "cc.Texture2D"
+            ],
+            "87cd4bb6-47a4-4d4f-a83a-380b6a32c986": [
+                "resources/showTips/p_cardtype_2",
+                "cc.SpriteFrame",
+                1
+            ],
+            "118dd3ff-4cf1-4b25-8e5e-8fcd7ec2be3e": [
+                "resources/showTips/p_cardtype_2.png",
+                "cc.Texture2D"
+            ],
+            "23bff95a-36ee-4e99-9f8f-c79f6f660cd5": [
+                "resources/showTips/p_cardtype_3",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e1061689-9fa7-4ddd-9264-43e91887e866": [
+                "resources/showTips/p_cardtype_3.png",
+                "cc.Texture2D"
+            ],
+            "5d7ce5a1-ed24-400a-9f4d-8096c1e57159": [
+                "resources/showTips/p_cardtype_4",
+                "cc.SpriteFrame",
+                1
+            ],
+            "9647be98-69b1-4bca-9287-b33ec51c2fa4": [
+                "resources/showTips/p_cardtype_4.png",
+                "cc.Texture2D"
+            ],
+            "528a5a3a-b4d9-4af5-aaaa-03272056fac2": [
+                "resources/showTips/p_cardtype_4_1",
+                "cc.SpriteFrame",
+                1
+            ],
+            "65f4227b-154a-4596-9f1c-35976a1ce901": [
+                "resources/showTips/p_cardtype_4_1.png",
+                "cc.Texture2D"
+            ],
+            "9a7ca473-f9a3-4501-94bc-51cbee2c2f03": [
+                "resources/showTips/p_tip_chuno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "4a8205a3-4e5a-4608-9b26-41babf2b75d8": [
+                "resources/showTips/p_tip_chuno.png",
+                "cc.Texture2D"
+            ],
+            "b1cf0657-66fb-4218-8f50-8c00d566cf60": [
+                "resources/showTips/p_tip_jiabeino",
+                "cc.SpriteFrame",
+                1
+            ],
+            "70d6f88e-75a2-4eeb-862a-bb672cc57481": [
+                "resources/showTips/p_tip_jiabeino.png",
+                "cc.Texture2D"
+            ],
+            "3e13f39a-1813-4fbe-b53d-05c6e05ecf7e": [
+                "resources/showTips/p_tip_jiaodizhu",
+                "cc.SpriteFrame",
+                1
+            ],
+            "a14b47f2-48a7-405c-bfe2-2b226a4b09ab": [
+                "resources/showTips/p_tip_jiaodizhu.png",
+                "cc.Texture2D"
+            ],
+            "78ab50de-2424-4dc6-b847-bafc134c99d2": [
+                "resources/showTips/p_tip_jiaodizhuno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "359a6fe9-b2dd-4cbd-aa5d-6c60ba3ced49": [
+                "resources/showTips/p_tip_jiaodizhuno.png",
+                "cc.Texture2D"
+            ],
+            "1926ada5-3525-4194-844b-787b004f9717": [
+                "resources/showTips/p_tip_qiangdizhu",
+                "cc.SpriteFrame",
+                1
+            ],
+            "0e331e66-0ae8-48e8-ba74-9428c913b08e": [
+                "resources/showTips/p_tip_qiangdizhu.png",
+                "cc.Texture2D"
+            ],
+            "4fcb5126-06ab-40bd-b78f-12fc2b15b04c": [
+                "resources/showTips/p_tip_qiangdizhuno",
+                "cc.SpriteFrame",
+                1
+            ],
+            "f16de4fe-860b-4d74-9ba7-b0f32ac18a94": [
+                "resources/showTips/p_tip_qiangdizhuno.png",
+                "cc.Texture2D"
+            ],
+            "8df18ec4-b357-4bd8-8a26-bf9be8f6fb21": [
+                "resources/showTips/p_tip_wangzha",
+                "cc.SpriteFrame",
+                1
+            ],
+            "c8061189-22e0-4e69-b32c-fcfbce5834fa": [
+                "resources/showTips/p_tip_wangzha.png",
+                "cc.Texture2D"
+            ],
+            "bca82f86-d0b1-42be-8930-d3fe52f78e0c": [
+                "resources/showTips/p_tip_yaobuqi",
+                "cc.SpriteFrame",
+                1
+            ],
+            "343d30a2-94f0-461c-b02f-74b74e030c7f": [
+                "resources/showTips/p_tip_yaobuqi.png",
+                "cc.Texture2D"
+            ],
+            "5ae99da0-b936-4321-8089-deff2ba4d68b": [
+                "resources/showTips/p_tip_zhunbei",
+                "cc.SpriteFrame",
+                1
+            ],
+            "81c047e7-02cb-48d3-9d9b-4cf2bc896031": [
+                "resources/showTips/p_tip_zhunbei.png",
+                "cc.Texture2D"
+            ],
+            "037a59bf-6066-4bb2-9b13-e55bf7f16d28": [
+                "resources/showTips/p_tips_noCard",
+                "cc.SpriteFrame",
+                1
+            ],
+            "e48851ba-e0e7-4350-9e23-b4124e83f87c": [
+                "resources/showTips/p_tips_noCard.png",
+                "cc.Texture2D"
+            ],
+            "c1aefab4-8714-45f5-8cc7-3ab8525e42c5": [
+                "resources/showTips/p_tips_noSeletcedCrad",
+                "cc.SpriteFrame",
+                1
+            ],
+            "f275891a-02d3-4bd4-b88c-3924ccde5eb9": [
+                "resources/showTips/p_tips_noSeletcedCrad.png",
+                "cc.Texture2D"
+            ],
+            "4e7095fe-6fde-48e1-96f3-7db4dcbf7380": [
+                "resources/showTips/p_tips_seletcedCardTypeError",
+                "cc.SpriteFrame",
+                1
+            ],
+            "d493e25c-228c-4a26-8047-a8d463e1bc47": [
+                "resources/showTips/p_tips_seletcedCardTypeError.png",
+                "cc.Texture2D"
+            ],
+            "daf4b1f0-657b-4bdd-9ff8-9a227b8de445": [
+                "resources/showTips/p_tips_watingStartGame",
+                "cc.SpriteFrame",
+                1
+            ],
+            "6f45cb08-c5ca-49b0-a486-a4ecbe14f213": [
+                "resources/showTips/p_tips_watingStartGame.png",
+                "cc.Texture2D"
+            ]
+        },
+        internal: {
+            "71561142-4c83-4933-afca-cb7a17f67053": [
+                "image/default_btn_disabled.png",
+                "cc.Texture2D"
+            ],
+            "e851e89b-faa2-4484-bea6-5c01dd9f06e2": [
+                "image/default_btn_normal.png",
+                "cc.Texture2D"
+            ],
+            "b43ff3c2-02bb-4874-81f7-f2dea6970f18": [
+                "image/default_btn_pressed.png",
+                "cc.Texture2D"
+            ],
+            "d81ec8ad-247c-4e62-aa3c-d35c4193c7af": [
+                "image/default_panel.png",
+                "cc.Texture2D"
+            ],
+            "cfef78f1-c8df-49b7-8ed0-4c953ace2621": [
+                "image/default_progressbar.png",
+                "cc.Texture2D"
+            ],
+            "99170b0b-d210-46f1-b213-7d9e3f23098a": [
+                "image/default_progressbar_bg.png",
+                "cc.Texture2D"
+            ],
+            "567dcd80-8bf4-4535-8a5a-313f1caf078a": [
+                "image/default_radio_button_off.png",
+                "cc.Texture2D"
+            ],
+            "9d60001f-b5f4-4726-a629-2659e3ded0b8": [
+                "image/default_radio_button_on.png",
+                "cc.Texture2D"
+            ],
+            "0291c134-b3da-4098-b7b5-e397edbe947f": [
+                "image/default_scrollbar.png",
+                "cc.Texture2D"
+            ],
+            "4bab67cb-18e6-4099-b840-355f0473f890": [
+                "image/default_scrollbar_bg.png",
+                "cc.Texture2D"
+            ],
+            "d6d3ca85-4681-47c1-b5dd-d036a9d39ea2": [
+                "image/default_scrollbar_vertical.png",
+                "cc.Texture2D"
+            ],
+            "617323dd-11f4-4dd3-8eec-0caf6b3b45b9": [
+                "image/default_scrollbar_vertical_bg.png",
+                "cc.Texture2D"
+            ],
+            "6e056173-d285-473c-b206-40a7fff5386e": [
+                "image/default_sprite.png",
+                "cc.Texture2D"
+            ],
+            "0275e94c-56a7-410f-bd1a-fc7483f7d14a": [
+                "image/default_sprite_splash.png",
+                "cc.Texture2D"
+            ],
+            "73a0903d-d80e-4e3c-aa67-f999543c08f5": [
+                "image/default_toggle_checkmark.png",
+                "cc.Texture2D"
+            ],
+            "c25b9d50-c8fc-4d27-beeb-6e7c1f2e5c0f": [
+                "image/default_toggle_disabled.png",
+                "cc.Texture2D"
+            ],
+            "d29077ba-1627-4a72-9579-7b56a235340c": [
+                "image/default_toggle_normal.png",
+                "cc.Texture2D"
+            ],
+            "b181c1e4-0a72-4a91-bfb0-ae6f36ca60bd": [
+                "image/default_toggle_pressed.png",
+                "cc.Texture2D"
+            ],
+            "2be36297-9abb-4fee-8049-9ed5e271da8a": [
+                "misc/default_video.mp4",
+                "cc.RawAsset"
+            ],
+            "b8223619-7e38-47c4-841f-9160c232495a": [
+                "obsolete/atom.plist",
+                "cc.ParticleAsset"
+            ],
+            "b2687ac4-099e-403c-a192-ff477686f4f5": [
+                "particle/atom.plist",
+                "cc.ParticleAsset"
+            ]
+        }
+    },
+    launchScene: "db://assets/Scene/GameScene.fire",
+    scenes: [
+        {
+            url: "db://assets/Scene/GameScene.fire",
+            uuid: "5ec0809b-b563-429c-b49a-86050054f2bc"
+        },
+        {
+            url: "db://assets/Scene/HallScene.fire",
+            uuid: "fb2529d1-7f43-49d5-9763-12c971b6c309"
+        },
+        {
+            url: "db://assets/Scene/LoadingScene.fire",
+            uuid: "9510c904-8db6-412f-8765-495324f8a971"
+        }
+    ],
+    debug: true
+};

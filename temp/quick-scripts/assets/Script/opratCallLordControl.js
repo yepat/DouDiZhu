@@ -61,7 +61,7 @@ cc.Class({
         }, 1);
 
         //xx_test
-        this.show(10, null, null, 2);
+        // this.show(10,null,null,2);
     },
     show: function show(time, btn1Func, btn2Func, type) {
         this.timeCount = time;
@@ -70,9 +70,11 @@ cc.Class({
 
         var self = this;
 
+        this.type = type;
+
         var pre = "";
         if (time < 10) {
-            pre = "0";
+            pre = "";
         }
         this.timeTxt.string = pre + time;
 
@@ -98,6 +100,11 @@ cc.Class({
             });
         }
     },
+    close: function close() {
+        if (this.node) {
+            this.node.destroy();
+        }
+    },
     btn1Click: function btn1Click() {
         console.log("btn1Click");
         if (this.btn1Func) {
@@ -110,7 +117,9 @@ cc.Class({
         if (this.btn2Func) {
             this.btn2Func();
         }
-        this.node.destroy();
+        if (this.type == config.opratType.mustOutCard) {} else {
+            this.node.destroy();
+        }
     },
     shakeClock: function shakeClock() {
         var mt1 = cc.moveTo(0.05, this.clockX, this.clockY - 2);

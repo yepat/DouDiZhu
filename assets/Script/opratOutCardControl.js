@@ -70,6 +70,11 @@ cc.Class({
         var pre = "";
         this.timeTxt.string = pre + time;
     },
+    close(){
+        if(this.node){
+            this.node.destroy();
+        }
+    },
     buchuClick() {
         console.log("不出");
         if(this.buchuFunc)
@@ -94,7 +99,7 @@ cc.Class({
             // this.showTips("您选择的牌无法出出去哦！");  
             this.showTips("showTips/p_tips_seletcedCardTypeError");
         }else{
-            this.node.destroy();
+            // this.node.destroy();
         }
         
     },

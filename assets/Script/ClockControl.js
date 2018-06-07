@@ -29,7 +29,8 @@ cc.Class({
                 var pre = "";
                 if(this.timeCount <= 0){
                     this.timeCount = 0;
-                    this.node.destroy();
+                    // this.node.destroy();
+                    this.node.active = false;
                 }
                 var t = Math.ceil(this.timeCount);
                 if(t < 10){
@@ -40,9 +41,10 @@ cc.Class({
         }, 1);
 
         //xx_test
-        this.show(10);
+        // this.show(10);
     },
     show(time){
+        this.node.active = true;
         this.timeCount = time;
         this.timeTxt.string = "" + time; 
     },

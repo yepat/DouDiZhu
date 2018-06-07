@@ -1,4 +1,4 @@
-
+var config = require("config");
 cc.Class({
     extends: cc.Component,
 
@@ -10,12 +10,13 @@ cc.Class({
     },
 
     start () {
-        this.show(5,null);
+        // this.show(5,null);
     },
-    show(time,click){
-        this.time = time;
-        this.click = click;
+    show(click){
+        this.click =  click;
         var self = this;
+
+        this.time = 5;
 
         this.spTxt = "operation_btn/p_add";
 
@@ -32,10 +33,15 @@ cc.Class({
         },1.0, this.time, 0);
 
     },
+    close(){
+        if(this.node){
+            this.node.destroy();
+        }
+    },
     btnClick(){
         console.log("点击了明牌按钮");
         if(this.click){
-            this.click();
+            this.click(this.time);
         }
         this.node.destroy();
     }

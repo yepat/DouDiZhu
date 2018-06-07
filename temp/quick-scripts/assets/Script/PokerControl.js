@@ -55,7 +55,7 @@ cc.Class({
         var showType = showData.showType;
         self.canTouch = showData.canTouch;
 
-        self.cardValue = CardUtil.StringToNumber(showData.showTxt);
+        self.cardValue = showData.showTxt; //CardUtil.StringToNumber(showData.showTxt);
         var numUrl = "cards/poke_" + self.cardValue;
 
         if (self.cardValue != 16 && self.cardValue != 17) {

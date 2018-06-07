@@ -37,10 +37,11 @@ cc.Class({
     // start () {
 
     // },   
-    init: function init(isDizhi, name, difen, beishu, ledou) {
+    init: function init(isDizhi, name, difen, beishu, ledou, isMe) {
         if (isDizhi) {
             this.pDizhu.node.active = true;
-        } else {
+        }
+        if (isMe) {} else {
             this.labNickName.node.color = new cc.Color(255, 255, 255);
             this.labDifen.node.color = new cc.Color(255, 255, 255);
             this.labBeishu.node.color = new cc.Color(255, 255, 255);

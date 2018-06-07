@@ -4,6 +4,7 @@ cc._RF.push(module, '32b68GmBLZM66Mox1ff/d6j', 'opratShowCardControl', __filenam
 
 "use strict";
 
+var config = require("config");
 cc.Class({
     extends: cc.Component,
 
@@ -15,12 +16,13 @@ cc.Class({
     },
 
     start: function start() {
-        this.show(5, null);
+        // this.show(5,null);
     },
-    show: function show(time, click) {
-        this.time = time;
+    show: function show(click) {
         this.click = click;
         var self = this;
+
+        this.time = 5;
 
         this.spTxt = "operation_btn/p_add";
 
@@ -36,10 +38,15 @@ cc.Class({
             }
         }, 1.0, this.time, 0);
     },
+    close: function close() {
+        if (this.node) {
+            this.node.destroy();
+        }
+    },
     btnClick: function btnClick() {
         console.log("点击了明牌按钮");
         if (this.click) {
-            this.click();
+            this.click(this.time);
         }
         this.node.destroy();
     }

@@ -1,6 +1,9 @@
 
 var commonControl = require("commonControl");
 
+var CancelDelegateController = require("CancelDelegateController");
+var opratShowCardControl = require("opratShowCardControl");
+var opratDoubleControl = require("opratDoubleControl");
 
 var dialogManager = cc.Class({
     extends: cc.Component,
@@ -13,8 +16,10 @@ var dialogManager = cc.Class({
                 }
                 var newNode = cc.instantiate(prefab);
                 cc.director.getScene().addChild(newNode);
-                if(mControl)
+                if(mControl){
                     newNode.getComponent(mControl).show(args);
+                    return newNode.getComponent(mControl);
+                }    
             });
         },
         showCommonDialog(title,content,enterClick,cancelClick){
@@ -59,17 +64,17 @@ var dialogManager = cc.Class({
         showOpratCallLord(){
             this.showDialog("prefab/opratCallLord");
         },
-        showOpratDouble(){
-            this.showDialog("prefab/opratDouble");
-        },
         showOpratOutCard(){
             this.showDialog("prefab/opratOutCard");
         },
-        showOpratShowCard(){
-            this.showDialog("prefab/opratShowCard");
+        showOpratDouble(click){
+            this.showDialog("prefab/opratDouble",opratDoubleControl,click);
         },
-        showCancelDelegate(){
-            this.showDialog("prefab/CancelDelegate");
+        showOpratShowCard(click){
+            this.showDialog("prefab/opratShowCard",opratShowCardControl,click);
+        },
+        showCancelDelegate(click){
+            this.showDialog("prefab/CancelDelegate",CancelDelegateController,click);
         },
     },
 });

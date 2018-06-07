@@ -34,5 +34,8 @@ cc.Class({
         this.timeCount = time;
         this.timeTxt.string = "" + time; 
     },
+    close(){
+        this.node.destroy();
+    },
 
 });

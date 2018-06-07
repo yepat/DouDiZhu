@@ -28,6 +28,12 @@ var GameNetMgr = cc.Class({
                     this.sendGiveupSendCard(arg);
                 } else if (eventName == "sendCard") {
                     this.sendSendCard(arg);
+                } else if (eventName == "requestDelegate") {
+                    this.sendRequestDelegate(arg);
+                } else if (eventName == "cancelDelegate") {
+                    this.sendCancelDelegate(arg);
+                } else if (eventName == "addRatio") {
+                    this.sendAddRatio(arg);
                 }
             }
         },
@@ -50,30 +56,20 @@ var GameNetMgr = cc.Class({
         },
         sendCallLord: function sendCallLord(arg) {
             var params = {};
-            var num = 1; // 1=要地主 2=不要地主
-            if (arg) {
-                num = 1;
-            } else {
-                num = 2;
-            }
+            var num = arg; // 1=叫地主 2=不叫地主
             params.t = Protocol.Request.Game.CallLord;
             params.doLord = num;
             cc.vv.net.send("callLord", Protocol.Command.Game, params);
         },
         sendGrabLord: function sendGrabLord(arg) {
             var params = {};
-            var num = 1; // 1=要地主 2=不要地主
-            if (arg) {
-                num = 1;
-            } else {
-                num = 2;
-            }
+            var num = arg; // 1=抢地主 2=不抢地主
             params.t = Protocol.Request.Game.GrabLord;
             params.grabLord = num;
             cc.vv.net.send("grabLord", Protocol.Command.Game, params);
         },
         sendShowCard: function sendShowCard(rate) {
-            if (rate) {} else {
+            if (rate > 2) {} else {
                 rate = 2;
             }
             var params = {};
@@ -96,6 +92,23 @@ var GameNetMgr = cc.Class({
                 params.sendCards = args;
             }
             cc.vv.net.send("sendCard", Protocol.Command.Game, params);
+        },
+        sendRequestDelegate: function sendRequestDelegate() {
+            var params = {};
+            params.t = Protocol.Request.Game.RequestDelegate;
+            cc.vv.net.send("requestDelegate", Protocol.Command.Game, params);
+        },
+        sendCancelDelegate: function sendCancelDelegate() {
+            var params = {};
+            params.t = Protocol.Request.Game.CancelDelegate;
+            cc.vv.net.send("cancelDelegate", Protocol.Command.Game, params);
+        },
+
+        //--加倍
+        sendAddRatio: function sendAddRatio() {
+            var params = {};
+            params.t = Protocol.Request.Game.AddRatio;
+            cc.vv.net.send("addRatio", Protocol.Command.Game, params);
         }
     }
 });

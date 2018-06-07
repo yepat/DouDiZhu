@@ -30,24 +30,46 @@ cc.Class({
         var repeat_ = cc.repeatForever(rotate);
         this.guang.node.runAction(repeat_);
 
-        var infos = {
-            0: { isdizhu: false, nickname: "新手123", difen: 60, beishu: 1000, ledou: "- 60000" },
-            1: { isdizhu: true, nickname: "新手333", difen: 60, beishu: 1000, ledou: "+820000" },
-            2: { isdizhu: false, nickname: "新手456", difen: 60, beishu: 1000, ledou: "- 10000" }
-        };
+        // var infos = {
+        //     0:{isdizhu : false,nickname : "新手123",difen : 60,beishu : 1000,ledou : "- 60000"},
+        //     1:{isdizhu : true,nickname : "新手333",difen : 60,beishu : 1000,ledou : "+820000"},
+        //     2:{isdizhu : false,nickname : "新手456",difen : 60,beishu : 1000,ledou : "- 10000"},
+        // }
 
+        // for(var i = 0;i < 3;i++){
+        //     var resoultInfoItem = cc.instantiate(this.resoultInfoItem);
+        //     resoultInfoItem.parent = this.content;
+        //     var task = resoultInfoItem.getComponent(resoultInfoItemControl);
+        //     task.init(infos[i].isdizhu,infos[i].nickname,infos[i].difen,infos[i].beishu,infos[i].ledou);
+        // }
+    },
+    show: function show(infos, click1, click2, mySeatId) {
+        this.click1 = click1;
+        this.click2 = click2;
         for (var i = 0; i < 3; i++) {
             var resoultInfoItem = cc.instantiate(this.resoultInfoItem);
             resoultInfoItem.parent = this.content;
             var task = resoultInfoItem.getComponent(resoultInfoItemControl);
-            task.init(infos[i].isdizhu, infos[i].nickname, infos[i].difen, infos[i].beishu, infos[i].ledou);
+            task.init(infos[i].isdizhu, infos[i].nickname, infos[i].difen, infos[i].beishu, infos[i].ledou, mySeatId == i);
         }
     },
     btn1Click: function btn1Click() {
         console.log("btn1Click");
+        if (this.click1) {
+            this.click1();
+        }
+        if (this.node) {
+            this.node.destroy();
+        }
     },
     btn2Click: function btn2Click() {
         console.log("btn2Click");
+        if (this.click2) {
+            this.click2();
+        }
+        if (this.node) {
+            this.node.destroy();
+        }
     }
 });
 

@@ -40,7 +40,7 @@
     "relativePath": "prefab"
   },
   "20ac1e46-8924-4b7f-96a9-5509888c2233": {
-    "asset": 1528082367239,
+    "asset": 1528279367832,
     "meta": 1528080484339,
     "relativePath": "resources"
   },
@@ -60,8 +60,8 @@
     "relativePath": "Scene"
   },
   "5ec0809b-b563-429c-b49a-86050054f2bc": {
-    "asset": 1528192090762,
-    "meta": 1528192090775,
+    "asset": 1528394379907,
+    "meta": 1528394379918,
     "relativePath": "Scene/GameScene.fire"
   },
   "fb2529d1-7f43-49d5-9763-12c971b6c309": {
@@ -125,8 +125,8 @@
     "relativePath": "resources/prefab/opratCallLord.prefab"
   },
   "d3b306cb-9bfa-46df-b89f-370f6c01c3d8": {
-    "asset": 1528080484385,
-    "meta": 1528080886190,
+    "asset": 1528394081658,
+    "meta": 1528394081665,
     "relativePath": "resources/prefab/opratDouble.prefab"
   },
   "764ae265-a557-4737-8734-a45ad015783a": {
@@ -135,8 +135,8 @@
     "relativePath": "resources/prefab/opratOutCard.prefab"
   },
   "adfaf6c4-cf24-433f-9efe-80b01f5ec3f1": {
-    "asset": 1528080484385,
-    "meta": 1528080886194,
+    "asset": 1528394206755,
+    "meta": 1528394206761,
     "relativePath": "resources/prefab/opratShowCard.prefab"
   },
   "c53cda55-3a3c-4b11-984c-a59e03898fcf": {
@@ -144,40 +144,15 @@
     "meta": 1528080888543,
     "relativePath": "Texture/poker.prefab"
   },
-  "32b681a6-04b6-4ceb-a328-c757dffddea3": {
-    "asset": 1528080484313,
-    "meta": 1528080887923,
-    "relativePath": "Script/opratShowCardControl.js"
-  },
-  "c56d3114-2ed5-4702-a56a-eb159dd95bd0": {
-    "asset": 1528080484312,
-    "meta": 1528080887877,
-    "relativePath": "Script/opratDoubleControl.js"
-  },
-  "f7e34808-122e-4638-be31-637ebe239112": {
-    "asset": 1528080484312,
-    "meta": 1528080887865,
-    "relativePath": "Script/opratCallLordControl.js"
-  },
   "bf52645f-08aa-4357-96b2-b9481faa45d8": {
     "asset": 1528080484314,
     "meta": 1528080888033,
     "relativePath": "Texture/clockDown.prefab"
   },
-  "74c75cf8-f801-40da-9d19-da4c90275c2f": {
-    "asset": 1528080484298,
-    "meta": 1528080887124,
-    "relativePath": "Script/ClockControl.js"
-  },
   "98705f87-594a-425f-bee9-78572aa8aa8b": {
     "asset": 1528080484396,
     "meta": 1528080484387,
     "relativePath": "resources/showTips"
-  },
-  "917adc76-da60-4e8b-b3b2-5b712497ab64": {
-    "asset": 1528080484297,
-    "meta": 1528080887047,
-    "relativePath": "Script/CancelDelegateController.js"
   },
   "81de1d56-72cf-4783-8d2d-b9abac217357": {
     "asset": 1528080484367,
@@ -258,11 +233,6 @@
     "asset": 1528080484306,
     "meta": 1528080887266,
     "relativePath": "Script/dialog/setControl.js"
-  },
-  "1198194a-566e-4f09-8155-dd4f18902727": {
-    "asset": 1528080484312,
-    "meta": 1528080887898,
-    "relativePath": "Script/opratOutCardControl.js"
   },
   "5c7caf5b-44ec-4940-ab90-a44c63120bef": {
     "asset": 1528080484341,
@@ -1049,18 +1019,13 @@
     "meta": 1528080888553,
     "relativePath": "Texture/singleColor.png"
   },
-  "00f79829-1ecf-4977-b041-07976b7dbb77": {
-    "asset": 1528080484300,
-    "meta": 1528080887964,
-    "relativePath": "Script/PokerControl.js"
-  },
   "2479153a-0191-43be-a016-6108e97e0d6c": {
     "asset": 1528080484379,
     "meta": 1528080886163,
     "relativePath": "resources/prefab/CancelDelegate.prefab"
   },
   "d6ee3da7-5319-4210-87a5-2df4cb0f9fef": {
-    "asset": 1528080484311,
+    "asset": 1528289130775,
     "meta": 1528080484307,
     "relativePath": "Script/gameNetwork"
   },
@@ -1091,187 +1056,187 @@
   },
   "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
     "asset": 1523971143000,
-    "meta": 1528080876175,
+    "meta": 1528213223631,
     "relativePath": "image/default_btn_normal.png"
   },
   "71561142-4c83-4933-afca-cb7a17f67053": {
     "asset": 1523971143000,
-    "meta": 1528080876174,
+    "meta": 1528213223633,
     "relativePath": "image/default_btn_disabled.png"
   },
   "d81ec8ad-247c-4e62-aa3c-d35c4193c7af": {
     "asset": 1523971143000,
-    "meta": 1528080876191,
+    "meta": 1528213223644,
     "relativePath": "image/default_panel.png"
   },
   "b43ff3c2-02bb-4874-81f7-f2dea6970f18": {
     "asset": 1523971143000,
-    "meta": 1528080876192,
+    "meta": 1528213223645,
     "relativePath": "image/default_btn_pressed.png"
   },
   "99170b0b-d210-46f1-b213-7d9e3f23098a": {
     "asset": 1523971143000,
-    "meta": 1528080876203,
+    "meta": 1528213223660,
     "relativePath": "image/default_progressbar_bg.png"
   },
   "cfef78f1-c8df-49b7-8ed0-4c953ace2621": {
     "asset": 1523971143000,
-    "meta": 1528080876204,
+    "meta": 1528213223661,
     "relativePath": "image/default_progressbar.png"
   },
   "567dcd80-8bf4-4535-8a5a-313f1caf078a": {
     "asset": 1523971143000,
-    "meta": 1528080876219,
+    "meta": 1528213223672,
     "relativePath": "image/default_radio_button_off.png"
   },
   "9d60001f-b5f4-4726-a629-2659e3ded0b8": {
     "asset": 1523971143000,
-    "meta": 1528080876220,
+    "meta": 1528213223674,
     "relativePath": "image/default_radio_button_on.png"
   },
   "4bab67cb-18e6-4099-b840-355f0473f890": {
     "asset": 1523971143000,
-    "meta": 1528080876233,
+    "meta": 1528213223684,
     "relativePath": "image/default_scrollbar_bg.png"
   },
   "617323dd-11f4-4dd3-8eec-0caf6b3b45b9": {
     "asset": 1523971143000,
-    "meta": 1528080876234,
+    "meta": 1528213223685,
     "relativePath": "image/default_scrollbar_vertical_bg.png"
   },
   "d6d3ca85-4681-47c1-b5dd-d036a9d39ea2": {
     "asset": 1523971143000,
-    "meta": 1528080876252,
+    "meta": 1528213223703,
     "relativePath": "image/default_scrollbar_vertical.png"
   },
   "0291c134-b3da-4098-b7b5-e397edbe947f": {
     "asset": 1523971143000,
-    "meta": 1528080876251,
+    "meta": 1528213223700,
     "relativePath": "image/default_scrollbar.png"
   },
   "0275e94c-56a7-410f-bd1a-fc7483f7d14a": {
     "asset": 1523971143000,
-    "meta": 1528080876259,
+    "meta": 1528213223704,
     "relativePath": "image/default_sprite_splash.png"
   },
   "6e056173-d285-473c-b206-40a7fff5386e": {
     "asset": 1523971143000,
-    "meta": 1528080876264,
+    "meta": 1528213223715,
     "relativePath": "image/default_sprite.png"
   },
   "73a0903d-d80e-4e3c-aa67-f999543c08f5": {
     "asset": 1523971143000,
-    "meta": 1528080876266,
+    "meta": 1528213223719,
     "relativePath": "image/default_toggle_checkmark.png"
   },
   "c25b9d50-c8fc-4d27-beeb-6e7c1f2e5c0f": {
     "asset": 1523971143000,
-    "meta": 1528080876275,
+    "meta": 1528213223724,
     "relativePath": "image/default_toggle_disabled.png"
   },
   "d29077ba-1627-4a72-9579-7b56a235340c": {
     "asset": 1523971143000,
-    "meta": 1528080876279,
+    "meta": 1528213223727,
     "relativePath": "image/default_toggle_normal.png"
   },
   "972b9a4d-47ee-4c74-b5c3-61d8a69bc29f": {
     "asset": 1523971143000,
-    "meta": 1528080876288,
+    "meta": 1528213223731,
     "relativePath": "prefab/button.prefab"
   },
   "b181c1e4-0a72-4a91-bfb0-ae6f36ca60bd": {
     "asset": 1523971143000,
-    "meta": 1528080876283,
+    "meta": 1528213223729,
     "relativePath": "image/default_toggle_pressed.png"
   },
   "2c937608-2562-40ea-b264-7395df6f0cea": {
     "asset": 1523971143000,
-    "meta": 1528080876290,
+    "meta": 1528213223732,
     "relativePath": "prefab/canvas.prefab"
   },
   "61aeb05b-3b32-452b-8eed-2b76deeed554": {
     "asset": 1523971143000,
-    "meta": 1528080876291,
+    "meta": 1528213223733,
     "relativePath": "prefab/editbox.prefab"
   },
   "27756ebb-3d33-44b0-9b96-e858fadd4dd4": {
     "asset": 1523971143000,
-    "meta": 1528080876291,
+    "meta": 1528213223735,
     "relativePath": "prefab/label.prefab"
   },
   "785a442c-3ceb-45be-a46e-7317f625f3b9": {
     "asset": 1523971143000,
-    "meta": 1528080876292,
+    "meta": 1528213223736,
     "relativePath": "prefab/layout.prefab"
   },
   "ca8401fe-ad6e-41a8-bd46-8e3e4e9945be": {
     "asset": 1523971143000,
-    "meta": 1528080876293,
+    "meta": 1528213223737,
     "relativePath": "prefab/pageview.prefab"
   },
   "cd33edea-55f5-46c2-958d-357a01384a36": {
     "asset": 1523971143000,
-    "meta": 1528080876295,
+    "meta": 1528213223738,
     "relativePath": "prefab/particlesystem.prefab"
   },
   "5965ffac-69da-4b55-bcde-9225d0613c28": {
     "asset": 1523971143000,
-    "meta": 1528080876296,
+    "meta": 1528213223740,
     "relativePath": "prefab/progressBar.prefab"
   },
   "4a37dd57-78cd-4cec-aad4-f11a73d12b63": {
     "asset": 1523971143000,
-    "meta": 1528080876297,
+    "meta": 1528213223741,
     "relativePath": "prefab/richtext.prefab"
   },
   "32044bd2-481f-4cf1-a656-e2b2fb1594eb": {
     "asset": 1523971143000,
-    "meta": 1528080876299,
+    "meta": 1528213223742,
     "relativePath": "prefab/scrollview.prefab"
   },
   "0004d1cf-a0ad-47d8-ab17-34d3db9d35a3": {
     "asset": 1523971143000,
-    "meta": 1528080876301,
+    "meta": 1528213223744,
     "relativePath": "prefab/slider.prefab"
   },
   "1f55e3be-b89b-4b79-88de-47fd31018044": {
     "asset": 1523971143000,
-    "meta": 1528080876302,
+    "meta": 1528213223745,
     "relativePath": "prefab/sprite_splash.prefab"
   },
   "96083d03-c332-4a3f-9386-d03e2d19e8ee": {
     "asset": 1523971143000,
-    "meta": 1528080876303,
+    "meta": 1528213223746,
     "relativePath": "prefab/sprite.prefab"
   },
   "7de03a80-4457-438d-95a7-3e7cdffd6086": {
     "asset": 1523971143000,
-    "meta": 1528080876305,
+    "meta": 1528213223747,
     "relativePath": "prefab/tiledmap.prefab"
   },
   "0d784963-d024-4ea6-a7db-03be0ad63010": {
     "asset": 1523971143000,
-    "meta": 1528080876306,
+    "meta": 1528213223749,
     "relativePath": "prefab/toggle.prefab"
   },
   "bf0a434c-84dd-4a8e-a08a-7a36f180cc75": {
     "asset": 1523971143000,
-    "meta": 1528080876308,
+    "meta": 1528213223750,
     "relativePath": "prefab/toggleContainer.prefab"
   },
   "d1b8be49-b0a0-435c-83b7-552bed4bbe35": {
     "asset": 1523971143000,
-    "meta": 1528080876312,
+    "meta": 1528213223759,
     "relativePath": "prefab/toggleGroup.prefab"
   },
   "232d2782-c4bd-4bb4-9e01-909f03d6d3b9": {
     "asset": 1523971143000,
-    "meta": 1528080876314,
+    "meta": 1528213223760,
     "relativePath": "prefab/videoplayer.prefab"
   },
   "8c5001fd-07ee-4a4b-a8a0-63e15195e94d": {
     "asset": 1523971143000,
-    "meta": 1528080876315,
+    "meta": 1528213223761,
     "relativePath": "prefab/webview.prefab"
   },
   "48cbad31-fa67-44b9-988b-465fc3563887": {
@@ -1298,11 +1263,6 @@
     "asset": 1528080484299,
     "meta": 1528080887955,
     "relativePath": "Script/PlayerControl.js"
-  },
-  "bcf074c0-7ee5-458c-9c39-42a12d5f5c9c": {
-    "asset": 1528080484298,
-    "meta": 1528080887068,
-    "relativePath": "Script/CardUtil.js"
   },
   "5fa3f176-c071-43e9-bd2a-6fc963fe0b80": {
     "asset": 1528080484357,
@@ -1384,16 +1344,6 @@
     "meta": 1528080886195,
     "relativePath": "resources/prefab/resoultInfoItem.prefab"
   },
-  "befceada-3237-4419-943e-9fdb42e6903e": {
-    "asset": 1528080484305,
-    "meta": 1528080887252,
-    "relativePath": "Script/dialog/resoultInfoItemControl.js"
-  },
-  "d7972e32-8dfc-4375-b80d-ff711ef7359b": {
-    "asset": 1528080484305,
-    "meta": 1528080887235,
-    "relativePath": "Script/dialog/gameResultControl.js"
-  },
   "51967de2-8a13-4e15-ad07-92bbea232ea3": {
     "asset": 1528080484352,
     "meta": 1528080885611,
@@ -1410,24 +1360,19 @@
     "relativePath": "resources/gameResult/guangxiao-4.png"
   },
   "c3671028-1242-462e-a72b-162cc5158993": {
-    "asset": 1528080484384,
-    "meta": 1528080886188,
+    "asset": 1528395985684,
+    "meta": 1528395985693,
     "relativePath": "resources/prefab/gameResultWin.prefab"
   },
   "77d11e0f-51dd-4e36-9185-a4e8ef1ae0b3": {
-    "asset": 1528080484384,
-    "meta": 1528080886184,
+    "asset": 1528395942169,
+    "meta": 1528395942176,
     "relativePath": "resources/prefab/gameResultLose.prefab"
   },
   "9510c904-8db6-412f-8765-495324f8a971": {
-    "asset": 1528175488676,
-    "meta": 1528175488685,
+    "asset": 1528395992661,
+    "meta": 1528395992666,
     "relativePath": "Scene/LoadingScene.fire"
-  },
-  "b2ac8239-8e0a-48c9-a74b-7ba8170d9097": {
-    "asset": 1528080484310,
-    "meta": 1528080887606,
-    "relativePath": "Script/gameNetwork/Net.js"
   },
   "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
     "asset": 1528080484311,
@@ -1465,8 +1410,8 @@
     "relativePath": "resources/p_clockNum.png"
   },
   "627a7c64-2c5f-4d9e-80c7-8910a412b508": {
-    "asset": 1528080484381,
-    "meta": 1528080886165,
+    "asset": 1528296338456,
+    "meta": 1528296338466,
     "relativePath": "resources/prefab/commonDialog.prefab"
   },
   "5f640cfa-e0e2-423b-ba9f-ad00c9a26de4": {
@@ -1519,14 +1464,9 @@
     "meta": 1528083442080,
     "relativePath": "Script/animation"
   },
-  "8bdcebdf-fd7c-4500-a0db-3ef316de8719": {
-    "asset": 1528083439494,
-    "meta": 1528083442154,
-    "relativePath": "Script/animation/watingStarControl.js"
-  },
   "06ccdaa9-6847-4aef-b6b5-3bd13024b633": {
-    "asset": 1528083798772,
-    "meta": 1528083798776,
+    "asset": 1528296268229,
+    "meta": 1528296268235,
     "relativePath": "resources/animatiom/watingStartGame.prefab"
   },
   "c3e81133-8951-4e0b-ac1d-970da6c98812": {
@@ -1559,31 +1499,6 @@
     "meta": 1528112089798,
     "relativePath": "Script/gameNetwork/PlayerDetailModel.js"
   },
-  "72ee4884-126a-47a8-b1e7-29e00414de87": {
-    "asset": 1528117153417,
-    "meta": 1528117232516,
-    "relativePath": "Script/gameNetwork/GameNetMgr.js"
-  },
-  "2ea8a0f8-7696-4826-8423-a34274bd1205": {
-    "asset": 1528171007501,
-    "meta": 1528171028937,
-    "relativePath": "Script/gameNetwork/ByteArray.js"
-  },
-  "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
-    "asset": 1528175905785,
-    "meta": 1528176892215,
-    "relativePath": "Script/gameNetwork/GameNet.js"
-  },
-  "09476f32-25ce-457f-ba19-04eab8f0608f": {
-    "asset": 1528175575939,
-    "meta": 1528176892454,
-    "relativePath": "Script/RoomLayerControl.js"
-  },
-  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
-    "asset": 1528184952960,
-    "meta": 1528184958841,
-    "relativePath": "Script/gameNetwork/AppStart.js"
-  },
   "45752060-9039-4e95-8217-484a0f9db9da": {
     "asset": 1528185943725,
     "meta": 1528185967403,
@@ -1604,11 +1519,6 @@
     "meta": 1528186566108,
     "relativePath": "resources/prefab/jpqNode.prefab"
   },
-  "4b8676a3-47a8-4be8-aa45-451566dd0be5": {
-    "asset": 1528186751358,
-    "meta": 1528186795629,
-    "relativePath": "Script/dialog/dialogManager.js"
-  },
   "1104ac64-d4db-4175-ad17-94090619674b": {
     "asset": 1528188959408,
     "meta": 1528188962112,
@@ -1619,19 +1529,109 @@
     "meta": 1528189211467,
     "relativePath": "resources/animatiom/alarm.prefab"
   },
+  "74c75cf8-f801-40da-9d19-da4c90275c2f": {
+    "asset": 1528269990433,
+    "meta": 1528270051550,
+    "relativePath": "Script/ClockControl.js"
+  },
+  "2bcf49d9-b8a0-4e94-9955-e653e1a0a170": {
+    "asset": 1528279285122,
+    "meta": 1528279368123,
+    "relativePath": "resources/defult_head.png"
+  },
+  "8bdcebdf-fd7c-4500-a0db-3ef316de8719": {
+    "asset": 1528279816505,
+    "meta": 1528280339254,
+    "relativePath": "Script/animation/watingStarControl.js"
+  },
+  "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
+    "asset": 1528288107981,
+    "meta": 1528288296015,
+    "relativePath": "Script/gameNetwork/GameNet.js"
+  },
+  "09476f32-25ce-457f-ba19-04eab8f0608f": {
+    "asset": 1528288387411,
+    "meta": 1528289008602,
+    "relativePath": "Script/RoomLayerControl.js"
+  },
+  "2ea8a0f8-7696-4826-8423-a34274bd1205": {
+    "asset": 1528342025038,
+    "meta": 1528342773337,
+    "relativePath": "Script/gameNetwork/ByteArray.js"
+  },
+  "00f79829-1ecf-4977-b041-07976b7dbb77": {
+    "asset": 1528348623140,
+    "meta": 1528351766418,
+    "relativePath": "Script/PokerControl.js"
+  },
+  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
+    "asset": 1528355644737,
+    "meta": 1528357078530,
+    "relativePath": "Script/gameNetwork/AppStart.js"
+  },
+  "917adc76-da60-4e8b-b3b2-5b712497ab64": {
+    "asset": 1528384179603,
+    "meta": 1528388332784,
+    "relativePath": "Script/CancelDelegateController.js"
+  },
   "5123232e-460d-44b6-887a-78ca0e60f209": {
-    "asset": 1528192775151,
-    "meta": 1528194110887,
+    "asset": 1528389291495,
+    "meta": 1528389908492,
     "relativePath": "Script/config.js"
   },
-  "1393c8a9-79e3-4565-ba57-f5a2716294c6": {
-    "asset": 1528206061326,
-    "meta": 1528206065505,
-    "relativePath": "Script/GameTable.js"
+  "4b8676a3-47a8-4be8-aa45-451566dd0be5": {
+    "asset": 1528389702423,
+    "meta": 1528389908889,
+    "relativePath": "Script/dialog/dialogManager.js"
+  },
+  "72ee4884-126a-47a8-b1e7-29e00414de87": {
+    "asset": 1528390429938,
+    "meta": 1528390551197,
+    "relativePath": "Script/gameNetwork/GameNetMgr.js"
+  },
+  "32b681a6-04b6-4ceb-a328-c757dffddea3": {
+    "asset": 1528392554335,
+    "meta": 1528393764105,
+    "relativePath": "Script/opratShowCardControl.js"
+  },
+  "c56d3114-2ed5-4702-a56a-eb159dd95bd0": {
+    "asset": 1528394135927,
+    "meta": 1528394169817,
+    "relativePath": "Script/opratDoubleControl.js"
+  },
+  "d7972e32-8dfc-4375-b80d-ff711ef7359b": {
+    "asset": 1528396814968,
+    "meta": 1528397225974,
+    "relativePath": "Script/dialog/gameResultControl.js"
+  },
+  "befceada-3237-4419-943e-9fdb42e6903e": {
+    "asset": 1528396761709,
+    "meta": 1528397226411,
+    "relativePath": "Script/dialog/resoultInfoItemControl.js"
   },
   "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
-    "asset": 1528206042071,
-    "meta": 1528206065505,
+    "asset": 1528400729184,
+    "meta": 1528401497321,
     "relativePath": "Script/Player.js"
+  },
+  "bcf074c0-7ee5-458c-9c39-42a12d5f5c9c": {
+    "asset": 1528403168143,
+    "meta": 1528403192251,
+    "relativePath": "Script/CardUtil.js"
+  },
+  "1198194a-566e-4f09-8155-dd4f18902727": {
+    "asset": 1528404422852,
+    "meta": 1528404430218,
+    "relativePath": "Script/opratOutCardControl.js"
+  },
+  "f7e34808-122e-4638-be31-637ebe239112": {
+    "asset": 1528404853383,
+    "meta": 1528404857443,
+    "relativePath": "Script/opratCallLordControl.js"
+  },
+  "1393c8a9-79e3-4565-ba57-f5a2716294c6": {
+    "asset": 1528405598208,
+    "meta": 1528405610058,
+    "relativePath": "Script/GameTable.js"
   }
 }

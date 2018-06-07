@@ -83,6 +83,77 @@ var GameNet = cc.Class({
                     this.handleLoginRoomResult(data,data.code);
                 }else if(data.code == Protocol.Response.Game.CoinsNoMatchRoom){
                     this.handleLoginRoomResult(data,data.code);
+                }else if(data.code == Protocol.Response.Game.Queued){
+                    //进入队列
+                    console.log("进入队列");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"Queued",data);
+                }else if(data.code == Protocol.Response.Game.GameReady){
+                    //游戏准备好了
+                    console.log("游戏准备好了");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"GameReady",data);
+                }else if(data.code == Protocol.Response.Game.TableTimesUpdate){
+                    //桌子的倍数发生改变
+                    console.log("桌子的倍数发生改变");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"TableTimesUpdate",data);
+                }else if(data.code == Protocol.Response.Game.SendCard){
+                    //发牌, 包括各用户的牌信息
+                    console.log("发牌, 包括各用户的牌信息");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"SendCard",data);
+                }else if(data.code == Protocol.Response.Game.RefreshPlayerData){
+                    //刷新用户金币(用户桌面)
+                    console.log("刷新用户金币");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"RefreshPlayerData",data);
+                }else if(data.code == Protocol.Response.Game.TurnCallLord){
+                    //轮到谁叫地主
+                    console.log("轮到谁叫地主");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"TurnCallLord",data);
+                }else if(data.code == Protocol.Response.Game.CallLord){
+                    //玩家叫地主
+                    console.log("玩家叫地主");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"CallLord",data);
+                }else if(data.code == Protocol.Response.Game.TurnGrabLord){
+                    //轮到谁抢地主
+                    console.log("轮到谁抢地主");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"TurnGrabLord",data);
+                }else if(data.code == Protocol.Response.Game.GrabLord){
+                    //玩家抢地主
+                    console.log("玩家抢地主");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"GrabLord",data);
+                }else if(data.code == Protocol.Response.Game.CallLordOver){
+                    //叫地主结束
+                    console.log("叫地主结束");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"CallLordOver",data);
+                }else if(data.code == Protocol.Response.Game.CanDoubleResult){
+                    //通知是否可以加倍
+                    console.log("通知是否可以加倍");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"CanDoubleResult",data);
+                }else if(data.code == Protocol.Response.Game.TurnSendCard){
+                    //轮到谁出牌
+                    console.log("轮到谁出牌");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"TurnSendCard",data);
+                }else if(data.code == Protocol.Response.Game.PlayerDelegated){
+                    //用户托管
+                    console.log("用户托管");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"PlayerDelegated",data);
+                }else if(data.code == Protocol.Response.Game.PlayerSendCard){
+                    //用户出牌
+                    console.log("用户出牌");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"PlayerSendCard",data);
+                }else if(data.code == Protocol.Response.Game.PlayerNotSend){
+                    //用户不出牌
+                    console.log("用户不出牌");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"PlayerNotSend",data);
+                }else if(data.code == Protocol.Response.Game.PlayerShowCard){
+                    //用户明牌
+                    console.log("用户明牌");
+                }else if(data.code == Protocol.Response.Game.GameComplete){
+                    //本局结束
+                    console.log("本局结束");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"GameComplete",data);
+                }else if(data.code == Protocol.Response.Game.TableUserExit){
+                    //有用户退出 通知桌上的玩家重新进入队列
+                    console.log("有用户退出 通知桌上的玩家重新进入队列");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"TableUserExit",data);
                 }
             }
 
@@ -104,7 +175,7 @@ var GameNet = cc.Class({
                     console.log("进入未完成牌局");
                     inGaming = true;
                     succ = false;
-                    CompatibleHelper.RoomId = response["data"]["roomId"];
+                    config.RoomId = response["data"]["roomId"];
                 }
             }else if (code == Protocol.Response.Game.CoinsNoMatchRoom){
                 console.log("进入房间失败");

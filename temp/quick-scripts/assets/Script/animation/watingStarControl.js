@@ -38,6 +38,9 @@ cc.Class({
     show: function show(time) {
         this.timeCount = time;
         this.timeTxt.string = "" + time;
+    },
+    close: function close() {
+        this.node.destroy();
     }
 });
 

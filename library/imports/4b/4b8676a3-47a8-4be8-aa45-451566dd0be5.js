@@ -6,6 +6,10 @@ cc._RF.push(module, '4b867ajR6hL6KpFRRVm3Qvl', 'dialogManager');
 
 var commonControl = require("commonControl");
 
+var CancelDelegateController = require("CancelDelegateController");
+var opratShowCardControl = require("opratShowCardControl");
+var opratDoubleControl = require("opratDoubleControl");
+
 var dialogManager = cc.Class({
     extends: cc.Component,
     statics: {
@@ -17,7 +21,10 @@ var dialogManager = cc.Class({
                 }
                 var newNode = cc.instantiate(prefab);
                 cc.director.getScene().addChild(newNode);
-                if (mControl) newNode.getComponent(mControl).show(args);
+                if (mControl) {
+                    newNode.getComponent(mControl).show(args);
+                    return newNode.getComponent(mControl);
+                }
             });
         },
         showCommonDialog: function showCommonDialog(title, content, enterClick, cancelClick) {
@@ -62,17 +69,17 @@ var dialogManager = cc.Class({
         showOpratCallLord: function showOpratCallLord() {
             this.showDialog("prefab/opratCallLord");
         },
-        showOpratDouble: function showOpratDouble() {
-            this.showDialog("prefab/opratDouble");
-        },
         showOpratOutCard: function showOpratOutCard() {
             this.showDialog("prefab/opratOutCard");
         },
-        showOpratShowCard: function showOpratShowCard() {
-            this.showDialog("prefab/opratShowCard");
+        showOpratDouble: function showOpratDouble(click) {
+            this.showDialog("prefab/opratDouble", opratDoubleControl, click);
         },
-        showCancelDelegate: function showCancelDelegate() {
-            this.showDialog("prefab/CancelDelegate");
+        showOpratShowCard: function showOpratShowCard(click) {
+            this.showDialog("prefab/opratShowCard", opratShowCardControl, click);
+        },
+        showCancelDelegate: function showCancelDelegate(click) {
+            this.showDialog("prefab/CancelDelegate", CancelDelegateController, click);
         }
     }
 });

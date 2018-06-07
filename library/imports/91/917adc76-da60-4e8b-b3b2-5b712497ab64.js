@@ -12,6 +12,9 @@ cc.Class({
     show: function show(click) {
         this.click = click;
     },
+    close: function close() {
+        this.node.destroy();
+    },
     btnClick: function btnClick() {
         console.log("取消托管");
         if (this.click) this.click();

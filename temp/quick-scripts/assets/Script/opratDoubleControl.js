@@ -4,15 +4,7 @@ cc._RF.push(module, 'c56d3EULtVHAqVq6xWd2VvQ', 'opratDoubleControl', __filename)
 
 "use strict";
 
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+var config = require("config");
 
 cc.Class({
     extends: cc.Component,
@@ -30,11 +22,18 @@ cc.Class({
             default: null,
             type: cc.Node
         },
-        timeCount: 30
+        timeCount: 3
     },
-
+    onLoad: function onLoad() {
+        this.timeCount = 3;
+        this.timeTxt.string = "" + this.timeCount;
+    },
     start: function start() {
-        this.show(10, null);
+        // this.show(10,null);
+
+        // this.timeCount = config.AddRatioTime;
+        // this.timeTxt.string = "" + this.timeCount;
+
         this.clockX = this.clock.getPositionX();
         this.clockY = this.clock.getPositionY();
 
@@ -58,11 +57,9 @@ cc.Class({
             }
         }, 1);
     },
-    show: function show(time, click) {
+    show: function show(click) {
         // this.time = time*10;
         this.click = click;
-        this.timeCount = time;
-        this.timeTxt.string = "" + time;
 
         // this.pross = 1.0;
         // this.dt = 1/this.time;
@@ -75,6 +72,11 @@ cc.Class({
         //         this.node.destroy();
         //     }  
         // },0.1, this.time, 0.01);
+    },
+    close: function close() {
+        if (this.node) {
+            this.node.destroy();
+        }
     },
     btnClick1: function btnClick1() {
         console.log("点击了加倍按钮");

@@ -206,6 +206,7 @@ cc.Class({
             PlayerDetailModel.title = response["data"]["title"];
             PlayerDetailModel.isDev = isDevData;
 
+            console.log("进入游戏大厅...");
             this.labLoading.string = "进入游戏大厅...";
             cc.director.loadScene("HallScene");
         } else {
