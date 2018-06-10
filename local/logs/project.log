@@ -1,91 +1,373 @@
-2018-06-07T14:27:23.398Z - normal: Load ~/.CocosCreator/settings.json
-2018-06-07T14:27:23.401Z - normal: checking language setting...
-2018-06-07T14:27:23.401Z - normal: Language: zh
-2018-06-07T14:27:24.394Z - success: protocol editor-framework registered
-2018-06-07T14:27:24.394Z - success: protocol app registered
-2018-06-07T14:27:24.394Z - success: protocol theme registered
-2018-06-07T14:27:24.394Z - success: protocol packages registered
-2018-06-07T14:27:24.395Z - success: protocol unpack registerred
-2018-06-07T14:27:24.395Z - success: protocol disable-commonjs registerred
-2018-06-07T14:27:24.596Z - normal: connected!
-2018-06-07T14:27:24.601Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-06-07T14:27:24.611Z - normal: Initializing Cocos2d
-2018-06-07T14:27:24.893Z - normal: Initializing Asset Database
-2018-06-07T14:27:24.934Z - success: protocol uuid registerred
-2018-06-07T14:27:24.934Z - success: protocol db registerred
-2018-06-07T14:27:24.934Z - success: protocol thumbnail registerred
-2018-06-07T14:27:24.934Z - normal: Loading editor/builtin packages
-2018-06-07T14:27:24.975Z - success: anysdk loaded
-2018-06-07T14:27:25.113Z - success: assets loaded
-2018-06-07T14:27:25.118Z - success: builder loaded
-2018-06-07T14:27:25.122Z - success: cocos-analytics loaded
-2018-06-07T14:27:25.127Z - success: console loaded
-2018-06-07T14:27:25.158Z - success: fb-instant-games loaded
-2018-06-07T14:27:25.164Z - success: hierarchy loaded
-2018-06-07T14:27:25.170Z - success: inspector loaded
-2018-06-07T14:27:25.172Z - success: keystore loaded
-2018-06-07T14:27:25.181Z - success: node-library loaded
-2018-06-07T14:27:25.183Z - success: package-asset loaded
-2018-06-07T14:27:25.186Z - success: preferences loaded
-2018-06-07T14:27:25.189Z - success: project-exporter loaded
-2018-06-07T14:27:25.207Z - success: project-importer loaded
-2018-06-07T14:27:25.210Z - success: project-settings loaded
-2018-06-07T14:27:25.214Z - success: ui-kit loaded
-2018-06-07T14:27:25.219Z - success: ui-grid loaded
-2018-06-07T14:27:25.223Z - success: scene loaded
-2018-06-07T14:27:25.225Z - success: sprite-editor loaded
-2018-06-07T14:27:25.228Z - success: store loaded
-2018-06-07T14:27:25.234Z - success: timeline loaded
-2018-06-07T14:27:25.235Z - normal: Loading builtin packages
-2018-06-07T14:27:25.239Z - success: asset-db-debugger loaded
-2018-06-07T14:27:25.240Z - success: color-picker loaded
-2018-06-07T14:27:25.244Z - success: package-manager loaded
-2018-06-07T14:27:25.250Z - success: sdkbox loaded
-2018-06-07T14:27:25.255Z - success: tester loaded
-2018-06-07T14:27:25.259Z - success: ui-kit-preview-extra loaded
-2018-06-07T14:27:25.263Z - success: ui-kit-preview loaded
-2018-06-07T14:27:25.266Z - success: ui-tree loaded
-2018-06-07T14:27:26.366Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-06-07T14:27:26.368Z - normal: Loading packages
-2018-06-07T14:27:26.372Z - normal: Watching packages
-2018-06-07T14:27:26.381Z - normal: Run Application
-2018-06-07T14:27:28.062Z - success: preview server running at http://localhost:7456
-2018-06-07T14:27:32.521Z - normal: 1.9.1
-2018-06-07T14:27:33.283Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T14:50:02.694Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T14:52:27.143Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T16:18:53.933Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T16:22:25.833Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T16:29:11.244Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T16:45:09.573Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T16:55:51.742Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:03:01.309Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:08:49.577Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:24:14.900Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:49:24.732Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:53:02.179Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:56:10.087Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T17:59:13.366Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T18:02:10.687Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T18:20:43.621Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T18:25:29.242Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T18:47:07.141Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:02:24.134Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:08:07.552Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:13:17.469Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:19:56.817Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:24:58.549Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:28:08.124Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:36:12.572Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T19:58:17.953Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:11:04.333Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:21:50.879Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:26:32.604Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:37:06.462Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:39:01.697Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:47:10.467Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:51:11.766Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:54:17.718Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T20:57:31.395Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T21:06:50.714Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-07T21:13:25.885Z - info: shutdown preview server
+2018-06-08T13:31:30.292Z - normal: Load ~/.CocosCreator/settings.json
+2018-06-08T13:31:30.296Z - normal: checking language setting...
+2018-06-08T13:31:30.296Z - normal: Language: zh
+2018-06-08T13:31:31.319Z - success: protocol editor-framework registered
+2018-06-08T13:31:31.320Z - success: protocol app registered
+2018-06-08T13:31:31.320Z - success: protocol theme registered
+2018-06-08T13:31:31.320Z - success: protocol packages registered
+2018-06-08T13:31:31.320Z - success: protocol unpack registerred
+2018-06-08T13:31:31.320Z - success: protocol disable-commonjs registerred
+2018-06-08T13:31:31.555Z - normal: connected!
+2018-06-08T13:31:31.559Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-06-08T13:31:31.561Z - normal: Initializing Cocos2d
+2018-06-08T13:31:31.832Z - normal: Initializing Asset Database
+2018-06-08T13:31:31.870Z - success: protocol uuid registerred
+2018-06-08T13:31:31.871Z - success: protocol db registerred
+2018-06-08T13:31:31.871Z - success: protocol thumbnail registerred
+2018-06-08T13:31:31.871Z - normal: Loading editor/builtin packages
+2018-06-08T13:31:31.891Z - success: anysdk loaded
+2018-06-08T13:31:32.019Z - success: assets loaded
+2018-06-08T13:31:32.022Z - success: builder loaded
+2018-06-08T13:31:32.026Z - success: cocos-analytics loaded
+2018-06-08T13:31:32.030Z - success: console loaded
+2018-06-08T13:31:32.060Z - success: fb-instant-games loaded
+2018-06-08T13:31:32.065Z - success: hierarchy loaded
+2018-06-08T13:31:32.071Z - success: inspector loaded
+2018-06-08T13:31:32.073Z - success: keystore loaded
+2018-06-08T13:31:32.082Z - success: node-library loaded
+2018-06-08T13:31:32.085Z - success: package-asset loaded
+2018-06-08T13:31:32.088Z - success: preferences loaded
+2018-06-08T13:31:32.091Z - success: project-exporter loaded
+2018-06-08T13:31:32.108Z - success: project-importer loaded
+2018-06-08T13:31:32.111Z - success: project-settings loaded
+2018-06-08T13:31:32.114Z - success: ui-kit loaded
+2018-06-08T13:31:32.119Z - success: ui-grid loaded
+2018-06-08T13:31:32.123Z - success: scene loaded
+2018-06-08T13:31:32.124Z - success: sprite-editor loaded
+2018-06-08T13:31:32.128Z - success: store loaded
+2018-06-08T13:31:32.135Z - success: timeline loaded
+2018-06-08T13:31:32.135Z - normal: Loading builtin packages
+2018-06-08T13:31:32.138Z - success: asset-db-debugger loaded
+2018-06-08T13:31:32.139Z - success: color-picker loaded
+2018-06-08T13:31:32.143Z - success: package-manager loaded
+2018-06-08T13:31:32.149Z - success: sdkbox loaded
+2018-06-08T13:31:32.155Z - success: tester loaded
+2018-06-08T13:31:32.158Z - success: ui-kit-preview-extra loaded
+2018-06-08T13:31:32.161Z - success: ui-kit-preview loaded
+2018-06-08T13:31:32.165Z - success: ui-tree loaded
+2018-06-08T13:31:33.255Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-06-08T13:31:33.258Z - normal: Loading packages
+2018-06-08T13:31:33.261Z - normal: Watching packages
+2018-06-08T13:31:33.270Z - normal: Run Application
+2018-06-08T13:31:34.140Z - success: preview server running at http://localhost:7456
+2018-06-08T13:31:38.547Z - normal: 1.9.1
+2018-06-08T13:31:39.296Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T13:36:05.304Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T13:36:47.623Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T13:37:56.781Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T13:59:44.661Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:24622
+2018-06-08T13:59:44.665Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:24626
+2018-06-08T14:00:27.886Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:25431
+2018-06-08T14:04:13.451Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:29787
+2018-06-08T14:05:13.354Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:30509
+2018-06-08T14:06:03.148Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:31332
+2018-06-08T14:06:03.149Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:31336
+2018-06-08T14:06:05.070Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:31338
+2018-06-08T14:18:51.801Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:19:14.873Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:22:58.591Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:23:11.220Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:54924
+2018-06-08T14:36:40.587Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:40:29.307Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:41:50.843Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:45:44.347Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T14:48:02.116Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T21:39:15.280Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-08T21:43:41.798Z - error: Widget target must be one of the parent nodes of it
+    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:338:24)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:230:24)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:247:13)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:247:13)
+    at TheClass.refreshScene (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:285:13)
+    at EventListeners.invoke (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/event/event-listeners.js:48:26)
+    at TheClass.proto.emit (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/event/event-target.js:443:27)
+    at TheClass.cc.DisplayLinkDirector.cc.Director.extend.mainLoop.CC_EDITOR._purgeDirectorInNextLoop (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/CCDirector.js:1444:14)
+    at EditorEngine.tickInEditMode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/editor-engine/editor-engine.js:1:2665)
+    at EditorEngine._tick (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/editor-engine/editor-engine.js:1:5721)
+2018-06-08T21:43:41.801Z - error: Widget target must be one of the parent nodes of it
+    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:338:24)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:230:24)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:247:13)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:247:13)
+    at TheClass.refreshScene (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:285:13)
+    at EventListeners.invoke (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/event/event-listeners.js:48:26)
+    at TheClass.proto.emit (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/event/event-target.js:443:27)
+    at TheClass.cc.DisplayLinkDirector.cc.Director.extend.mainLoop.CC_EDITOR._purgeDirectorInNextLoop (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/CCDirector.js:1444:14)
+    at EditorEngine.tickInEditMode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/editor-engine/editor-engine.js:1:2665)
+    at EditorEngine._tick (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/editor-engine/editor-engine.js:1:5721)
+2018-06-08T21:43:41.801Z - error: Widget target must be one of the parent nodes of it
+    at Object.errorID (/Applications/CocosCreator.app/Contents/Resources/engine/CCDebugger.js:338:24)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:230:24)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:247:13)
+    at visitNode (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:247:13)
+    at TheClass.refreshScene (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/base-ui/CCWidgetManager.js:285:13)
+    at EventListeners.invoke (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/event/event-listeners.js:48:26)
+    at TheClass.proto.emit (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/event/event-target.js:443:27)
+    at TheClass.cc.DisplayLinkDirector.cc.Director.extend.mainLoop.CC_EDITOR._purgeDirectorInNextLoop (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/CCDirector.js:1444:14)
+    at EditorEngine.tickInEditMode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/editor-engine/editor-engine.js:1:2665)
+    at EditorEngine._tick (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/editor-engine/editor-engine.js:1:5721)
+2018-06-08T21:47:25.279Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:128533
+2018-06-08T21:47:25.283Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:128537
+2018-06-08T21:47:25.284Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:128539
+2018-06-08T21:47:36.103Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:128637
+2018-06-08T21:47:47.314Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:128762
+2018-06-08T22:15:54.923Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:138802
+2018-06-08T22:15:54.926Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:138806
+2018-06-08T22:17:03.588Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:140239
+2018-06-08T22:17:25.979Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:140620
+2018-06-08T22:20:31.992Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:144568
+2018-06-08T22:20:31.994Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:144571
+2018-06-08T22:20:31.995Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:144573
+2018-06-08T22:21:25.874Z - warn: 控件库里只允许放入 Prefab 资源
+2018-06-08T22:22:42.916Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:147198
+2018-06-08T22:22:42.922Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:147202
+2018-06-09T10:40:32.671Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:329167
+2018-06-09T14:19:01.854Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351329
+2018-06-09T14:19:01.858Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351333
+2018-06-09T14:19:01.859Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351335
+2018-06-09T14:19:01.859Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351337
+2018-06-09T14:19:01.860Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351339
+2018-06-09T14:19:01.860Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351341
+2018-06-09T14:19:22.937Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351490
+2018-06-09T14:19:22.938Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:351492
+2018-06-09T14:23:03.928Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:356517
+2018-06-09T14:23:03.930Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:356521
+2018-06-09T14:52:52.215Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395689
+2018-06-09T14:52:52.218Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395691
+2018-06-09T14:52:52.219Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395693
+2018-06-09T14:52:52.219Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395695
+2018-06-09T14:52:52.220Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395697
+2018-06-09T14:52:52.220Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395699
+2018-06-09T14:52:52.221Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395701
+2018-06-09T14:52:52.222Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395703
+2018-06-09T14:52:52.222Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395705
+2018-06-09T14:52:52.223Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395707
+2018-06-09T14:52:52.223Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395709
+2018-06-09T14:52:52.223Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:395711
+2018-06-09T14:58:56.219Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T14:59:16.141Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:00:21.605Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:01:35.076Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:05:25.508Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:11:06.024Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:12:39.983Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:422850
+2018-06-09T15:15:47.221Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:16:14.953Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:16:35.970Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:18:49.789Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:19:28.696Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:22:47.462Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:24:59.968Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:31:01.999Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:32:54.044Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-09T15:38:16.613Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:07:12.475Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:15:20.486Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:24:28.816Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:30:34.897Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:33:58.308Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:48:17.258Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T01:57:37.505Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T02:03:42.793Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:558398
+2018-06-10T02:07:41.127Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:563733
+2018-06-10T02:09:43.209Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:566342
+2018-06-10T02:11:19.987Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:568436
+2018-06-10T02:21:29.024Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T02:22:32.550Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:584071
+2018-06-10T02:22:49.141Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:584124
+2018-06-10T02:22:49.144Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:584127
+2018-06-10T02:27:29.915Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:590331
+2018-06-10T02:32:04.285Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T02:32:56.450Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T02:39:05.703Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:39:06.060Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:40:06.697Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:40:42.462Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:41:11.452Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:41:11.647Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:41:11.801Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:42:08.793Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:42:08.966Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:42:51.733Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T02:42:51.905Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T03:38:30.076Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T03:38:44.357Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T03:38:57.267Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T03:39:08.566Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T03:45:59.393Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T03:46:55.239Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T03:46:55.386Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T03:47:26.932Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:00:37.225Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:09:07.599Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:09:23.290Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:660783
+2018-06-10T04:09:42.092Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T04:09:42.319Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T04:11:34.392Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:11:59.547Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T04:13:36.410Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:14:39.102Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:16:18.050Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:18:18.665Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:20:30.979Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:20:51.289Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:21:38.469Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:23:22.046Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:25:03.224Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:25:44.838Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:25:59.088Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T04:25:59.357Z - warn: The Scrollbar referenced by component "cc.ScrollView" is invalid. Detailed information:
+Node path: "chatDialog/ScrollView"
+
+2018-06-10T04:26:14.278Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:28:12.505Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:29:24.449Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:31:04.457Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:48:27.219Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:48:43.429Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:51:15.651Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:56:25.924Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:56:59.426Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:58:02.284Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T04:59:13.680Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:03:02.542Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:03:42.097Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:19:39.038Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:19:54.274Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:23:00.234Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:23:13.400Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:742478
+2018-06-10T05:23:13.401Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:742481
+2018-06-10T05:23:47.511Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:743132
+2018-06-10T05:25:08.228Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:744551
+2018-06-10T05:25:08.231Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:744553
+2018-06-10T05:32:38.659Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:34:24.135Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:50:59.233Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T05:59:13.466Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T06:18:57.156Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T06:28:18.277Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T06:44:23.353Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T06:47:36.956Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T06:49:35.491Z - error: TypeError: Cannot read property 'dispose' of null
+    at callonDestroyInTryCatch (eval at misc.tryCatchFunctor_EDITOR (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/utils/misc.js:1:1), <anonymous>:8:20)
+    at CCClass.destroyComp (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/node-activator.js:326:17)
+    at dragonBones_ArmatureDisplay._onPreDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/components/CCComponent.js:514:36)
+    at dragonBones_ArmatureDisplay.prototype._destroyImmediate (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:436:14)
+    at cc_Node._onPreDestroy [as _onPreDestroyBase] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/utils/base-node.js:1215:23)
+    at cc_Node._onPreDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/CCNode.js:1052:36)
+    at cc_Node.prototype._destroyImmediate (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:436:14)
+    at Immediate.deferredDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:169:17)
+    at runCallback (timers.js:672:20)
+2018-06-10T06:49:39.455Z - error: TypeError: Cannot read property 'dispose' of null
+    at callonDestroyInTryCatch (eval at misc.tryCatchFunctor_EDITOR (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/utils/misc.js:1:1), <anonymous>:8:20)
+    at CCClass.destroyComp (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/node-activator.js:326:17)
+    at dragonBones_ArmatureDisplay._onPreDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/components/CCComponent.js:514:36)
+    at dragonBones_ArmatureDisplay.prototype._destroyImmediate (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:436:14)
+    at cc_Node._onPreDestroy [as _onPreDestroyBase] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/utils/base-node.js:1215:23)
+    at cc_Node._onPreDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/CCNode.js:1052:36)
+    at cc_Node.prototype._destroyImmediate (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:436:14)
+    at Immediate.deferredDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:169:17)
+    at runCallback (timers.js:672:20)
+2018-06-10T06:49:42.648Z - error: TypeError: Cannot read property 'dispose' of null
+    at callonDestroyInTryCatch (eval at misc.tryCatchFunctor_EDITOR (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/utils/misc.js:1:1), <anonymous>:8:20)
+    at CCClass.destroyComp (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/node-activator.js:326:17)
+    at dragonBones_ArmatureDisplay._onPreDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/components/CCComponent.js:514:36)
+    at dragonBones_ArmatureDisplay.prototype._destroyImmediate (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:436:14)
+    at cc_Node._onPreDestroy [as _onPreDestroyBase] (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/utils/base-node.js:1215:23)
+    at cc_Node._onPreDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/CCNode.js:1052:36)
+    at cc_Node.prototype._destroyImmediate (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:436:14)
+    at Immediate.deferredDestroy (/Applications/CocosCreator.app/Contents/Resources/engine/cocos2d/core/platform/CCObject.js:169:17)
+    at runCallback (timers.js:672:20)
+2018-06-10T06:56:02.372Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T06:56:27.839Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:56:52.656Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:57:23.942Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:875499
+2018-06-10T08:57:54.401Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:58:12.775Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:58:16.898Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:58:36.954Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:58:38.838Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:58:55.971Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T08:59:33.570Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T09:00:03.663Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:878438
+2018-06-10T09:00:03.663Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:878441
+2018-06-10T09:00:25.634Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T09:01:11.950Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:879892
+2018-06-10T09:01:28.670Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T09:22:08.028Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T09:28:39.386Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T09:32:39.907Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T10:14:11.984Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T10:24:03.786Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T10:40:14.064Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T10:54:54.262Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T11:01:31.103Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T11:05:30.308Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T11:09:44.917Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T11:12:14.370Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T12:59:42.742Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:26:18.013Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:28:31.491Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:29:27.318Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:36:32.982Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:39:49.469Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:42:45.416Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:43:41.529Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:46:12.032Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T13:47:01.572Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T14:04:20.206Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T14:40:38.271Z - failed: [db-task][sync-changes] Failed to import asset /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js, message: Compile error: SyntaxError: /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/RoomLayerControl.js: Unexpected token (489:23)
+  487 |         if (sended > 0){
+  488 |             args["givecoins"] = {
+> 489 |                 sended = sended,
+      |                        ^
+  490 |                 totalTimes = totalTimes,
+  491 |                 curTimes = curTimes,
+  492 |             }
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
+    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3370:10)
+    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3367:23)
+    at Parser.pp$3.parseExpression (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3306:19)
+    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1906:19)
+    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
+    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
+    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1868:19)
+    at Parser.pp$1.parseIfStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2059:26)
+2018-06-10T14:40:38.899Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T14:41:45.621Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-10T14:57:06.884Z - info: shutdown preview server

@@ -3,6 +3,7 @@
   "appSecret": "",
   "encryptJs": true,
   "excludeScenes": [],
+  "fb-instant-games": {},
   "includeAnySDK": false,
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
@@ -20,12 +21,16 @@
   },
   "packageName": "org.cocos2d.helloworld",
   "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
   "renderMode": "0",
   "startScene": "9510c904-8db6-412f-8765-495324f8a971",
-  "title": "hello_world",
+  "title": "doudizhu",
   "webOrientation": "auto",
   "wechatgame": {
-    "appid": "wx6ac3f5090a6b99c5",
+    "appid": "wx8ed13599dcd8f4dd",
     "orientation": "landscape"
   },
   "xxteaKey": "d85967f3-7cf7-45",

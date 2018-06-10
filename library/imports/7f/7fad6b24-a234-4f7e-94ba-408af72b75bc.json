@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_shop_dou5",
+    "texture": "5334c992-8440-41d6-af43-20335b5dd3f0",
+    "atlas": "",
+    "rect": [
+      14,
+      15,
+      192,
+      196
+    ],
+    "offset": [
+      1,
+      -1
+    ],
+    "originalSize": [
+      218,
+      224
+    ]
+  }
+}

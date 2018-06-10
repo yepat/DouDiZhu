@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "be7c3887-54c7-4eb2-b916-864e1ec020ee",
+  "atlasJson": "{\"width\":1024,\"height\":512,\"name\":\"huojian\",\"imagePath\":\"huojian_tex.png\",\"SubTexture\":[{\"width\":18,\"y\":1,\"height\":156,\"name\":\"yinying\",\"x\":1005},{\"width\":221,\"y\":214,\"height\":61,\"name\":\"penghuoguang\",\"x\":340},{\"width\":123,\"y\":1,\"height\":253,\"name\":\"huojian\",\"x\":1},{\"width\":128,\"y\":119,\"height\":145,\"name\":\"penhuo\",\"x\":820},{\"width\":237,\"y\":1,\"height\":121,\"name\":\"partical_2\",\"x\":126},{\"width\":203,\"y\":1,\"height\":116,\"name\":\"partical_0\",\"x\":800},{\"width\":214,\"y\":1,\"height\":122,\"name\":\"partical_1\",\"x\":365},{\"width\":212,\"y\":124,\"height\":105,\"name\":\"partical_5\",\"x\":126},{\"width\":237,\"y\":122,\"height\":100,\"name\":\"partical_4\",\"x\":581},{\"width\":237,\"y\":125,\"height\":87,\"name\":\"partical_3\",\"x\":340},{\"width\":217,\"y\":1,\"height\":119,\"name\":\"partical_6\",\"x\":581}]}",
+  "texture": "f730c336-8525-4769-8323-5d1c77451ed5",
+  "subMetas": {}
+}

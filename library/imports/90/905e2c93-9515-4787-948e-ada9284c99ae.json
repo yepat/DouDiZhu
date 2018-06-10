@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_shop_daoju",
+    "texture": "9dca0608-3e79-4560-9289-0be2dd1b67be",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      341,
+      92
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      344,
+      94
+    ]
+  }
+}

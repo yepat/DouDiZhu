@@ -36,6 +36,5 @@ cc.Class({
         this.hallLayer.active = true;
         this.roomLayer.active = false;
     },
-    
-    
+   
 });

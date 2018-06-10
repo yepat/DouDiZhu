@@ -92,8 +92,10 @@ cc.Class({
     },
     btnShopClick(){
         console.log("btnShopClick");
+        dialogManager.showShopDialog();
     },
     btnShareClick(){
         console.log("btnShareClick");
+        dialogManager.showShareDialog();
     }
 });

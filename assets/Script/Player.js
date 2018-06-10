@@ -360,6 +360,9 @@ var Player = cc.Class({
         if(this.isLandlord){
             myPokerNode[myPokerNode.length-1].getComponent(PokerControl).setCardDiZhu(true);
         }
+        if(this.openHandCards){
+            myPokerNode[myPokerNode.length-1].getComponent(PokerControl).setCardShow(true);
+        }
         return myPokerNode;
     },
     //理牌
@@ -373,6 +376,9 @@ var Player = cc.Class({
         startX = startX || startPosX;
         for(var i = 0; i < pokerNode.length; i++){
             pokerNode[i].setPosition(startX + i * seatPosParam.disBetween + pokerNode[0].getComponent(PokerControl).node.width * seatPosParam.pokerScale * 0.5,seatPosParam.positionY);
+            //把提出的牌设置 未提出
+            // var pokerNode = pokerNode[i];
+            pokerNode[i].getComponent(PokerControl).setMoveDown();
         }
     },
     clearTableCard(dispatchCard){
@@ -402,9 +408,10 @@ var Player = cc.Class({
         //         index++;
         //     }
         // }
-        for(var i = PokerData.length - 1; i > -1;i--){
+        for(var i = PokerData.length - 1; i > -1;i--){ //这里要添加花色判断
             var cardValue = CardUtil.StringToNumber(PokerData[i].showTxt);
-            if(index<cards.length&&cards[index].showTxt==cardValue){ 
+            var cardType = CardUtil.StringToNumber(PokerData[i].showType);
+            if(index<cards.length&&cards[index].showTxt==cardValue&&cards[index].showType==cardType){
                 console.log("cards:"+cards[index].showTxt);
                 var isChoosedPoker = PokerNode[i];
                 dispatchCard.unshift(isChoosedPoker);
@@ -436,6 +443,9 @@ var Player = cc.Class({
             //最后一张牌设置为地主牌 
             if(this.isLandlord&&i==pokerNode.length-1){
                 poker.setCardDiZhu(true);
+            }
+            if(this.openHandCards&&i==pokerNode.length-1){
+                poker.setCardShow(true);
             }
         }
     },
@@ -490,6 +500,9 @@ var Player = cc.Class({
             if(this.isLandlord&&i==pokerNode.length-1){
                 poker.setCardDiZhu(true);
             }
+            if(this.openHandCards&&i==pokerNode.length-1){
+                poker.setCardShow(true);
+            }
         }
     },
     //右边玩家明牌
@@ -543,6 +556,9 @@ var Player = cc.Class({
             if(this.isLandlord&&i==pokerNode.length-1){
                 poker.setCardDiZhu(true);
             }
+            if(this.openHandCards&&i==pokerNode.length-1){
+                poker.setCardShow(true);
+            }
         }
     },
     //其他玩家没有明牌 暗牌出牌 seatNumber//0右边 1下边 2左边
@@ -582,6 +598,9 @@ var Player = cc.Class({
         if(this.isLandlord){
             dispatchCard[dispatchCard.length-1].getComponent(PokerControl).setCardDiZhu(true);
         } 
+        // if(this.openHandCards&&i==pokerNode.length-1){
+        //     dispatchCard[dispatchCard.length-1].getComponent(PokerControl).setCardShow(true);
+        // }
         return dispatchCard;
     },
 

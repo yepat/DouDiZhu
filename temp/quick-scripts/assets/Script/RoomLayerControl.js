@@ -64,12 +64,14 @@ cc.Class({
         this.roomModelId_ = config.curRoomModelId;
         this.initRoomInfo();
 
-        EventHelper.AddCustomEvent(config.MyNode, Events.Network.LoginRoomResult, function (event) {
-            console.log("登陆房间回掉---");
-            var data = event.getUserData();
-            console.log(data);
-            self.handleLoginRoomResult(data);
-        });
+        EventHelper.AddCustomEvent(config.MyNode, Events.Network.LoginRoomResult, self.onLoginRoomResult, self);
+    },
+    onLoginRoomResult: function onLoginRoomResult(event) {
+        var self = this;
+        console.log("登陆房间回掉---");
+        var data = event.getUserData();
+        // console.log(data);
+        self.handleLoginRoomResult(data);
     },
     initRoomInfo: function initRoomInfo() {
         console.log(">>>initRoomInfo");
@@ -287,6 +289,8 @@ cc.Class({
                 console.log("刷新用户乐豆乐券");
             }
 
+            config.tableInfo = args;
+
             if (parseInt(payload["data"]["modelId"]) == config.ModelId.lazarillo) {
                 // --癞子场
                 // DeviceHelper.addGameLog("enterRoom_lz"..args["roomId"],"a")
@@ -297,7 +301,8 @@ cc.Class({
                 // DeviceHelper.addGameLog("enterRoom"..args["roomId"],"a")
                 // app:enterPokerScene(args)
                 console.log("进入普通场");
-                cc.director.loadScene("GameScene");
+                // cc.director.loadScene("GameScene");
+                self.preloadNextScene();
             }
         } else {
             if (event.noCoin) {
@@ -334,7 +339,7 @@ cc.Class({
                     console.log("您还在其他房间中对局哟，现在进去看看吧！");
                     dialogManager.showCommonDialog("温馨提示", "您还在其他房间中对局哟，现在进去看看吧！", function () {
                         console.log("短线重连普通场");
-                        // self.onWantContinueGaming();
+                        self.onWantContinueGaming(event);
                     });
                 } else if (!payload.data.modelId || parseInt(payload.data.modelId) == config.ModelId.lazarillo) {
                     console.log("您还在其他癞子场中对局哟，现在进去看看吧！");
@@ -436,6 +441,63 @@ cc.Class({
             // proxy:sendRequest("Game", "openRechargeTip", {})
             console.log("弹出救济框");
         }
+    },
+
+
+    //
+    preloadNextScene: function preloadNextScene() {
+        cc.director.preloadScene("GameScene", function () {
+            cc.log("Next scene preloaded");
+            cc.director.loadScene("GameScene");
+        });
+    },
+    onWantContinueGaming: function onWantContinueGaming(event) {
+        var payload = event.payload;
+
+        console.log("--进入上局未完的普通牌桌");
+
+        var args = {};
+        args["baseCoins"] = payload["data"]["baseCoins"];
+        args["rate"] = payload["data"]["rate"];
+        args["limitCoins"] = payload["data"]["limitCoins"];
+        args["rake"] = payload["data"]["rake"];
+        args["buys"] = payload["data"]["buys"];
+
+        args["rateMax"] = payload["data"]["rateMax"];
+        args["enterLimit"] = payload["data"]["enterLimit"];
+
+        args["emoticon"] = payload["data"]["emoticon"];
+        args["emoticon_items"] = payload["data"]["emoticon_items"];
+        args["advert"] = payload["data"]["advert"]; //记牌器数据
+
+        if (payload["data"]["modelId"]) {
+            args["modelId"] = payload["data"]["modelId"];
+            if (parseInt(payload["data"]["modelId"]) == AppConfig.ModelId.contest) {
+                // CompatibleHelper.MatchGameRoomId = payload["data"]["roomId"];
+                // console.log(">>>>>>>>>>>>>>MatchGameRoomId:"+CompatibleHelper.MatchGameRoomId);
+            }
+        }
+        args["givecoins"] = null;
+        var sended = payload["data"]["sendCoins"];
+        var totalTimes = payload["data"]["sendCoinsTimes"];
+        var curTimes = payload["data"]["sendCoinsTimesToday"];
+        var isSend = payload["data"]["isSend"];
+
+        if (sended > 0) {
+            args["givecoins"] = {
+                sended: sended,
+                totalTimes: totalTimes,
+                curTimes: curTimes
+                // app:dispatchEvent({name = app.class.UserProfileUpdate})
+            };
+        }
+        // var proxy = RPCProxy:getInstance();
+        // proxy:setOpMsg(true);//暂停处理数据
+
+        args["roomId"] = payload["data"]["roomId"];
+        args["isContinueGaming"] = true;
+        config.tableInfo = args;
+        this.preloadNextScene();
     }
 });
 

@@ -15,6 +15,8 @@ config.playGameMsg = "";
 
 config.RoomId = 0; //未完成牌桌
 
+config.tableInfo = null; //桌子信息 
+
 config.curRoomModelId = 0; //房间模式
 //房间模式
 config.ModelId = { normal: 0, contest: 3, lazarillo: 2
@@ -52,8 +54,8 @@ config.pokerCardType = {
 };
 
 config.ghostCardType = {
-    bigG: "bigG", //大王
-    smallG: "smallG" //小王
+    smallG: 5, //小王
+    bigG: 6 //大王
 
 
     //数组降序排列
@@ -129,8 +131,22 @@ config.seatPos = {
     FourPlusTwo: 12 //四带2, 四只带两对
 };
 
+config.gameState = {
+    ST_GAME_PREPARE: 0, //准备
+    ST_GAME_READY: 1, //游戏准备好了
+    ST_GAME_WAIT_START: 2, //等待开始
+    ST_GAME_START: 3, //游戏开始
+    ST_GAME_BALANCE: 4, //结算
+    ST_GAME_WAIT_NEXTROUND: 5, //等待下一轮
+    ST_GAME_MYTURN: 6, //玩家自己出牌状态
+    ST_GAME_WAIT_OTHERS: 7, //等待其他玩家准备
+    ST_GAME_OVER: 8, //游戏结束
+    ST_GAME_SHOWDETAILS: 9, //显示结算详情
+    ST_GAME_CURMATCHOVER: 10 //比赛场结束
+};
+
 config.GlobalRouter = {
-    director: "http://ddzprotocal.51864.com/clientConfig/host.php", // host_inner
+    director: "https://ddzprotocal.51864.com/clientConfig/host.php", // host_inner
     statistics: "http://applog.51864.com/index.php",
     host: null,
     port: null,
@@ -166,6 +182,21 @@ config.RoomConfig = {
     10: { name: "高级场", umengEvent: "l_senior_room", pot: 50, min: 10000, max: 1000000, texture: "room_4.png", roomId: 1010, roomNameTexture: "p_senior_bar.png" },
     11: { name: "无限场", umengEvent: "l_noRate_room", pot: 50, min: 10000, max: 1000000, texture: "room_5.png", roomId: 1011, roomNameTexture: "p_senior_bar.png" }
 };
+
+config.tableName = {
+    1000: "新手场 底分10",
+    1001: "初级场 底分60",
+    1002: "中级场 底分200",
+    1003: "高级场 底分500",
+
+    1007: "新手场 底分40",
+    1008: "初级场 底分150",
+    1009: "中级场 底分400"
+};
+
+config.chatContent = ["大家好,很高兴见到各位", "快点啊,等到花儿都谢了", "你的牌打的也太好了", "不要吵了不要吵了，专心玩游戏吧", "怎么又断线,网络怎么这么差啊",
+//"交个朋友吧，能告诉我你的联系方法吗",
+"不好意思,我要离开一会", "再见了,我会想念大家的"];
 
 config.parseNumber = function (number) {
     if (typeof number == "string") number = parseInt(number);

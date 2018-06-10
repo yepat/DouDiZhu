@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chuntian_4_tex",
+    "texture": "6b4c5c1e-bdf7-4bd5-b510-6ee510aa0347",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      509,
+      678
+    ],
+    "offset": [
+      -0.5,
+      172
+    ],
+    "originalSize": [
+      512,
+      1024
+    ]
+  }
+}

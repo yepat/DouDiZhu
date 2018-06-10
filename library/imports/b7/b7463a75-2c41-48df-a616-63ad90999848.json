@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_shop_dou3",
+    "texture": "4aae3bf0-5861-4e3b-833c-99215d6140ec",
+    "atlas": "",
+    "rect": [
+      4,
+      0,
+      201,
+      155
+    ],
+    "offset": [
+      -3,
+      1
+    ],
+    "originalSize": [
+      215,
+      157
+    ]
+  }
+}

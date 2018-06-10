@@ -39,6 +39,10 @@ cc.Class({
             default: null,
             type: cc.Sprite
         },
+        pokerShow: {
+            default: null,
+            type: cc.Sprite
+        },
 
         canTouch: false,
         isTouched: false,
@@ -62,12 +66,17 @@ cc.Class({
             cc.loader.loadRes(numUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.pokerNum.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
+
+            cc.loader.loadRes("cards/blank_card", cc.SpriteFrame, function (err, spriteFrame) {
+                self.pokerBg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            });
         }
 
         console.log("" + showData.showTxt + ":" + self.cardValue);
 
         self.pokerDiZhu.enabled = false;
         self.pokerLight.enabled = false;
+        self.pokerShow.enabled = false;
         self.pokerType.enabled = true;
         var imgUrl = "cards/heitao";
         if (showType == config.pokerCardType.spade) {
@@ -138,6 +147,14 @@ cc.Class({
     },
     setCardDiZhu: function setCardDiZhu(isEnabled) {
         this.pokerDiZhu.enabled = isEnabled;
+    },
+    setCardShow: function setCardShow(isEnabled) {
+        this.pokerShow.enabled = isEnabled;
+    },
+    setMoveDown: function setMoveDown() {
+        this.cardData.isTopped = false;
+        this.cardData.isChoosed = false;
+        this.pokerLight.enabled = false;
     }
 });
 

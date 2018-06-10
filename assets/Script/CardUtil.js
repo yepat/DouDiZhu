@@ -34,12 +34,13 @@ CardUtil.StringToNumber = function(str){
 }
 //降序排列
 CardUtil.gradeDown = function(card1,card2){
-    return card2.showTxt - card1.showTxt;
+    return (card2.showTxt*10 + card2.showType) - (card1.showTxt*10 + card1.showType);
 }
 //升序排列
 CardUtil.gradeUp = function(card1,card2){
-    return card1.showTxt - card2.showTxt;
+    return (card1.showTxt*10 + card1.showType) - (card2.showTxt*10 + card2.showType);
 }
+
 //服务器牌值转化
 CardUtil.serverCardsToClient = function(serverCards){
     var pokerData = [];
@@ -249,7 +250,7 @@ CardUtil.get_topCard_type = function(topCards){
     }else{
     }
 
-    console.log(topCards);
+    // console.log(topCards);
 
     //相同值归类并统计
     var sameValues = PopCardUtil.getSameCards(topCards);

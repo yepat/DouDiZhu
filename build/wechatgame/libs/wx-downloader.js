@@ -31,17 +31,22 @@ var non_text_format = [
 
 const REGEX = /^\w+:\/\/.*/;
 
-var fs = wx.getFileSystemManager();
+// has sub domain
+var isSubdomain = wx.getGroupCloudStorage && wx.getFriendCloudStorage;
+
+var fs = isSubdomain ? {} : wx.getFileSystemManager();
 
 var WXDownloader = window.WXDownloader = function () {
     this.id = ID;
     this.async = true;
     this.pipeline = null;
     this.REMOTE_SERVER_ROOT = '';
+    this.SUBCONTEXT_ROOT = '';
 };
 WXDownloader.ID = ID;
 
 WXDownloader.prototype.handle = function (item, callback) {
+
     if (item.type === 'js') {
         callback(null, null);
         return;
@@ -59,6 +64,16 @@ WXDownloader.prototype.handle = function (item, callback) {
             }
         }
     }
+
+    if (isSubdomain) {
+        item.url = this.SUBCONTEXT_ROOT + '/' + item.url;
+
+        if (item.type && non_text_format.indexOf(item.type) !== -1) {
+            nextPipe(item, callback);
+            return;
+        }
+    }
+
     var filePath = item.url;
     // Read from package
     fs.access({

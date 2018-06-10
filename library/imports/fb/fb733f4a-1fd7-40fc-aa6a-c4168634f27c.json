@@ -1,0 +1,10 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "chuntian_4_tex",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_atlasJson": "{\"width\":512,\"height\":1024,\"name\":\"chuntian_4\",\"imagePath\":\"chuntian_4_tex.png\",\"SubTexture\":[{\"width\":15,\"y\":1,\"height\":15,\"name\":\"1\",\"x\":468},{\"width\":318,\"y\":230,\"height\":212,\"name\":\"ef_doudizhu_spring_glow\",\"x\":1},{\"width\":413,\"y\":1,\"height\":227,\"name\":\"ef_doudizhu_spring_leaf\",\"x\":1},{\"width\":48,\"y\":361,\"height\":48,\"name\":\"ef_doudizhu_spring_floower_10\",\"x\":450},{\"width\":50,\"y\":1,\"height\":163,\"name\":\"ef_doudizhu_spring_floower_01\",\"x\":416},{\"width\":127,\"y\":337,\"height\":99,\"name\":\"ef_doudizhu_spring_floower_04\",\"x\":321},{\"width\":55,\"y\":166,\"height\":73,\"name\":\"ef_doudizhu_spring_floower_03\",\"x\":451},{\"width\":71,\"y\":438,\"height\":80,\"name\":\"ef_doudizhu_spring_floower_05\",\"x\":438},{\"width\":55,\"y\":241,\"height\":70,\"name\":\"ef_doudizhu_spring_floower_07\",\"x\":451},{\"width\":66,\"y\":594,\"height\":85,\"name\":\"ef_doudizhu_spring_floower_08\",\"x\":1},{\"width\":128,\"y\":230,\"height\":105,\"name\":\"ef_doudizhu_spring_floower_11\",\"x\":321},{\"width\":80,\"y\":540,\"height\":91,\"name\":\"ef_doudizhu_spring_floower_06\",\"x\":383},{\"width\":56,\"y\":594,\"height\":38,\"name\":\"ef_doudizhu_spring_floower_13\",\"x\":137},{\"width\":281,\"y\":444,\"height\":148,\"name\":\"ef_doudizhu_spring_wor\",\"x\":1},{\"width\":115,\"y\":438,\"height\":100,\"name\":\"ef_doudizhu_spring_floower_02\",\"x\":321},{\"width\":55,\"y\":313,\"height\":46,\"name\":\"ef_doudizhu_spring_floower_12\",\"x\":451},{\"width\":66,\"y\":594,\"height\":69,\"name\":\"ef_doudizhu_spring_floower_09\",\"x\":69},{\"width\":97,\"y\":540,\"height\":99,\"name\":\"ef_doudizhu_spring_floower_00\",\"x\":284},{\"width\":45,\"y\":520,\"height\":38,\"name\":\"ef_doudizhu_spring_fly_01\",\"x\":465},{\"width\":45,\"y\":560,\"height\":34,\"name\":\"ef_doudizhu_spring_fly_02\",\"x\":465}]}",
+  "texture": {
+    "__uuid__": "6b4c5c1e-bdf7-4bd5-b510-6ee510aa0347"
+  }
+}

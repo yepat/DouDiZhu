@@ -27,7 +27,13 @@ var GameNetMgr = cc.Class({
                     this.sendCancelDelegate(arg);
                 }else if(eventName == "addRatio"){
                     this.sendAddRatio(arg);
+                }else if(eventName == "exitRoom"){
+                    this.sendExitRoom();
+                }else if(eventName == "sayToTable"){
+                    this.SendSayToTable(arg);
                 }
+
+                
             }
         },
         sendLoginRoom(arg){
@@ -103,5 +109,20 @@ var GameNetMgr = cc.Class({
             params.t = Protocol.Request.Game.AddRatio;
             cc.vv.net.send("addRatio",Protocol.Command.Game,params);
         },
+        //退出
+        sendExitRoom(){
+            var params = {};
+            params.t = Protocol.Request.Game.ExitRoom;
+            cc.vv.net.send("exitRoom",Protocol.Command.Game,params);
+        },
+        //拍桌聊天
+        //牌桌里发语言
+        SendSayToTable(arg){
+            var params = {};
+            params.t = Protocol.Request.Game.SayToTable;
+            params.wordId = arg.id;
+            params.word = arg.word;
+            cc.vv.net.send("sayToTable",Protocol.Command.Game,params);
+        }
     },
 });

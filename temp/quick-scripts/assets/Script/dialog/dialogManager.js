@@ -63,6 +63,15 @@ var dialogManager = cc.Class({
         showJpqNode: function showJpqNode() {
             this.showDialog("prefab/jpqNode");
         },
+        showShareDialog: function showShareDialog() {
+            this.showDialog("prefab/shareDialog");
+        },
+        showShopDialog: function showShopDialog() {
+            this.showDialog("prefab/shopDialog");
+        },
+        showChatDialog: function showChatDialog() {
+            this.showDialog("prefab/chatDialog");
+        },
 
 
         //牌桌操作界面
@@ -80,6 +89,21 @@ var dialogManager = cc.Class({
         },
         showCancelDelegate: function showCancelDelegate(click) {
             this.showDialog("prefab/CancelDelegate", CancelDelegateController, click);
+        },
+
+
+        //动画
+        showAnimChunTian: function showAnimChunTian() {
+            this.showDialog("animatiom/anim_chuntian");
+        },
+        showAnimFeiJi: function showAnimFeiJi() {
+            this.showDialog("animatiom/anim_feiji");
+        },
+        showAnimHuoJian: function showAnimHuoJian() {
+            this.showDialog("animatiom/anim_huojian");
+        },
+        showAnimZhaDan: function showAnimZhaDan() {
+            this.showDialog("animatiom/anim_zhadan");
         }
     }
 });

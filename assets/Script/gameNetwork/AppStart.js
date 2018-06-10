@@ -98,23 +98,27 @@ cc.Class({
             }     
         }.bind(this),10000);
 
-        EventHelper.AddCustomEvent(config.MyNode,"Regist",function(event){
-            console.log("Regist---");
-            var data = event.getUserData();
-            config.temppassword = data.data.data.password;
-            self.sendLogin();
-        });
+        EventHelper.AddCustomEvent(config.MyNode,"Regist",self.onRegist,self);
+        EventHelper.AddCustomEvent(config.MyNode,"HeartBeat",self.onHeartBeat,self);
+        EventHelper.AddCustomEvent(config.MyNode,"LoginOK",self.onLoginOK,self);
 
-        EventHelper.AddCustomEvent(config.MyNode,"HeartBeat",function(event){
-            // console.log("HeartBeat---");
-        });
-
-        EventHelper.AddCustomEvent(config.MyNode,"LoginOK",function(event){
-            console.log("LoginOK---");
-            console.log(event.getUserData());
-            var data = event.getUserData();
-            self.setPlayerDetailModel(data);
-        });
+    },
+    onRegist(event){
+        var self = this;
+        console.log("Regist---");
+        var data = event.getUserData();
+        config.temppassword = data.data.data.password;
+        self.sendLogin();
+    },
+    onHeartBeat(event){
+        // console.log("HeartBeat---");
+    },
+    onLoginOK(event){
+        var self = this;
+        console.log("LoginOK---");
+        console.log(event.getUserData());
+        var data = event.getUserData();
+        self.setPlayerDetailModel(data);
     },
     sendHeartBeat(){
         //发送心跳
@@ -206,7 +210,7 @@ cc.Class({
 
             console.log("进入游戏大厅...");
             this.labLoading.string = "进入游戏大厅...";
-            cc.director.loadScene("HallScene");
+            this.preloadNextScene();
         }else{
             console.log("登陆游戏失败！");
             this.labLoading.string = "登陆游戏失败！";
@@ -215,6 +219,12 @@ cc.Class({
             });
             
         }
-
+    },
+     //
+     preloadNextScene(){
+        cc.director.preloadScene("HallScene", function () {
+            cc.log("Next scene preloaded");
+            cc.director.loadScene("HallScene");
+        });
     }
 });

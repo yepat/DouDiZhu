@@ -113,6 +113,7 @@ cc.Class({
             this.btn2Func();
         }
         if(this.type == config.opratType.mustOutCard){
+            // this.node.destroy();
         }else{
             this.node.destroy();
         }

@@ -117,7 +117,9 @@ cc.Class({
         if (this.btn2Func) {
             this.btn2Func();
         }
-        if (this.type == config.opratType.mustOutCard) {} else {
+        if (this.type == config.opratType.mustOutCard) {
+            // this.node.destroy();
+        } else {
             this.node.destroy();
         }
     },

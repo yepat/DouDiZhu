@@ -89,11 +89,16 @@ cc.Class({
         console.log("提示");
         if (this.tishiFunc) this.tishiFunc();
     },
-    chupaiClick: function chupaiClick() {
+    chupaiClick: function chupaiClick(num) {
         console.log("出牌");
         var typenum = 0;
         if (this.chupaiFunc) typenum = this.chupaiFunc();
         this.tishi.enabled = false;
+
+        if (num) {
+            typenum = num;
+        }
+
         if (typenum == 0) {
             // this.showTips("没有选择要出的牌！");
             this.showTips("showTips/p_tips_noSeletcedCrad");

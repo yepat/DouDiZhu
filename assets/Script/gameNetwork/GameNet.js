@@ -146,6 +146,7 @@ var GameNet = cc.Class({
                 }else if(data.code == Protocol.Response.Game.PlayerShowCard){
                     //用户明牌
                     console.log("用户明牌");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"PlayerShowCard",data);
                 }else if(data.code == Protocol.Response.Game.GameComplete){
                     //本局结束
                     console.log("本局结束");
@@ -154,7 +155,16 @@ var GameNet = cc.Class({
                     //有用户退出 通知桌上的玩家重新进入队列
                     console.log("有用户退出 通知桌上的玩家重新进入队列");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TableUserExit",data);
+                }else if(data.code == Protocol.Response.Game.InvalidCardNum){
+                    ////出的牌不够大 [非法出牌]
+                    console.log("出的牌不够大 [非法出牌]");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"InvalidCardNum",data);
+                }else if(data.code == Protocol.Response.Game.SayToTableInfo){
+                    ////聊天信息
+                    console.log("聊天信息");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"SayToTableInfo",data);
                 }
+                //
             }
 
         },
@@ -193,6 +203,8 @@ var GameNet = cc.Class({
             params.inGaming = inGaming;
             params.msg = msg;
             params.newRoomId = newRoomId;
+
+            console.log(">>>>>>>>>>Events.Network.LoginRoomResult");
 
             EventHelper.DispatchCustomEvent(config.MyNode,Events.Network.LoginRoomResult,params);
         }

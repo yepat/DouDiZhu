@@ -9,15 +9,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var config = require("config");
 var EventHelper = {};
 
-EventHelper.AddCustomEvent = function (__node, __eventName, __handler) {
+EventHelper.AddCustomEvent = function (__node, __eventName, __handler, self) {
     if ((typeof __node === "undefined" ? "undefined" : _typeof(__node)) != "object") {
         console.log("__node节点不存在");
         return;
     }
-    __node.on(__eventName, function (event) {
-        // console.log(">>>AddCustomEvent:"+__eventName);
-        __handler(event);
-    });
+    // __node.on(__eventName, function (event) {
+    //     // console.log(">>>AddCustomEvent:"+__eventName);
+    //     __handler(event);
+    // });
+
+    __node.on(__eventName, __handler, self);
 };
 
 EventHelper.DispatchCustomEvent = function (__node, __name, __data) {
@@ -30,6 +32,17 @@ EventHelper.DispatchCustomEvent = function (__node, __name, __data) {
     event.setUserData(__data);
     __node.dispatchEvent(event);
 };
+
+EventHelper.RemoveCustomEvent = function (__node, __eventName, __handler, self) {
+    if ((typeof __node === "undefined" ? "undefined" : _typeof(__node)) != "object") {
+        console.log("__node节点不存在");
+        return;
+    }
+    __node.off(__eventName, __handler, self);
+};
+
+// this.node.off('foobar', this._sayHello, this);
+
 
 EventHelper.addPersistRootNode = function (__node) {
     cc.game.addPersistRootNode(__node); //将myNode成为常驻节点，场景切换时不会清除这个节点的内存
