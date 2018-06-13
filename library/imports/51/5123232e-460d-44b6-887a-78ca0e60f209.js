@@ -13,6 +13,8 @@ config.temppassword = "";
 config.playGameId = 0; //断线
 config.playGameMsg = "";
 
+config.IsContinueGaming = 0; //1是断线重连牌桌
+
 config.RoomId = 0; //未完成牌桌
 
 config.tableInfo = null; //桌子信息 
@@ -37,7 +39,9 @@ config.hintType = {
     callLoadNo: 2, //不叫
     grabLoad: 3, //抢地主
     grabLoadNo: 4, //不抢
-    dont: 5 //不要
+    dont: 5, //不要
+    double: 6, //加倍
+    doubleNo: 7 //不加倍
 };
 
 config.opratType = {
@@ -134,15 +138,25 @@ config.seatPos = {
 config.gameState = {
     ST_GAME_PREPARE: 0, //准备
     ST_GAME_READY: 1, //游戏准备好了
-    ST_GAME_WAIT_START: 2, //等待开始
-    ST_GAME_START: 3, //游戏开始
-    ST_GAME_BALANCE: 4, //结算
-    ST_GAME_WAIT_NEXTROUND: 5, //等待下一轮
-    ST_GAME_MYTURN: 6, //玩家自己出牌状态
-    ST_GAME_WAIT_OTHERS: 7, //等待其他玩家准备
-    ST_GAME_OVER: 8, //游戏结束
-    ST_GAME_SHOWDETAILS: 9, //显示结算详情
-    ST_GAME_CURMATCHOVER: 10 //比赛场结束
+    ST_GAME_START: 2, //游戏开始
+    ST_GAME_SendCard: 3, //发牌
+    ST_GAME_CallLord: 4, //叫地主
+    ST_GAME_GrabLord: 5, //抢地主
+    ST_GAME_CallLordOver: 6, //叫地主结束
+    ST_GAME_BALANCE: 7, //结算
+    ST_GAME_WAIT_NEXTROUND: 8 //等待下一轮
+
+
+    //微信配置信息、
+};config.wxInfo = {
+    nickName: "",
+    gender: 1, //1男
+    avatarUrl: ""
+};
+config.UpdateWxInfo = function (userInfo) {
+    config.wxInfo.nickName = userInfo.nickName;
+    config.wxInfo.gender = userInfo.gender;
+    config.wxInfo.avatarUrl = userInfo.avatarUrl;
 };
 
 config.GlobalRouter = {
@@ -212,6 +226,9 @@ config.parseNumber = function (number) {
     return number;
 };
 config.parseString = function (string) {
+    if (string && string.length > 4) {} else {
+        return string;
+    }
     var str = string.substring(0, 4);
     str = str + "...";
     // console.log(">>string:"+string);

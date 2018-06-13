@@ -10,26 +10,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        headImg : {
-            default : null,
-            type : cc.Sprite
-        },
-        playerName : {
-            default : null,
-            type : cc.Label
-        },
-        playerLevel : {
-            default : null,
-            type : cc.Label
-        },
-        playerLedou : {
-            default : null,
-            type : cc.Label
-        },
-        playerLeQuan : {
-            default : null,
-            type : cc.Label
-        },
         room1 : {
             default : null,
             type : cc.Node
@@ -51,15 +31,12 @@ cc.Class({
     // onLoad () {},
     start () {
         var self = this;
-        this.setHeadUrl("");
-        this.setNickName(PlayerDetailModel.getNickName());
-        this.setLevel(PlayerDetailModel.getTitle());
-        this.setLeDou(PlayerDetailModel.getCoin());
-        this.setLuQuan(PlayerDetailModel.getCoupon());
+        config.IsContinueGaming = 0;
         this.roomModelId_ = config.curRoomModelId;
         this.initRoomInfo();
-
         EventHelper.AddCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
+        EventHelper.AddCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
+        // EventHelper.AddCustomEvent(config.MyNode,"ReconnectionData",self.onReconnectionData,self);
     },
     onLoginRoomResult(event){
         var self = this;
@@ -104,41 +81,6 @@ cc.Class({
             roomInfos[i].coins.string = str_enter;
         }
     },
-    setHeadUrl(url){
-        var self = this;
-         //设置微信头像
-         var imgUrl="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSO7sOWsNicYdNM3MbNGGo58zticxgqoO2aqS7zOCVClXl7WExa4KNQ48uSTSszicsyspzsDQ51M4EQ/132";
-         imgUrl = imgUrl + "?aa=aa.jpg";
-         cc.loader.load(imgUrl, function(err, texture){
-             self.headImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
-         });
-    },
-    setNickName(name){
-         //修改昵称
-         this.playerName.string = name;
-    },
-    setLevel(lv){
-        //修改等级
-        this.playerLevel.string = lv;
-    },
-    setLeDou(number){
-        //修改乐豆数
-        if(number >= 10000000){
-            number = Math.floor(number / 10000)
-            this.playerLedou.string = ""+number+"万";
-        }else{
-            this.playerLedou.string = ""+number;
-        }
-    },
-    setLuQuan(number){
-        //修改乐券数
-        if(number >= 10000000){
-            number = Math.floor(number / 10000)
-            this.playerLeQuan.string = ""+number+"万";
-        }else{
-            this.playerLeQuan.string = ""+number;
-        }
-    },
     room1Click(){
         console.log("room1Click");
         // cc.director.loadScene("GameScene");
@@ -174,6 +116,7 @@ cc.Class({
         this.trialInfo = this.roomType_[3]["trial"];
         this.gotoRoom(this.roomType_[3]["roomId"]);
         // console.log("roomMinScore:"+this.roomMinScore+"  trialInfo:"+this.trialInfo+" roomId:"+this.roomType_[3]["roomId"]);
+        // this.animShakeNode();
     },
     quickStartClick(){
         console.log("quickStartClick");
@@ -216,7 +159,7 @@ cc.Class({
                     GameNetMgr.sendRequest("Game", "loginRoom", arg)
                 }
             }else{
-                // GameNetMgr.sendRequest("Game", "openRechargeTip", {})
+                GameNetMgr.sendRequest("Game", "openRechargeTip", {});
                 console.log("弹出救济框");
             }
             console.log("新手场");
@@ -230,6 +173,10 @@ cc.Class({
                 }
             }else{
                 console.log("弹出充值框");
+                var click = function(){
+                    console.log("打开商城----");
+                }
+                dialogManager.showCommonDialog("温馨提示","豆子不够是否去商城充值",click);
             }
         }
     },
@@ -300,7 +247,7 @@ cc.Class({
                 // app:enterPokerScene(args)
                 console.log("进入普通场");
                 // cc.director.loadScene("GameScene");
-                self.preloadNextScene();
+                this.preloadNextScene();
             }
 
         }else{
@@ -337,7 +284,7 @@ cc.Class({
                     console.log("您还在其他房间中对局哟，现在进去看看吧！");
                     dialogManager.showCommonDialog("温馨提示","您还在其他房间中对局哟，现在进去看看吧！",function(){
                         console.log("短线重连普通场");
-                        self.onWantContinueGaming(event);
+                        self.onWantContinueGaming();
                     });
                 }else if(!payload.data.modelId || parseInt(payload.data.modelId) == config.ModelId.lazarillo){
                     console.log("您还在其他癞子场中对局哟，现在进去看看吧！");
@@ -438,68 +385,63 @@ cc.Class({
 
         if (coins >= self.roomType_[0]["enterLimit"]){
         }else{
-            // proxy:sendRequest("Game", "openRechargeTip", {})
+            GameNetMgr.sendRequest("Game", "openRechargeTip", {})
             console.log("弹出救济框");
         }
 
     },
+    //救济框
+    onOpenRechargeTipResult(event){
+        var self = this;
+        var response = event.getUserData();
+        console.log(response);
+        var trial_count = response.data.trial_count;
+        var content = "";
 
+        var click = function(){
+            console.log("点击了领取救济按钮");
+            GameNetMgr.sendRequest("Game", "openReliefTip", {});
+        }
+
+        if(trial_count<3){
+            var index = trial_count+1;
+            content = "系统第"+index+"次赠送您1000乐豆。";
+            dialogManager.showCommonDialog("领救济",content,click);
+        }else{
+            content = "今天乐豆已经领完了哦，明天在过来吧！";
+            dialogManager.showCommonDialog("领救济",content);
+        }
+    },
     //
     preloadNextScene(){
+        var self = this;
+        EventHelper.RemoveCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
+        EventHelper.RemoveCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
         cc.director.preloadScene("GameScene", function () {
             cc.log("Next scene preloaded");
             cc.director.loadScene("GameScene");
         });
     },
-
-    onWantContinueGaming(event){
-        var payload = event.payload
-
-        console.log("--进入上局未完的普通牌桌")
-
-        var args = {}
-        args["baseCoins"] = payload["data"]["baseCoins"];
-        args["rate"] = payload["data"]["rate"];
-        args["limitCoins"] = payload["data"]["limitCoins"];
-        args["rake"] = payload["data"]["rake"];
-        args["buys"] = payload["data"]["buys"];
-
-        args["rateMax"] = payload["data"]["rateMax"];
-        args["enterLimit"] = payload["data"]["enterLimit"];
-
-        args["emoticon"] = payload["data"]["emoticon"];
-        args["emoticon_items"] = payload["data"]["emoticon_items"];
-        args["advert"] = payload["data"]["advert"]; //记牌器数据
-
-        if(payload["data"]["modelId"]){
-            args["modelId"] = payload["data"]["modelId"]
-            if (parseInt(payload["data"]["modelId"]) == AppConfig.ModelId.contest){
-                // CompatibleHelper.MatchGameRoomId = payload["data"]["roomId"];
-                // console.log(">>>>>>>>>>>>>>MatchGameRoomId:"+CompatibleHelper.MatchGameRoomId);
-            }
-        }
-        args["givecoins"] = null;
-        var sended = payload["data"]["sendCoins"];
-        var totalTimes = payload["data"]["sendCoinsTimes"];
-        var curTimes = payload["data"]["sendCoinsTimesToday"];
-        var isSend = payload["data"]["isSend"];
-
-        if (sended > 0){
-            args["givecoins"] = {
-                sended : sended,
-                totalTimes : totalTimes,
-                curTimes : curTimes,
-            }
-            // app:dispatchEvent({name = app.class.UserProfileUpdate})
-        }
-        // var proxy = RPCProxy:getInstance();
-        // proxy:setOpMsg(true);//暂停处理数据
-
-        args["roomId"] = payload["data"]["roomId"];
-        args["isContinueGaming"] = true;
-        config.tableInfo = args;
+    onWantContinueGaming(){
+        console.log("--进入上局未完的普通牌桌");
+        config.IsContinueGaming = 1;
         this.preloadNextScene();
+        // GameNetMgr.sendRequest("Game", "reconnection");
     },
+    animShakeNode(){
+        var scene = cc.director.getScene();
+        scene.stopAllActions()
+        var x = scene.x;
+        var y = scene.y;
+        var delay = cc.delayTime(0.2)
+        var move1 = cc.moveTo(0.08, x-5, y-5);
+        var move2 = cc.moveTo(0.08, x+5, y+5);
+        var move3 = cc.moveTo(0.08, x-5, y+5);
+        var move4 = cc.moveTo(0.08, x+5, y-5);
+        var move5 = cc.moveTo(0.08, x-3, y-3);
+        var move9 = cc.moveTo(0.08, x, y);
+        scene.runAction(cc.sequence(delay,move1,move2,move3,move4,move5,move9));
+    }
 
 
 });

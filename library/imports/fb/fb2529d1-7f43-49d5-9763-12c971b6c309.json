@@ -63,17 +63,17 @@
         "__id__": 5
       },
       {
-        "__id__": 98
+        "__id__": 99
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 183
+        "__id__": 185
       },
       {
-        "__id__": 184
+        "__id__": 186
       }
     ],
     "_prefab": null,
@@ -203,23 +203,23 @@
         "__id__": 6
       },
       {
-        "__id__": 37
+        "__id__": 38
       },
       {
-        "__id__": 61
+        "__id__": 62
       },
       {
-        "__id__": 91
+        "__id__": 92
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
-        "__id__": 96
+        "__id__": 97
       },
       {
-        "__id__": 97
+        "__id__": 98
       }
     ],
     "_prefab": null,
@@ -282,6 +282,9 @@
     "_components": [
       {
         "__id__": 36
+      },
+      {
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -1466,6 +1469,30 @@
     "_originalHeight": 0
   },
   {
+    "__type__": "505a7cMGzRIa4SP1t5a1uM0",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 6
+    },
+    "_enabled": true,
+    "headImg": {
+      "__id__": 12
+    },
+    "playerName": {
+      "__id__": 19
+    },
+    "playerLevel": {
+      "__id__": 21
+    },
+    "playerLedou": {
+      "__id__": 28
+    },
+    "playerLeQuan": {
+      "__id__": 35
+    }
+  },
+  {
     "__type__": "cc.Node",
     "_name": "room",
     "_objFlags": 0,
@@ -1474,17 +1501,17 @@
     },
     "_children": [
       {
-        "__id__": 38
+        "__id__": 39
       },
       {
-        "__id__": 49
+        "__id__": 50
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 60
+        "__id__": 61
       }
     ],
     "_prefab": null,
@@ -1529,27 +1556,27 @@
     "_name": "room_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 37
+      "__id__": 38
     },
     "_children": [
       {
-        "__id__": 39
+        "__id__": 40
       },
       {
-        "__id__": 41
+        "__id__": 42
       },
       {
-        "__id__": 43
+        "__id__": 44
       },
       {
-        "__id__": 45
+        "__id__": 46
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 47
+        "__id__": 48
       }
     ],
     "_prefab": null,
@@ -1594,14 +1621,14 @@
     "_name": "p_room_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 38
+      "__id__": 39
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 40
+        "__id__": 41
       }
     ],
     "_prefab": null,
@@ -1646,7 +1673,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 39
+      "__id__": 40
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -1672,14 +1699,14 @@
     "_name": "p_room_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 38
+      "__id__": 39
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 42
+        "__id__": 43
       }
     ],
     "_prefab": null,
@@ -1724,7 +1751,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 41
+      "__id__": 42
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -1750,14 +1777,14 @@
     "_name": "p_roomicon_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 38
+      "__id__": 39
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 44
+        "__id__": 45
       }
     ],
     "_prefab": null,
@@ -1802,7 +1829,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 43
+      "__id__": 44
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -1828,14 +1855,14 @@
     "_name": "p_roomname_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 38
+      "__id__": 39
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 46
+        "__id__": 47
       }
     ],
     "_prefab": null,
@@ -1880,7 +1907,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 45
+      "__id__": 46
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -1906,7 +1933,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 38
+      "__id__": 39
     },
     "_enabled": true,
     "transition": 3,
@@ -1928,7 +1955,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 48
+        "__id__": 49
       }
     ],
     "_N$interactable": true,
@@ -1954,7 +1981,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 38
+      "__id__": 39
     }
   },
   {
@@ -1971,27 +1998,27 @@
     "_name": "room_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 37
+      "__id__": 38
     },
     "_children": [
       {
-        "__id__": 50
+        "__id__": 51
       },
       {
-        "__id__": 52
+        "__id__": 53
       },
       {
-        "__id__": 54
+        "__id__": 55
       },
       {
-        "__id__": 56
+        "__id__": 57
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 58
+        "__id__": 59
       }
     ],
     "_prefab": null,
@@ -2036,14 +2063,14 @@
     "_name": "p_room_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 49
+      "__id__": 50
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 51
+        "__id__": 52
       }
     ],
     "_prefab": null,
@@ -2088,7 +2115,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 50
+      "__id__": 51
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2114,14 +2141,14 @@
     "_name": "p_room_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 49
+      "__id__": 50
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 53
+        "__id__": 54
       }
     ],
     "_prefab": null,
@@ -2166,7 +2193,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 52
+      "__id__": 53
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2192,14 +2219,14 @@
     "_name": "p_roomicon_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 49
+      "__id__": 50
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 55
+        "__id__": 56
       }
     ],
     "_prefab": null,
@@ -2244,7 +2271,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 54
+      "__id__": 55
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2270,14 +2297,14 @@
     "_name": "p_roomname_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 49
+      "__id__": 50
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 57
+        "__id__": 58
       }
     ],
     "_prefab": null,
@@ -2322,7 +2349,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 56
+      "__id__": 57
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2348,7 +2375,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 50
     },
     "_enabled": true,
     "transition": 3,
@@ -2370,7 +2397,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 59
+        "__id__": 60
       }
     ],
     "_N$interactable": true,
@@ -2396,7 +2423,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 49
+      "__id__": 50
     }
   },
   {
@@ -2413,7 +2440,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 37
+      "__id__": 38
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -2443,38 +2470,38 @@
     },
     "_children": [
       {
-        "__id__": 62
+        "__id__": 63
       },
       {
-        "__id__": 66
+        "__id__": 67
       },
       {
-        "__id__": 70
+        "__id__": 71
       },
       {
-        "__id__": 74
+        "__id__": 75
       },
       {
-        "__id__": 78
+        "__id__": 79
       },
       {
-        "__id__": 82
+        "__id__": 83
       },
       {
-        "__id__": 84
+        "__id__": 85
       },
       {
-        "__id__": 86
+        "__id__": 87
       },
       {
-        "__id__": 88
+        "__id__": 89
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 90
+        "__id__": 91
       }
     ],
     "_prefab": null,
@@ -2519,17 +2546,17 @@
     "_name": "btn_email",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 63
+        "__id__": 64
       },
       {
-        "__id__": 64
+        "__id__": 65
       }
     ],
     "_prefab": null,
@@ -2574,7 +2601,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 63
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2600,7 +2627,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 62
+      "__id__": 63
     },
     "_enabled": true,
     "transition": 1,
@@ -2622,7 +2649,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 65
+        "__id__": 66
       }
     ],
     "_N$interactable": true,
@@ -2648,7 +2675,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 62
+      "__id__": 63
     }
   },
   {
@@ -2665,17 +2692,17 @@
     "_name": "btn_set",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 67
+        "__id__": 68
       },
       {
-        "__id__": 68
+        "__id__": 69
       }
     ],
     "_prefab": null,
@@ -2720,7 +2747,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 66
+      "__id__": 67
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2746,7 +2773,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 66
+      "__id__": 67
     },
     "_enabled": true,
     "transition": 1,
@@ -2768,7 +2795,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 69
+        "__id__": 70
       }
     ],
     "_N$interactable": true,
@@ -2794,7 +2821,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 66
+      "__id__": 67
     }
   },
   {
@@ -2811,17 +2838,17 @@
     "_name": "btn_task",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 71
+        "__id__": 72
       },
       {
-        "__id__": 72
+        "__id__": 73
       }
     ],
     "_prefab": null,
@@ -2866,7 +2893,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 70
+      "__id__": 71
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2892,7 +2919,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 70
+      "__id__": 71
     },
     "_enabled": true,
     "transition": 1,
@@ -2914,7 +2941,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 73
+        "__id__": 74
       }
     ],
     "_N$interactable": true,
@@ -2940,7 +2967,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 70
+      "__id__": 71
     }
   },
   {
@@ -2957,17 +2984,17 @@
     "_name": "btn_bag",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 75
+        "__id__": 76
       },
       {
-        "__id__": 76
+        "__id__": 77
       }
     ],
     "_prefab": null,
@@ -3012,7 +3039,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 74
+      "__id__": 75
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3038,7 +3065,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 74
+      "__id__": 75
     },
     "_enabled": true,
     "transition": 1,
@@ -3060,7 +3087,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 77
+        "__id__": 78
       }
     ],
     "_N$interactable": true,
@@ -3086,7 +3113,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 74
+      "__id__": 75
     }
   },
   {
@@ -3103,17 +3130,17 @@
     "_name": "btn_shop",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 79
+        "__id__": 80
       },
       {
-        "__id__": 80
+        "__id__": 81
       }
     ],
     "_prefab": null,
@@ -3158,7 +3185,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 78
+      "__id__": 79
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3184,7 +3211,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 78
+      "__id__": 79
     },
     "_enabled": true,
     "transition": 1,
@@ -3206,7 +3233,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 81
+        "__id__": 82
       }
     ],
     "_N$interactable": true,
@@ -3232,7 +3259,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 78
+      "__id__": 79
     }
   },
   {
@@ -3249,14 +3276,14 @@
     "_name": "p_line",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 83
+        "__id__": 84
       }
     ],
     "_prefab": null,
@@ -3301,7 +3328,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 82
+      "__id__": 83
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3327,14 +3354,14 @@
     "_name": "p_line",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 85
+        "__id__": 86
       }
     ],
     "_prefab": null,
@@ -3379,7 +3406,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 84
+      "__id__": 85
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3405,14 +3432,14 @@
     "_name": "p_line",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 87
+        "__id__": 88
       }
     ],
     "_prefab": null,
@@ -3457,7 +3484,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 86
+      "__id__": 87
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3483,14 +3510,14 @@
     "_name": "p_line",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 61
+      "__id__": 62
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 89
+        "__id__": 90
       }
     ],
     "_prefab": null,
@@ -3535,7 +3562,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 88
+      "__id__": 89
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3561,7 +3588,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 61
+      "__id__": 62
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -3594,13 +3621,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 92
-      },
-      {
         "__id__": 93
       },
       {
         "__id__": 94
+      },
+      {
+        "__id__": 95
       }
     ],
     "_prefab": null,
@@ -3630,7 +3657,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 861,
+      "x": 814,
       "y": 265
     },
     "_skewX": 0,
@@ -3645,7 +3672,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 92
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -3671,7 +3698,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 92
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -3680,7 +3707,7 @@
     },
     "_alignFlags": 32,
     "_left": 768.5,
-    "_right": 43.5,
+    "_right": 90.5,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -3699,7 +3726,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 92
     },
     "_enabled": true,
     "transition": 1,
@@ -3721,7 +3748,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 95
+        "__id__": 96
       }
     ],
     "_N$interactable": true,
@@ -3747,7 +3774,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 91
+      "__id__": 92
     }
   },
   {
@@ -3792,22 +3819,7 @@
     "node": {
       "__id__": 5
     },
-    "_enabled": true,
-    "headImg": {
-      "__id__": 12
-    },
-    "playerName": {
-      "__id__": 19
-    },
-    "playerLevel": {
-      "__id__": 21
-    },
-    "playerLedou": {
-      "__id__": 28
-    },
-    "playerLeQuan": {
-      "__id__": 35
-    }
+    "_enabled": true
   },
   {
     "__type__": "cc.Node",
@@ -3818,23 +3830,23 @@
     },
     "_children": [
       {
-        "__id__": 99
+        "__id__": 100
       },
       {
-        "__id__": 134
+        "__id__": 136
       },
       {
-        "__id__": 176
+        "__id__": 178
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
-        "__id__": 181
+        "__id__": 183
       },
       {
-        "__id__": 182
+        "__id__": 184
       }
     ],
     "_prefab": null,
@@ -3879,30 +3891,33 @@
     "_name": "topBar",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 98
+      "__id__": 99
     },
     "_children": [
       {
-        "__id__": 100
+        "__id__": 101
       },
       {
-        "__id__": 113
+        "__id__": 114
       },
       {
-        "__id__": 120
+        "__id__": 121
       },
       {
-        "__id__": 127
+        "__id__": 128
       },
       {
-        "__id__": 131
+        "__id__": 132
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 133
+        "__id__": 134
+      },
+      {
+        "__id__": 135
       }
     ],
     "_prefab": null,
@@ -3947,23 +3962,23 @@
     "_name": "head",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 99
+      "__id__": 100
     },
     "_children": [
       {
-        "__id__": 101
+        "__id__": 102
       },
       {
-        "__id__": 103
+        "__id__": 104
       },
       {
-        "__id__": 107
+        "__id__": 108
       },
       {
-        "__id__": 109
+        "__id__": 110
       },
       {
-        "__id__": 111
+        "__id__": 112
       }
     ],
     "_tag": -1,
@@ -4011,14 +4026,14 @@
     "_name": "p_namebg",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 100
+      "__id__": 101
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 102
+        "__id__": 103
       }
     ],
     "_prefab": null,
@@ -4063,7 +4078,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 101
+      "__id__": 102
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4089,18 +4104,18 @@
     "_name": "p_head",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 100
+      "__id__": 101
     },
     "_children": [
       {
-        "__id__": 104
+        "__id__": 105
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 106
+        "__id__": 107
       }
     ],
     "_prefab": null,
@@ -4145,14 +4160,14 @@
     "_name": "p_head_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 103
+      "__id__": 104
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 105
+        "__id__": 106
       }
     ],
     "_prefab": null,
@@ -4197,7 +4212,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 104
+      "__id__": 105
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4223,7 +4238,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 103
+      "__id__": 104
     },
     "_enabled": true,
     "_type": 2,
@@ -4239,14 +4254,14 @@
     "_name": "p_head_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 100
+      "__id__": 101
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 108
+        "__id__": 109
       }
     ],
     "_prefab": null,
@@ -4291,7 +4306,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 107
+      "__id__": 108
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4317,14 +4332,14 @@
     "_name": "lab_bame",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 100
+      "__id__": 101
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 110
+        "__id__": 111
       }
     ],
     "_prefab": null,
@@ -4369,7 +4384,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 109
+      "__id__": 110
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -4391,14 +4406,14 @@
     "_name": "lab_lv",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 100
+      "__id__": 101
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 112
+        "__id__": 113
       }
     ],
     "_prefab": null,
@@ -4443,7 +4458,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 111
+      "__id__": 112
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -4465,17 +4480,17 @@
     "_name": "LeDou",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 99
+      "__id__": 100
     },
     "_children": [
       {
-        "__id__": 114
+        "__id__": 115
       },
       {
-        "__id__": 116
+        "__id__": 117
       },
       {
-        "__id__": 118
+        "__id__": 119
       }
     ],
     "_tag": -1,
@@ -4523,14 +4538,14 @@
     "_name": "p_numberbg",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 113
+      "__id__": 114
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 115
+        "__id__": 116
       }
     ],
     "_prefab": null,
@@ -4575,7 +4590,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 114
+      "__id__": 115
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4601,14 +4616,14 @@
     "_name": "p_ledou",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 113
+      "__id__": 114
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 117
+        "__id__": 118
       }
     ],
     "_prefab": null,
@@ -4653,7 +4668,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 116
+      "__id__": 117
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4679,14 +4694,14 @@
     "_name": "lab_num",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 113
+      "__id__": 114
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 119
+        "__id__": 120
       }
     ],
     "_prefab": null,
@@ -4731,7 +4746,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 118
+      "__id__": 119
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -4753,17 +4768,17 @@
     "_name": "LeQuan",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 99
+      "__id__": 100
     },
     "_children": [
       {
-        "__id__": 121
+        "__id__": 122
       },
       {
-        "__id__": 123
+        "__id__": 124
       },
       {
-        "__id__": 125
+        "__id__": 126
       }
     ],
     "_tag": -1,
@@ -4811,14 +4826,14 @@
     "_name": "p_numberbg",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 120
+      "__id__": 121
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 122
+        "__id__": 123
       }
     ],
     "_prefab": null,
@@ -4863,7 +4878,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 121
+      "__id__": 122
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4889,14 +4904,14 @@
     "_name": "p_lequan",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 120
+      "__id__": 121
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 124
+        "__id__": 125
       }
     ],
     "_prefab": null,
@@ -4941,7 +4956,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 123
+      "__id__": 124
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -4967,14 +4982,14 @@
     "_name": "lab_num",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 120
+      "__id__": 121
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 126
+        "__id__": 127
       }
     ],
     "_prefab": null,
@@ -5019,7 +5034,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 125
+      "__id__": 126
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -5041,17 +5056,17 @@
     "_name": "p_room_back",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 99
+      "__id__": 100
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 128
+        "__id__": 129
       },
       {
-        "__id__": 129
+        "__id__": 130
       }
     ],
     "_prefab": null,
@@ -5096,7 +5111,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 127
+      "__id__": 128
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5122,7 +5137,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 127
+      "__id__": 128
     },
     "_enabled": true,
     "transition": 3,
@@ -5144,7 +5159,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 130
+        "__id__": 131
       }
     ],
     "_N$interactable": true,
@@ -5170,7 +5185,7 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 127
+      "__id__": 128
     }
   },
   {
@@ -5187,14 +5202,14 @@
     "_name": "p_roomA",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 99
+      "__id__": 100
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 132
+        "__id__": 133
       }
     ],
     "_prefab": null,
@@ -5239,7 +5254,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 131
+      "__id__": 132
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5265,7 +5280,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 99
+      "__id__": 100
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -5289,31 +5304,55 @@
     "_originalHeight": 0
   },
   {
+    "__type__": "505a7cMGzRIa4SP1t5a1uM0",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 100
+    },
+    "_enabled": true,
+    "headImg": {
+      "__id__": 106
+    },
+    "playerName": {
+      "__id__": 111
+    },
+    "playerLevel": {
+      "__id__": 113
+    },
+    "playerLedou": {
+      "__id__": 120
+    },
+    "playerLeQuan": {
+      "__id__": 127
+    }
+  },
+  {
     "__type__": "cc.Node",
     "_name": "rooms",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 98
+      "__id__": 99
     },
     "_children": [
       {
-        "__id__": 135
+        "__id__": 137
       },
       {
-        "__id__": 145
+        "__id__": 147
       },
       {
-        "__id__": 155
+        "__id__": 157
       },
       {
-        "__id__": 165
+        "__id__": 167
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 175
+        "__id__": 177
       }
     ],
     "_prefab": null,
@@ -5358,27 +5397,27 @@
     "_name": "p_room_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 134
+      "__id__": 136
     },
     "_children": [
-      {
-        "__id__": 136
-      },
       {
         "__id__": 138
       },
       {
         "__id__": 140
+      },
+      {
+        "__id__": 142
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 142
+        "__id__": 144
       },
       {
-        "__id__": 143
+        "__id__": 145
       }
     ],
     "_prefab": null,
@@ -5423,14 +5462,14 @@
     "_name": "p_roomA_num_1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 137
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 137
+        "__id__": 139
       }
     ],
     "_prefab": null,
@@ -5475,7 +5514,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 136
+      "__id__": 138
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5501,14 +5540,14 @@
     "_name": "lab_peopleNum",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 137
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 139
+        "__id__": 141
       }
     ],
     "_prefab": null,
@@ -5553,7 +5592,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 138
+      "__id__": 140
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -5575,14 +5614,14 @@
     "_name": "lab_coins",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 137
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 141
+        "__id__": 143
       }
     ],
     "_prefab": null,
@@ -5627,7 +5666,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 140
+      "__id__": 142
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -5649,7 +5688,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 135
+      "__id__": 137
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5675,7 +5714,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 135
+      "__id__": 137
     },
     "_enabled": true,
     "transition": 3,
@@ -5697,7 +5736,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 144
+        "__id__": 146
       }
     ],
     "_N$interactable": true,
@@ -5723,13 +5762,13 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 135
+      "__id__": 137
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 98
+      "__id__": 99
     },
     "component": "RoomLayerControl",
     "handler": "room1Click",
@@ -5740,27 +5779,27 @@
     "_name": "p_room_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 134
+      "__id__": 136
     },
     "_children": [
-      {
-        "__id__": 146
-      },
       {
         "__id__": 148
       },
       {
         "__id__": 150
+      },
+      {
+        "__id__": 152
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 152
+        "__id__": 154
       },
       {
-        "__id__": 153
+        "__id__": 155
       }
     ],
     "_prefab": null,
@@ -5805,14 +5844,14 @@
     "_name": "p_roomA_num_2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 147
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 147
+        "__id__": 149
       }
     ],
     "_prefab": null,
@@ -5857,7 +5896,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 146
+      "__id__": 148
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -5883,14 +5922,14 @@
     "_name": "lab_peopleNum",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 147
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 149
+        "__id__": 151
       }
     ],
     "_prefab": null,
@@ -5935,7 +5974,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 148
+      "__id__": 150
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -5957,14 +5996,14 @@
     "_name": "lab_coins",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 145
+      "__id__": 147
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 151
+        "__id__": 153
       }
     ],
     "_prefab": null,
@@ -6009,7 +6048,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 150
+      "__id__": 152
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -6031,7 +6070,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 145
+      "__id__": 147
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6057,7 +6096,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 145
+      "__id__": 147
     },
     "_enabled": true,
     "transition": 3,
@@ -6079,7 +6118,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 154
+        "__id__": 156
       }
     ],
     "_N$interactable": true,
@@ -6105,13 +6144,13 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 145
+      "__id__": 147
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 98
+      "__id__": 99
     },
     "component": "RoomLayerControl",
     "handler": "room2Click",
@@ -6122,27 +6161,27 @@
     "_name": "p_room_3",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 134
+      "__id__": 136
     },
     "_children": [
-      {
-        "__id__": 156
-      },
       {
         "__id__": 158
       },
       {
         "__id__": 160
+      },
+      {
+        "__id__": 162
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 162
+        "__id__": 164
       },
       {
-        "__id__": 163
+        "__id__": 165
       }
     ],
     "_prefab": null,
@@ -6187,14 +6226,14 @@
     "_name": "p_roomA_num_3",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 155
+      "__id__": 157
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 157
+        "__id__": 159
       }
     ],
     "_prefab": null,
@@ -6239,7 +6278,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 156
+      "__id__": 158
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6265,14 +6304,14 @@
     "_name": "lab_peopleNum",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 155
+      "__id__": 157
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 159
+        "__id__": 161
       }
     ],
     "_prefab": null,
@@ -6317,7 +6356,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 158
+      "__id__": 160
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -6339,14 +6378,14 @@
     "_name": "lab_coins",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 155
+      "__id__": 157
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 161
+        "__id__": 163
       }
     ],
     "_prefab": null,
@@ -6391,7 +6430,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 160
+      "__id__": 162
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -6413,7 +6452,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 155
+      "__id__": 157
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6439,7 +6478,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 155
+      "__id__": 157
     },
     "_enabled": true,
     "transition": 3,
@@ -6461,7 +6500,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 164
+        "__id__": 166
       }
     ],
     "_N$interactable": true,
@@ -6487,13 +6526,13 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 155
+      "__id__": 157
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 98
+      "__id__": 99
     },
     "component": "RoomLayerControl",
     "handler": "room3Click",
@@ -6504,27 +6543,27 @@
     "_name": "p_room_4",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 134
+      "__id__": 136
     },
     "_children": [
-      {
-        "__id__": 166
-      },
       {
         "__id__": 168
       },
       {
         "__id__": 170
+      },
+      {
+        "__id__": 172
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 172
+        "__id__": 174
       },
       {
-        "__id__": 173
+        "__id__": 175
       }
     ],
     "_prefab": null,
@@ -6569,14 +6608,14 @@
     "_name": "p_roomA_num_4",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 165
+      "__id__": 167
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 167
+        "__id__": 169
       }
     ],
     "_prefab": null,
@@ -6621,7 +6660,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 166
+      "__id__": 168
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6647,14 +6686,14 @@
     "_name": "lab_peopleNum",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 165
+      "__id__": 167
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 169
+        "__id__": 171
       }
     ],
     "_prefab": null,
@@ -6699,7 +6738,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 168
+      "__id__": 170
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -6721,14 +6760,14 @@
     "_name": "lab_coins",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 165
+      "__id__": 167
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 171
+        "__id__": 173
       }
     ],
     "_prefab": null,
@@ -6773,7 +6812,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 170
+      "__id__": 172
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -6795,7 +6834,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 165
+      "__id__": 167
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6821,7 +6860,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 165
+      "__id__": 167
     },
     "_enabled": true,
     "transition": 3,
@@ -6843,7 +6882,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 174
+        "__id__": 176
       }
     ],
     "_N$interactable": true,
@@ -6869,13 +6908,13 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 165
+      "__id__": 167
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 98
+      "__id__": 99
     },
     "component": "RoomLayerControl",
     "handler": "room4Click",
@@ -6886,7 +6925,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 134
+      "__id__": 136
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -6914,20 +6953,20 @@
     "_name": "p_room_quickstar",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 98
+      "__id__": 99
     },
     "_children": [],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 177
-      },
-      {
-        "__id__": 178
-      },
-      {
         "__id__": 179
+      },
+      {
+        "__id__": 180
+      },
+      {
+        "__id__": 181
       }
     ],
     "_prefab": null,
@@ -6972,7 +7011,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 176
+      "__id__": 178
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -6998,7 +7037,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 176
+      "__id__": 178
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -7026,7 +7065,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 176
+      "__id__": 178
     },
     "_enabled": true,
     "transition": 3,
@@ -7048,7 +7087,7 @@
     "zoomScale": 1.1,
     "clickEvents": [
       {
-        "__id__": 180
+        "__id__": 182
       }
     ],
     "_N$interactable": true,
@@ -7074,13 +7113,13 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 176
+      "__id__": 178
     }
   },
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 98
+      "__id__": 99
     },
     "component": "RoomLayerControl",
     "handler": "quickStartClick",
@@ -7091,7 +7130,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 98
+      "__id__": 99
     },
     "_enabled": true,
     "isAlignOnce": true,
@@ -7117,35 +7156,20 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 98
+      "__id__": 99
     },
     "_enabled": true,
-    "headImg": {
-      "__id__": 105
-    },
-    "playerName": {
-      "__id__": 110
-    },
-    "playerLevel": {
-      "__id__": 112
-    },
-    "playerLedou": {
-      "__id__": 119
-    },
-    "playerLeQuan": {
-      "__id__": 126
-    },
     "room1": {
-      "__id__": 135
+      "__id__": 137
     },
     "room2": {
-      "__id__": 145
+      "__id__": 147
     },
     "room3": {
-      "__id__": 155
+      "__id__": 157
     },
     "room4": {
-      "__id__": 165
+      "__id__": 167
     }
   },
   {
@@ -7176,7 +7200,7 @@
       "__id__": 5
     },
     "roomLayer": {
-      "__id__": 98
+      "__id__": 99
     }
   }
 ]

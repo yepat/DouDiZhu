@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Boom_tex",
+    "texture": "36e2e91e-9d71-4757-a2d9-96b45bccacf7",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      494,
+      610
+    ],
+    "offset": [
+      -8,
+      206
+    ],
+    "originalSize": [
+      512,
+      1024
+    ]
+  }
+}

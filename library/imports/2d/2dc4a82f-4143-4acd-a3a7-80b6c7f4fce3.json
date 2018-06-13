@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tip_fengding2",
+    "texture": "062983e7-8b5e-4208-bd2e-f43f11147aa0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      313,
+      38
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      313,
+      38
+    ]
+  }
+}

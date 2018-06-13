@@ -119,6 +119,14 @@ var Player = cc.Class({
         this.setWechatImg(this.wechatImg);
         this.setCardCount(17);
     },
+    continueInfo(parm){
+        console.log("短线重连玩家信息");
+        this.setnickname(parm.nickname);
+        this.setCoin(parm.coin); 
+        this.setLeQuan(parm.lequan); 
+        this.setWechatImg(parm.wechatImg);
+        this.setCardCount(parm.cardCount);
+    },
     clear(){
         this.cardCount = 0; //手牌数量
         this.currentCardType = 0;     //最近一次出的牌的牌型
@@ -349,8 +357,12 @@ var Player = cc.Class({
             myPokerNode.push(cardNode);
 
             if(seatNumber == 0){
+                console.log("右边玩家明牌-----");
+                // console.log(myPokerNode);
                 this.neatenRightPoker(myPokerNode,config.seatPos.right,sceneWidth/2, sceneWidth/2 + 140);
             }else if(seatNumber == 2){
+                console.log("左边玩家明牌-----");
+                // console.log(myPokerNode);
                 this.neatenLeftPoker(myPokerNode,config.seatPos.left,sceneWidth/2, 230);
             }else{
                 this.neatenPoker(myPokerNode,config.seatPos.center,sceneWidth);
@@ -461,6 +473,8 @@ var Player = cc.Class({
         var startPosX = (showWidth - needWidth) / 2;
         startX = startX || startPosX;
 
+        startX = startX + 64;
+
         var pokerY = seatPosParam.positionY;
         if(startY){
             pokerY = startY;
@@ -484,10 +498,12 @@ var Player = cc.Class({
     //左边出牌
     playCardLeft(pokerNode,startX,startY){
         if(pokerNode.length < 1){return}
-        var cardScale = 0.38;
-        var disBetween = 27;
+        var cardScale = 0.5;//0.38
+        var disBetween = 37;//27
         var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
         var sceneWidth = cc.director.getWinSize().width;
+
+        startX = startX + 64;
     
         //设置出去的牌的大小
         for(var i = 0; i < pokerNode.length; i++){
@@ -517,7 +533,7 @@ var Player = cc.Class({
         var startPosX = (showWidth - needWidth) / 2;
         startX = startX || startPosX;
 
-        startX = startX + 10*seatPosParam.disBetween;
+        startX = startX + 10*seatPosParam.disBetween - 64;
 
         var pokerY = seatPosParam.positionY;
         if(startY){
@@ -541,11 +557,11 @@ var Player = cc.Class({
     },
     playCardRight(pokerNode,startX,startY){
         if(pokerNode.length < 1){return}
-        var cardScale = 0.38;
-        var disBetween = 27;
+        var cardScale = 0.5;//0.38
+        var disBetween = 37;//27
         var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
         var sceneWidth = cc.director.getWinSize().width;
-        startX = sceneWidth/2 + 590 - disBetween*pokerNode.length;
+        startX = sceneWidth/2 + 590 - disBetween*pokerNode.length - 64;
 
         //设置出去的牌的大小
         for(var i = 0; i < pokerNode.length; i++){
@@ -629,6 +645,10 @@ var Player = cc.Class({
             url = "showTips/p_tip_qiangdizhuno";
         }else if(type == config.hintType.dont){
             url = "showTips/p_tip_chuno";
+        }else if(type == config.hintType.double){
+            url = "showTips/p_tip_jiabei";
+        }else if(type == config.hintType.doubleNo){
+            url = "showTips/p_tip_jiabeino";
         }
         cc.loader.loadRes(url,cc.SpriteFrame,function(err,spriteFrame){
             self.node_hint.getComponent(cc.Sprite).spriteFrame = spriteFrame;

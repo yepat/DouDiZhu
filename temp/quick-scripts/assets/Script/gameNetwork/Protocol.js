@@ -154,8 +154,9 @@ Protocol.CommandRevert = {
         Complaint: 231, //牌局投诉
 
         Emoticon: 235, //发送表情
+        PokerAnalysis: 100, //牌局日志
 
-        PokerAnalysis: 100 //牌局日志
+        Reconnection: 229 //短线重连
 
     },
     Props: {
@@ -318,8 +319,9 @@ Protocol.CommandRevert = {
         Complaint: 232, //牌局投诉
 
         EmoticonData: 236, //广播表情包
+        PokerAnalysis: 100, //牌局日志
 
-        PokerAnalysis: 100 //牌局日志
+        ReconnectionData: 330 //短线重连
     },
     Props: {
         GetPersonalItems: 102, //获得个人道具提示

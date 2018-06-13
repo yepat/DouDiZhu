@@ -28,9 +28,15 @@ cc.Class({
             default : null,
             type : cc.Node,
         },
+        tishi : {
+            default : null,
+            type : cc.Sprite
+        },
         timeCount:30,
     },
-
+    onLoad () {
+        this.tishi.enabled = false;
+    },
     start () {
         this.clockX = this.clock.getPositionX();
         this.clockY = this.clock.getPositionY();
@@ -89,6 +95,9 @@ cc.Class({
         }else if(type == config.opratType.mustOutCard){
             this.btnNode1.x = 0;
             this.btnNode1.active = false;
+            this.btnNode2.x = 67;
+            this.clock.x = -163;
+            this.timeTxt.node.x = -161;
             // this.btnTxt2.string = "出牌";
             cc.loader.loadRes("operation_btn/p_cardout",cc.SpriteFrame,function(err,spriteFrame){
                 self.btnSp2.getComponent(cc.Sprite).spriteFrame = spriteFrame;
@@ -114,6 +123,18 @@ cc.Class({
         }
         if(this.type == config.opratType.mustOutCard){
             // this.node.destroy();
+            if(this.btn2Func){
+                var typenum = this.btn2Func();
+                if(typenum == 0){
+                    // this.showTips("没有选择要出的牌！");
+                    this.showTips("showTips/p_tips_noSeletcedCrad");
+                }else if(typenum == -1){
+                    // this.showTips("您选择的牌无法出出去哦！");  
+                    this.showTips("showTips/p_tips_seletcedCardTypeError");
+                }else{
+                    this.tishi.enabled = false;
+                }
+            }
         }else{
             this.node.destroy();
         }
@@ -127,5 +148,44 @@ cc.Class({
         var mt6 = cc.moveTo(0.05,this.clockX,this.clockY+2);
         var mt7 = cc.moveTo(0.05,this.clockX,this.clockY);
         this.clock.runAction(cc.sequence(mt1,mt2,mt3,mt4,mt5,mt6,mt7));
+    },
+    chupaiClick(num) {
+        console.log("出牌");
+        var typenum = 0;
+        if(this.chupaiFunc)
+            typenum = this.chupaiFunc();
+        this.tishi.enabled = false;
+
+        if(num){
+            typenum = num;
+        }
+
+        if(typenum == 0){
+            // this.showTips("没有选择要出的牌！");
+            this.showTips("showTips/p_tips_noSeletcedCrad");
+        }else if(typenum == -1){
+            // this.showTips("您选择的牌无法出出去哦！");  
+            this.showTips("showTips/p_tips_seletcedCardTypeError");
+        }else if(typenum == -2){
+            // this.showTips("showTips/p_tips_noCard");
+            // this.node.destroy();
+        }
+        
+    },
+    showTips(imgUrl){
+        this.tishi.node.stopAllActions();
+
+        var self = this;
+        this.tishi.enabled = true;
+        // this.tishi.string = content;
+        cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
+            self.tishi.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
+
+        var delay = cc.delayTime(2);
+        var callFunc = cc.callFunc(function(){
+            self.tishi.enabled = false;
+        });
+        this.tishi.node.runAction(cc.sequence(delay,callFunc));
     }
 });

@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tip_pochan",
+    "texture": "be7190c9-e454-4ed0-bf40-31002298c7d5",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      180,
+      49
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      182,
+      51
+    ]
+  }
+}

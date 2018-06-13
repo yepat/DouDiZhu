@@ -52,10 +52,10 @@ cc.Class({
         }, 1);
 
     },
-    show(click){
+    show(args){
         // this.time = time*10;
-        this.click = click;
-
+        this.click1 =  args.arg1;
+        this.click2 =  args.arg2;
         // this.pross = 1.0;
         // this.dt = 1/this.time;
         // this.schedule(function() {
@@ -75,16 +75,16 @@ cc.Class({
     },
     btnClick1(){
         console.log("点击了加倍按钮");
-        if(this.click){
-            this.click();
+        if(this.click1){
+            this.click1();
         }
         this.node.destroy();
     },
     btnClick2(){
         console.log("点击了不加倍按钮");
-        // if(this.click){
-        //     this.click();
-        // }
+        if(this.click2){
+            this.click2();
+        }
         this.node.destroy();
     },
     shakeClock(){

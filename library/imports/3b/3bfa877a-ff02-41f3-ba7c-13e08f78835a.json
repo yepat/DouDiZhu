@@ -70,7 +70,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "zhadan_ske",
+    "_name": "Boom_ske",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -130,14 +130,14 @@
       "__id__": 2
     },
     "_enabled": true,
-    "_armatureName": "armatureName",
-    "_animationName": "animation",
+    "_armatureName": "boom",
+    "_animationName": "newAnimation",
     "playTimes": -1,
     "_N$dragonAsset": {
-      "__uuid__": "0d12ba12-8a39-45fc-ba11-e14f596b8a18"
+      "__uuid__": "81c0db47-97c2-4c92-9b6e-d276a4eca258"
     },
     "_N$dragonAtlasAsset": {
-      "__uuid__": "609d632d-ac79-425c-b052-53194ab063c2"
+      "__uuid__": "37be126f-b8fa-40f6-9043-bd8fbd44be6a"
     },
     "_N$_defaultArmatureIndex": 0,
     "_N$_animationIndex": 1,
@@ -150,9 +150,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "3bfa877a-ff02-41f3-ba7c-13e08f78835a"
     },
-    "fileId": "8csvtDB3FHjpBn3fpqGwJg",
+    "fileId": "24j6o+1oFE66weqkW7xhn/",
     "sync": false
   },
   {
@@ -196,7 +196,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "3bfa877a-ff02-41f3-ba7c-13e08f78835a"
     },
     "fileId": "efc7QsAj1FQIcJQhApOzwo",
     "sync": false

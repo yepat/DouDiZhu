@@ -1,5 +1,7 @@
 
 var resoultInfoItemControl = require("resoultInfoItemControl");
+var dialogManager = require("dialogManager");
+
 cc.Class({
     extends: cc.Component,
 
@@ -17,14 +19,15 @@ cc.Class({
             type : cc.Node
         },
     },
-    // onLoad () {
-        
-    // },
+    onLoad () {
+        var width = cc.director.getWinSize().width;
+        console.log("width:"+width);
+        this.node.width = width;
+    },
     start () {
         var rotate=cc.rotateBy(8,360);
 		var repeat_=cc.repeatForever(rotate);
         this.guang.node.runAction(repeat_);
-
         // var infos = {
         //     0:{isdizhu : false,nickname : "新手123",difen : 60,beishu : 1000,ledou : "- 60000"},
         //     1:{isdizhu : true,nickname : "新手333",difen : 60,beishu : 1000,ledou : "+820000"},
@@ -38,14 +41,15 @@ cc.Class({
         //     task.init(infos[i].isdizhu,infos[i].nickname,infos[i].difen,infos[i].beishu,infos[i].ledou);
         // }
     },
-    show(infos,click1,click2,mySeatId){
+    show(infos,click1,click2,mySeatId,backHallScene){
         this.click1 = click1;
         this.click2 = click2;
+        this.backHallScene = backHallScene;
         for(var i = 0;i < 3;i++){
             var resoultInfoItem = cc.instantiate(this.resoultInfoItem);
             resoultInfoItem.parent = this.content;
             var task = resoultInfoItem.getComponent(resoultInfoItemControl);
-            task.init(infos[i].isdizhu,infos[i].nickname,infos[i].difen,infos[i].beishu,infos[i].ledou,mySeatId==i);
+            task.init(infos[i].isdizhu,infos[i].nickname,infos[i].difen,infos[i].beishu,infos[i].ledou,mySeatId==i,infos[i].coin,infos[i].rateMax);
         }
     },
     btn1Click(){
@@ -66,6 +70,15 @@ cc.Class({
             this.node.destroy();
         }
     },
-
-   
+    close(){
+        var self = this;
+        dialogManager.showCommonDialog("提示","是否返回大厅！",function(){
+            if(self.backHallScene){
+                self.backHallScene()
+                self.node.destroy();
+            }
+        },function(){
+        });
+        // this.node.destroy();
+    }
 });

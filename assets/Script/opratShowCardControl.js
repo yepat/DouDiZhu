@@ -30,7 +30,7 @@ cc.Class({
             }else{
                 this.node.destroy();
             }  
-        },1.0, this.time, 0);
+        },0.8, this.time, 0);
 
     },
     close(){

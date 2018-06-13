@@ -62,9 +62,9 @@ cc.Class({
                 self.pokerNum.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
 
-            cc.loader.loadRes("cards/blank_card",cc.SpriteFrame,function(err,spriteFrame){
-                self.pokerBg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-            })
+            // cc.loader.loadRes("cards/blank_card",cc.SpriteFrame,function(err,spriteFrame){
+            //     self.pokerBg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            // })
         }
         
         console.log(""+showData.showTxt+":"+self.cardValue);
@@ -150,5 +150,15 @@ cc.Class({
         this.cardData.isTopped = false;
         this.cardData.isChoosed = false;
         this.pokerLight.enabled = false;
+    },
+    setPokerBg(){
+        var self = this;
+        cc.loader.loadRes("cards/blank_card",cc.SpriteFrame,function(err,spriteFrame){
+            self.pokerBg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
+    },
+    setScale(scale){
+        this.node.scaleX = scale;
+        this.node.scaleY = scale;
     }
 });

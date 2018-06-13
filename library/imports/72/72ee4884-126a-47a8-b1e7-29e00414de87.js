@@ -37,7 +37,32 @@ var GameNetMgr = cc.Class({
                 } else if (eventName == "exitRoom") {
                     this.sendExitRoom();
                 } else if (eventName == "sayToTable") {
-                    this.SendSayToTable(arg);
+                    this.sendSayToTable(arg);
+                } else if (eventName == "openRechargeTip") {
+                    this.sendOpenRechargeTip();
+                } else if (eventName == "openReliefTip") {
+                    this.sendOpenReliefTip();
+                } else if (eventName == "reconnection") {
+                    this.sendReconnection();
+                }
+            }
+            //系统
+            if (cmdName == "System") {
+                if (eventName == "TaskDaily") {
+                    //每日任务
+                    this.sendTaskDaily();
+                } else if (eventName == "Mail") {
+                    //邮箱
+                    this.sendMail();
+                } else if (eventName == "ReadMail") {
+                    //标记邮件已读
+                    this.sendReadMail(arg);
+                } else if (eventName == "GetMailAttachment") {
+                    //领取邮件附件
+                    this.sendGetMailAttachment(arg);
+                } else if (eventName == "DelMail") {
+                    //删除某个邮件
+                    this.sendDelMail(arg);
                 }
             }
         },
@@ -122,15 +147,81 @@ var GameNetMgr = cc.Class({
             cc.vv.net.send("exitRoom", Protocol.Command.Game, params);
         },
 
-        //拍桌聊天
         //牌桌里发语言
-        SendSayToTable: function SendSayToTable(arg) {
+        sendSayToTable: function sendSayToTable(arg) {
             var params = {};
             params.t = Protocol.Request.Game.SayToTable;
             params.wordId = arg.id;
             params.word = arg.word;
             cc.vv.net.send("sayToTable", Protocol.Command.Game, params);
+        },
+
+        //打开救济面板
+        sendOpenRechargeTip: function sendOpenRechargeTip() {
+            var params = {};
+            params.t = Protocol.Request.Game.OpenRechargeTip;
+            cc.vv.net.send("openRechargeTip", Protocol.Command.Game, params);
+        },
+
+        //执行拉霸操作(领救济)
+        sendOpenReliefTip: function sendOpenReliefTip() {
+            var params = {};
+            params.t = Protocol.Request.Game.OpenReliefTip;
+            cc.vv.net.send("openReliefTip", Protocol.Command.Game, params);
+        },
+
+        //发送短线重连
+        sendReconnection: function sendReconnection() {
+            var params = {};
+            params.t = Protocol.Request.Game.Reconnection;
+            cc.vv.net.send("reconnection", Protocol.Command.Game, params);
+        },
+
+        //大厅-------
+        sendTaskDaily: function sendTaskDaily() {
+            //每日任务
+            var params = {};
+            params.t = Protocol.Request.System.TaskDaily;
+            cc.vv.net.send("TaskDaily", Protocol.Command.System, params);
+        },
+        sendMail: function sendMail() {
+            //邮箱
+            var params = {};
+            params.t = Protocol.Request.System.Mail;
+            cc.vv.net.send("Mail", Protocol.Command.System, params);
+        },
+        sendReadMail: function sendReadMail(arg) {
+            //标记邮件已读
+            var params = {};
+            params.t = Protocol.Request.System.ReadMail;
+            params.id = arg;
+            cc.vv.net.send("Mail", Protocol.Command.System, params);
+        },
+        sendGetMailAttachment: function sendGetMailAttachment(arg) {
+            //领取邮件附件
+            var params = {};
+            params.t = Protocol.Request.System.GetMailAttachment;
+            params.id = arg;
+            cc.vv.net.send("Mail", Protocol.Command.System, params);
+        },
+        sendDelMail: function sendDelMail(arg) {
+            //删除某个邮件
+            var params = {};
+            params.t = Protocol.Request.System.DelMail;
+            params.id = arg;
+            cc.vv.net.send("Mail", Protocol.Command.System, params);
         }
+
+        // }else if(eventName == "ReadMail"){//标记邮件已读
+        //     this.sendReadMail();
+        // }
+        // else if(eventName == "GetMailAttachment"){//领取邮件附件
+        //     this.sendGetMailAttachment();
+        // }
+        // else if(eventName == "DelMail"){//删除某个邮件
+        //     this.sendDelMail();
+        // }
+
     }
 });
 

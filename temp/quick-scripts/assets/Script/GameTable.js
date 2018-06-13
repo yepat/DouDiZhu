@@ -4,11 +4,11 @@ cc._RF.push(module, '1393cipeeNFZbpX9aJxYpTG', 'GameTable', __filename);
 
 "use strict";
 
-var PokerData = require("PokerData");
+// var PokerData = require("PokerData");
 var PokerControl = require("PokerControl");
 var config = require("config");
 var CardUtil = require("CardUtil");
-var PopCardUtil = require("PopCardUtil");
+// var PopCardUtil = require("PopCardUtil")
 
 var opratOutCardControl = require("opratOutCardControl");
 var dialogManager = require("dialogManager");
@@ -17,7 +17,7 @@ var Player = require("Player");
 
 var EventHelper = require("EventHelper");
 var GameNetMgr = require("GameNetMgr");
-var Events = require("Events");
+// var Events = require("Events");
 
 cc.Class({
     extends: cc.Component,
@@ -83,6 +83,8 @@ cc.Class({
         this.loadSeatId = 0; //地主的id
         this.nicknames = []; //所有玩家昵称
 
+        this.animShake = false; //屏幕是否在抖动
+
         self.touchBeganX = 0;
         self.leftX = 0;
         self.rightX = 0;
@@ -90,7 +92,7 @@ cc.Class({
         self.downY = 0;
         self.isTouchbegan = false;
 
-        var wechatImgUrl = "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSO7sOWsNicYdNM3MbNGGo58zticxgqoO2aqS7zOCVClXl7WExa4KNQ48uSTSszicsyspzsDQ51M4EQ/132";
+        var wechatImgUrl = config.wxInfo.avatarUrl;
         //--创建自己的形象
         var detailModel = PlayerDetailModel;
         var params = {};
@@ -128,9 +130,11 @@ cc.Class({
         this.leftPokerNode = [];
         this.left_player = new Player();
         this.initLeftPlayerNode();
+
         // self.left_player.initBaseInfo();
+        // this.leftPokerData = this.myPokerData;
         // this.left_player.playerLeftShowCard(this.leftPokerData,this.leftPokerNode,this.pokerLayerLeft,this.sceneWidth);
-        // this.right_player.playerRightShowCard(this.rightPokerData,this.rightPokerNode,this.pokerLayerRight,this.sceneWidth);
+
 
         //右边玩家形象
         this.rightDispatchCard = [];
@@ -146,29 +150,44 @@ cc.Class({
 
         this.leftPlayer.active = false;
         this.rightPlayer.active = false;
+        this.table3Card = [];
 
-        GameNetMgr.sendRequest("Game", "startGame");
+        if (config.IsContinueGaming == 1) {
+            GameNetMgr.sendRequest("Game", "reconnection");
+            config.IsContinueGaming = 0;
+        } else {
+            GameNetMgr.sendRequest("Game", "startGame");
+        }
         this.registerEventListener();
         this.initTable3Card();
     },
 
     //初始化桌面3张底牌
     initTable3Card: function initTable3Card() {
-        this.table3Card = [];
-        for (var i = 0; i < 3; i++) {
-            var path = "Canvas/top_bar1/dipaibg/poker" + i;
-            var card = cc.find(path);
-            this.table3Card.push(card);
-            card.active = false;
-        }
-
+        this.node_diPai = cc.find("Canvas/top_bar1/diPai");
+        this.node_pCardBg = cc.find("Canvas/top_bar1/p_card_bg");
         this.node_tableTimes = cc.find("Canvas/bottom_bar3/beishu/lab_bei").getComponent(cc.Label);
+        this.node_pCardBg.active = false;
     },
     setTable3Card: function setTable3Card(severCards) {
+        this.node_pCardBg.active = true;
         for (var i = 0; i < 3; i++) {
-            this.table3Card[i].active = true;
-            var poker = this.table3Card[i].getComponent(PokerControl);
+            var cardNode = cc.instantiate(this.pokerCard);
+            cardNode.parent = this.node_diPai;
+            cardNode.scale = 0.35;
+            var poker = cardNode.getComponent(PokerControl);
             poker.showPoker(CardUtil.convertCardToClient(severCards[i]));
+            this.table3Card.push(cardNode);
+        }
+    },
+    clearTable3Card: function clearTable3Card() {
+        this.node_pCardBg.active = false;
+        if (this.table3Card.length > 0) {
+            //先清理桌上的牌
+            for (var i = 0; i < this.table3Card.length; i++) {
+                this.table3Card[i].getComponent(PokerControl).node.removeFromParent();
+            }
+            this.table3Card = [];
         }
     },
     initMyPlayerNode: function initMyPlayerNode() {
@@ -177,7 +196,7 @@ cc.Class({
         var node_LeDou = cc.find("Canvas/my_player/ledou/lab_ledou").getComponent(cc.Label);
         var node_LeQuan = cc.find("Canvas/my_player/lequan/lab_lequan").getComponent(cc.Label);
         var node_Landlord = cc.find("Canvas/my_player/head1/p_dz_icon").getComponent(cc.Sprite);
-        var node_hint = cc.find("Canvas/my_player/my_tip/p_tip_jiaodizhu").getComponent(cc.Sprite);
+        var node_hint = cc.find("Canvas/my_tip/p_tip_jiaodizhu").getComponent(cc.Sprite);
         var node_wechatImg = cc.find("Canvas/my_player/head1/p_head/p_head_1").getComponent(cc.Sprite);
 
         var nodes = {};
@@ -196,6 +215,12 @@ cc.Class({
         node_Landlord.enabled = false;
         nodes.node_hint.enabled = false;
         self.playerme_.initNodes(nodes);
+
+        //牌桌任务
+        self.node_taskbg = cc.find("Canvas/p_taskbg").getComponent(cc.Sprite);;
+        self.node_taskName = cc.find("Canvas/p_taskbg/taskName").getComponent(cc.Label);
+        self.node_taskbg.enabled = false;
+        self.node_taskName.string = "";
 
         self.lab_roomId = cc.find("Canvas/p_table_icon/lab_roomId").getComponent(cc.Label);
         if (config.tableInfo) {
@@ -280,12 +305,14 @@ cc.Class({
         this.left_player.clear();
         this.right_player.clear();
 
+        this.clearTable3Card();
+
         this.playerme_.clearTableCard(this.dispatchCard);
         this.left_player.clearTableCard(this.leftDispatchCard);
         this.right_player.clearTableCard(this.rightDispatchCard);
 
         if (this.myPokerNode.length > 0) {
-            //先清理桌上的牌
+            //先清理桌上的牌(自己)
             for (var i = 0; i < this.myPokerNode.length; i++) {
                 this.myPokerNode[i].getComponent(PokerControl).node.removeFromParent();
             }
@@ -293,8 +320,28 @@ cc.Class({
         }
         this.myPokerData = [];
 
+        if (this.leftPokerNode.length > 0) {
+            //先清理桌上的牌(自己)
+            for (var i = 0; i < this.leftPokerNode.length; i++) {
+                this.leftPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+            }
+            this.leftPokerNode = [];
+        }
+        this.leftPokerData = [];
+
+        if (this.rightPokerNode.length > 0) {
+            //先清理桌上的牌(自己)
+            for (var i = 0; i < this.rightPokerNode.length; i++) {
+                this.rightPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+            }
+            this.rightPokerNode = [];
+        }
+        this.rightPokerData = [];
+
         this.leftPlayer.active = false;
         this.rightPlayer.active = false;
+        this.node_taskbg.enabled = false;
+        this.node_taskName.string = "";
 
         this.preSendCards = []; //上架出牌
         this.preSeatId = -1; //上架出牌id
@@ -302,9 +349,9 @@ cc.Class({
         console.log("//清理拍桌");
 
         // for(this.table3Card)
-        for (var i = 0; i < this.table3Card.length; i++) {
-            this.table3Card[i].active = false;
-        }
+        // for(var i=0;i<this.table3Card.length;i++){
+        //     this.table3Card[i].active = false;
+        // }
 
         if (this.CancelDelegate) {
             console.log("//清理拍桌 11111");
@@ -451,7 +498,7 @@ cc.Class({
     },
 
     //轮到自己出牌
-    onMyOutCard: function onMyOutCard() {
+    onMyOutCard: function onMyOutCard(time) {
         var self = this;
         var dispatchCard = this.dispatchCard;
         var sceneWidth = this.sceneWidth;
@@ -495,6 +542,10 @@ cc.Class({
             var tishicards = CardUtil.get_cards_larger(cardstype, myCards);
             if (tishicards.length == 0) {
                 console.log("没有符合的牌型可供提示");
+                if (self.myOpratShow) {
+                    // self.myOpratShow.chupaiClick(-2);
+                    buchuFunc();
+                }
                 return;
             }
             cards = tishicards[tishiNum];
@@ -547,11 +598,17 @@ cc.Class({
                 var popCardsType = CardUtil.get_topCard_type(topCards);
                 // console.log(popCardsType);
                 if (popCardsType.type == 0) {
-                    console.log("提起的牌不合法");
+                    console.log("提起的牌不合法 111");
+                    // if(self.myOpratShow){
+                    //     self.myOpratShow.chupaiClick(-1);
+                    // }
                     return -1;
                 }
             } else {
-                console.log("没有牌提起");
+                console.log("没有牌提起  111");
+                // if(self.myOpratShow){
+                //     self.myOpratShow.chupaiClick(0);
+                // }
                 return 0;
             }
 
@@ -585,13 +642,18 @@ cc.Class({
             // self.rightSendCards(args,null,false);
         };
 
+        var curTime = config.SendCardTimeout;
+        if (time) {
+            curTime = time;
+        }
+
         if (self.playerme_.getCardCount() == 20 || self.mySeatId == self.preSeatId) {
-            self.showCallLord(config.SendCardTimeout, null, chupaiFunc, config.opratType.mustOutCard);
+            self.showCallLord(curTime, null, chupaiFunc, config.opratType.mustOutCard);
         } else {
             var opOutCard = cc.instantiate(this.opratOutCard);
             opOutCard.parent = scene;
             var opOutCardControl = opOutCard.getComponent(opratOutCardControl);
-            opOutCardControl.show(config.SendCardTimeout, buchuFunc, tishiFunc, chupaiFunc);
+            opOutCardControl.show(curTime, buchuFunc, tishiFunc, chupaiFunc);
 
             if (!self.myOpratShow) {
                 self.myOpratShow = opOutCardControl;
@@ -685,48 +747,55 @@ cc.Class({
         console.log("btnBackClick");
         // cc.director.loadScene("HallScene");
 
-        if (self.gameState == config.gameState.ST_GAME_START) {
+        if (self.gameState < config.gameState.ST_GAME_BALANCE) {
             var click = function click() {
+                // GameNetMgr.sendRequest("Game", "exitRoom");
+                GameNetMgr.sendRequest("Game", "requestDelegate", true);
                 self.removeEventListener();
-                GameNetMgr.sendRequest("Game", "exitRoom");
-                // cc.director.loadScene("HallScene");
                 self.preloadNextScene();
             };
             dialogManager.showCommonDialog("温馨提示", "现在离开会由笨笨的机器人代打哟，输了豆豆可不能怪它喔！", click);
         } else {
             self.removeEventListener();
-            // cc.director.loadScene("HallScene");
             self.preloadNextScene();
         }
     },
     btnDelegateClick: function btnDelegateClick() {
         console.log("btnDelegateClick");
-        // dialogManager.showJpqNode();
-        // dialogManager.showCancelDelegate();
+        var self = this;
+        if (self.playerme_.getDelegated()) {
+            console.log("托管中。。。。");
+        } else {
+            if (self.gameState == config.gameState.ST_GAME_CallLordOver) {
+                GameNetMgr.sendRequest("Game", "requestDelegate", true);
+                self.playerme_.setDelegated(true);
+                self.showCancelDelegate();
+            }
+        }
+    },
+    showCancelDelegate: function showCancelDelegate() {
         var self = this;
         var click = function click() {
             GameNetMgr.sendRequest("Game", "cancelDelegate");
             self.CancelDelegate = null;
             self.playerme_.setDelegated(false);
         };
-        if (self.CancelDelegate || self.gameState != config.gameState.ST_GAME_START) {} else {
-            cc.loader.loadRes("prefab/CancelDelegate", function (err, prefab) {
-                //匹配计数动画
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                var newNode = cc.instantiate(prefab);
-                cc.director.getScene().addChild(newNode);
-                var prefabControl = newNode.getComponent(require("CancelDelegateController"));
-                prefabControl.show(click);
-                self.CancelDelegate = prefabControl;
-            });
-        }
+        cc.loader.loadRes("prefab/CancelDelegate", function (err, prefab) {
+            //匹配计数动画
+            if (err) {
+                console.log(err);
+                return;
+            }
+            var newNode = cc.instantiate(prefab);
+            cc.director.getScene().addChild(newNode);
+            var prefabControl = newNode.getComponent(require("CancelDelegateController"));
+            prefabControl.show(click);
+            self.CancelDelegate = prefabControl;
+        });
     },
     btnSetClick: function btnSetClick() {
         console.log("btnSetClick");
-        dialogManager.showSetDialog();
+        // dialogManager.showSetDialog();
     },
     btnJiPaiQiClick: function btnJiPaiQiClick() {
         console.log("btnJiPaiQiClick");
@@ -813,6 +882,9 @@ cc.Class({
         EventHelper.AddCustomEvent(config.MyNode, "TableUserExit", self.onTableUserExit, self);
         EventHelper.AddCustomEvent(config.MyNode, "InvalidCardNum", self.onInvalidCardNum, self);
         EventHelper.AddCustomEvent(config.MyNode, "SayToTableInfo", self.onSayToTableInfo, self);
+        EventHelper.AddCustomEvent(config.MyNode, "ReconnectionData", self.onReconnectionData, self);
+        EventHelper.AddCustomEvent(config.MyNode, "PokerTask", self.onPokerTask, self);
+        EventHelper.AddCustomEvent(config.MyNode, "OpenRechargeTipResult", self.onOpenRechargeTipResult, self);
     },
     removeEventListener: function removeEventListener() {
         var self = this;
@@ -836,6 +908,9 @@ cc.Class({
         EventHelper.RemoveCustomEvent(config.MyNode, "TableUserExit", self.onTableUserExit, self);
         EventHelper.RemoveCustomEvent(config.MyNode, "InvalidCardNum", self.onInvalidCardNum, self);
         EventHelper.RemoveCustomEvent(config.MyNode, "SayToTableInfo", self.onSayToTableInfo, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "ReconnectionData", self.onReconnectionData, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "PokerTask", self.onPokerTask, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "OpenRechargeTipResult", self.onOpenRechargeTipResult, self);
     },
 
     //初始化玩家信息
@@ -951,9 +1026,11 @@ cc.Class({
 
         var click1 = function click1() {
             //名牌
+            // self.clearTable();
             GameNetMgr.sendRequest("Game", "startGame", true);
         };
         var click2 = function click2() {
+            // self.clearTable();
             GameNetMgr.sendRequest("Game", "startGame", false);
         };
         var url = "prefab/gameResultWin";
@@ -969,26 +1046,29 @@ cc.Class({
 
         for (var i = 0; i < 3; i++) {
             var socre = data.total["" + i];
-            if (socre > 0) {
-                socre = "+" + socre;
-            } else {
-                socre = "- " + Math.abs(socre);
-            }
+            // if(socre>0){
+            //     socre = "+"+socre;
+            // }else{
+            //     socre = "- "+Math.abs(socre);
+            // }
             var infoItem = {
-                isdizhu: self.loadSeatId == i, nickname: self.nicknames[i], difen: baseCoins, beishu: rate, ledou: socre
+                isdizhu: self.loadSeatId == i, nickname: self.nicknames[i], difen: baseCoins, beishu: rate, ledou: socre, coin: data.coins[i], rateMax: rateMax
             };
             infos.push(infoItem);
         }
         cc.loader.loadRes(url, function (err, prefab) {
-            //匹配计数动画
             if (err) {
                 console.log(err);
                 return;
             }
+            var nextScene = function nextScene() {
+                self.removeEventListener();
+                self.preloadNextScene();
+            };
             var newNode = cc.instantiate(prefab);
             cc.director.getScene().addChild(newNode);
             var prefabControl = newNode.getComponent(require("gameResultControl"));
-            prefabControl.show(infos, click1, click2, self.mySeatId);
+            prefabControl.show(infos, click1, click2, self.mySeatId, nextScene);
         });
     },
 
@@ -998,6 +1078,7 @@ cc.Class({
         var self = this;
         console.log("进入队列---");
         self.gameState = config.gameState.ST_GAME_PREPARE;
+
         cc.loader.loadRes("animatiom/watingStartGame", function (err, prefab) {
             //匹配计数动画
             if (err) {
@@ -1008,6 +1089,23 @@ cc.Class({
             cc.director.getScene().addChild(newNode);
             self.watingStart = newNode.getComponent(require("watingStarControl"));
         });
+
+        // var callFunc = cc.callFunc(function(){
+        //    if(self.gameState == config.gameState.ST_GAME_PREPARE){
+        //         cc.loader.loadRes("animatiom/watingStartGame", function (err, prefab) {
+        //             //匹配计数动画
+        //             if (err) {
+        //                 console.log(err);
+        //                 return;
+        //             }
+        //             var newNode = cc.instantiate(prefab);
+        //             cc.director.getScene().addChild(newNode);
+        //             self.watingStart = newNode.getComponent(require("watingStarControl"));
+        //         });
+        //    }
+        // });
+        // var delay = cc.delayTime(0.1);
+        // this.node.runAction(cc.sequence(delay,callFunc));
     },
     onGameReady: function onGameReady(event) {
         var self = this;
@@ -1034,7 +1132,17 @@ cc.Class({
     onSendCard: function onSendCard(event) {
         var self = this;
         console.log("发牌, 包括各用户的牌信息---");
-        self.gameState = config.gameState.ST_GAME_START;
+        self.gameState = config.gameState.ST_GAME_SendCard;
+
+        if (self.watingStart) {
+            self.watingStart.close();
+            self.watingStart = null;
+        }
+
+        if (self.watingStart) {
+            self.watingStart.close();
+            self.watingStart = null;
+        }
 
         self.playerme_.hideHint();
         self.left_player.hideHint();
@@ -1073,6 +1181,7 @@ cc.Class({
                 if (seatNum == 1) {
                     //自己
                     self.playerme_.setCoin(data[i].coins);
+                    PlayerDetailModel.setCoin(data[i].coins);
                 } else if (seatNum == 0) {
                     //右边
                     self.right_player.setCoin(data[i].coins);
@@ -1086,12 +1195,13 @@ cc.Class({
     onTurnCallLord: function onTurnCallLord(event) {
         var self = this;
         console.log("轮到谁叫地主---");
+        self.gameState = config.gameState.ST_GAME_CallLord;
+
         var response = event.getUserData();
         var seatNum = config.getPlayerSeatNum(self.mySeatId, response.data.callId);
         if (seatNum == 1) {
             //自己
             var btn1Func = function btn1Func() {
-                // GameNetMgr.sendCallLord(1);
                 GameNetMgr.sendRequest("Game", "callLord", 1);
                 if (self.myOpratShow) {
                     self.myOpratShow.close();
@@ -1099,7 +1209,6 @@ cc.Class({
                 }
             };
             var btn2Func = function btn2Func() {
-                // GameNetMgr.sendCallLord(2);
                 GameNetMgr.sendRequest("Game", "callLord", 2);
                 if (self.myOpratShow) {
                     self.myOpratShow.close();
@@ -1213,6 +1322,7 @@ cc.Class({
     onCallLordOver: function onCallLordOver(event) {
         var self = this;
         console.log("叫地主结束---");
+        self.gameState = config.gameState.ST_GAME_CallLordOver;
         self.playerme_.hideHint();
         self.left_player.hideHint();
         self.right_player.hideHint();
@@ -1239,19 +1349,43 @@ cc.Class({
                 }
                 self.myPokerData = [];
 
-                self.myPokerData = CardUtil.serverCardsToClient(response.data.myCard);
-                self.myPokerNode = self.playerme_.initMyCards(self.myPokerData, self.myPokerNode, self.scene, self.sceneWidth);
                 self.playerme_.setCardCount(20);
                 self.playerme_.setLandlord(true);
+                self.myPokerData = CardUtil.serverCardsToClient(response.data.myCard);
+                self.myPokerNode = self.playerme_.initMyCards(self.myPokerData, self.myPokerNode, self.scene, self.sceneWidth);
             }
         } else if (seatNum == 0) {
             //右边
             self.right_player.setCardCount(20);
             self.right_player.setLandlord(true);
+            if (response.data.lordShowCard && response.data.lordShowCard.length == 20) {
+                if (self.rightPokerNode.length > 0) {
+                    //先清理桌上的牌
+                    for (var i = 0; i < self.rightPokerNode.length; i++) {
+                        self.rightPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+                    }
+                    self.rightPokerNode = [];
+                }
+                self.rightPokerData = [];
+                self.rightPokerData = CardUtil.serverCardsToClient(response.data.lordShowCard);
+                self.right_player.playerRightShowCard(self.rightPokerData, self.rightPokerNode, self.pokerLayerRight, self.sceneWidth);
+            }
         } else if (seatNum == 2) {
             //左边
             self.left_player.setCardCount(20);
             self.left_player.setLandlord(true);
+            if (response.data.lordShowCard && response.data.lordShowCard.length == 20) {
+                if (self.leftPokerNode.length > 0) {
+                    //先清理桌上的牌
+                    for (var i = 0; i < self.leftPokerNode.length; i++) {
+                        self.leftPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+                    }
+                    self.leftPokerNode = [];
+                }
+                self.leftPokerData = [];
+                self.leftPokerData = CardUtil.serverCardsToClient(response.data.lordShowCard);
+                self.left_player.playerLeftShowCard(self.leftPokerData, self.leftPokerNode, self.pokerLayerLeft, self.sceneWidth);
+            }
         }
     },
     onCanDoubleResult: function onCanDoubleResult(event) {
@@ -1262,14 +1396,20 @@ cc.Class({
 
         if (candouble && candouble == 1) {
             var btn1Func = function btn1Func() {
+                self.playerme_.showHint(config.hintType.double);
                 GameNetMgr.sendRequest("Game", "addRatio");
             };
-            dialogManager.showOpratDouble(btn1Func);
+            var btn2Func = function btn2Func() {
+                self.playerme_.showHint(config.hintType.doubleNo);
+            };
+            dialogManager.showOpratDouble(btn1Func, btn2Func);
         }
     },
     onTurnSendCard: function onTurnSendCard(event) {
         var self = this;
         console.log("轮到谁出牌---");
+        self.gameState = config.gameState.ST_GAME_CallLordOver;
+
         var response = event.getUserData();
         var seatId = response["data"]["callId"];
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
@@ -1305,10 +1445,11 @@ cc.Class({
         var giveup = response["data"]["giveup"]; //是否断线  0在线 1在线
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
 
+        console.log("用户托管---" + seatNum);
         if (seatNum == 1) {
             //自己
             if (!self.playerme_.getDelegated()) {
-                self.btnDelegateClick();
+                self.showCancelDelegate();
                 self.playerme_.setDelegated(true);
             }
         } else if (seatNum == 0) {//右边
@@ -1320,6 +1461,8 @@ cc.Class({
     onPlayerSendCard: function onPlayerSendCard(event) {
         var self = this;
         console.log("用户出牌---");
+        self.gameState = config.gameState.ST_GAME_CallLordOver;
+
         var response = event.getUserData();
         var seatId = response["data"]["callId"];
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
@@ -1371,15 +1514,19 @@ cc.Class({
             } else if (cardstype.type == config.CardType.DoubleKing) {
                 //火箭
                 dialogManager.showAnimHuoJian();
+                self.animShakeNode();
             } else if (cardstype.type == config.CardType.Bomb) {
                 //炸弹
                 dialogManager.showAnimZhaDan();
+                self.animShakeNode();
             }
         }
     },
     onPlayerNotSend: function onPlayerNotSend(event) {
         var self = this;
         console.log("用户不出牌---");
+        self.gameState = config.gameState.ST_GAME_CallLordOver;
+
         var response = event.getUserData();
         var seatId = response["data"]["callId"];
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
@@ -1408,18 +1555,24 @@ cc.Class({
         console.log("用户明牌---");
         var response = event.getUserData();
         var seatId = response["data"]["showCardId"];
+        var showCardInfo = response["data"]["showCardInfo"];
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
         console.log("seatNum:" + seatNum);
         if (seatNum == 1) {
             //自己
             self.playerme_.setOpenHandCards(true);
+            if (self.myPokerNode.length > 0) {
+                self.myPokerNode[self.myPokerNode.length - 1].getComponent(PokerControl).setCardShow(true);
+            }
         } else if (seatNum == 0) {
             //右边
             self.right_player.setOpenHandCards(true);
+            self.rightPokerData = CardUtil.serverCardsToClient(showCardInfo);
             self.right_player.playerRightShowCard(self.rightPokerData, self.rightPokerNode, self.pokerLayerRight, self.sceneWidth);
         } else if (seatNum == 2) {
             //左边
             self.left_player.setOpenHandCards(true);
+            self.leftPokerData = CardUtil.serverCardsToClient(showCardInfo);
             self.left_player.playerLeftShowCard(self.leftPokerData, self.leftPokerNode, self.pokerLayerLeft, self.sceneWidth);
         }
     },
@@ -1433,6 +1586,7 @@ cc.Class({
     onTableUserExit: function onTableUserExit(event) {
         var self = this;
         console.log("有用户退出 通知桌上的玩家重新进入队列---");
+        self.gameState = config.gameState.ST_GAME_WAIT_NEXTROUND;
         var response = event.getUserData();
         // self.gameState = config.gameState.ST_GAME_BALANCE;
         self.clearTable();
@@ -1449,7 +1603,6 @@ cc.Class({
         var self = this;
         console.log("聊天信息---");
         var response = event.getUserData();
-
         var seatId = response["data"]["sayId"];
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
         if (seatNum == 1) {
@@ -1463,6 +1616,260 @@ cc.Class({
             this.showLeftChat(response["data"]["word"]);
         }
     },
+    onReconnectionData: function onReconnectionData(event) {
+        console.log("短线重连-------");
+        var self = this;
+        self.clearTable();
+        var response = event.getUserData();
+
+        var players = {};
+        players.lastCall = response.data.lastCall;
+        players.lastCards = response.data.lastCards; //noteCards
+        players.noteCards = response.data.noteCards;
+        players.lordId = response.data.lordId;
+        players.noteCards = response.data.lordCard;
+        players.task = response.data.task;
+
+        // 任务
+        self.node_taskbg.enabled = true;
+        var table_task = players.task.name;
+        if (players.task.coins && players.task.coins != "0") {
+            table_task = table_task + " 奖" + players.task.coins + "乐豆";
+        } else if (players.task.lottery && players.task.lottery != "0") {
+            table_task = table_task + " 奖" + players.task.lottery + "抽奖数";
+        } else if (players.task.tip) {
+            table_task = table_task + players.task.tip;
+        } else {
+            table_task = table_task + " 奖" + players.task.coupon + "乐劵";
+        }
+        self.node_taskName.string = table_task;
+        var w = self.node_taskName.node.width;
+        self.node_taskbg.node.width = w + 70;
+
+        players.act = response.data.act; //操作 TURN_CALL_LORD 叫地主 TURN_GRAB_LORD 抢地主 TURN_PLAY_CARD 出牌
+        players.time = response.data.time; //操作倒计时
+        players.turnSeat = response.data.turnSeat; //操作玩家
+        var turnSeatNum = config.getPlayerSeatNum(response.data.mySeatId, players.turnSeat);
+        if (turnSeatNum == 1) {
+            if (players.act == "TURN_CALL_LORD") {
+                var btn1Func = function btn1Func() {
+                    GameNetMgr.sendRequest("Game", "callLord", 1);
+                    if (self.myOpratShow) {
+                        self.myOpratShow.close();
+                        self.myOpratShow = null;
+                    }
+                };
+                var btn2Func = function btn2Func() {
+                    GameNetMgr.sendRequest("Game", "callLord", 2);
+                    if (self.myOpratShow) {
+                        self.myOpratShow.close();
+                        self.myOpratShow = null;
+                    }
+                };
+                self.showCallLord(players.time, btn1Func, btn2Func, config.opratType.callLoad);
+                self.playerme_.hideHint();
+            } else if (players.act == "TURN_GRAB_LORD") {
+                var btn1Func = function btn1Func() {
+                    // GameNetMgr.sendGrabLord(1);
+                    GameNetMgr.sendRequest("Game", "grabLord", 1);
+                };
+                var btn2Func = function btn2Func() {
+                    // GameNetMgr.sendGrabLord(2);
+                    GameNetMgr.sendRequest("Game", "grabLord", 2);
+                };
+                self.showCallLord(players.time, btn1Func, btn2Func, config.opratType.grabLoad);
+                self.playerme_.hideHint();
+            } else if (players.act == "TURN_PLAY_CARD" || players.act == "AUTO_PLAY_CARD") {
+                self.onMyOutCard(23); //players.time
+                self.playerme_.hideHint();
+                self.playerme_.clearTableCard(self.dispatchCard);
+            }
+        } else if (turnSeatNum == 0) {
+            //右边
+            self.right_player.showClock(players.time);
+            self.right_player.hideHint();
+            self.right_player.clearTableCard(self.rightDispatchCard);
+        } else if (turnSeatNum == 2) {
+            //左边
+            self.left_player.showClock(players.time);
+            self.left_player.hideHint();
+            self.left_player.clearTableCard(self.leftDispatchCard);
+        }
+
+        players.data = [];
+        for (var i = 0; i < 3; i++) {
+            var player = {};
+            player.cards = response["data"]["seat" + i + "cards"];
+            player.info = response["data"]["seat" + i + "info"];
+            player.show = response["data"]["seat" + i + "show"];
+            player.trust = response["data"]["seat" + i + "trust"]; //托管
+            players.data.push(player);
+            self.nicknames[i] = player.info.nick;
+        }
+        console.log("players-------");
+        console.log(players);
+
+        self.preSendCards = response.data.lastCards; //上架出牌
+        self.preSeatId = response.data.lastCall; //上架出牌id
+
+        self.leftPlayer.active = true;
+        self.rightPlayer.active = true;
+
+        self.mySeatId = response.data.mySeatId;
+        if (players.lordId != 4) {
+            self.loadSeatId = players.lordId;
+            self.setTable3Card(response.data.lordCard);
+        }
+
+        for (var i = 0; i < 3; i++) {
+            var seatNum = config.getPlayerSeatNum(self.mySeatId, i);
+            var cards = players.data[i].cards;
+            var show = players.data[i].show;
+            var info = players.data[i].info;
+            var trust = players.data[i].trust;
+            if (seatNum == 1) {
+                //自己
+                if (show == 1) {//明牌
+                } else {}
+                if (self.myPokerNode.length > 0) {
+                    //先清理桌上的牌
+                    for (var i = 0; i < self.myPokerNode.length; i++) {
+                        self.myPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+                    }
+                    self.myPokerNode = [];
+                }
+                self.myPokerData = [];
+                self.playerme_.setCardCount(cards.length);
+                self.playerme_.setOpenHandCards(show == 1);
+                self.playerme_.setLandlord(players.lordId == i);
+                self.myPokerData = CardUtil.serverCardsToClient(cards);
+                self.myPokerNode = self.playerme_.initMyCards(self.myPokerData, self.myPokerNode, self.scene, self.sceneWidth);
+
+                var parm = {};
+                parm.nickname = info.nick;
+                parm.coin = info.coins;
+                parm.lequan = info.coupon;
+                parm.wechatImg = info.img;
+                parm.cardCount = cards.length;
+                self.playerme_.continueInfo(parm);
+                if (trust != 0) {
+                    console.log("自己托管中。。。。");
+                    if (!self.playerme_.getDelegated()) {
+                        console.log("自己托管中。。。。1111");
+                        self.showCancelDelegate();
+                        self.playerme_.setDelegated(true);
+                    }
+                }
+            } else if (seatNum == 0) {
+                //右边
+                if (show == 1) {
+                    //明牌
+                    if (self.rightPokerNode.length > 0) {
+                        //先清理桌上的牌
+                        for (var i = 0; i < self.rightPokerNode.length; i++) {
+                            self.rightPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+                        }
+                        self.rightPokerNode = [];
+                    }
+                    self.rightPokerData = [];
+                    self.rightPokerData = CardUtil.serverCardsToClient(cards);
+                    self.right_player.playerRightShowCard(self.rightPokerData, self.rightPokerNode, self.pokerLayerRight, self.sceneWidth);
+                } else {}
+                self.right_player.setOpenHandCards(show == 1);
+                self.right_player.setLandlord(players.lordId == i);
+                var parm = {};
+                parm.nickname = info.nick;
+                parm.coin = info.coins;
+                parm.lequan = info.coupon;
+                parm.wechatImg = "";
+                parm.cardCount = cards.length;
+                self.right_player.continueInfo(parm);
+            } else if (seatNum == 2) {
+                //左边
+                if (show == 1) {
+                    //明牌
+                    if (self.leftPokerNode.length > 0) {
+                        //先清理桌上的牌
+                        for (var i = 0; i < self.leftPokerNode.length; i++) {
+                            self.leftPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+                        }
+                        self.leftPokerNode = [];
+                    }
+                    self.leftPokerData = [];
+                    self.leftPokerData = CardUtil.serverCardsToClient(cards);
+                    self.left_player.playerLeftShowCard(self.leftPokerData, self.leftPokerNode, self.pokerLayerLeft, self.sceneWidth);
+                } else {}
+                self.left_player.setOpenHandCards(show == 1);
+                self.left_player.setLandlord(players.lordId == i);
+                var parm = {};
+                parm.nickname = info.nick;
+                parm.coin = info.coins;
+                parm.lequan = info.coupon;
+                parm.wechatImg = "";
+                parm.cardCount = cards.length;
+                self.left_player.continueInfo(parm);
+            }
+        }
+        //显示上家出牌
+        var preSeatNum = config.getPlayerSeatNum(response.data.mySeatId, self.preSeatId);
+        if (preSeatNum == 1) {
+            //自己
+            self.mySendCards(self.preSendCards);
+        } else if (preSeatNum == 0) {
+            //右边
+            self.rightSendCards(self.preSendCards, null, self.right_player.getOpenHandCards());
+        } else if (preSeatNum == 2) {
+            //左边
+            self.leftSendCards(self.preSendCards, null, self.left_player.getOpenHandCards());
+        }
+    },
+    onPokerTask: function onPokerTask(event) {
+        console.log("触发牌局任务-------");
+        var self = this;
+        var response = event.getUserData();
+        self.node_taskbg.enabled = true;
+        var table_task = response.data.table_task;
+        if (response.data.coins) {
+            table_task = table_task + " 奖" + response.data.coins + "乐豆";
+        } else if (response.data.lottery) {
+            table_task = table_task + " 奖" + response.data.lottery + "抽奖数";
+        } else if (response.data.tip) {
+            table_task = table_task + response.data.tip;
+        } else {
+            table_task = table_task + " 奖" + response.data.coupon + "乐劵";
+        }
+        self.node_taskName.string = table_task;
+        var w = self.node_taskName.node.width;
+        self.node_taskbg.node.width = w + 70;
+    },
+    onOpenRechargeTipResult: function onOpenRechargeTipResult(event) {
+        var self = this;
+        var response = event.getUserData();
+        console.log(response);
+        var trial_count = response.data.trial_count;
+        var content = "";
+
+        var callFunc = cc.callFunc(function () {
+            var click = function click() {
+                console.log("点击了领取救济按钮");
+                if (trial_count < 3) {
+                    GameNetMgr.sendRequest("Game", "openReliefTip", {});
+                } else {
+                    self.preloadNextScene();
+                }
+            };
+            if (trial_count < 3) {
+                var index = trial_count + 1;
+                content = "系统第" + index + "次赠送您1000乐豆。";
+                dialogManager.showCommonDialog("领救济", content, click);
+            } else {
+                content = "今天乐豆已经领完了哦，明天在过来吧！";
+                dialogManager.showCommonDialog("领救济", content);
+            }
+        });
+        var delay = cc.delayTime(0.5); //延迟0.5秒弹出
+        this.node.runAction(cc.sequence(delay, callFunc));
+    },
 
     ////////////
     preloadNextScene: function preloadNextScene() {
@@ -1470,6 +1877,30 @@ cc.Class({
             cc.log("Next scene preloaded");
             cc.director.loadScene("HallScene");
         });
+    },
+
+    //震动屏幕
+    animShakeNode: function animShakeNode() {
+        var self = this;
+        if (this.animShake) {
+            return;
+        }
+        this.animShake = true;
+        var x = this.scene.x;
+        var y = this.scene.y;
+        var move1 = cc.moveTo(0.08, x - 5, y - 5);
+        var move2 = cc.moveTo(0.08, x + 5, y + 5);
+        var move3 = cc.moveTo(0.08, x - 5, y + 5);
+        var move4 = cc.moveTo(0.08, x + 5, y - 5);
+        var move5 = cc.moveTo(0.08, x - 3, y - 3);
+        var move6 = cc.moveTo(0.08, x + 3, y + 3);
+        var move7 = cc.moveTo(0.08, x - 3, y + 3);
+        var move8 = cc.moveTo(0.08, x + 3, y - 3);
+        var move9 = cc.moveTo(0.08, x, y);
+        var callFunc = cc.callFunc(function () {
+            self.animShake = false;
+        });
+        this.scene.runAction(cc.sequence(move1, move2, move3, move4, move5, move6, move7, move8, move9, callFunc));
     }
 });
 

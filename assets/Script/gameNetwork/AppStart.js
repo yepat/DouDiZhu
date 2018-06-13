@@ -4,6 +4,7 @@ var Protocol = require("Protocol");
 var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
 var dialogManager = require("dialogManager");
+var MD5 = require("md5");
 
 function initMgr(){
     cc.vv = {};
@@ -28,6 +29,27 @@ cc.Class({
         var myNode = new cc.Node("myNode");
         EventHelper.addPersistRootNode(myNode);
         this.isShow = false;
+
+        // wx.showShareMenu({
+        //     withShareTicket: true
+        // });
+        // cc.loader.loadRes("img_dialog/p_sharebg",function(err,data){
+        //     wx.onShareAppMessage(function(res){
+        //         return {
+        //             title: "有乐斗地主等你来战！",
+        //             imageUrl: data.url,
+        //             query : PlayerDetailModel.uid,
+        //             success(res){
+        //                 console.log("转发成功!!!")
+        //                 console.log(res);
+        //                 // common.diamond += 20;
+        //             },
+        //             fail(res){
+        //                 console.log("转发失败!!!")
+        //             } 
+        //         }
+        //     })
+        // });
     },
     getServerInfo:function(){
         var params = {};
@@ -79,6 +101,7 @@ cc.Class({
         cc.vv.net.connect(config.GlobalRouter.host,config.GlobalRouter.port,function(ret){
             //WebSocket连接成功
             self.sendRegist();
+            // self.getWxUserInfo();
         });
 
         var ConnectionClosedShow = function(){
@@ -100,8 +123,17 @@ cc.Class({
 
         EventHelper.AddCustomEvent(config.MyNode,"Regist",self.onRegist,self);
         EventHelper.AddCustomEvent(config.MyNode,"HeartBeat",self.onHeartBeat,self);
-        EventHelper.AddCustomEvent(config.MyNode,"LoginOK",self.onLoginOK,self);
-
+        EventHelper.AddCustomEvent(config.MyNode,"LoginOK",self.onLoginOK,self);  
+    },
+    getWxUserInfo(){
+        var self = this; 
+        wx.getUserInfo({
+            success: function (res) {
+               console.log("res.userInfo = " + JSON.stringify(res.userInfo));
+               config.UpdateWxInfo(res.userInfo);
+               self.sendRegist();
+             },
+       })
     },
     onRegist(event){
         var self = this;
@@ -128,9 +160,13 @@ cc.Class({
     },
     sendRegist(){
         //注册请求
+        var _d = MD5.hex_md5("yepat2");
+        if(config.wxInfo.nickName !=""){
+            _d = MD5.hex_md5(config.wxInfo.nickName);
+        }
         var params = {};
         params.t = Protocol.Request.Login.Regist;
-        params.d = "23c686a260c586ee03ea5fb2b8252770";
+        params.d = _d;
         params.u = "50ee8041a7fd8baa6348252ea114432bb3be23bd";
         params.v = "2.1.1";
         params.c = "sjweichat";
@@ -139,16 +175,20 @@ cc.Class({
         cc.vv.net.send("Regist",Protocol.Command.Login,params);  
     },
     sendLogin(){
+        var _d = MD5.hex_md5("yepat2");
+        if(config.wxInfo.nickName !=""){
+            _d = MD5.hex_md5(config.wxInfo.nickName);
+        }
         var params = {};
         params.t = Protocol.Request.Login.Guest;
-        params.d = "23c686a260c586ee03ea5fb2b8252770";
+        params.d = _d;
         params.p = config.temppassword;
         params.c = "sjweichat";
         params.v = "2.1.1";
         params.tv = 1;
         params.e = "defaults";
-        params.wn = "";
-        params.wurl = "";
+        params.wn = config.wxInfo.nickName;
+        params.wurl = config.wxInfo.avatarUrl;
         cc.vv.net.send("Login",Protocol.Command.Login,params);  
     },
     setPlayerDetailModel(response){
@@ -208,7 +248,7 @@ cc.Class({
             PlayerDetailModel.title = response["data"]["title"];
             PlayerDetailModel.isDev = isDevData;
 
-            console.log("进入游戏大厅...");
+            console.log("进入游戏大厅...uid:"+parseInt(response["data"]["uid"]));
             this.labLoading.string = "进入游戏大厅...";
             this.preloadNextScene();
         }else{

@@ -90,14 +90,18 @@ cc.Class({
         if (this.tishiFunc) this.tishiFunc();
     },
     chupaiClick: function chupaiClick(num) {
-        console.log("出牌");
+        console.log(">>>出牌");
         var typenum = 0;
-        if (this.chupaiFunc) typenum = this.chupaiFunc();
-        this.tishi.enabled = false;
+        if (this.chupaiFunc) {
+            typenum = this.chupaiFunc();
+            console.log("typenum:" + typenum);
+        }
 
-        if (num) {
+        if (typeof num == "number") {
             typenum = num;
         }
+
+        console.log("typenum11111:" + typenum);
 
         if (typenum == 0) {
             // this.showTips("没有选择要出的牌！");
@@ -105,13 +109,13 @@ cc.Class({
         } else if (typenum == -1) {
             // this.showTips("您选择的牌无法出出去哦！");  
             this.showTips("showTips/p_tips_seletcedCardTypeError");
-        } else {
+        } else if (typenum == -2) {
+            this.showTips("showTips/p_tips_noCard");
             // this.node.destroy();
-        }
+        } else {
+                // this.tishi.enabled = false;
+            }
     },
-
-    // update(dt){
-    // },
     shakeClock: function shakeClock() {
         var mt1 = cc.moveTo(0.05, this.clockX, this.clockY - 2);
         var mt2 = cc.moveTo(0.05, this.clockX, this.clockY + 2);
@@ -123,9 +127,11 @@ cc.Class({
         this.clock.runAction(cc.sequence(mt1, mt2, mt3, mt4, mt5, mt6, mt7));
     },
     showTips: function showTips(imgUrl) {
-        this.tishi.node.stopAllActions();
-
         var self = this;
+        if (self.tishi) {} else {
+            return;
+        }
+        this.tishi.node.stopAllActions();
         this.tishi.enabled = true;
         // this.tishi.string = content;
         cc.loader.loadRes(imgUrl, cc.SpriteFrame, function (err, spriteFrame) {

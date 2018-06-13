@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tip_jiabei",
+    "texture": "b47e0f48-07ca-4a66-b7c7-a7f9229a3325",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      162,
+      80
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      162,
+      81
+    ]
+  }
+}

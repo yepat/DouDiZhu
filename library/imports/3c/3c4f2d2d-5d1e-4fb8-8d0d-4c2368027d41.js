@@ -74,7 +74,7 @@ cc.Class({
     initMyInfo: function initMyInfo() {
         //设置微信头像
         var self = this;
-        var imgUrl = "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSO7sOWsNicYdNM3MbNGGo58zticxgqoO2aqS7zOCVClXl7WExa4KNQ48uSTSszicsyspzsDQ51M4EQ/132";
+        var imgUrl = config.wxInfo.avatarUrl;
         imgUrl = imgUrl + "?aa=aa.jpg";
         cc.loader.load(imgUrl, function (err, texture) {
             self.headMyImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
@@ -86,7 +86,7 @@ cc.Class({
     },
     initLeftPlayerInfo: function initLeftPlayerInfo() {
         var self = this;
-        var imgUrl = "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSO7sOWsNicYdNM3MbNGGo58zticxgqoO2aqS7zOCVClXl7WExa4KNQ48uSTSszicsyspzsDQ51M4EQ/132";
+        var imgUrl = config.wxInfo.avatarUrl;
         imgUrl = imgUrl + "?aa=aa.jpg";
         cc.loader.load(imgUrl, function (err, texture) {
             self.headLeftImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
@@ -97,7 +97,7 @@ cc.Class({
     },
     initRightPlayerInfo: function initRightPlayerInfo() {
         var self = this;
-        var imgUrl = "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSO7sOWsNicYdNM3MbNGGo58zticxgqoO2aqS7zOCVClXl7WExa4KNQ48uSTSszicsyspzsDQ51M4EQ/132";
+        var imgUrl = config.wxInfo.avatarUrl;
         imgUrl = imgUrl + "?aa=aa.jpg";
         cc.loader.load(imgUrl, function (err, texture) {
             self.headRightImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);

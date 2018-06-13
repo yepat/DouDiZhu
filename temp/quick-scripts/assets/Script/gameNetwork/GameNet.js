@@ -23,7 +23,7 @@ var GameNet = cc.Class({
             var self = this;
             self.callback = callback;
             this.ip = ip + ":" + port;
-            this.sio = new WebSocket("ws://" + this.ip);
+            this.sio = new WebSocket("wss://" + this.ip);
             this.sio.binaryType = "arraybuffer";
             this.sio.onopen = function (evt) {
                 console.log("Connection open ");
@@ -49,8 +49,14 @@ var GameNet = cc.Class({
         },
         send: function send(event, cmd, params) {
             console.log("send:" + event);
-            var view = ByteArray.getView(params, cmd);
-            if (this.sio) this.sio.send(view);
+            params.cmd = cmd;
+            var info = JSON.stringify(params);
+            // console.log(params);
+            this.sio.send(info);
+
+            // var view = ByteArray.getView(params,cmd);
+            // if(this.sio)
+            //     this.sio.send(view);
         },
         close: function close() {
             if (this.sio) this.sio.close();
@@ -74,6 +80,30 @@ var GameNet = cc.Class({
                     EventHelper.DispatchCustomEvent(config.MyNode, "Regist", data);
                 } else if (data.code == Protocol.Response.Login.OK) {
                     EventHelper.DispatchCustomEvent(config.MyNode, "LoginOK", data);
+                }
+            }
+
+            if (cmd == Protocol.Command.System) {
+                if (data.code == Protocol.Response.System.RefreshDataResult) {
+                    //刷新用户信息数据
+                    console.log("刷新用户信息数据");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "RefreshDataResult", data);
+                } else if (data.code == Protocol.Response.System.MailResult) {
+                    //邮箱数据
+                    console.log("邮箱数据");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "MailResult", data);
+                } else if (data.code == Protocol.Response.System.ReadMailResult) {
+                    //标记邮件已读结果
+                    console.log("标记邮件已读结果");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "ReadMailResult", data);
+                } else if (data.code == Protocol.Response.System.GetMailAttachmentResult) {
+                    //领取邮件附件结果
+                    console.log("领取邮件附件结果");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "GetMailAttachmentResult", data);
+                } else if (data.code == Protocol.Response.System.DelMailResult) {
+                    //删除某个邮件结果
+                    console.log("删除某个邮件结果");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "DelMailResult", data);
                 }
             }
 
@@ -158,16 +188,30 @@ var GameNet = cc.Class({
                     console.log("有用户退出 通知桌上的玩家重新进入队列");
                     EventHelper.DispatchCustomEvent(config.MyNode, "TableUserExit", data);
                 } else if (data.code == Protocol.Response.Game.InvalidCardNum) {
-                    ////出的牌不够大 [非法出牌]
+                    //出的牌不够大 [非法出牌]
                     console.log("出的牌不够大 [非法出牌]");
                     EventHelper.DispatchCustomEvent(config.MyNode, "InvalidCardNum", data);
                 } else if (data.code == Protocol.Response.Game.SayToTableInfo) {
-                    ////聊天信息
+                    //聊天信息
                     console.log("聊天信息");
                     EventHelper.DispatchCustomEvent(config.MyNode, "SayToTableInfo", data);
+                } else if (data.code == Protocol.Response.Game.OpenRechargeTipResult) {
+                    //打开救济面板
+                    console.log("打开救济面板");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "OpenRechargeTipResult", data);
+                } else if (data.code == Protocol.Response.Game.ReconnectionData) {
+                    //短线重连
+                    console.log("短线重连");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "ReconnectionData", data);
+                } else if (data.code == Protocol.Response.Game.PokerTask) {
+                    //触发牌局任务
+                    console.log("触发牌局任务");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "PokerTask", data);
                 }
-                //
             }
+
+            //系统
+
         },
         handleLoginRoomResult: function handleLoginRoomResult(response, code) {
             var succ = true;

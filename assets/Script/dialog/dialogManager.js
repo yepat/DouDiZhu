@@ -76,8 +76,11 @@ var dialogManager = cc.Class({
         showOpratOutCard(){
             this.showDialog("prefab/opratOutCard");
         },
-        showOpratDouble(click){
-            this.showDialog("prefab/opratDouble",opratDoubleControl,click);
+        showOpratDouble(click1,click2){
+            var args = {};
+            args.arg1 = click1;
+            args.arg2 = click2;
+            this.showDialog("prefab/opratDouble",opratDoubleControl,args);
         },
         showOpratShowCard(click){
             this.showDialog("prefab/opratShowCard",opratShowCardControl,click);

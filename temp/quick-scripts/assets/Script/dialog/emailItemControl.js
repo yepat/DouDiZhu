@@ -4,6 +4,7 @@ cc._RF.push(module, 'a70ae9sWxROLoEclQxr/OAA', 'emailItemControl', __filename);
 
 "use strict";
 
+var GameNetMgr = require("GameNetMgr");
 cc.Class({
     extends: cc.Component,
 
@@ -32,27 +33,31 @@ cc.Class({
     onLoad: function onLoad() {
         this.read.active = false;
         this.unRead.active = false;
-        this.state = 0;
+        this.info = 0;
         this.id = 0;
+
+        //领取/删除按钮
+        //v.items == 1  //领取
+        //v.is_read == 1 --已读
     },
-    init: function init(state, id, title, content, time) {
-        this.state = state;
+    init: function init(info, id, title, content, time) {
+        this.info = info;
         this.id = id;
         this.labTitle.string = title;
         this.labContent.string = content;
         this.labTime.string = time;
-        if (state == 1) {
-            //未读
-            this.unRead.active = true;
-        } else if (state == 2) {
+        if (info.is_read == 1) {
             //已读
             this.read.active = true;
+        } else {
+            //未读
+            this.unRead.active = true;
         }
     },
     getClick: function getClick() {
-        // if(this.state == 1){
         console.log("点击了邮件" + this.id);
-        // }
+        GameNetMgr.sendRequest("System", "ReadMail", this.id);
+        GameNetMgr.sendRequest("System", "GetMailAttachment", this.id);
     }
 });
 

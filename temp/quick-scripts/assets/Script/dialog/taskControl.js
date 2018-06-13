@@ -5,6 +5,7 @@ cc._RF.push(module, '48cba0x+mdEuZiLRl/DVjiH', 'taskControl', __filename);
 "use strict";
 
 var taskItemControl = require("taskItemControl");
+var GameNetMgr = require("GameNetMgr");
 cc.Class({
     extends: cc.Component,
 
@@ -37,8 +38,9 @@ cc.Class({
     start: function start() {
         this.btnRight_1.enabled = false;
 
-        var testItem = [1, 1, 1, 1, 2, 2, 3, 3, 3, 3];
+        // GameNetMgr.sendRequest
 
+        var testItem = [1, 1, 1, 1, 2, 2, 3, 3, 3, 3];
         var disBetween = 130;
         for (var i = 0; i < testItem.length; i++) {
             var taskItem = cc.instantiate(this.taskItem);
@@ -46,7 +48,6 @@ cc.Class({
             var task = taskItem.getComponent(taskItemControl);
             task.init(testItem[i], "标题", "内容。。。。。。", "1/10");
         }
-
         this.content.height = disBetween * testItem.length;
     },
     closeClick: function closeClick() {
