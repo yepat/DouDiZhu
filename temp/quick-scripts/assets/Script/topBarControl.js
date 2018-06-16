@@ -7,6 +7,7 @@ cc._RF.push(module, '505a7cMGzRIa4SP1t5a1uM0', 'topBarControl', __filename);
 var config = require("config");
 var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
+var dialogManager = require("dialogManager");
 
 cc.Class({
     extends: cc.Component,
@@ -43,6 +44,24 @@ cc.Class({
         self.setLuQuan(PlayerDetailModel.getCoupon());
 
         EventHelper.AddCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
+        EventHelper.AddCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
+
+        // cc.eventManager.addCustomListener(cc.game.EVENT_SHOW, function(){
+        //     cc.log("重新返回游戏");
+        //     if(self.isShow){
+        //         cc.director.loadScene("LoadingScene");
+        //     }
+        // });
+    },
+    onRepeatLogin: function onRepeatLogin(event) {
+        console.log("您的账号已经在其他地方登陆！");
+        var self = this;
+        var data = event.getUserData();
+        console.log(data);
+        dialogManager.showCommonDialog("提示", "您的账号已经在其他地方登陆！", function () {
+            self.isShow = false;
+            cc.director.loadScene("LoadingScene");
+        });
     },
     onRefreshDataResult: function onRefreshDataResult(event) {
         console.log("刷新用户信息数据1111------");

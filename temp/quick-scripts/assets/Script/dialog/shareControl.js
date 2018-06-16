@@ -5,9 +5,12 @@ cc._RF.push(module, '69186QOGcNP24M8wI7sbkLu', 'shareControl', __filename);
 "use strict";
 
 var PlayerDetailModel = require("PlayerDetailModel");
+var dialogManager = require("dialogManager");
+var config = require("config");
+var GameNetMgr = require("GameNetMgr");
+var EventHelper = require("EventHelper");
 cc.Class({
     extends: cc.Component,
-
     properties: {
         btnNode_1: {
             default: null,
@@ -37,63 +40,105 @@ cc.Class({
     },
     start: function start() {
         var self = this;
+        GameNetMgr.sendRequest("System", "ShareInfo");
+        EventHelper.AddCustomEvent(config.MyNode, "ShareInfoResult", self.onShareInfoResult, self);
+        EventHelper.AddCustomEvent(config.MyNode, "ShareGetResult", self.onShareGetResult, self);
 
-        self.btnNode_1.node.on(cc.Node.EventType.TOUCH_START, function (event) {
-            console.log("TOUCH_START");
-        });
+        // var nodeHeads = [];//头像节点
+        this.pHeads = []; //微信头像
+        this.labCoins = []; //奖励乐豆
 
-        self.btnNode_1.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-            console.log("TOUCH_MOVE");
-        });
+        for (var i = 1; i <= 5; i++) {
+            // var nodeHead = "shareDialog/"+"head_"+i;
+            var pHead = "head_" + i; //+"/mask/defult_head";
+            var labCoin = "label_" + i;
+            var _pHead = this.node.getChildByName(pHead).getChildByName("mask").getChildByName("defult_head").getComponent(cc.Sprite);
+            var _labCoin = this.node.getChildByName(labCoin).getComponent(cc.Label); //.getComponent(cc.Label);
+            this.pHeads.push(_pHead);
+            this.labCoins.push(_labCoin);
+            _pHead.enabled = false;
+        }
+    },
+    closeClick: function closeClick() {
+        var self = this;
+        console.log("close click");
+        this.node.destroy();
+        EventHelper.RemoveCustomEvent(config.MyNode, "ShareInfoResult", self.onShareInfoResult, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "ShareGetResult", self.onShareGetResult, self);
+    },
+    btnClick: function btnClick() {
+        // shareImg
+        // var width  = cc.director.getWinSize().width;
+        // var height  = cc.director.getWinSize().height;
+        // canvas.toTempFilePath({
+        //     x: 0,
+        //     y: 0,
+        //     width: width,
+        //     height: height,
+        //     destWidth: width,
+        //     destHeight: height,
+        //     success (res) {
+        //         //.可以保存该截屏图片
+        //         console.log(res)
+        //         wx.shareAppMessage({
+        //             title: "有乐斗地主等你来战！",
+        //             imageUrl: res.tempFilePath,
+        //             query : "key="+PlayerDetailModel.uid,
+        //         })
+        //     }
+        // });
 
-        self.btnNode_1.node.on(cc.Node.EventType.TOUCH_END, function (event) {
-            console.log("TOUCH_END");
-            cc.loader.loadRes("img_dialog/p_sharebg", function (err, data) {
-                wx.onShareAppMessage(function (res) {
-                    return {
-                        title: "有乐斗地主等你来战！",
-                        imageUrl: data.url,
-                        query: PlayerDetailModel.uid,
-                        success: function success(res) {
-                            console.log("转发成功!!!");
-                            console.log(res);
-                            // common.diamond += 20;
-                        },
-                        fail: function fail(res) {
-                            console.log("转发失败!!!");
-                        }
-                    };
-                });
+        cc.loader.loadRes("shareImg", function (err, data) {
+            wx.shareAppMessage({
+                title: "小伙伴们帮帮忙，小手一点助我拿豆！",
+                imageUrl: data.url,
+                query: "key=" + PlayerDetailModel.uid
             });
         });
     },
-    closeClick: function closeClick() {
-        console.log("close click");
-        this.node.destroy();
-    },
-    btnClick: function btnClick(event) {
-        var btnName = event.target.name;
-        console.log("-------" + btnName);
-        // cc.loader.loadRes("shop/p_shop_dou5",function(err,data){
-        //     wx.onShareAppMessage(function(res){
-        //         return {
-        //             title: "有乐斗地主等你来战！",
-        //             imageUrl: data.url,
-        //             query : PlayerDetailModel.uid,
-        //             success(res){
-        //                 console.log("转发成功!!!")
-        //                 console.log(res);
-        //                 // common.diamond += 20;
-        //             },
-        //             fail(res){
-        //                 console.log("转发失败!!!")
-        //             } 
-        //         }
-        //     })
-        // });
-    },
     getClick: function getClick() {
         console.log("-------get");
+        GameNetMgr.sendRequest("System", "ShareGet");
+    },
+    onShareInfoResult: function onShareInfoResult(event) {
+        var response = event.getUserData();
+        console.log(response);
+
+        // "img":头像
+        // "nickname":昵称
+        // "uid":uid
+        // "award":0没有领取1已领取
+        // "award_info":[ //奖品
+        //   "gold":金币
+
+        var list = response.data.list;
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].img) {
+                this.pHeads[i].enabled = true;
+                this.setHeadUrl(list[i].img, this.pHeads[i]);
+            }
+            if (list[i].award) {
+                if (list[i].award == 0) {
+                    this.labCoins[i].string = "" + list[i].award_desc;
+                } else {
+                    this.labCoins[i].string = "已领取";
+                }
+            }
+        }
+    },
+    onShareGetResult: function onShareGetResult(event) {
+        var response = event.getUserData();
+        console.log(response);
+        dialogManager.showCommonDialog("温馨提示", response.data.award_desc);
+    },
+    setHeadUrl: function setHeadUrl(imgUrl, headImg) {
+        // console.log(headImg);
+        // console.log(imgUrl);
+        //设置微信头像
+        imgUrl = imgUrl + "?aa=aa.jpg";
+        cc.loader.load(imgUrl, function (err, texture) {
+            headImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
+        });
     }
 });
 

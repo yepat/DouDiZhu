@@ -55,24 +55,19 @@ cc.Class({
     showPoker: function showPoker(showData) {
         var self = this;
         self.cardData = showData;
-        // self.pokerTxt.string = showData.showTxt;
         var showType = showData.showType;
         self.canTouch = showData.canTouch;
 
-        self.cardValue = showData.showTxt; //CardUtil.StringToNumber(showData.showTxt);
+        self.cardValue = showData.showTxt;
         var numUrl = "cards/poke_" + self.cardValue;
 
         if (self.cardValue != 16 && self.cardValue != 17) {
             cc.loader.loadRes(numUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.pokerNum.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
-
-            // cc.loader.loadRes("cards/blank_card",cc.SpriteFrame,function(err,spriteFrame){
-            //     self.pokerBg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-            // })
         }
 
-        console.log("" + showData.showTxt + ":" + self.cardValue);
+        // console.log(""+showData.showTxt+":"+self.cardValue);
 
         self.pokerDiZhu.enabled = false;
         self.pokerLight.enabled = false;

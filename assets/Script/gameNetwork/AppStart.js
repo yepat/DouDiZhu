@@ -10,7 +10,6 @@ function initMgr(){
     cc.vv = {};
     cc.vv.http = require("HTTP");
     cc.vv.net = require("GameNet");
-    // cc.vv.net = require("Net");
 }
    
 cc.Class({
@@ -24,42 +23,103 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         initMgr();
-        this.getServerInfo();
+        this.shareUid = 0;
+        if(typeof(wx)=="undefined"){
+            this.getServerInfo();
+        }else{
+            this.weixinLogin();
+        }
         //设置常驻节点
         var myNode = new cc.Node("myNode");
         EventHelper.addPersistRootNode(myNode);
         this.isShow = false;
 
-        // wx.showShareMenu({
-        //     withShareTicket: true
-        // });
-        // cc.loader.loadRes("img_dialog/p_sharebg",function(err,data){
-        //     wx.onShareAppMessage(function(res){
-        //         return {
-        //             title: "有乐斗地主等你来战！",
-        //             imageUrl: data.url,
-        //             query : PlayerDetailModel.uid,
-        //             success(res){
-        //                 console.log("转发成功!!!")
-        //                 console.log(res);
-        //                 // common.diamond += 20;
-        //             },
-        //             fail(res){
-        //                 console.log("转发失败!!!")
-        //             } 
-        //         }
-        //     })
-        // });
+        console.log("typeof(wx):"+typeof(wx));
+        if(typeof(wx)=="undefined"){return;}
+
+        wx.showShareMenu({
+            withShareTicket: true
+        });
+        cc.loader.loadRes("shareImg",function(err,data){
+            wx.onShareAppMessage(function(res){
+                return {
+                    title: "小伙伴们帮帮忙，小手一点助我拿豆！",
+                    imageUrl: data.url,
+                    query :  "key="+PlayerDetailModel.uid,
+                    success(res){
+                        console.log("转发成功!!!")
+                        console.log(res);
+                    },
+                    fail(res){
+                        console.log("转发失败!!!")
+                    } 
+                }
+            })
+        });
+    },
+    weixinLogin(){
+        var self = this;
+        wx.login({
+            success: function(ress) {
+                if (ress.code) {
+                    var _url = "https://sdk.youjoy.tv/Api/ThirdParty/WxSmallProgram/Login";
+                    var params = {};
+                    params.game_id = 1034;
+                    params.version = "1.0.0";
+                    params.code = ress.code;
+                    var sign = "code=" + ress.code + "&" + "game_id=" + "1034" + "&" + "version="+ "1.0.0"
+                    console.log("sign:"+sign);
+                    var _sign = self.getSign(sign);
+                    params._sign = _sign.toUpperCase();
+
+                    var xhr = null;
+                    var complete = false;
+                    var fnRequest = function(){
+                        console.log("sdk.youjoy.tv 正在连接服务器...");
+                        xhr = cc.vv.http.sendRequest("",params,function(ret){
+                            xhr = null;
+                            complete = true;
+                            console.log("connectSdkServer = " + JSON.stringify(ret));
+                            self.sdkuid = ret.data.user_id;
+                            self.getServerInfo();
+                        },_url);
+                        setTimeout(fn,5000);            
+                    };
+                    
+                    var fn = function(){
+                        if(!complete){
+                            if(xhr){
+                                xhr.abort();
+                                console.log("sdk.youjoy.tv 连接失败，即将重试...");
+                                setTimeout(function(){
+                                    fnRequest();
+                                },5000);
+                            }
+                            else{
+                                fnRequest();
+                            }
+                        }
+                    };
+                    fn();
+                } else {
+                  console.log('登录失败！' + res.errMsg)
+                }
+            }
+        });
+    },
+    getSign(sign){
+        var endData = MD5.hex_md5(sign+"79fad6f7510d86aabe01a7006153ddd0");
+        return endData;
     },
     getServerInfo:function(){
         var params = {};
         params.env = "prod";
-        params.ver = "1.0.0";
+        params.ver = "2.0.0";
         params.channel = "weichatgame";
         params.udid = "udid";
-        params.pver = "1.0.0";
+        params.pver = "2.0.0";
         params.pchannel = "weichatgame";
-        params.presver = "1.0.0";
+        params.presver = "2.0.0";
         
         var self = this;
         var xhr = null;
@@ -100,16 +160,20 @@ cc.Class({
         var self = this;
         cc.vv.net.connect(config.GlobalRouter.host,config.GlobalRouter.port,function(ret){
             //WebSocket连接成功
-            self.sendRegist();
-            // self.getWxUserInfo();
+            if(typeof(wx)=="undefined"){
+                self.sendRegist();
+            }else{
+                self.getWxUserInfo();
+            }
         });
 
         var ConnectionClosedShow = function(){
             self.isShow = true;
-            dialogManager.showCommonDialog("提示","与服务器断开连接！",function(){
-                self.isShow = false;
-                cc.director.loadScene("LoadingScene");
-            });
+            // dialogManager.showCommonDialog("提示","与服务器断开连接！",function(){
+            //     self.isShow = false;
+            //     cc.director.loadScene("LoadingScene");
+            // });
+            cc.director.loadScene("LoadingScene");
         }
 
         setInterval(function(){
@@ -123,17 +187,22 @@ cc.Class({
 
         EventHelper.AddCustomEvent(config.MyNode,"Regist",self.onRegist,self);
         EventHelper.AddCustomEvent(config.MyNode,"HeartBeat",self.onHeartBeat,self);
-        EventHelper.AddCustomEvent(config.MyNode,"LoginOK",self.onLoginOK,self);  
+        EventHelper.AddCustomEvent(config.MyNode,"LoginOK",self.onLoginOK,self); 
     },
     getWxUserInfo(){
-        var self = this; 
+        var self = this;
+        var launch = wx.getLaunchOptionsSync();
+        console.log("launch =  " + JSON.stringify(launch));
+        self.shareUid =  launch.query.key;
+        console.log("shareUid =  " + self.shareUid);
+
         wx.getUserInfo({
             success: function (res) {
                console.log("res.userInfo = " + JSON.stringify(res.userInfo));
                config.UpdateWxInfo(res.userInfo);
                self.sendRegist();
              },
-       })
+        });
     },
     onRegist(event){
         var self = this;
@@ -160,35 +229,61 @@ cc.Class({
     },
     sendRegist(){
         //注册请求
-        var _d = MD5.hex_md5("yepat2");
-        if(config.wxInfo.nickName !=""){
-            _d = MD5.hex_md5(config.wxInfo.nickName);
+        if(typeof(wx)=="undefined"){
+            var params = {};
+            params.t = Protocol.Request.Login.Regist;
+            params.d = MD5.hex_md5("yepat123");
+            params.u = "50ee8041a7fd8baa6348252ea114432bb3be23bd";
+            params.v = "2.0.0";
+            params.c = "weichatgame";
+            params.e = "defaults";
+            params.type = "guest";
+            // params.sdkid = self.sdkuid;
+            cc.vv.net.send("Regist",Protocol.Command.Login,params);
+            return;
         }
+        var self = this;
+        var code = self.sdkuid+config.OpenUDIDEncryptToken;
+        var _d = MD5.hex_md5(code);
         var params = {};
         params.t = Protocol.Request.Login.Regist;
         params.d = _d;
         params.u = "50ee8041a7fd8baa6348252ea114432bb3be23bd";
-        params.v = "2.1.1";
-        params.c = "sjweichat";
+        params.v = "2.0.0";
+        params.c = "weichatgame";
         params.e = "defaults";
-        params.type = "guest";
+        params.type = "third";
+        params.sdkid = self.sdkuid;
         cc.vv.net.send("Regist",Protocol.Command.Login,params);  
     },
     sendLogin(){
-        var _d = MD5.hex_md5("yepat2");
-        if(config.wxInfo.nickName !=""){
-            _d = MD5.hex_md5(config.wxInfo.nickName);
+        if(typeof(wx)=="undefined"){
+            var params = {};
+            params.t = Protocol.Request.Login.Guest;
+            params.d = MD5.hex_md5("yepat123");
+            params.p = config.temppassword;
+            params.c = "weichatgame";
+            params.v = "2.0.0";
+            params.tv = 1;
+            params.e = "defaults";
+            params.wn = config.wxInfo.nickName;
+            params.wurl = config.wxInfo.avatarUrl;
+            cc.vv.net.send("Login",Protocol.Command.Login,params); 
+            return;
         }
+        var self = this;
         var params = {};
         params.t = Protocol.Request.Login.Guest;
-        params.d = _d;
+        params.d = self.sdkuid;
         params.p = config.temppassword;
-        params.c = "sjweichat";
-        params.v = "2.1.1";
+        params.c = "weichatgame";
+        params.v = "2.0.0";
         params.tv = 1;
         params.e = "defaults";
+        params.f = self.sdkuid;
         params.wn = config.wxInfo.nickName;
         params.wurl = config.wxInfo.avatarUrl;
+        params.invite = self.shareUid;
         cc.vv.net.send("Login",Protocol.Command.Login,params);  
     },
     setPlayerDetailModel(response){

@@ -4,6 +4,7 @@ cc._RF.push(module, 'd16ccLCjY5O86/MTBSCS0tQ', 'setControl');
 
 "use strict";
 
+var dialogManager = require("dialogManager");
 cc.Class({
     extends: cc.Component,
 
@@ -19,7 +20,6 @@ cc.Class({
         musicSet: false,
         effectSet: false
     },
-
     start: function start() {},
     musicClick: function musicClick() {
         var self = this;
@@ -55,18 +55,12 @@ cc.Class({
     },
     fankuiClick: function fankuiClick() {
         console.log("fankui click");
-        // 加载 Prefab
-        cc.loader.loadRes("prefab/fankuiDialog", function (err, prefab) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
-        });
+        dialogManager.showFanKuiDialog();
     },
     aboutClick: function aboutClick() {
         console.log("about click");
+        dialogManager.showAboutDialog();
+        // this.node.destroy();
     },
     closeClick: function closeClick() {
         console.log("close click");

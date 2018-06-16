@@ -88,7 +88,6 @@ cc.Class({
     },
     room1Click: function room1Click() {
         console.log("room1Click");
-        // cc.director.loadScene("GameScene");
         this.selectedIdx_ = 0;
         this.roomMinScore = this.roomType_[0]["enterLimit"];
         this.trialInfo = this.roomType_[0]["trial"];
@@ -97,7 +96,6 @@ cc.Class({
     },
     room2Click: function room2Click() {
         console.log("room2Click");
-        // cc.director.loadScene("GameScene");
         this.selectedIdx_ = 1;
         this.roomMinScore = this.roomType_[1]["enterLimit"];
         this.trialInfo = this.roomType_[1]["trial"];
@@ -115,7 +113,6 @@ cc.Class({
     },
     room4Click: function room4Click() {
         console.log("room4Click");
-        // cc.director.loadScene("GameScene");
         this.selectedIdx_ = 3;
         this.roomMinScore = this.roomType_[3]["enterLimit"];
         this.trialInfo = this.roomType_[3]["trial"];
@@ -232,16 +229,14 @@ cc.Class({
                     curTimes: m_curTimes
                 };
                 //刷新用户乐豆乐券
-                // app:dispatchEvent({name = app.class.UserProfileUpdate})
                 console.log("刷新用户乐豆乐券");
             }
 
             config.tableInfo = args;
+            // console.log(config.tableInfo);
 
             if (parseInt(payload["data"]["modelId"]) == config.ModelId.lazarillo) {
                 // --癞子场
-                // DeviceHelper.addGameLog("enterRoom_lz"..args["roomId"],"a")
-                // app:enterPokerLazarilloScene(args)
                 console.log("进入癞子场");
             } else {
                 // --普通场
@@ -255,19 +250,8 @@ cc.Class({
             if (event.noCoin) {
                 if (parseInt(event.payload["data"]["isSmall"]) == 1) {
                     //钱少
-                    // var trial = null;
-                    // var rooms = PlayerDetailModel.getRoomByModel();
-                    // for(var k  in rooms){
-                    //     var room = rooms[k]
-                    //     if (parseInt(room.roomId) == parseInt(payload["data"]["roomId"])){
-                    //         trial = {
-                    //             id=room.trial.goodsId, text=room.trial.into, price=room.trial.price
-                    //         }
-                    //         break
-                    //     }
-                    // }
                     console.log("乐豆不够去商城充值");
-                    dialogManager.showCommonDialog("温馨提示", "乐豆不够前往商城充值", function () {
+                    dialogManager.showCommonDialog("温馨提示", "亲,您的豆子不够哦！", function () {
                         console.log("打开商城");
                     });
                 } else {
@@ -427,21 +411,6 @@ cc.Class({
         console.log("--进入上局未完的普通牌桌");
         config.IsContinueGaming = 1;
         this.preloadNextScene();
-        // GameNetMgr.sendRequest("Game", "reconnection");
-    },
-    animShakeNode: function animShakeNode() {
-        var scene = cc.director.getScene();
-        scene.stopAllActions();
-        var x = scene.x;
-        var y = scene.y;
-        var delay = cc.delayTime(0.2);
-        var move1 = cc.moveTo(0.08, x - 5, y - 5);
-        var move2 = cc.moveTo(0.08, x + 5, y + 5);
-        var move3 = cc.moveTo(0.08, x - 5, y + 5);
-        var move4 = cc.moveTo(0.08, x + 5, y - 5);
-        var move5 = cc.moveTo(0.08, x - 3, y - 3);
-        var move9 = cc.moveTo(0.08, x, y);
-        scene.runAction(cc.sequence(delay, move1, move2, move3, move4, move5, move9));
     }
 });
 

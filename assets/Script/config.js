@@ -5,6 +5,11 @@ config.MyNode = null; //常驻节点
 
 config.temppassword = "";
 
+config.OpenUDIDEncryptToken = "!_Tvr%^98071e~int5lmUy";
+
+
+config.wxShareInfo = "key1=value1&key2=value2";
+
 config.playGameId = 0; //断线
 config.playGameMsg = "";
 

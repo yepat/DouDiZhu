@@ -2,6 +2,7 @@
 var config = require("config");
 var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
+var dialogManager = require("dialogManager");
 
 cc.Class({
     extends: cc.Component,
@@ -30,7 +31,7 @@ cc.Class({
     },
     // onLoad () {},
     start () {
-       var self = this;
+        var self = this;
         self.setHeadUrl();
         self.setNickName(PlayerDetailModel.getNickName());
         self.setLevel(PlayerDetailModel.getTitle());
@@ -38,6 +39,24 @@ cc.Class({
         self.setLuQuan(PlayerDetailModel.getCoupon());
 
         EventHelper.AddCustomEvent(config.MyNode,"RefreshDataResult",self.onRefreshDataResult,self);
+        EventHelper.AddCustomEvent(config.MyNode,"RepeatLogin",self.onRepeatLogin,self);   
+
+        // cc.eventManager.addCustomListener(cc.game.EVENT_SHOW, function(){
+        //     cc.log("重新返回游戏");
+        //     if(self.isShow){
+        //         cc.director.loadScene("LoadingScene");
+        //     }
+        // });
+    },
+    onRepeatLogin(event){
+        console.log("您的账号已经在其他地方登陆！");
+        var self = this;
+        var data = event.getUserData();
+        console.log(data);
+        dialogManager.showCommonDialog("提示","您的账号已经在其他地方登陆！",function(){
+            self.isShow = false;
+            cc.director.loadScene("LoadingScene");
+        });
     },
     onRefreshDataResult(event){
         console.log("刷新用户信息数据1111------");
@@ -71,23 +90,23 @@ cc.Class({
         }
         //可领奖的每日任务数
         if (payload.data && payload.data.task1_unaward){
-            PlayerDetailModel.setTask1Unaward(payload.data.task1_unaward)
+            PlayerDetailModel.setTask1Unaward(payload.data.task1_unaward);
         }
         //可领奖的成长任务数
         if (payload.data && payload.data.task2_unaward){
-            PlayerDetailModel.setTask2Unaward(payload.data.task2_unaward)
+            PlayerDetailModel.setTask2Unaward(payload.data.task2_unaward);
         }
         //充值奖励利率
         if (payload.data && payload.data.charge_rate){
-            PlayerDetailModel.setChargeRate(payload.data.charge_rate)
+            PlayerDetailModel.setChargeRate(payload.data.charge_rate);
         }
         //皮肤
         if (payload.data && payload.data.propDress){
-            PlayerDetailModel.setPropDress(payload.data.propDress)
+            PlayerDetailModel.setPropDress(payload.data.propDress);
         }
         //道具
         if (payload.data && payload.data.propItems){
-            PlayerDetailModel.setPropItems(payload.data.propItems)
+            PlayerDetailModel.setPropItems(payload.data.propItems);
         }
         // self.playerDetailController_:refreshUI()
     },

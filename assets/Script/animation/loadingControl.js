@@ -18,7 +18,9 @@ cc.Class({
         
     },
     close(){
-        this.node.destroy();
+        if(this.node){
+            this.node.destroy();
+        }
     }
 
 });

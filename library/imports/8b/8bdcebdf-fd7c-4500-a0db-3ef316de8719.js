@@ -21,8 +21,8 @@ cc.Class({
                 this.timeCount -= 1;
                 var pre = "";
                 if (this.timeCount <= 0) {
-                    this.timeCount = 0;
-                    this.node.destroy();
+                    this.timeCount = 30;
+                    // this.node.destroy();
                 }
                 var t = Math.ceil(this.timeCount);
                 if (t < 10) {

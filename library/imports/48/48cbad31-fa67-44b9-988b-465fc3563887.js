@@ -6,6 +6,11 @@ cc._RF.push(module, '48cba0x+mdEuZiLRl/DVjiH', 'taskControl');
 
 var taskItemControl = require("taskItemControl");
 var GameNetMgr = require("GameNetMgr");
+var EventHelper = require("EventHelper");
+var config = require("config");
+var dialogManager = require("dialogManager");
+var PlayerDetailModel = require("PlayerDetailModel");
+
 cc.Class({
     extends: cc.Component,
 
@@ -36,33 +41,45 @@ cc.Class({
         }
     },
     start: function start() {
-        this.btnRight_1.enabled = false;
-
-        // GameNetMgr.sendRequest
-
-        var testItem = [1, 1, 1, 1, 2, 2, 3, 3, 3, 3];
-        var disBetween = 130;
-        for (var i = 0; i < testItem.length; i++) {
-            var taskItem = cc.instantiate(this.taskItem);
-            taskItem.parent = this.content;
-            var task = taskItem.getComponent(taskItemControl);
-            task.init(testItem[i], "标题", "内容。。。。。。", "1/10");
-        }
-        this.content.height = disBetween * testItem.length;
+        var self = this;
+        GameNetMgr.sendRequest("System", "TaskDaily");
+        EventHelper.AddCustomEvent(config.MyNode, "TaskDailyResult", self.onTaskDailyResult, self);
+        EventHelper.AddCustomEvent(config.MyNode, "GetTaskRewardResult", self.onGetTaskRewardResult, self);
     },
     closeClick: function closeClick() {
+        var self = this;
         console.log("close click");
+        EventHelper.RemoveCustomEvent(config.MyNode, "TaskDailyResult", self.onTaskDailyResult, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "GetTaskRewardResult", self.onGetTaskRewardResult, self);
         this.node.destroy();
     },
     leftClick: function leftClick() {
-        console.log("left click");
-        this.btnLeft_1.enabled = true;
-        this.btnRight_1.enabled = false;
+        // console.log("left click");
+        // this.btnLeft_1.enabled = true;
+        // this.btnRight_1.enabled = false;
     },
     rightClick: function rightClick() {
-        console.log("right click");
-        this.btnLeft_1.enabled = false;
-        this.btnRight_1.enabled = true;
+        // console.log("right click");
+        // this.btnLeft_1.enabled = false;
+        // this.btnRight_1.enabled = true; 
+    },
+    onTaskDailyResult: function onTaskDailyResult(event) {
+        var response = event.getUserData();
+        console.log(response);
+        var listEveryday = response.data.list.everyday;
+        for (var i = 0; i < listEveryday.length; i++) {
+            var info = listEveryday[i];
+            var taskItem = cc.instantiate(this.taskItem);
+            taskItem.parent = this.content;
+            var task = taskItem.getComponent(taskItemControl);
+            var progress = info.complete + "/" + info.target;
+            task.init(info, info.desc, info.award_desc, progress);
+        }
+    },
+    onGetTaskRewardResult: function onGetTaskRewardResult(event) {
+        var response = event.getUserData();
+        console.log(response);
+        dialogManager.showCommonDialog("温馨提示", response.data.error);
     }
 });
 

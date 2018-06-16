@@ -35,6 +35,5 @@ cc.Class({
         console.log("反回大厅")
         this.hallLayer.active = true;
         this.roomLayer.active = false;
-    },
-   
+    }
 });

@@ -53,20 +53,8 @@ cc.Class({
 
     },
     show(args){
-        // this.time = time*10;
         this.click1 =  args.arg1;
         this.click2 =  args.arg2;
-        // this.pross = 1.0;
-        // this.dt = 1/this.time;
-        // this.schedule(function() {
-        //     if(this.pross > 0){
-        //         this.pross -= this.dt;
-        //         // this.progressBar.getComponent(cc.ProgressBar).progress = this.pross;
-        //     }else{
-        //         // this.progressBar.getComponent(cc.ProgressBar).progress = 0;
-        //         this.node.destroy();
-        //     }  
-        // },0.1, this.time, 0.01);
     },
     close(){
         if(this.node){

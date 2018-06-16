@@ -15,7 +15,7 @@ var dialogManager = cc.Class({
                     return;
                 }
                 var newNode = cc.instantiate(prefab);
-                cc.director.getScene().addChild(newNode);
+                cc.director.getScene().addChild(newNode,9999);
                 if(mControl){
                     newNode.getComponent(mControl).show(args);
                     return newNode.getComponent(mControl);
@@ -41,6 +41,9 @@ var dialogManager = cc.Class({
         },
         showFanKuiDialog(){
             this.showDialog("prefab/fankuiDialog");
+        },
+        showAboutDialog(){
+            this.showDialog("prefab/aboutDialog");
         },
         showGameResultDialog(isWin){
             if(isWin){

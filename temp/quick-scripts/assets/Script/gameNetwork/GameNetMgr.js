@@ -48,10 +48,7 @@ var GameNetMgr = cc.Class({
             }
             //系统
             if (cmdName == "System") {
-                if (eventName == "TaskDaily") {
-                    //每日任务
-                    this.sendTaskDaily();
-                } else if (eventName == "Mail") {
+                if (eventName == "Mail") {
                     //邮箱
                     this.sendMail();
                 } else if (eventName == "ReadMail") {
@@ -63,6 +60,18 @@ var GameNetMgr = cc.Class({
                 } else if (eventName == "DelMail") {
                     //删除某个邮件
                     this.sendDelMail(arg);
+                } else if (eventName == "TaskDaily") {
+                    //每日任务
+                    this.sendTaskDaily();
+                } else if (eventName == "GetTaskReward") {
+                    //领取任务奖励
+                    this.sendGetTaskReward(arg);
+                } else if (eventName == "ShareInfo") {
+                    //分享信息
+                    this.sendShareInfo();
+                } else if (eventName == "ShareGet") {
+                    //分享领取
+                    this.sendShareGet();
                 }
             }
         },
@@ -178,12 +187,6 @@ var GameNetMgr = cc.Class({
         },
 
         //大厅-------
-        sendTaskDaily: function sendTaskDaily() {
-            //每日任务
-            var params = {};
-            params.t = Protocol.Request.System.TaskDaily;
-            cc.vv.net.send("TaskDaily", Protocol.Command.System, params);
-        },
         sendMail: function sendMail() {
             //邮箱
             var params = {};
@@ -210,18 +213,30 @@ var GameNetMgr = cc.Class({
             params.t = Protocol.Request.System.DelMail;
             params.id = arg;
             cc.vv.net.send("Mail", Protocol.Command.System, params);
+        },
+        sendTaskDaily: function sendTaskDaily() {
+            //每日任务
+            var params = {};
+            params.t = Protocol.Request.System.TaskDaily;
+            cc.vv.net.send("TaskDaily", Protocol.Command.System, params);
+        },
+        sendGetTaskReward: function sendGetTaskReward(arg) {
+            //领取任务奖励
+            var params = {};
+            params.t = Protocol.Request.System.GetTaskReward;
+            params.id = arg;
+            cc.vv.net.send("GetTaskReward", Protocol.Command.System, params);
+        },
+        sendShareInfo: function sendShareInfo() {
+            var params = {};
+            params.t = Protocol.Request.System.ShareInfo;
+            cc.vv.net.send("ShareInfo", Protocol.Command.System, params);
+        },
+        sendShareGet: function sendShareGet() {
+            var params = {};
+            params.t = Protocol.Request.System.ShareGet;
+            cc.vv.net.send("ShareGet", Protocol.Command.System, params);
         }
-
-        // }else if(eventName == "ReadMail"){//标记邮件已读
-        //     this.sendReadMail();
-        // }
-        // else if(eventName == "GetMailAttachment"){//领取邮件附件
-        //     this.sendGetMailAttachment();
-        // }
-        // else if(eventName == "DelMail"){//删除某个邮件
-        //     this.sendDelMail();
-        // }
-
     }
 });
 

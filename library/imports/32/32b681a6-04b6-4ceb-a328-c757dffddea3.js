@@ -21,9 +21,7 @@ cc.Class({
     show: function show(click) {
         this.click = click;
         var self = this;
-
         this.time = 5;
-
         this.spTxt = "operation_btn/p_add";
 
         this.schedule(function () {

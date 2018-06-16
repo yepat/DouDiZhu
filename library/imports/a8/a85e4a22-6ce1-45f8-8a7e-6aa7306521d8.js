@@ -42,7 +42,7 @@ PopCardUtil.getSameCards = function (cards) {
     for (var i = 0; i < cards.length; i++) {
         source[i] = PopCardUtil.StringToNumber(cards[i]);
     }
-    console.log("sourcelength:" + source.length);
+    // console.log("sourcelength:"+source.length);
 
     var sameValues = [];
     var tampValues = [];
@@ -55,13 +55,13 @@ PopCardUtil.getSameCards = function (cards) {
             if (i == source.length - 1) {
                 // sameValues.push(tampValues);
                 k = "" + tempValue;
-                console.log("kk3:" + k + " length:" + tampValues.length);
+                // console.log("kk3:"+k+" length:"+tampValues.length);
                 sameValues[k] = tampValues;
             }
         } else {
             // sameValues.push(tampValues);
             k = "" + tempValue;
-            console.log("kk1:" + k + " length:" + tampValues.length);
+            // console.log("kk1:"+k+" length:"+tampValues.length);
 
             sameValues[k] = tampValues;
             tampValues = [];
@@ -70,7 +70,7 @@ PopCardUtil.getSameCards = function (cards) {
 
             if (i == source.length - 1) {
                 k = "" + tempValue;
-                console.log("kk2:" + k + " length:" + tampValues.length);
+                // console.log("kk2:"+k+" length:"+tampValues.length);
                 sameValues[k] = tampValues;
             }
         }
@@ -101,7 +101,7 @@ PopCardUtil.setSameVulueCardCount = function (cards) {
 
     for (var k in cards) {
         var d = cards[k];
-        console.log(">>length:" + d.length + "  k:" + k);
+        // console.log(">>length:"+d.length+"  k:"+k);
         if (d.length == 1) {
             SingleNum++;
             SingleCards.push(d);

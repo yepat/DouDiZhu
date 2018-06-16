@@ -7,11 +7,6 @@ EventHelper.AddCustomEvent = function(__node, __eventName, __handler,self){
         console.log("__node节点不存在")
         return;
     }
-    // __node.on(__eventName, function (event) {
-    //     // console.log(">>>AddCustomEvent:"+__eventName);
-    //     __handler(event);
-    // });
-
     __node.on(__eventName,__handler,self);
 }
 
@@ -33,10 +28,6 @@ EventHelper.RemoveCustomEvent = function(__node, __eventName, __handler,self){
     }
     __node.off(__eventName,__handler,self);
 }
-
-
-// this.node.off('foobar', this._sayHello, this);
-
 
 EventHelper.addPersistRootNode = function(__node){
     cc.game.addPersistRootNode(__node);//将myNode成为常驻节点，场景切换时不会清除这个节点的内存

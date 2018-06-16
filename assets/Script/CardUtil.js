@@ -22,6 +22,47 @@ CardUtil.cardGrade = {
     G : 17,
 };
 
+//记牌器数据信息
+CardUtil.getNodeCards = function(mycards){
+    var tempstr = "";
+    var myCardValue = [];
+    for(var i = 0;i<mycards.length;i++){
+        var card = CardUtil.convertCardToClient(mycards[i]);
+        myCardValue.push(card.showTxt);
+    }
+    myCardValue.sort(config.arrayUp);
+
+    var sameCards = PopCardUtil.getSameCards(myCardValue);
+ 
+    for(var i=3;i<=17;i++){
+        if(sameCards[i]){
+            tempstr+=sameCards[i].length;
+        }else{
+            tempstr+="0";
+        }
+    }
+
+    return tempstr;
+}
+//获取当前自己手牌(出牌后)
+CardUtil.subNodeCards = function(cards1,cards2){
+    var str = "";
+    var cards1 = CardUtil.getNodeCards(cards1);
+    console.log(cards1)
+    var cards2 = CardUtil.getNodeCards(cards2);
+    console.log(cards2)
+    for(var i = 0;i<cards1.length;i++){
+        var value1 = parseInt(cards1[i]);
+        var value2 = parseInt(cards2[i]);
+        var value = value1 - value2;
+        if(value<0){
+            value = 0;
+        }
+        str+=value;
+    }
+    return str;
+}
+
 //文本转数值
 CardUtil.StringToNumber = function(str){
     var num = 0;

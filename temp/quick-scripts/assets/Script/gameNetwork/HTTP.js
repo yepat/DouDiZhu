@@ -4,7 +4,6 @@ cc._RF.push(module, 'edffdUfs8ZMY4eGLNYRnj/H', 'HTTP', __filename);
 
 "use strict";
 
-// var URL = "http://127.0.0.1:9000";
 var URL = "http://39.108.156.104:9000";
 
 var HTTP = cc.Class({
@@ -60,7 +59,6 @@ var HTTP = cc.Class({
                 //cc.vv.wc.show();
             }
             xhr.send();
-            // xhr.send("id=1");
             return xhr;
         }
     }

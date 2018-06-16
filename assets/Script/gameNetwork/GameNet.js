@@ -81,6 +81,13 @@ var GameNet = cc.Class({
             }
 
             if(cmd == Protocol.Command.System){
+    
+                if(data.code == Protocol.Response.System.RepeatLogin){
+                    //通知用户连接被另外一个连接踢掉
+                    console.log("通知用户连接被另外一个连接踢掉");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"RepeatLogin",data);
+                }
+
                 if(data.code == Protocol.Response.System.RefreshDataResult){
                     //刷新用户信息数据
                     console.log("刷新用户信息数据");
@@ -103,7 +110,24 @@ var GameNet = cc.Class({
                     //删除某个邮件结果
                     console.log("删除某个邮件结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"DelMailResult",data);
+                }else if(data.code == Protocol.Response.System.TaskDailyResult){
+                    //打开每日任务面板
+                    console.log("打开每日任务面板");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"TaskDailyResult",data);
+                }else if(data.code == Protocol.Response.System.GetTaskRewardResult){
+                    //领取任务奖励
+                    console.log("领取任务奖励");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"GetTaskRewardResult",data);
+                }else if(data.code == Protocol.Response.System.ShareInfoResult){
+                    //分享信息结果
+                    console.log("分享信息结果");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"ShareInfoResult",data);
+                }else if(data.code == Protocol.Response.System.ShareGetResult){
+                    //分享领取结果
+                    console.log("分享领取结果");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"ShareGetResult",data);
                 }
+                
             }
 
             if(cmd == Protocol.Command.Game){
@@ -166,6 +190,10 @@ var GameNet = cc.Class({
                     //用户托管
                     console.log("用户托管");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PlayerDelegated",data);
+                }else if(data.code == Protocol.Response.Game.PlayerCancelDelegate){
+                    //用户取消托管
+                    console.log("用户取消托管");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"PlayerCancelDelegate",data);
                 }else if(data.code == Protocol.Response.Game.PlayerSendCard){
                     //用户出牌
                     console.log("用户出牌");

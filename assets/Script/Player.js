@@ -66,6 +66,8 @@ var Player = cc.Class({
         this.joktoCards      = {};    //最近一次出的牌里癞子当的牌
         this.jokerCardsValue = {};    //最近一次出的牌里癞子当的牌的值
 
+        this.myCards = [];  //  自己手牌
+
 
         //玩家信息节点
         this.node_name = null;//昵称
@@ -120,7 +122,7 @@ var Player = cc.Class({
         this.setCardCount(17);
     },
     continueInfo(parm){
-        console.log("短线重连玩家信息");
+        // console.log("短线重连玩家信息");
         this.setnickname(parm.nickname);
         this.setCoin(parm.coin); 
         this.setLeQuan(parm.lequan); 
@@ -338,6 +340,13 @@ var Player = cc.Class({
     setPokerCard(pokerCard){
         this.pokerCard = pokerCard;
     },
+    //自己手牌
+    setMyCards(cards){
+        this.myCards = cards;
+    },
+    getMyCards(){
+        return this.myCards;
+    },
     //初始化自己的牌
     initMyCards(myPokerData,myPokerNode,parentNode,sceneWidth,seatNumber){ //0右边 1下边 2左边
         for(var i = 0;i < myPokerData.length;i++){
@@ -432,6 +441,7 @@ var Player = cc.Class({
                 index++;
             }
         }
+        this.setMyCards(PokerData);
         return dispatchCard;
     },
     //出牌
@@ -611,7 +621,7 @@ var Player = cc.Class({
             } 
         }
         //最后一张牌设置为地主牌
-        if(this.isLandlord){
+        if(this.isLandlord&&dispatchCard.length > 0){
             dispatchCard[dispatchCard.length-1].getComponent(PokerControl).setCardDiZhu(true);
         } 
         // if(this.openHandCards&&i==pokerNode.length-1){

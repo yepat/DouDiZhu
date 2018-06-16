@@ -21,7 +21,9 @@ cc.Class({
     },
     show: function show(time) {},
     close: function close() {
-        this.node.destroy();
+        if (this.node) {
+            this.node.destroy();
+        }
     }
 });
 

@@ -75,9 +75,9 @@ Protocol.CommandRevert = {
         ShopItem: 301, //打开充值中心
         ExchangeItems: 321, //打开兑换中心
         ExchangeItemConfirm: 323, //执行兑换操作
-        TaskDaily: 501, //打开每日任务面板
+        TaskDaily: 511, //打开每日任务面板
         TaskGrowth: 503, //打开成长任务面板
-        GetTaskReward: 509, //领取任务奖励
+        GetTaskReward: 513, //领取任务奖励
         BuyProps: 331, //打开商品道具中心
         ShopBuyGold: 311, //打开充值乐币
         HallReport: 901, //客端报告-用户登录后进入大厅
@@ -93,7 +93,14 @@ Protocol.CommandRevert = {
         GetRewardList: 235, //再打几局可以获得的奖励
 
         GetShopItems: 303, //获取商店道具列表
-        EnterHall: 701 //进入大厅标示
+        EnterHall: 701, //进入大厅标示
+
+        ShareInfo: 515, //分享信息
+        ShareGet: 517 //分享领取
+
+
+        // 511 请求任务列表  515  517
+        // 512
     },
     Game: {
         Init: 0, //进入房间
@@ -206,9 +213,9 @@ Protocol.CommandRevert = {
         ShopItemResult: 302, //打开充值中心
         ExchangeItemsResult: 322, //打开兑换中心
         ExchangeItemConfirmResult: 324, //执行兑换操作
-        TaskDailyResult: 502, //打开每日任务面板
+        TaskDailyResult: 512, //打开每日任务面板
         TaskGrowthResult: 504, //打开成长任务面板
-        GetTaskRewardResult: 510, //领取任务奖励
+        GetTaskRewardResult: 514, //领取任务奖励
         BuyPropsResult: 332, //打开商品道具中心
         ShopBuyGoldResult: 312, //打开充值乐币
         NoviceGiftResult: 334, //打开新手礼包
@@ -228,7 +235,10 @@ Protocol.CommandRevert = {
         GameCommTips: 166, //游戏通用提示框
         ShopItemsResult: 304, //获取商店道具列表
         HallGiftResult: 164, //大厅礼包数据
-        GameTips: 120 //新版游戏提示
+        GameTips: 120, //新版游戏提示
+
+        ShareInfoResult: 516, //分享信息结果
+        ShareGetResult: 518 //分享领取结果
     },
     Game: {
         NoLogin: 1000, //未登录

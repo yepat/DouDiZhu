@@ -46,6 +46,15 @@ PlayerDetailModel.isDev = 0; //判断支付模式:0//正常服,1//测试服
 PlayerDetailModel.wechatImg = ""; //微信头像
 PlayerDetailModel.title = ""; //称号
 
+PlayerDetailModel.jpqData = ""; //记牌器数据
+
+PlayerDetailModel.getJpqData = function () {
+    return PlayerDetailModel.jpqData;
+};
+PlayerDetailModel.setJpqData = function (jpqData) {
+    PlayerDetailModel.jpqData = jpqData;
+};
+
 PlayerDetailModel.getNickName = function () {
     return PlayerDetailModel.nickname;
 };

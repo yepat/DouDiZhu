@@ -1,9 +1,5 @@
 
-var config = require("config");
-var EventHelper = require("EventHelper");
-var PlayerDetailModel = require("PlayerDetailModel");
 var dialogManager = require("dialogManager");
-
 cc.Class({
     extends: cc.Component,
 
@@ -14,11 +10,11 @@ cc.Class({
     },
     btnSetClick(){
         console.log("btnSetClick");
-        // dialogManager.showSetDialog();
+        dialogManager.showSetDialog();
     },
     btnTaskClick(){
         console.log("btnTaskClick");
-        // dialogManager.showTaskDialog();
+        dialogManager.showTaskDialog();
     },
     btnEmailClick(){
         console.log("btnEmailClick");
@@ -26,7 +22,7 @@ cc.Class({
     },
     btnBagClick(){
         console.log("btnBagClick");
-        // dialogManager.showBagDialog();
+        dialogManager.showBagDialog();
     },
     btnShopClick(){
         console.log("btnShopClick");
