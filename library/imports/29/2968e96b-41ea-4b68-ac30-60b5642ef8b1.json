@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pic1_laizichang",
+    "texture": "db4de763-a89a-4361-b676-431a390902ba",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      151,
+      71
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      151,
+      71
+    ]
+  }
+}

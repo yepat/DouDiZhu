@@ -1,21 +1,24 @@
 
 var PlayerDetailModel = require("PlayerDetailModel");
-var config = require("config");
-var CardUtil = require("CardUtil");
-var PopCardUtil = require("PopCardUtil");
+// var config = require("config");
+// var CardUtil = require("CardUtil");
+// var PopCardUtil = require("PopCardUtil");
 cc.Class({
     extends: cc.Component,
 
     properties: {
         
     },
-    start () {
+    onLoad () {
         this.labNodes = [];
         for(var i = 17;i>=3;i--){
             var lab = "lab_"+i;
             var labnode = cc.find("jpqNode/"+lab).getComponent(cc.Label);;
             this.labNodes.push(labnode);
-        } 
+        }
+    },
+    start () {  
+        this.isActive = true;
     },
     show(mycards){
         // var 
@@ -25,7 +28,7 @@ cc.Class({
         }else{
             return;
         }
-        // console.log(this.labNodes);
+    
         var cardNums =[];
         var nodeCards = PlayerDetailModel.getJpqData();
         if(nodeCards&&nodeCards!=""){
@@ -34,7 +37,6 @@ cc.Class({
             }
         }
 
-        // console.log(this.labNodes);
         for(var i = 0;i<cardNums.length;i++){
             var cardnum = parseInt(cardNums[i]);
             var myCardNum = parseInt(tempstr[tempstr.length-1-i]);
@@ -53,5 +55,12 @@ cc.Class({
         if(this.node){
             this.node.destroy();
         } 
+    },
+    showNode(blt){
+        this.isActive = blt;
+        this.node.active = blt;
+    },
+    getIsActive(){
+        return this.isActive;
     }
 });

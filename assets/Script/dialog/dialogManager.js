@@ -5,6 +5,8 @@ var CancelDelegateController = require("CancelDelegateController");
 var opratShowCardControl = require("opratShowCardControl");
 var opratDoubleControl = require("opratDoubleControl");
 
+var doubleControl = require("doubleControl");
+
 var dialogManager = cc.Class({
     extends: cc.Component,
     statics: {
@@ -105,6 +107,13 @@ var dialogManager = cc.Class({
         },
         showAnimZhaDan(){
             this.showDialog("animatiom/anim_zhadan");
+        },
+        //加倍动画
+        showAnimDouble(rate,seatNum){
+            var args = {};
+            args.arg1 = rate;
+            args.arg2 = seatNum;
+            this.showDialog("animatiom/anim_double",doubleControl,args);
         },
 
     },

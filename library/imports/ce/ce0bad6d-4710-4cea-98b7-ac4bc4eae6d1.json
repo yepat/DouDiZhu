@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_head_man",
+    "texture": "324a64e1-927f-4e9c-9760-d3c6996c4ebf",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      184,
+      188
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      184,
+      188
+    ]
+  }
+}

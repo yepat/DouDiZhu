@@ -80,11 +80,13 @@ cc.Class({
         if(this.buchuFunc)
             this.buchuFunc();
         this.node.destroy();
+        // cc.vv.audioMgr.playSFX("SpecOk");
     },
     tishiClick() {
         console.log("提示");
         if(this.tishiFunc)
             this.tishiFunc();
+        // cc.vv.audioMgr.playSFX("SpecOk");
     },
     chupaiClick(num) {
         console.log(">>>出牌");
@@ -113,6 +115,8 @@ cc.Class({
         }else{
             // this.tishi.enabled = false;
         }
+
+        // cc.vv.audioMgr.playSFX("SpecOk");
         
     },
     shakeClock(){

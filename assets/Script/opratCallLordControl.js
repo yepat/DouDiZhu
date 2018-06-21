@@ -115,6 +115,7 @@ cc.Class({
             this.btn1Func();
         }
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btn2Click() {
         console.log("btn2Click");
@@ -138,6 +139,7 @@ cc.Class({
         }else{
             this.node.destroy();
         }
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     shakeClock(){
         var mt1 = cc.moveTo(0.05,this.clockX,this.clockY-2);

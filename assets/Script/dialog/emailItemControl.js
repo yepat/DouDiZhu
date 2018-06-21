@@ -50,6 +50,12 @@ cc.Class({
         console.log("点击了邮件"+this.id);
         GameNetMgr.sendRequest("System","ReadMail",this.id);
         GameNetMgr.sendRequest("System","GetMailAttachment",this.id);
+
+        var num = PlayerDetailModel.getMailUnread();
+        PlayerDetailModel.setMailUnread(num-1);
+
         this.node.destroy();
+
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 });

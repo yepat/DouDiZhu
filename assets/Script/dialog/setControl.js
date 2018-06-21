@@ -15,6 +15,38 @@ cc.Class({
         effectSet:false,
     },
     start () {
+        var self = this;
+        var t = cc.sys.localStorage.getItem("bgmVolume");
+        if(t != null){
+            this.bgmVolume = parseFloat(t);    
+        }else{
+            cc.sys.localStorage.setItem("bgmVolume",1);
+        }
+        var imgUrl = "";
+        if(t == 1){
+            imgUrl = "img_dialog/btn_on";
+        }else{
+            imgUrl = "img_dialog/btn_off";
+        }
+        cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
+            self.imgMusic.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
+        
+        var t2 = cc.sys.localStorage.getItem("sfxVolume");
+        if(t2 != null){
+            this.sfxVolume = parseFloat(t2);    
+        }else{
+            cc.sys.localStorage.setItem("sfxVolume",1);
+        }
+
+        if(t2 == 1){
+            imgUrl = "img_dialog/btn_on";
+        }else{
+            imgUrl = "img_dialog/btn_off";
+        }
+        cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
+            self.imgEffect.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
     },
     musicClick(){
         var self = this;
@@ -23,14 +55,17 @@ cc.Class({
         if(this.musicSet){
             this.musicSet = false;
             imgUrl = "img_dialog/btn_off";
+            cc.vv.audioMgr.setBGMVolume(0);
         }else{
             this.musicSet = true;
             imgUrl = "img_dialog/btn_on";
+            cc.vv.audioMgr.setBGMVolume(1);
         }
 
         cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
             self.imgMusic.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         })
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     effectClick(){
         var self = this;
@@ -39,28 +74,33 @@ cc.Class({
         if(this.effectSet){
             this.effectSet = false;
             imgUrl = "img_dialog/btn_off";
+            cc.vv.audioMgr.setSFXVolume(0);
         }else{
             this.effectSet = true;
             imgUrl = "img_dialog/btn_on";
+            cc.vv.audioMgr.setSFXVolume(1);
         }
 
         cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
             self.imgEffect.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         })
-
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     fankuiClick(){
         console.log("fankui click");
         dialogManager.showFanKuiDialog();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     aboutClick(){
         console.log("about click");
         dialogManager.showAboutDialog();
         // this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     closeClick(){
         console.log("close click");
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
 
    

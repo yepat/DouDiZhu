@@ -45,13 +45,6 @@ cc.Class({
 
         EventHelper.AddCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
         EventHelper.AddCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
-
-        // cc.eventManager.addCustomListener(cc.game.EVENT_SHOW, function(){
-        //     cc.log("重新返回游戏");
-        //     if(self.isShow){
-        //         cc.director.loadScene("LoadingScene");
-        //     }
-        // });
     },
     onRepeatLogin: function onRepeatLogin(event) {
         console.log("您的账号已经在其他地方登陆！");
@@ -89,6 +82,15 @@ cc.Class({
         if (payload.data && payload.data.mail_unread) {
             PlayerDetailModel.setMailUnread(payload.data.mail_unread);
         }
+        //未领取任务数
+        if (payload.data && payload.data.weichatgame_task_unaward) {
+            PlayerDetailModel.setTaskUnReward(payload.data.weichatgame_task_unaward);
+        }
+        //未领取分享数
+        if (payload.data && payload.data.weichatgame_invite_unaward) {
+            PlayerDetailModel.setShareUnReward(payload.data.weichatgame_invite_unaward);
+        }
+
         //0不可签到, 1可以签到
         if (payload.data && payload.data.checkin_undo) {
             PlayerDetailModel.setCheckinUndo(payload.data.checkin_undo);
@@ -113,12 +115,23 @@ cc.Class({
         if (payload.data && payload.data.propItems) {
             PlayerDetailModel.setPropItems(payload.data.propItems);
         }
-        // self.playerDetailController_:refreshUI()
     },
     setHeadUrl: function setHeadUrl() {
         var self = this;
         //设置微信头像
         var imgUrl = config.wxInfo.avatarUrl;
+
+        if (imgUrl == "") {
+            var headUrl = "p_head_woman";
+            if (PlayerDetailModel.getGender() == 1) {
+                headUrl = "p_head_man";
+            }
+            cc.loader.loadRes(headUrl, cc.SpriteFrame, function (err, spriteFrame) {
+                self.headImg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            });
+            return;
+        }
+
         imgUrl = imgUrl + "?aa=aa.jpg";
         cc.loader.load(imgUrl, function (err, texture) {
             self.headImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);

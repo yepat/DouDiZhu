@@ -55,9 +55,9 @@ CardUtil.getNodeCards = function (mycards) {
 CardUtil.subNodeCards = function (cards1, cards2) {
     var str = "";
     var cards1 = CardUtil.getNodeCards(cards1);
-    console.log(cards1);
+    // console.log(cards1)
     var cards2 = CardUtil.getNodeCards(cards2);
-    console.log(cards2);
+    // console.log(cards2)
     for (var i = 0; i < cards1.length; i++) {
         var value1 = parseInt(cards1[i]);
         var value2 = parseInt(cards2[i]);
@@ -67,6 +67,7 @@ CardUtil.subNodeCards = function (cards1, cards2) {
         }
         str += value;
     }
+    console.log(str);
     return str;
 };
 
@@ -89,6 +90,8 @@ CardUtil.gradeUp = function (card1, card2) {
     return card1.showTxt * 10 + card1.showType - (card2.showTxt * 10 + card2.showType);
 };
 
+//判断两张牌的大小
+
 //服务器牌值转化
 CardUtil.serverCardsToClient = function (serverCards) {
     var pokerData = [];
@@ -96,7 +99,7 @@ CardUtil.serverCardsToClient = function (serverCards) {
         var card = serverCards[i];
         pokerData.push(CardUtil.convertCardToClient(card));
     }
-    pokerData.sort(CardUtil.gradeDown);
+    // pokerData.sort(CardUtil.gradeDown);
     return pokerData;
 };
 CardUtil.convertCardToClient = function (value) {
@@ -232,10 +235,10 @@ CardUtil.AutoChooseLiftUpCard = function (myPokerNode, PokerControl, cards) {
         var cardvalue = parseInt(cards[num]);
         if (maxLenght == 1) {
             cardvalue = cards;
-        } else {
-            // cardvalue = parseInt(cards[num]);
-        }
-        console.log("cardvalue:" + cardvalue + " pktxt:" + pktxt); //+" cards[num]:"+cards[num]
+        } else {}
+        // cardvalue = parseInt(cards[num]);
+
+        // console.log("cardvalue:"+cardvalue+" pktxt:"+pktxt);//+" cards[num]:"+cards[num]
         if (num < maxLenght && cardvalue == pktxt) {
             console.log("num:" + num);
             num++;

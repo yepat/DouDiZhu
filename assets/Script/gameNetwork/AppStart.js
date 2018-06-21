@@ -1,5 +1,5 @@
 var config = require("config");
-var ByteArray = require("ByteArray");
+// var ByteArray = require("ByteArray");
 var Protocol = require("Protocol");
 var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
@@ -10,6 +10,10 @@ function initMgr(){
     cc.vv = {};
     cc.vv.http = require("HTTP");
     cc.vv.net = require("GameNet");
+
+    var AudioMgr = require("AudioMgr");
+    cc.vv.audioMgr = new AudioMgr();
+    cc.vv.audioMgr.init();
 }
    
 cc.Class({
@@ -19,10 +23,15 @@ cc.Class({
             default : null,
             type : cc.Label
         },
+        progress : {
+            default : null,
+            type : cc.Label
+        },
     },
     // use this for initialization
     onLoad: function () {
         initMgr();
+        this.progress.string = "";
         this.shareUid = 0;
         if(typeof(wx)=="undefined"){
             this.getServerInfo();
@@ -41,13 +50,14 @@ cc.Class({
             withShareTicket: true
         });
         cc.loader.loadRes("shareImg",function(err,data){
+            console.log("url:"+data.url);
             wx.onShareAppMessage(function(res){
                 return {
                     title: "小伙伴们帮帮忙，小手一点助我拿豆！",
                     imageUrl: data.url,
                     query :  "key="+PlayerDetailModel.uid,
                     success(res){
-                        console.log("转发成功!!!")
+                        console.log("转发成功!!!");
                         console.log(res);
                     },
                     fail(res){
@@ -288,7 +298,7 @@ cc.Class({
     },
     setPlayerDetailModel(response){
         var room = response.data.room
-        console.log(room);
+        // console.log(room);
         if(response["code"] == Protocol.Response.Login.OK){
             var isDevData = response["data"]["isDev"];
             if (isDevData && typeof(isDevData) == "number"){
@@ -323,6 +333,10 @@ cc.Class({
             PlayerDetailModel.verfile = parseInt(response["data"]["verfile"]);
             PlayerDetailModel.vertips = parseInt(response["data"]["vertips"]);
             PlayerDetailModel.mailUnread = parseInt(response["data"]["mail_unread"]);
+
+            PlayerDetailModel.taskUnReward = parseInt(response["data"]["weichatgame_task_unaward"]);
+            PlayerDetailModel.shareUnReward = parseInt(response["data"]["weichatgame_invite_unaward"]);
+
             PlayerDetailModel.coupon = parseInt(response["data"]["coupon"]);
             PlayerDetailModel.age = parseInt(response["data"]["age"]);
             PlayerDetailModel.room = room;
@@ -343,9 +357,12 @@ cc.Class({
             PlayerDetailModel.title = response["data"]["title"];
             PlayerDetailModel.isDev = isDevData;
 
+            // console.log(response["data"]);
+
             console.log("进入游戏大厅...uid:"+parseInt(response["data"]["uid"]));
             this.labLoading.string = "进入游戏大厅...";
-            this.preloadNextScene();
+            // this.preloadNextScene();
+            this.downloadFile();
         }else{
             console.log("登陆游戏失败！");
             this.labLoading.string = "登陆游戏失败！";
@@ -361,5 +378,58 @@ cc.Class({
             cc.log("Next scene preloaded");
             cc.director.loadScene("HallScene");
         });
+    },
+    //下载资源包
+    downloadFile(){
+        var self = this;
+        if(typeof(wx)=="undefined"){
+            self.preloadNextScene();
+        }else{
+
+            var fileManager = wx.getFileSystemManager();
+            var soundspath = wx.env.USER_DATA_PATH+"/sounds";
+            console.log("soundspath:"+soundspath);
+            fileManager.access({
+                path:soundspath,
+                success(res){
+                    console.log("目录存在!!!",res);
+                    self.preloadNextScene();
+                },
+                fail(res){
+                    console.log("目录不存在!!!",res);
+                    var downloadTask = wx.downloadFile({
+                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/sounds.zip',
+                        success: function(res) {
+                            console.log("资源下载成功");
+                            var filePath = res.tempFilePath;
+                            fileManager.unzip({
+                                zipFilePath:filePath,
+                                targetPath:wx.env.USER_DATA_PATH,
+                                success(res){
+                                    console.log("解压成功!!!",res)
+                                    self.preloadNextScene();
+                                },
+                                fail(res){
+                                    console.log("解压失败!!!",res)
+                                } 
+                            });
+                        },
+                        fail(res){
+                            console.log("资源下载失败",res);
+                        } 
+                    });
+                    downloadTask.onProgressUpdate((res) => {
+                        self.progress.string = res.progress+"%";
+                        self.labLoading.string = "资源更新中...";
+                        console.log('下载进度', res.progress);
+                        console.log('已经下载的数据长度', res.totalBytesWritten);
+                        console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
+                    })
+                            
+                } 
+            });  
+        }
     }
+
+
 });

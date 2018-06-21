@@ -67,6 +67,7 @@ cc.Class({
             this.click1();
         }
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnClick2(){
         console.log("点击了不加倍按钮");
@@ -74,6 +75,7 @@ cc.Class({
             this.click2();
         }
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     shakeClock(){
         var mt1 = cc.moveTo(0.05,this.clockX,this.clockY-2);

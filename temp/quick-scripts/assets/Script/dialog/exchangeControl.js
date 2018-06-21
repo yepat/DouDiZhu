@@ -17,6 +17,7 @@ cc.Class({
     closeClick: function closeClick() {
         console.log("close click");
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     recordClick: function recordClick() {
         console.log("record click");

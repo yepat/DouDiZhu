@@ -5,7 +5,7 @@ cc._RF.push(module, 'bbe82HivaFIsojxh19Nd3Sr', 'taskItemControl');
 "use strict";
 
 var GameNetMgr = require("GameNetMgr");
-var HallCanvasControl = require("HallCanvasControl");
+var PlayerDetailModel = require("PlayerDetailModel");
 cc.Class({
     extends: cc.Component,
 
@@ -68,7 +68,11 @@ cc.Class({
             this.nodeGet.active = false;
             this.nodeProgrss.active = false;
             this.nodeComplete.active = true;
+
+            var num = PlayerDetailModel.getTaskUnReward();
+            PlayerDetailModel.setTaskUnReward(num - 1);
         }
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     gotoClick: function gotoClick() {
         console.log("this.goto:" + this.goto);
@@ -76,15 +80,14 @@ cc.Class({
             //1房间  2邀请好友
             if (this.goto == 1) {
                 console.log("前往普通场");
-                this.onWantGotoRoom();
+                // this.onWantGotoRoom();
             } else if (this.goto == 2) {
                 console.log("前往分享");
             }
         }
     },
-    onWantGotoRoom: function onWantGotoRoom() {
-        //去适合的场次
-        HallCanvasControl.gotoRoom1();
+    onWantGotoRoom: function onWantGotoRoom() {//去适合的场次
+        // HallCanvasControl.gotoRoom1();
     }
 });
 

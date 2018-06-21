@@ -17,11 +17,11 @@ cc.Class({
     // onLoad () {},
     start () {
         // console.log("chat show"+config.chatContent.length);
-        for(var i = 0;i < config.chatContent.length;i++){
+        for(var i = 1;i < config.chatContent.length;i++){
             var chatItem = cc.instantiate(this.chatItem);
             chatItem.parent = this.content;
             var item = chatItem.getComponent(chatItemControl);
-            item.show(config.chatContent[i],i+1,this);
+            item.show(config.chatContent[i],i,this);
         }
     },   
     show(click){

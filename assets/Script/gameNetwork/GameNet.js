@@ -66,6 +66,17 @@ var GameNet = cc.Class({
             cmd = data.cmd;
             console.log("cmd:"+cmd+" code:"+data.code);
 
+            if(cmd == Protocol.Command.Game){
+                if(data.code == Protocol.Response.Game.ReconnectionData){
+                    //短线重连
+                    console.log("短线重连");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"ReconnectionData",data);
+                }
+            }
+
+            if(config.stopOnMassage)//暂停协议处理
+                return;
+
             if(cmd == Protocol.Command.HeartBeat){ //心跳
                 if(data.code == Protocol.Response.HeartBeat.Alive){
                     EventHelper.DispatchCustomEvent(config.MyNode,"HeartBeat",data);
@@ -226,10 +237,6 @@ var GameNet = cc.Class({
                     //打开救济面板
                     console.log("打开救济面板");
                     EventHelper.DispatchCustomEvent(config.MyNode,"OpenRechargeTipResult",data);
-                }else if(data.code == Protocol.Response.Game.ReconnectionData){
-                    //短线重连
-                    console.log("短线重连");
-                    EventHelper.DispatchCustomEvent(config.MyNode,"ReconnectionData",data);
                 }else if(data.code == Protocol.Response.Game.PokerTask){
                     //触发牌局任务
                     console.log("触发牌局任务");

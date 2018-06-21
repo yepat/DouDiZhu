@@ -53,6 +53,7 @@ cc.Class({
         if (this.node) {
             this.node.destroy();
         }
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btn2Click: function btn2Click() {
         console.log("btn2Click");
@@ -62,6 +63,7 @@ cc.Class({
         if (this.node) {
             this.node.destroy();
         }
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     close: function close() {
         var self = this;
@@ -72,6 +74,7 @@ cc.Class({
             }
         }, function () {});
         // this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 });
 

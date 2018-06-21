@@ -20,6 +20,10 @@ PlayerDetailModel.score = 0;                //竞技场游戏币数
 PlayerDetailModel.verfile = 0;				//素材更新版本号
 PlayerDetailModel.vertips = 0;				//滚动数据更新版本号
 PlayerDetailModel.mailUnread = 0;			//未读邮件数
+
+PlayerDetailModel.taskUnReward = 0;			    //未领取任务数
+PlayerDetailModel.shareUnReward = 0;			    //未领取分享数
+
 PlayerDetailModel.coupon = 0;				//乐劵
 PlayerDetailModel.age = 0;					//年龄
 PlayerDetailModel.room = {};			    //房间显示列表
@@ -160,6 +164,21 @@ PlayerDetailModel.getMailUnread = function(){
 }
 PlayerDetailModel.setMailUnread = function(mailUnread){
     PlayerDetailModel.mailUnread = mailUnread;
+}
+
+//未领取任务数
+PlayerDetailModel.getTaskUnReward = function(){
+    return PlayerDetailModel.taskUnReward;
+}
+PlayerDetailModel.setTaskUnReward = function(taskUnReward){
+    PlayerDetailModel.taskUnReward = taskUnReward;
+}
+//未领取分享数
+PlayerDetailModel.getShareUnReward = function(){
+    return PlayerDetailModel.shareUnReward;
+}
+PlayerDetailModel.setShareUnReward = function(shareUnReward){
+    PlayerDetailModel.shareUnReward = shareUnReward;
 }
 
 PlayerDetailModel.getCoupon = function(){

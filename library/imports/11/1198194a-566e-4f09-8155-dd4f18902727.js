@@ -84,10 +84,12 @@ cc.Class({
         console.log("不出");
         if (this.buchuFunc) this.buchuFunc();
         this.node.destroy();
+        // cc.vv.audioMgr.playSFX("SpecOk");
     },
     tishiClick: function tishiClick() {
         console.log("提示");
         if (this.tishiFunc) this.tishiFunc();
+        // cc.vv.audioMgr.playSFX("SpecOk");
     },
     chupaiClick: function chupaiClick(num) {
         console.log(">>>出牌");
@@ -112,9 +114,11 @@ cc.Class({
         } else if (typenum == -2) {
             this.showTips("showTips/p_tips_noCard");
             // this.node.destroy();
-        } else {
-                // this.tishi.enabled = false;
-            }
+        } else {}
+            // this.tishi.enabled = false;
+
+
+            // cc.vv.audioMgr.playSFX("SpecOk");
     },
     shakeClock: function shakeClock() {
         var mt1 = cc.moveTo(0.05, this.clockX, this.clockY - 2);

@@ -60,6 +60,8 @@ cc.Class({
         this.node.destroy();
         EventHelper.RemoveCustomEvent(config.MyNode,"ShareInfoResult",self.onShareInfoResult,self);
         EventHelper.RemoveCustomEvent(config.MyNode,"ShareGetResult",self.onShareGetResult,self);
+
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnClick(){
         // shareImg
@@ -91,11 +93,12 @@ cc.Class({
             })
         });
 
-       
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     getClick(){
         console.log("-------get");
         GameNetMgr.sendRequest("System","ShareGet");
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     onShareInfoResult(event){
         var response = event.getUserData();
@@ -127,6 +130,8 @@ cc.Class({
         var response = event.getUserData();
         console.log(response);
         dialogManager.showCommonDialog("温馨提示",response.data.award_desc);
+
+        PlayerDetailModel.setShareUnReward(0);
     },
     setHeadUrl(imgUrl,headImg){
         // console.log(headImg);

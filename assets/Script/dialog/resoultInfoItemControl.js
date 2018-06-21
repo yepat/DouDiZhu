@@ -53,6 +53,7 @@ cc.Class({
         this.labNickName.string = config.parseString(name);
         this.labDifen.string = ""+difen;
         this.labBeishu.string = ""+beishu;
+        this.fengdingpochan(isDizhi,beishu,ledou,difen,rateMax,isMe,coin);
         if(ledou>0){
             ledou = "+"+ledou;
         }else{
@@ -60,7 +61,6 @@ cc.Class({
         }
         this.labLedou.string = ""+ledou;
         // this.isPochan = false;
-        this.fengdingpochan(isDizhi,beishu,ledou,difen,rateMax,isMe,coin);
     },
     //破产封顶判断
     fengdingpochan(test_dz,rate,total,difen,roomRateMax,isMe,palyerCoin){
@@ -160,13 +160,14 @@ cc.Class({
 
             if (m_total > Math.abs(total_) && palyerCoin == 0){
                 self.pochan();
-            }else if(m_total == math.abs(total_) && isMe && palyerCoin == 0){
+            }else if(m_total == Math.abs(total_) && isMe && palyerCoin == 0){
                 self.pochan();
             }
         }
     },
     pochan(){
         console.log("破产了");
+        var self = this;
         this.pInfoBtn.enabled = true;
         this.pInfoTxt.enabled = true;
         cc.loader.loadRes("gameResult/p_pochan",cc.SpriteFrame,function(err,spriteFrame){

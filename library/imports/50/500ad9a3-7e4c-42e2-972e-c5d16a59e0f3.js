@@ -45,6 +45,7 @@ cc.Class({
     closeClick: function closeClick() {
         console.log("close click");
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnCoinClick: function btnCoinClick() {
         console.log("btnCoinClick");

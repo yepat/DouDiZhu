@@ -78,7 +78,7 @@ cc.Class({
             }
         }
         this.roomType_ = roomType_;
-        console.log(roomType_);
+        // console.log(roomType_);
 
         for (var i = 0; i < roomType_.length; i++) {
             roomInfos[i].peopleNum.string = "" + this.pepleNumAdd(roomType_[i]["onlineNum"]);
@@ -92,7 +92,7 @@ cc.Class({
         this.roomMinScore = this.roomType_[0]["enterLimit"];
         this.trialInfo = this.roomType_[0]["trial"];
         this.gotoRoom(this.roomType_[0]["roomId"]);
-        // console.log("roomMinScore:"+this.roomMinScore+"  trialInfo:"+this.trialInfo+" roomId:"+this.roomType_[0]["roomId"]);
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     room2Click: function room2Click() {
         console.log("room2Click");
@@ -100,7 +100,7 @@ cc.Class({
         this.roomMinScore = this.roomType_[1]["enterLimit"];
         this.trialInfo = this.roomType_[1]["trial"];
         this.gotoRoom(this.roomType_[1]["roomId"]);
-        // console.log("roomMinScore:"+this.roomMinScore+"  trialInfo:"+this.trialInfo+" roomId:"+this.roomType_[1]["roomId"]);
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     room3Click: function room3Click() {
         console.log("room3Click");
@@ -109,7 +109,7 @@ cc.Class({
         this.roomMinScore = this.roomType_[2]["enterLimit"];
         this.trialInfo = this.roomType_[2]["trial"];
         this.gotoRoom(this.roomType_[2]["roomId"]);
-        // console.log("roomMinScore:"+this.roomMinScore+"  trialInfo:"+this.trialInfo+" roomId:"+this.roomType_[2]["roomId"]);
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     room4Click: function room4Click() {
         console.log("room4Click");
@@ -117,13 +117,13 @@ cc.Class({
         this.roomMinScore = this.roomType_[3]["enterLimit"];
         this.trialInfo = this.roomType_[3]["trial"];
         this.gotoRoom(this.roomType_[3]["roomId"]);
-        // console.log("roomMinScore:"+this.roomMinScore+"  trialInfo:"+this.trialInfo+" roomId:"+this.roomType_[3]["roomId"]);
-        // this.animShakeNode();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     quickStartClick: function quickStartClick() {
         console.log("quickStartClick");
         // cc.director.loadScene("GameScene");
         this.onWantGotoRoom();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     pepleNumAdd: function pepleNumAdd(str) {
         var curNum = str;
@@ -175,7 +175,7 @@ cc.Class({
                 var click = function click() {
                     console.log("打开商城----");
                 };
-                dialogManager.showCommonDialog("温馨提示", "豆子不够是否去商城充值", click);
+                dialogManager.showCommonDialog("温馨提示", "豆子不够无法进入该场次", click);
             }
         }
     },
@@ -270,7 +270,7 @@ cc.Class({
                     console.log("您还在其他房间中对局哟，现在进去看看吧！");
                     dialogManager.showCommonDialog("温馨提示", "您还在其他房间中对局哟，现在进去看看吧！", function () {
                         console.log("短线重连普通场");
-                        self.onWantContinueGaming();
+                        self.onWantContinueGaming(event);
                     });
                 } else if (!payload.data.modelId || parseInt(payload.data.modelId) == config.ModelId.lazarillo) {
                     console.log("您还在其他癞子场中对局哟，现在进去看看吧！");
@@ -407,8 +407,48 @@ cc.Class({
             cc.director.loadScene("GameScene");
         });
     },
-    onWantContinueGaming: function onWantContinueGaming() {
+    onWantContinueGaming: function onWantContinueGaming(event) {
         console.log("--进入上局未完的普通牌桌");
+        var payload = event.payload;
+
+        var args = {};
+        args["baseCoins"] = payload["data"]["baseCoins"];
+        args["rate"] = payload["data"]["rate"];
+        args["limitCoins"] = payload["data"]["limitCoins"];
+        args["rake"] = payload["data"]["rake"];
+        args["roomId"] = payload["data"]["roomId"];
+        args["rateMax"] = payload["data"]["rateMax"];
+        args["enterLimit"] = payload["data"]["enterLimit"];
+        args["emoticon"] = payload["data"]["emoticon"];
+        args["emoticon_items"] = payload["data"]["emoticon_items"];
+        args["advert"] = payload["data"]["advert"]; //记牌器数据
+
+        if (payload["data"]["modelId"]) {
+            args["modelId"] = payload["data"]["modelId"];
+        }
+        args["buys"] = payload["data"]["buys"];
+        args["givecoins"] = null;
+
+        if (payload["data"]["isContinue"] && parseInt(payload["data"]["isContinue"]) == 1) {
+            args["isContinueGaming"] = true;
+        }
+        var m_sended = payload["data"]["sendCoins"];
+        var m_totalTimes = payload["data"]["sendCoinsTimes"];
+        var m_curTimes = payload["data"]["sendCoinsTimesToday"];
+
+        if (m_sended && m_sended > 0) {
+            args["givecoins"] = {
+                sended: m_sended,
+                totalTimes: m_totalTimes,
+                curTimes: m_curTimes
+            };
+            //刷新用户乐豆乐券
+            console.log("刷新用户乐豆乐券");
+        }
+        config.tableInfo = args;
+
+        console.log(config.tableInfo);
+
         config.IsContinueGaming = 1;
         this.preloadNextScene();
     }

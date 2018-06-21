@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "nvnongmin_tex",
+    "texture": "7d7740fa-64a8-4271-902e-91ed1f3aaf65",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      510,
+      749
+    ],
+    "offset": [
+      0,
+      136.5
+    ],
+    "originalSize": [
+      512,
+      1024
+    ]
+  }
+}

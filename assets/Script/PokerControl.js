@@ -110,14 +110,14 @@ cc.Class({
     },
     cardMove(){
         if(this.cardData.isChoosed&&this.cardData.isTopped){
-            var move = cc.moveBy(0.2,0,-30);
+            var move = cc.moveBy(0.1,0,-30);
             move.easing(cc.easeIn(3));
             this.node.runAction(move);
             this.cardData.isTopped = false;
             this.cardData.isChoosed = false;
             this.pokerLight.enabled = false;
         }else if(this.cardData.isChoosed&&!this.cardData.isTopped){
-            var move = cc.moveBy(0.2,0,30);
+            var move = cc.moveBy(0.1,0,30);
             move.easing(cc.easeIn(3));
             this.node.runAction(move);
             this.cardData.isTopped = true;
@@ -127,7 +127,7 @@ cc.Class({
     },
     cardMoveDown(){
         if(this.cardData.isTopped){
-            var move = cc.moveBy(0.2,0,-30);
+            var move = cc.moveBy(0.1,0,-30);
             move.easing(cc.easeIn(3));
             this.node.runAction(move);
             this.cardData.isTopped = false;

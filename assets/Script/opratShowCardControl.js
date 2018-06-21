@@ -42,6 +42,8 @@ cc.Class({
             this.click(this.time);
         }
         this.node.destroy();
+
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 
 });

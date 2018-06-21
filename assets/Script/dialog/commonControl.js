@@ -46,6 +46,7 @@ cc.Class({
     closeClick(){
         console.log("close click");
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnCancelClick(){
         console.log("btn1 click");
@@ -53,6 +54,7 @@ cc.Class({
             this.cancelClick();
         }
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnEnterClick(){
         console.log("btn2 click");
@@ -60,5 +62,6 @@ cc.Class({
             this.enterClick();
         }
         this.node.destroy();
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 });

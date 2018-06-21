@@ -27,8 +27,7 @@ cc.Class({
     itemClick: function itemClick() {
         if (this.index) {
             console.log("index:" + this.index);
-            var index = this.index;
-            var content = config.chatContent[index - 1];
+            var content = config.chatContent[this.index];
             var arg = {
                 id: 1, //音效id，0：不带音效，不为0：为系统对应说话音效
                 word: content
@@ -39,6 +38,7 @@ cc.Class({
             // this.click();
             this.parentNode.close();
         }
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 }
 // close(){

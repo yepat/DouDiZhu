@@ -12,6 +12,8 @@ config.temppassword = "";
 
 config.OpenUDIDEncryptToken = "!_Tvr%^98071e~int5lmUy";
 
+config.stopOnMassage = false;
+
 config.wxShareInfo = "key1=value1&key2=value2";
 
 config.playGameId = 0; //断线
@@ -45,7 +47,8 @@ config.hintType = {
     grabLoadNo: 4, //不抢
     dont: 5, //不要
     double: 6, //加倍
-    doubleNo: 7 //不加倍
+    doubleNo: 7, //不加倍
+    waitingDouble: 8 //等待加倍
 };
 
 config.opratType = {
@@ -147,8 +150,10 @@ config.gameState = {
     ST_GAME_CallLord: 4, //叫地主
     ST_GAME_GrabLord: 5, //抢地主
     ST_GAME_CallLordOver: 6, //叫地主结束
-    ST_GAME_BALANCE: 7, //结算
-    ST_GAME_WAIT_NEXTROUND: 8 //等待下一轮
+    ST_GAME_Double: 7, //加倍
+    ST_GAME_OutCard: 8, //出牌
+    ST_GAME_BALANCE: 9, //结算
+    ST_GAME_WAIT_NEXTROUND: 10 //等待下一轮
 
 
     //微信配置信息、
@@ -212,9 +217,9 @@ config.tableName = {
     1009: "中级场 底分400"
 };
 
-config.chatContent = ["大家好,很高兴见到各位", "快点啊,等到花儿都谢了", "你的牌打的也太好了", "不要吵了不要吵了，专心玩游戏吧", "怎么又断线,网络怎么这么差啊",
-//"交个朋友吧，能告诉我你的联系方法吗",
-"不好意思,我要离开一会", "再见了,我会想念大家的"];
+config.chatContent = ["", "大家好,很高兴见到各位", "快点啊,等到花儿都谢了", "你的牌打的也太好了", "不要吵了不要吵了，专心玩游戏吧", "怎么又断线,网络怎么这么差啊", "不好意思,我要离开一会", "再见了,我会想念大家的"];
+
+config.chatSay = ["", "welcom", "kuaidiana", "nidepai", "buyaochao", "duanxian", "buyaozou", "zaijian"];
 
 config.parseNumber = function (number) {
     if (typeof number == "string") number = parseInt(number);

@@ -5,20 +5,23 @@ cc._RF.push(module, '0bbd6jh72JC1JM15/Q6pmQW', 'jpqNodeControl', __filename);
 "use strict";
 
 var PlayerDetailModel = require("PlayerDetailModel");
-var config = require("config");
-var CardUtil = require("CardUtil");
-var PopCardUtil = require("PopCardUtil");
+// var config = require("config");
+// var CardUtil = require("CardUtil");
+// var PopCardUtil = require("PopCardUtil");
 cc.Class({
     extends: cc.Component,
 
     properties: {},
-    start: function start() {
+    onLoad: function onLoad() {
         this.labNodes = [];
         for (var i = 17; i >= 3; i--) {
             var lab = "lab_" + i;
             var labnode = cc.find("jpqNode/" + lab).getComponent(cc.Label);;
             this.labNodes.push(labnode);
         }
+    },
+    start: function start() {
+        this.isActive = true;
     },
     show: function show(mycards) {
         // var 
@@ -27,7 +30,7 @@ cc.Class({
         if (mycards) {} else {
             return;
         }
-        // console.log(this.labNodes);
+
         var cardNums = [];
         var nodeCards = PlayerDetailModel.getJpqData();
         if (nodeCards && nodeCards != "") {
@@ -36,7 +39,6 @@ cc.Class({
             }
         }
 
-        // console.log(this.labNodes);
         for (var i = 0; i < cardNums.length; i++) {
             var cardnum = parseInt(cardNums[i]);
             var myCardNum = parseInt(tempstr[tempstr.length - 1 - i]);
@@ -55,6 +57,13 @@ cc.Class({
         if (this.node) {
             this.node.destroy();
         }
+    },
+    showNode: function showNode(blt) {
+        this.isActive = blt;
+        this.node.active = blt;
+    },
+    getIsActive: function getIsActive() {
+        return this.isActive;
     }
 });
 

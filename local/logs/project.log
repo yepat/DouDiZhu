@@ -1,55 +1,58 @@
-2018-06-16T14:53:24.808Z - normal: Load ~/.CocosCreator/settings.json
-2018-06-16T14:53:24.812Z - normal: checking language setting...
-2018-06-16T14:53:24.812Z - normal: Language: zh
-2018-06-16T14:53:25.798Z - success: protocol editor-framework registered
-2018-06-16T14:53:25.798Z - success: protocol app registered
-2018-06-16T14:53:25.798Z - success: protocol theme registered
-2018-06-16T14:53:25.798Z - success: protocol packages registered
-2018-06-16T14:53:25.798Z - success: protocol unpack registerred
-2018-06-16T14:53:25.799Z - success: protocol disable-commonjs registerred
-2018-06-16T14:53:26.009Z - normal: connected!
-2018-06-16T14:53:26.013Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-06-16T14:53:26.024Z - normal: Initializing Cocos2d
-2018-06-16T14:53:26.281Z - normal: Initializing Asset Database
-2018-06-16T14:53:26.318Z - success: protocol uuid registerred
-2018-06-16T14:53:26.318Z - success: protocol db registerred
-2018-06-16T14:53:26.319Z - success: protocol thumbnail registerred
-2018-06-16T14:53:26.319Z - normal: Loading editor/builtin packages
-2018-06-16T14:53:26.345Z - success: anysdk loaded
-2018-06-16T14:53:26.484Z - success: assets loaded
-2018-06-16T14:53:26.488Z - success: builder loaded
-2018-06-16T14:53:26.492Z - success: cocos-analytics loaded
-2018-06-16T14:53:26.496Z - success: console loaded
-2018-06-16T14:53:26.530Z - success: fb-instant-games loaded
-2018-06-16T14:53:26.535Z - success: hierarchy loaded
-2018-06-16T14:53:26.541Z - success: inspector loaded
-2018-06-16T14:53:26.543Z - success: keystore loaded
-2018-06-16T14:53:26.552Z - success: node-library loaded
-2018-06-16T14:53:26.554Z - success: package-asset loaded
-2018-06-16T14:53:26.557Z - success: preferences loaded
-2018-06-16T14:53:26.560Z - success: project-exporter loaded
-2018-06-16T14:53:26.577Z - success: project-importer loaded
-2018-06-16T14:53:26.580Z - success: project-settings loaded
-2018-06-16T14:53:26.583Z - success: ui-kit loaded
-2018-06-16T14:53:26.588Z - success: ui-grid loaded
-2018-06-16T14:53:26.592Z - success: scene loaded
-2018-06-16T14:53:26.593Z - success: sprite-editor loaded
-2018-06-16T14:53:26.597Z - success: store loaded
-2018-06-16T14:53:26.604Z - success: timeline loaded
-2018-06-16T14:53:26.604Z - normal: Loading builtin packages
-2018-06-16T14:53:26.608Z - success: asset-db-debugger loaded
-2018-06-16T14:53:26.609Z - success: color-picker loaded
-2018-06-16T14:53:26.613Z - success: package-manager loaded
-2018-06-16T14:53:26.619Z - success: sdkbox loaded
-2018-06-16T14:53:26.624Z - success: tester loaded
-2018-06-16T14:53:26.628Z - success: ui-kit-preview-extra loaded
-2018-06-16T14:53:26.631Z - success: ui-kit-preview loaded
-2018-06-16T14:53:26.635Z - success: ui-tree loaded
-2018-06-16T14:53:27.679Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-06-16T14:53:27.680Z - normal: Loading packages
-2018-06-16T14:53:27.684Z - normal: Watching packages
-2018-06-16T14:53:27.694Z - normal: Run Application
-2018-06-16T14:53:28.584Z - success: preview server running at http://localhost:7456
-2018-06-16T14:53:33.534Z - normal: 1.9.1
-2018-06-16T14:53:34.490Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-06-16T15:23:33.398Z - info: shutdown preview server
+2018-06-21T16:03:26.069Z - normal: Load ~/.CocosCreator/settings.json
+2018-06-21T16:03:26.073Z - normal: checking language setting...
+2018-06-21T16:03:26.073Z - normal: Language: zh
+2018-06-21T16:03:26.979Z - success: protocol editor-framework registered
+2018-06-21T16:03:26.979Z - success: protocol app registered
+2018-06-21T16:03:26.979Z - success: protocol theme registered
+2018-06-21T16:03:26.979Z - success: protocol packages registered
+2018-06-21T16:03:26.979Z - success: protocol unpack registerred
+2018-06-21T16:03:26.979Z - success: protocol disable-commonjs registerred
+2018-06-21T16:03:27.084Z - normal: connected!
+2018-06-21T16:03:27.085Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-06-21T16:03:27.087Z - normal: Initializing Cocos2d
+2018-06-21T16:03:27.326Z - normal: Initializing Asset Database
+2018-06-21T16:03:27.364Z - success: protocol uuid registerred
+2018-06-21T16:03:27.364Z - success: protocol db registerred
+2018-06-21T16:03:27.364Z - success: protocol thumbnail registerred
+2018-06-21T16:03:27.364Z - normal: Loading editor/builtin packages
+2018-06-21T16:03:27.391Z - success: anysdk loaded
+2018-06-21T16:03:27.521Z - success: assets loaded
+2018-06-21T16:03:27.524Z - success: builder loaded
+2018-06-21T16:03:27.528Z - success: cocos-analytics loaded
+2018-06-21T16:03:27.532Z - success: console loaded
+2018-06-21T16:03:27.562Z - success: fb-instant-games loaded
+2018-06-21T16:03:27.568Z - success: hierarchy loaded
+2018-06-21T16:03:27.574Z - success: inspector loaded
+2018-06-21T16:03:27.576Z - success: keystore loaded
+2018-06-21T16:03:27.585Z - success: node-library loaded
+2018-06-21T16:03:27.588Z - success: package-asset loaded
+2018-06-21T16:03:27.591Z - success: preferences loaded
+2018-06-21T16:03:27.594Z - success: project-exporter loaded
+2018-06-21T16:03:27.611Z - success: project-importer loaded
+2018-06-21T16:03:27.614Z - success: project-settings loaded
+2018-06-21T16:03:27.617Z - success: ui-kit loaded
+2018-06-21T16:03:27.622Z - success: ui-grid loaded
+2018-06-21T16:03:27.626Z - success: scene loaded
+2018-06-21T16:03:27.627Z - success: sprite-editor loaded
+2018-06-21T16:03:27.631Z - success: store loaded
+2018-06-21T16:03:27.638Z - success: timeline loaded
+2018-06-21T16:03:27.638Z - normal: Loading builtin packages
+2018-06-21T16:03:27.642Z - success: asset-db-debugger loaded
+2018-06-21T16:03:27.643Z - success: color-picker loaded
+2018-06-21T16:03:27.647Z - success: package-manager loaded
+2018-06-21T16:03:27.653Z - success: sdkbox loaded
+2018-06-21T16:03:27.658Z - success: tester loaded
+2018-06-21T16:03:27.661Z - success: ui-kit-preview-extra loaded
+2018-06-21T16:03:27.664Z - success: ui-kit-preview loaded
+2018-06-21T16:03:27.668Z - success: ui-tree loaded
+2018-06-21T16:03:28.756Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-06-21T16:03:28.759Z - normal: Loading packages
+2018-06-21T16:03:28.763Z - normal: Watching packages
+2018-06-21T16:03:28.772Z - normal: Run Application
+2018-06-21T16:03:30.911Z - success: preview server running at http://localhost:7456
+2018-06-21T16:03:35.646Z - normal: 1.9.1
+2018-06-21T16:03:36.519Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-21T16:08:51.946Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-21T16:12:56.070Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-21T16:30:59.733Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-06-21T16:37:22.216Z - warn: ctor of CCClass 'undefined' should not accept any arguments.

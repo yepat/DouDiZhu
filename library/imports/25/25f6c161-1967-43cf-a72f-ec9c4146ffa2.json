@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pic2_huanlechang",
+    "texture": "384aed3e-65fd-49e0-a15c-27bddedb6231",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      386,
+      138
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      386,
+      138
+    ]
+  }
+}

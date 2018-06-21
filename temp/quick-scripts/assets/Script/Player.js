@@ -58,7 +58,7 @@ var Player = cc.Class({
         this.jokerValue = -1; //癞子牌值
         this.openHandCards = false; //是否明牌
 
-        this.currentCards = {}; //最近一次出的牌
+        this.currentCards = []; //最近一次出的牌
         this.curSendedCards = {}; //最近一次出的牌的面值
         this.cards = {}; //所有牌
         this.smallcards = {}; //小牌（纯粹用于计数）
@@ -71,6 +71,8 @@ var Player = cc.Class({
 
         this.myCards = []; //  自己手牌
 
+
+        this.showHintType = 0;
 
         //玩家信息节点
         this.node_name = null; //昵称
@@ -140,7 +142,7 @@ var Player = cc.Class({
         this.jokerValue = -1;
         this.preSelectedCardIdx = -1;
         this.curSendedCards = {};
-        this.currentCards = {};
+        this.currentCards = [];
         this.cards = {};
         this.smallcards = {};
         this.lordCard = {};
@@ -236,9 +238,12 @@ var Player = cc.Class({
     setWechatImg: function setWechatImg(wechatImg) {
         var self = this;
         this.wechatImg = wechatImg;
-        wechatImg = "" + wechatImg;
-        if (wechatImg.length < 2) {
-            cc.loader.loadRes("defult_head", cc.SpriteFrame, function (err, spriteFrame) {
+        if (wechatImg == "") {
+            var headUrl = "p_head_woman";
+            if (this.gender == 1) {
+                headUrl = "p_head_man";
+            }
+            cc.loader.loadRes(headUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.node_wechatImg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
             return;
@@ -355,6 +360,20 @@ var Player = cc.Class({
         return this.myCards;
     },
 
+    //当前出牌
+    getCurrentCards: function getCurrentCards() {
+        return this.currentCards;
+    },
+    setCurrentCards: function setCurrentCards(cards) {
+        this.currentCards = cards;
+    },
+
+    //提示类型
+    getShowHintType: function getShowHintType() {
+        return this.showHintType;
+    },
+
+
     //初始化自己的牌
     initMyCards: function initMyCards(myPokerData, myPokerNode, parentNode, sceneWidth, seatNumber) {
         //0右边 1下边 2左边
@@ -397,7 +416,7 @@ var Player = cc.Class({
     },
 
     //理牌
-    neatenPoker: function neatenPoker(pokerNode, seatPosParam, showWidth, startX, seatNumber) {
+    neatenPoker: function neatenPoker(pokerNode, seatPosParam, showWidth, startX) {
         if (pokerNode.length < 1) {
             return;
         }
@@ -476,18 +495,26 @@ var Player = cc.Class({
         for (var i = 0; i < pokerNode.length; i++) {
             pokerNode[i].scale = cardScale;
             var posX = startX + i * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale * 0.5;
-            var move = cc.moveTo(0.2, posX, 500);
+            var move = cc.moveTo(0.1, posX, 500);
             move.easing(cc.easeIn(2));
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.node.runAction(move);
+        }
 
-            //最后一张牌设置为地主牌 
-            if (this.isLandlord && i == pokerNode.length - 1) {
-                poker.setCardDiZhu(true);
-            }
-            if (this.openHandCards && i == pokerNode.length - 1) {
-                poker.setCardShow(true);
-            }
+        var curSendCards = this.getCurrentCards();
+        for (var i = 0; i < pokerNode.length; i++) {
+            var poker = pokerNode[i].getComponent(PokerControl);
+            poker.setPokerBg();
+            var pokerData = CardUtil.convertCardToClient(curSendCards[i]);
+            poker.showPoker(pokerData);
+        }
+
+        //最后一张牌设置为地主牌 
+        if (this.isLandlord) {
+            pokerNode[pokerNode.length - 1].getComponent(PokerControl).setCardDiZhu(true);
+        }
+        if (this.openHandCards) {
+            pokerNode[pokerNode.length - 1].getComponent(PokerControl).setCardShow(true);
         }
     },
 
@@ -535,8 +562,8 @@ var Player = cc.Class({
         }
         var cardScale = 0.5; //0.38
         var disBetween = 37; //27
-        var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
-        var sceneWidth = cc.director.getWinSize().width;
+        // var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
+        // var sceneWidth = cc.director.getWinSize().width;
 
         startX = startX + 64;
 
@@ -546,14 +573,23 @@ var Player = cc.Class({
             var posX = startX + i * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale * 0.5;
             // console.log("posX:"+posX);
             var poker = pokerNode[i].getComponent(PokerControl);
-            poker.node.runAction(cc.moveTo(0.2, posX, startY));
+            poker.node.runAction(cc.moveTo(0.1, posX, startY));
+        }
 
-            if (this.isLandlord && i == pokerNode.length - 1) {
-                poker.setCardDiZhu(true);
-            }
-            if (this.openHandCards && i == pokerNode.length - 1) {
-                poker.setCardShow(true);
-            }
+        var curSendCards = this.getCurrentCards();
+        for (var i = 0; i < pokerNode.length; i++) {
+            var poker = pokerNode[i].getComponent(PokerControl);
+            poker.setPokerBg();
+            var pokerData = CardUtil.convertCardToClient(curSendCards[i]);
+            poker.showPoker(pokerData);
+        }
+
+        //最后一张牌设置为地主牌 
+        if (this.isLandlord) {
+            pokerNode[pokerNode.length - 1].getComponent(PokerControl).setCardDiZhu(true);
+        }
+        if (this.openHandCards) {
+            pokerNode[pokerNode.length - 1].getComponent(PokerControl).setCardShow(true);
         }
     },
 
@@ -599,7 +635,7 @@ var Player = cc.Class({
         }
         var cardScale = 0.5; //0.38
         var disBetween = 37; //27
-        var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
+        // var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
         var sceneWidth = cc.director.getWinSize().width;
         startX = sceneWidth / 2 + 590 - disBetween * pokerNode.length - 64;
 
@@ -609,12 +645,22 @@ var Player = cc.Class({
             var posX = startX + i * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale * 0.5;
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.node.runAction(cc.moveTo(0.2, posX, startY));
-            if (this.isLandlord && i == pokerNode.length - 1) {
-                poker.setCardDiZhu(true);
-            }
-            if (this.openHandCards && i == pokerNode.length - 1) {
-                poker.setCardShow(true);
-            }
+        }
+
+        var curSendCards = this.getCurrentCards();
+        for (var i = 0; i < pokerNode.length; i++) {
+            var poker = pokerNode[i].getComponent(PokerControl);
+            poker.setPokerBg();
+            var pokerData = CardUtil.convertCardToClient(curSendCards[i]);
+            poker.showPoker(pokerData);
+        }
+
+        //最后一张牌设置为地主牌 
+        if (this.isLandlord) {
+            pokerNode[pokerNode.length - 1].getComponent(PokerControl).setCardDiZhu(true);
+        }
+        if (this.openHandCards) {
+            pokerNode[pokerNode.length - 1].getComponent(PokerControl).setCardShow(true);
         }
     },
 
@@ -629,7 +675,9 @@ var Player = cc.Class({
             dispatchCard = [];
         }
 
-        cardData.sort(CardUtil.gradeDown);
+        // cardData.sort(CardUtil.gradeDown);
+
+        console.log(cardData);
 
         var PokerData = cardData;
 
@@ -656,12 +704,8 @@ var Player = cc.Class({
         if (this.isLandlord && dispatchCard.length > 0) {
             dispatchCard[dispatchCard.length - 1].getComponent(PokerControl).setCardDiZhu(true);
         }
-        // if(this.openHandCards&&i==pokerNode.length-1){
-        //     dispatchCard[dispatchCard.length-1].getComponent(PokerControl).setCardShow(true);
-        // }
         return dispatchCard;
     },
-
 
     //显示闹钟
     showClock: function showClock(time) {
@@ -677,6 +721,7 @@ var Player = cc.Class({
     showHint: function showHint(type) {
         var self = this;
         self.node_hint.enabled = true;
+        self.showHintType = type;
         var url = "showTips/p_tip_chuno";
         if (type == config.hintType.callLoad) {
             url = "showTips/p_tip_jiaodizhu";
@@ -692,6 +737,8 @@ var Player = cc.Class({
             url = "showTips/p_tip_jiabei";
         } else if (type == config.hintType.doubleNo) {
             url = "showTips/p_tip_jiabeino";
+        } else if (type == config.hintType.waitingDouble) {
+            url = "showTips/p_tips_waitingDouble";
         }
         cc.loader.loadRes(url, cc.SpriteFrame, function (err, spriteFrame) {
             self.node_hint.getComponent(cc.Sprite).spriteFrame = spriteFrame;

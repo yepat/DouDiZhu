@@ -1,0 +1,10 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "nvnongmin_tex",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_atlasJson": "{\"imagePath\":\"nvnongmin_tex.png\",\"width\":512,\"SubTexture\":[{\"width\":247,\"y\":636,\"height\":61,\"name\":\"nvnongmin/yinying\",\"x\":1},{\"width\":183,\"y\":308,\"height\":118,\"name\":\"nvnongmin/tui\",\"x\":1},{\"width\":142,\"y\":308,\"height\":140,\"name\":\"nvnongmin/hongbao\",\"x\":186},{\"width\":134,\"y\":532,\"height\":83,\"name\":\"nvnongmin/zuoshou\",\"x\":98},{\"width\":160,\"y\":166,\"height\":154,\"name\":\"nvnongmin/shenti\",\"x\":351},{\"width\":76,\"y\":669,\"height\":48,\"name\":\"nvnongmin/xianglian\",\"x\":402},{\"width\":184,\"y\":532,\"height\":56,\"name\":\"nvnongmin/youshou\",\"x\":313},{\"width\":348,\"y\":1,\"height\":305,\"name\":\"nvnongmin/hair\",\"x\":1},{\"width\":37,\"y\":489,\"height\":41,\"name\":\"nvnongmin/erhuan2\",\"x\":396},{\"width\":52,\"y\":464,\"height\":52,\"name\":\"nvnongmin/yan1\",\"x\":443},{\"width\":81,\"y\":489,\"height\":23,\"name\":\"nvnongmin/yan2\",\"x\":313},{\"width\":70,\"y\":590,\"height\":77,\"name\":\"nvnongmin/erduo\",\"x\":402},{\"width\":51,\"y\":450,\"height\":205,\"name\":\"nvnongmin/fa1\",\"x\":260},{\"width\":31,\"y\":322,\"height\":140,\"name\":\"nvnongmin/fa3\",\"x\":443},{\"width\":56,\"y\":707,\"height\":45,\"name\":\"nvnongmin/fa5\",\"x\":250},{\"width\":87,\"y\":590,\"height\":92,\"name\":\"nvnongmin/hua\",\"x\":313},{\"width\":160,\"y\":450,\"height\":80,\"name\":\"nvnongmin/pai1\",\"x\":98},{\"width\":153,\"y\":1,\"height\":163,\"name\":\"nvnongmin/pai2\",\"x\":351},{\"width\":55,\"y\":657,\"height\":48,\"name\":\"nvnongmin/erhuan1\",\"x\":250},{\"width\":111,\"y\":322,\"height\":165,\"name\":\"nvnongmin/fa4\",\"x\":330},{\"width\":95,\"y\":428,\"height\":206,\"name\":\"nvnongmin/fa2\",\"x\":1}],\"height\":1024,\"name\":\"nvnongmin\"}",
+  "texture": {
+    "__uuid__": "7d7740fa-64a8-4271-902e-91ed1f3aaf65"
+  }
+}
