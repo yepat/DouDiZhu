@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tuoxie_tex",
+    "texture": "495f05d6-5591-4d93-aefe-6be0fcaf828d",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      248,
+      396
+    ],
+    "offset": [
+      -3,
+      57
+    ],
+    "originalSize": [
+      256,
+      512
+    ]
+  }
+}

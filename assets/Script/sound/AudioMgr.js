@@ -9,58 +9,59 @@ cc.Class({
     },
 
     onLoad () {
-        // this.playBGM("MusicEx_Welcome.mp3");
+        this.bgmUrl = "";
+        var t = cc.sys.localStorage.getItem("bgmVolume");
+        if(t!= null)
+            this.bgmVolume = t;
+
+        var t2 = cc.sys.localStorage.getItem("sfxVolume");
+        if(t2!= null)
+            this.sfxVolume = t2;
     },
     // use this for initialization
     init () {
         var t = cc.sys.localStorage.getItem("bgmVolume");
-        if(t){
-            this.bgmVolume = parseFloat(t);    
+        if(t!= null){
+            this.bgmVolume = t;    
         }else{
             cc.sys.localStorage.setItem("bgmVolume",1);
         }
         
         var t2 = cc.sys.localStorage.getItem("sfxVolume");
-        if(t2){
-            this.sfxVolume = parseFloat(t2);    
+        if(t2!= null){
+            this.sfxVolume = t2;    
         }else{
             cc.sys.localStorage.setItem("sfxVolume",1);
         }
-        
-        // cc.game.on(cc.game.EVENT_HIDE, function () {
-        //     console.log("cc.audioEngine.pauseAll");
-        //     cc.audioEngine.pauseAll();
-        // });
-        // cc.game.on(cc.game.EVENT_SHOW, function () {
-        //     console.log("cc.audioEngine.resumeAll");
-        //     cc.audioEngine.resumeAll();
-        // });
     },
 
     getUrl(url){
-        // return cc.url.raw("resources/sounds/" + url + ".mp3");
         if(typeof(wx)=="undefined"){
             return cc.url.raw("resources/sounds/" + url + ".mp3");
         }else{
             return wx.env.USER_DATA_PATH+"/sounds/" + url + ".mp3";
         }
+    },
 
-        // return cc.url.raw("usr/sounds/" + url + ".mp3");
+    getBgmUrl(){
+        return this.bgmUrl;
     },
     
     playBGM(url){
         var audioUrl = this.getUrl(url);
-        console.log(audioUrl);
+        console.log(audioUrl + "bgmVolume:"+this.bgmVolume);
+        this.bgmUrl = url;
         if(this.bgmAudioID >= 0){
             cc.audioEngine.stop(this.bgmAudioID);
         }
-        this.bgmAudioID = cc.audioEngine.play(audioUrl,true,this.bgmVolume);
+        if(this.bgmVolume == 1)
+            this.bgmAudioID = cc.audioEngine.play(audioUrl,true,this.bgmVolume);
     },
     
     playSFX(url){
         var audioUrl = this.getUrl(url);
         if(this.sfxVolume > 0){
-            var audioId = cc.audioEngine.play(audioUrl,false,this.sfxVolume);    
+            var audioId = cc.audioEngine.play(audioUrl,false,this.sfxVolume);
         }
     },
     
@@ -71,20 +72,32 @@ cc.Class({
         }
     },
     
-    setBGMVolume(v,force){
-        if(this.bgmAudioID >= 0){
-            if(v > 0){
-                cc.audioEngine.resume(this.bgmAudioID);
-            }
-            else{
-                cc.audioEngine.pause(this.bgmAudioID);
-            }
-            //cc.audioEngine.setVolume(this.bgmAudioID,this.bgmVolume);
-        }
-        if(this.bgmVolume != v || force){
+    setBGMVolume(v){
+        console.log("-------------- setBGMVolume :"+v)
+        // if(this.bgmAudioID >= 0){
+        //     if(v > 0){
+        //         // cc.audioEngine.resume(this.bgmAudioID);
+        //         this.playBGM(this.bgmUrl);
+        //     }
+        //     else{
+        //         // cc.audioEngine.pause(this.bgmAudioID);
+        //         cc.audioEngine.stopAll();
+        //     }
+        //     // cc.audioEngine.setVolume(this.bgmAudioID,this.bgmVolume);
+        // }
+
+
+        if(this.bgmVolume != v){
             cc.sys.localStorage.setItem("bgmVolume",v);
             this.bgmVolume = v;
-            cc.audioEngine.setVolume(this.bgmAudioID,v);
+            // if(this.bgmVolume == 1)
+            //     cc.audioEngine.setVolume(this.bgmAudioID,v);
+        }
+
+        if(this.bgmUrl != "" && this.bgmVolume == 1){
+            this.playBGM(this.bgmUrl);
+        }else{
+            cc.audioEngine.stopAll();
         }
     },
     
@@ -97,11 +110,11 @@ cc.Class({
     },
 
     stopMusic(){
-        cc.audioEngine.stopMusic();
+        cc.audioEngine.stopAll();
     },
 
     stopAllEffects(){
-        cc.audioEngine.stopAllEffects();
+        cc.audioEngine.stopAll();
     },
 
     getCardValue(value){
@@ -127,7 +140,7 @@ cc.Class({
     },
     //拍桌聊天声音
     playSay(gender,say){
-        var index = 1;
+        var index = -1;
         console.log("say1:"+say);
         for(var k in AppConfig.chatContent){
             var v = AppConfig.chatContent[k];
@@ -135,6 +148,8 @@ cc.Class({
                 index = k;
             }
         }
+        if(index == -1)
+            return;
         var say = AppConfig.chatSay[index];
         if(gender == 1){
             say = "Man_"+say;
@@ -169,6 +184,8 @@ cc.Class({
                 this.playSFX("Man_dani1");
             }else if(cardtype == "jiabei"){
                 this.playSFX("Man_jiabei");
+            }else if(cardtype == "jiabeiNo"){
+                this.playSFX("Man_jiabeiNo");
             }else if(cardtype == AppConfig.CardType.Single){
                 var value = cards[0];
                 var str = this.getCardValue(value);
@@ -217,7 +234,7 @@ cc.Class({
                 this.playBGM("MusicEx_Exciting");
             }else if(cardtype == AppConfig.CardType.DoubleKing){
                 this.playSFX("Man_wangzha");
-                this.playSFX("Rocket");
+                this.playSFX("rocket");
                 this.playBGM("MusicEx_Exciting");
             }
         }else{///////
@@ -244,6 +261,8 @@ cc.Class({
                 this.playSFX("Woman_dani1");
             }else if(cardtype == "jiabei"){
                 this.playSFX("Woman_jiabei");
+            }else if(cardtype == "jiabeiNo"){
+                this.playSFX("Woman_jiabeiNo");
             }else if(cardtype == AppConfig.CardType.Single){
                 var value = cards[0];
                 var str = this.getCardValue(value);
@@ -292,7 +311,7 @@ cc.Class({
                 this.playBGM("MusicEx_Exciting");
             }else if(cardtype == AppConfig.CardType.DoubleKing){
                 this.playSFX("Woman_wangzha");
-                this.playSFX("Rocket");
+                this.playSFX("rocket");
                 this.playBGM("MusicEx_Exciting");
             }
         }

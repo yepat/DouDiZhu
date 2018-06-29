@@ -16,15 +16,17 @@ cc.Class({
     onLoad () {
         cc.game.on(cc.game.EVENT_HIDE, function(){
             console.log("游戏进入后台");   
-            config.stopOnMassage = true;  
+            // config.stopOnMassage = true;  
+            cc.vv.audioMgr.stopMusic();
         },this);
         cc.game.on(cc.game.EVENT_SHOW, function(){
             console.log("重新返回游戏");
-            cc.vv.audioMgr.resumeAll();
-            config.stopOnMassage = false;
+            cc.vv.audioMgr.playBGM("MusicEx_Welcome");
         },this);
 
         cc.vv.audioMgr.playBGM("MusicEx_Welcome");
+
+        // this.loadSubpackage();
     },
     start () {
        this.hallLayer.active = true;
@@ -50,5 +52,32 @@ cc.Class({
         this.hallLayer.active = true;
         this.roomLayer.active = false;
         cc.vv.audioMgr.playSFX("SpecOk");
+    },
+    loadSubpackage(){
+        if(typeof(wx)=="undefined"){return;}
+
+        if (wx.loadSubpackage) {
+        }else{
+            console.log("没有分包加载这个接口");
+            return;
+        }
+
+        var loadTask = wx.loadSubpackage({
+            name: 'stage1', // name 可以填 name 或者 root
+            success: function(res) {
+              // 分包加载成功后通过 success 回调
+              console.log("分包加载成功",res);
+            },
+            fail: function(res) {
+              // 分包加载失败通过 fail 回调
+              console.log("分包加载失败",res);
+            }
+          })
+          
+          loadTask.onProgressUpdate(res => {
+            console.log('下载进度', res.progress)
+            console.log('已经下载的数据长度', res.totalBytesWritten)
+            console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
+          })
     }
 });

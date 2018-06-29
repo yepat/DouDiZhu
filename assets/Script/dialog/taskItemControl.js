@@ -37,7 +37,6 @@ cc.Class({
          this.state = 0;
          this.id = 0;
     },
-    
     init(info,title,content,progress){
         this.state = info.state; //"state":状态 0未完成 1未领取 2已领取 
         this.labTitle.string = title;

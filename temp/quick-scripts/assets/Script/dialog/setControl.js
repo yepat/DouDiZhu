@@ -22,14 +22,14 @@ cc.Class({
     },
     start: function start() {
         var self = this;
-        var t = cc.sys.localStorage.getItem("bgmVolume");
-        if (t != null) {
-            this.bgmVolume = parseFloat(t);
-        } else {
-            cc.sys.localStorage.setItem("bgmVolume", 1);
-        }
+        this.musicSet = cc.sys.localStorage.getItem("bgmVolume");
+        this.effectSet = cc.sys.localStorage.getItem("sfxVolume");
+
+        console.log("-----musicSet:" + this.musicSet);
+        console.log("-----effectSet:" + this.effectSet);
+
         var imgUrl = "";
-        if (t == 1) {
+        if (this.musicSet == 1) {
             imgUrl = "img_dialog/btn_on";
         } else {
             imgUrl = "img_dialog/btn_off";
@@ -38,14 +38,7 @@ cc.Class({
             self.imgMusic.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         });
 
-        var t2 = cc.sys.localStorage.getItem("sfxVolume");
-        if (t2 != null) {
-            this.sfxVolume = parseFloat(t2);
-        } else {
-            cc.sys.localStorage.setItem("sfxVolume", 1);
-        }
-
-        if (t2 == 1) {
+        if (this.effectSet == 1) {
             imgUrl = "img_dialog/btn_on";
         } else {
             imgUrl = "img_dialog/btn_off";
@@ -58,7 +51,7 @@ cc.Class({
         var self = this;
         console.log("music click");
         var imgUrl = "img_dialog/btn_off";
-        if (this.musicSet) {
+        if (this.musicSet == 1) {
             this.musicSet = false;
             imgUrl = "img_dialog/btn_off";
             cc.vv.audioMgr.setBGMVolume(0);
@@ -77,7 +70,7 @@ cc.Class({
         var self = this;
         console.log("effect click");
         var imgUrl = "img_dialog/btn_off";
-        if (this.effectSet) {
+        if (this.effectSet == 1) {
             this.effectSet = false;
             imgUrl = "img_dialog/btn_off";
             cc.vv.audioMgr.setSFXVolume(0);

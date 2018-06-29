@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "defult_head",
+    "texture": "5b94b725-464f-4afc-94bf-193c9678951b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      184,
+      188
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      184,
+      188
+    ]
+  }
+}

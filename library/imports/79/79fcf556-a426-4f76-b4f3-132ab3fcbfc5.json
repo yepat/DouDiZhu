@@ -1,0 +1,10 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "tuoxie_tex",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_atlasJson": "{\"imagePath\":\"tuoxie_tex.png\",\"width\":256,\"SubTexture\":[{\"width\":248,\"y\":1,\"height\":230,\"name\":\"tuoxiedong\",\"x\":1},{\"width\":111,\"y\":233,\"height\":164,\"name\":\"tuoxie\",\"x\":1}],\"height\":512,\"name\":\"tuoxie\"}",
+  "texture": {
+    "__uuid__": "495f05d6-5591-4d93-aefe-6be0fcaf828d"
+  }
+}

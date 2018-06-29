@@ -41,7 +41,7 @@ cc.Class({
             // 这里的 this 指向 component
             if(this.timeCount > 0){
                 this.timeCount -= 1;
-                if(this.timeCount <= 5){
+                if(this.timeCount <= 5 && this.timeCount >=1){
                     // cc.vv.audioMgr.playSFX("timeup_alarm.mp3");
                     this.shakeClock();
                 }
@@ -128,6 +128,7 @@ cc.Class({
         var mt6 = cc.moveTo(0.05,this.clockX,this.clockY+2);
         var mt7 = cc.moveTo(0.05,this.clockX,this.clockY);
         this.clock.runAction(cc.sequence(mt1,mt2,mt3,mt4,mt5,mt6,mt7));
+        cc.vv.audioMgr.playSFX("Special_Remind");
     },
     showTips(imgUrl){
         var self = this;

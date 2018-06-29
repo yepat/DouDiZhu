@@ -7,6 +7,15 @@ cc.Class({
             default : null,
             type : cc.Sprite
         },
+        animNode : {
+            default : null,
+            type : cc.Node
+        },
+    },
+    onLoad () {
+        var width = cc.director.getWinSize().width;
+        console.log("width:"+width);
+        this.node.width = width;
     },
     start () {
         // var self = this;
@@ -15,7 +24,6 @@ cc.Class({
         // });
         // var delay = cc.delayTime(1);
         // this.node.runAction(cc.sequence(delay,callFunc)); 
-
         // this.show(1);
     },
     show(args){
@@ -29,9 +37,9 @@ cc.Class({
         
         if(seatNum == 1){//自己   
         }else if(seatNum == 0){//右边
-            this.node.x = 960+300;
+            this.animNode.x = this.node.width/5;
         }else if(seatNum == 2){//左边
-            this.node.x = 960-300;
+            this.animNode.x =-this.node.width/5;
         }
 
         if(times!=2){
@@ -44,12 +52,12 @@ cc.Class({
         var scaleTo_1 = cc.scaleTo(0.1, 1.2);
         var scaleTo_2 = cc.scaleTo(0.1, 0.95);
         var scaleTo_3 = cc.scaleTo(0.1, 1);
-        // var delayTime = cc.delayTime(0.6);
+        var delayTime = cc.delayTime(0.1);
         var fadeTo = cc.fadeTo(0.2, 0);
         var callFunc = cc.callFunc(function(){
             self.node.destroy();
         });
-        this.node.runAction(cc.sequence(scaleTo_1,scaleTo_2,scaleTo_3,fadeTo,callFunc));
+        this.animNode.runAction(cc.sequence(delayTime,scaleTo_1,scaleTo_2,scaleTo_3,delayTime,fadeTo,callFunc));
     },
     close(){
         this.node.destroy();

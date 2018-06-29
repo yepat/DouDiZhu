@@ -24,7 +24,6 @@ var CardUtil = require("CardUtil");
 var PopCardUtil = require("PopCardUtil");
 var ClockControl = require("ClockControl");
 
-
 var Player = cc.Class({
     
     ctor:function (parm) {
@@ -101,6 +100,15 @@ var Player = cc.Class({
         this.title = parm.title;//称号
         this.emoticon = parm.emoticon;//表情包
         this.emoticonItems = parm.emoticonItems;//表情包道具
+
+        this.play = parm.play;//游戏总局数
+        this.win = parm.win;//胜利局数
+    },
+    getPlay(){
+        return this.play;
+    },
+    getWin(){
+        return this.win;
     },
     initNodes(nodes){//初始化玩家节点信息
         this.node_name = nodes.node_name;//昵称
@@ -131,6 +139,12 @@ var Player = cc.Class({
         this.setLeQuan(parm.lequan); 
         this.setWechatImg(parm.wechatImg);
         this.setCardCount(parm.cardCount);
+        this.setMySeatId(parm.seatId);
+
+        this.play = parm.play;//游戏总局数
+        this.win = parm.win;//胜利局数
+        this.uid = parm.uid;//胜利局数
+        this.gender = parm.sex;
     },
     clear(){
         this.cardCount = 0; //手牌数量
@@ -219,6 +233,12 @@ var Player = cc.Class({
     getBuff(){
         return this.buff;
     },
+    getUid(){
+        return this.uid;
+    },
+    setUid(uid){
+        this.uid = uid;
+    },
     setnickname(nickname){
         this.nickname = nickname;
         if(this.node_name){
@@ -257,6 +277,9 @@ var Player = cc.Class({
     setTitle(title){
         this.title = title;
     },
+    getCoin(){
+        return this.coin;
+    },
     setCoin(coin){
         this.coin = coin;     
         if(this.node_LeDou){
@@ -285,9 +308,6 @@ var Player = cc.Class({
     },
     setIsWinner(win){
         this.isWinner = win;
-    },
-    getCoin(){
-        return this.coin;
     },
     setGold(gold){
         this.gold = gold;
@@ -382,20 +402,46 @@ var Player = cc.Class({
             var poker = cardNode.getComponent(PokerControl);
             myPokerData[i].canTouch = true;
             poker.showPoker(myPokerData[i]);
+
+            if(!seatNumber){//new
+                console.log("test 自己-----");
+                cardNode.setPosition(sceneWidth/2,config.seatPos.center.positionY);
+            }
+
             myPokerNode.push(cardNode);
 
-            if(seatNumber == 0){
-                console.log("右边玩家明牌-----");
-                // console.log(myPokerNode);
-                this.neatenRightPoker(myPokerNode,config.seatPos.right,sceneWidth/2, sceneWidth/2 + 140);
-            }else if(seatNumber == 2){
-                console.log("左边玩家明牌-----");
-                // console.log(myPokerNode);
-                this.neatenLeftPoker(myPokerNode,config.seatPos.left,sceneWidth/2, 230);
+            
+
+            // if(seatNumber == 0){
+            //     console.log("右边玩家明牌-----");
+            //     // console.log(myPokerNode);
+            //     this.neatenRightPoker(myPokerNode,config.seatPos.right,sceneWidth/2, sceneWidth/2 + 140);
+            // }else if(seatNumber == 2){
+            //     console.log("左边玩家明牌-----");
+            //     // console.log(myPokerNode);
+            //     this.neatenLeftPoker(myPokerNode,config.seatPos.left,sceneWidth/2, 230);
+            // }else{
+            //     this.neatenPoker(myPokerNode,config.seatPos.center,sceneWidth);
+            // }  
+        }
+
+        if(seatNumber == 0){
+            console.log("右边玩家明牌-----");
+            // console.log(myPokerNode);
+            this.neatenRightPoker(myPokerNode,config.seatPos.right,sceneWidth/2, sceneWidth/2 + 140);
+        }else if(seatNumber == 2){
+            console.log("左边玩家明牌-----");
+            // console.log(myPokerNode);
+            this.neatenLeftPoker(myPokerNode,config.seatPos.left,sceneWidth/2, 230);
+        }else{
+            // this.neatenPoker(myPokerNode,config.seatPos.center,sceneWidth);
+            if(seatNumber == -1){
+                this.mySendCardAnim(myPokerNode,config.seatPos.center,sceneWidth);
             }else{
                 this.neatenPoker(myPokerNode,config.seatPos.center,sceneWidth);
-            }  
-        }
+            }
+        }  
+        
         //最后一张牌设置为地主牌
         if(this.isLandlord){
             myPokerNode[myPokerNode.length-1].getComponent(PokerControl).setCardDiZhu(true);
@@ -405,17 +451,65 @@ var Player = cc.Class({
         }
         return myPokerNode;
     },
+    //发牌动画
+    mySendCardAnim(pokerNode,seatPosParam,showWidth){
+        if(pokerNode.length < 1){return}
+        var pokerNum = pokerNode.length;
+
+        var disBetween = seatPosParam.disBetween;
+        if(showWidth > 2330){
+            disBetween = config.seatPos.center.disBetweenIX;
+        }
+
+        var pokerWith = pokerNode[0].getComponent(PokerControl).node.width * seatPosParam.pokerScale * 0.5;
+        var needWidth = (pokerNum - 1) * disBetween + pokerWith;
+        var startPosX = (showWidth - needWidth) / 2;
+        var startX = startPosX;
+        //new
+        startX = startX + 8 * disBetween + pokerWith/2;
+
+        for(var i = 0; i < pokerNode.length; i++){
+            pokerNode[i].setPosition(startX,seatPosParam.positionY);
+        }
+        var j = 0; 
+        var moveCard = function(){
+            if(j<8){
+                for(var i = 0; i < 8-j; i++){
+                    // console.log("i="+i);
+                    var move = cc.moveBy(0.22,-disBetween,0);
+                    if(pokerNode[i])
+                        pokerNode[i].runAction(move);
+                }  
+                for(var k=j+9;k<pokerNum;k++){
+                    // console.log("k="+k);
+                    var move = cc.moveBy(0.22,disBetween,0);
+                    if(pokerNode[k])
+                        pokerNode[k].runAction(move);
+                }
+                j++; 
+                setTimeout(moveCard,224);
+            }
+        }
+        moveCard();
+        // setTimeout(moveCard,224);
+    },
     //理牌
     neatenPoker(pokerNode,seatPosParam,showWidth,startX){
         if(pokerNode.length < 1){return}
         var pokerNum = pokerNode.length;
-        var needWidth = (pokerNum - 1) * seatPosParam.disBetween + pokerNode[0].getComponent(PokerControl).node.width * seatPosParam.pokerScale;
+
+        var disBetween = seatPosParam.disBetween;
+        if(showWidth > 2330){
+            disBetween = config.seatPos.center.disBetweenIX;
+        }
+
+        var needWidth = (pokerNum - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * seatPosParam.pokerScale;
         // console.log("needWidth:" + needWidth);
         showWidth = showWidth || cc.director.getWinSize().width;
         var startPosX = (showWidth - needWidth) / 2;
         startX = startX || startPosX;
         for(var i = 0; i < pokerNode.length; i++){
-            pokerNode[i].setPosition(startX + i * seatPosParam.disBetween + pokerNode[0].getComponent(PokerControl).node.width * seatPosParam.pokerScale * 0.5,seatPosParam.positionY);
+            pokerNode[i].setPosition(startX + i * disBetween + pokerNode[0].getComponent(PokerControl).node.width * seatPosParam.pokerScale * 0.5,seatPosParam.positionY);
             //把提出的牌设置 未提出
             // var pokerNode = pokerNode[i];
             pokerNode[i].getComponent(PokerControl).setMoveDown();
@@ -477,10 +571,19 @@ var Player = cc.Class({
             pokerNode[i].scale = cardScale;
             var posX = startX + i * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale * 0.5;
             var move = cc.moveTo(0.1,posX,500);
-            move.easing(cc.easeIn(2));
+            // move.easing(cc.easeIn(2));
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.node.runAction(move);
         }
+
+        // setTimeout(function(){
+        //     for(var i = 0; i < pokerNode.length; i++){
+        //         var poker = pokerNode[i].getComponent(PokerControl);
+        //         if(poker.node.y != 500)
+        //             poker.node.y = 500;
+        //     }
+        // },200);
+
 
         var curSendCards = this.getCurrentCards();
         for(var i = 0; i < pokerNode.length; i++){

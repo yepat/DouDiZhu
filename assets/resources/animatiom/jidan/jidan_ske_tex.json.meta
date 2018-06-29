@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "9d6532db-a760-4c55-9d9a-c9868543035c",
+  "atlasJson": "{\"imagePath\":\"jidan_ske_tex.png\",\"width\":256,\"SubTexture\":[{\"y\":176,\"frameX\":-2,\"frameY\":-2,\"width\":95,\"frameWidth\":98,\"height\":50,\"name\":\"jidanyinying\",\"frameHeight\":54,\"x\":133},{\"y\":1,\"frameX\":-2,\"frameY\":-1,\"width\":130,\"frameWidth\":134,\"height\":177,\"name\":\"jidanhuang\",\"frameHeight\":180,\"x\":1},{\"y\":1,\"frameX\":-1,\"frameY\":-1,\"width\":78,\"frameWidth\":81,\"height\":97,\"name\":\"jidan\",\"frameHeight\":100,\"x\":133},{\"y\":100,\"frameX\":-1,\"frameY\":0,\"width\":67,\"frameWidth\":69,\"height\":74,\"name\":\"bangejidan2\",\"frameHeight\":75,\"x\":133},{\"y\":180,\"frameX\":-2,\"frameY\":-2,\"width\":62,\"frameWidth\":65,\"height\":64,\"name\":\"bangejidan1\",\"frameHeight\":68,\"x\":1}],\"height\":256,\"name\":\"jidan_ske\"}",
+  "texture": "a82f6dc6-5138-4c6a-aa50-687af7c575c2",
+  "subMetas": {}
+}

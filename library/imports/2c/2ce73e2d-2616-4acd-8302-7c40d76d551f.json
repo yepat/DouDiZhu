@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xianhua_tex",
+    "texture": "8c3cfe1c-d717-4b55-8485-1926352c2df8",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      126,
+      229
+    ],
+    "offset": [
+      0,
+      12.5
+    ],
+    "originalSize": [
+      128,
+      256
+    ]
+  }
+}

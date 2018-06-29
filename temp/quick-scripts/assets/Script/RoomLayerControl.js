@@ -43,6 +43,9 @@ cc.Class({
         EventHelper.AddCustomEvent(config.MyNode, "OpenRechargeTipResult", self.onOpenRechargeTipResult, self);
         // EventHelper.AddCustomEvent(config.MyNode,"ReconnectionData",self.onReconnectionData,self);
     },
+    onDestroy: function onDestroy() {
+        console.log(" RoomLayer Destroy");
+    },
     onLoginRoomResult: function onLoginRoomResult(event) {
         var self = this;
         console.log("登陆房间回掉---");
@@ -233,7 +236,7 @@ cc.Class({
             }
 
             config.tableInfo = args;
-            // console.log(config.tableInfo);
+            console.log(config.tableInfo);
 
             if (parseInt(payload["data"]["modelId"]) == config.ModelId.lazarillo) {
                 // --癞子场
@@ -410,7 +413,6 @@ cc.Class({
     onWantContinueGaming: function onWantContinueGaming(event) {
         console.log("--进入上局未完的普通牌桌");
         var payload = event.payload;
-
         var args = {};
         args["baseCoins"] = payload["data"]["baseCoins"];
         args["rate"] = payload["data"]["rate"];

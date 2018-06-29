@@ -1151,7 +1151,7 @@ CardUtil.find_straight = function(last_cards_type, prop, myCards){
         var temparr = [];
         for(var i=0;i<=len;i++){
             if(tempCards[0].length >= repeatCount+i){
-                temparr = config.arraySub(i,repeatCount+i,tempCards[0]);
+                temparr = config.arraySub(i,repeatCount+i,tempCards[0],1);
                 all_result.push(temparr);
             }
         }
@@ -1223,7 +1223,7 @@ CardUtil.find_pair_straight = function(last_cards_type, prop, myCards){
             var temparr = [];
             for(var j=0;j<=len;j++){
                 if(tempCards[i].length >= repeatCount+j){
-                    temparr = config.arraySub2(j,repeatCount+j,tempCards[i]);
+                    temparr = config.arraySub(j,repeatCount+j,tempCards[i],2);
                     all_result.push(temparr);
                 }
             }
@@ -1293,7 +1293,7 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
             var temparr = [];
             for(var j=0;j<=len;j++){
                 if(tempCards[i].length >= repeatCount+j){
-                    temparr = config.arraySub3(j,repeatCount+j,tempCards[i]);
+                    temparr = config.arraySub(j,repeatCount+j,tempCards[i],3);
                     all_result.push(temparr);
                 }
             }
@@ -1363,7 +1363,7 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
             var temparr = [];
             for(var j=0;j<=len;j++){
                 if(tempCards[i].length >= repeatCount+j){
-                    temparr = config.arraySub3(j,repeatCount+j,tempCards[i]);
+                    temparr = config.arraySub(j,repeatCount+j,tempCards[i],3);
                     all_result.push(temparr);
                 }
             }
@@ -1432,7 +1432,7 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
             var temparr = [];
             for(var j=0;j<=len;j++){
                 if(tempCards[i].length >= repeatCount+j){
-                    temparr = config.arraySub3(j,repeatCount+j,tempCards[i]);
+                    temparr = config.arraySub(j,repeatCount+j,tempCards[i],3);
                     all_result.push(temparr);
                 }
             }

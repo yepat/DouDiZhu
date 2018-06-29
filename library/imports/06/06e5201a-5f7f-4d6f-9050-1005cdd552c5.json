@@ -264,9 +264,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "95WJGqSUhFHqBuzUxx1KHf",
+    "fileId": "02I6HJxJdCspCqmJcdf8sC",
     "sync": false
   },
   {
@@ -355,9 +355,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "d3LPRdDnNAVrk/j6wJKnHr",
+    "fileId": "ecsqdhRtZKtILJa5OW87lp",
     "sync": false
   },
   {
@@ -446,9 +446,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "9eYhMv/S1Jp4Rhp2yCvAFP",
+    "fileId": "b7U/qUbcBNSbzFfY7fmkkH",
     "sync": false
   },
   {
@@ -537,9 +537,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "3doXsunfNDsL955RIPhgVo",
+    "fileId": "abwnyEqrtMMYNrmJWdQ128",
     "sync": false
   },
   {
@@ -628,9 +628,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "75BemDJ39N47vHEDIa+5DA",
+    "fileId": "8cRQjMsOBLuoLRgH1REms+",
     "sync": false
   },
   {
@@ -787,9 +787,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "bfXbruHCNNepMt3N+p2byv",
+    "fileId": "2aRtoSwItJPLk4wUMoItLn",
     "sync": false
   },
   {
@@ -827,7 +827,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
+      "width": 420,
       "height": 60
     },
     "_rotationX": 0,
@@ -862,7 +862,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "有乐斗地主",
+    "_N$string": "有乐开心斗地主",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -874,9 +874,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "79qL2mfwlA7LHWhq4ZVyBl",
+    "fileId": "e2BTz15wJINop6uMwmciAw",
     "sync": false
   },
   {
@@ -961,9 +961,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "bfWLeP0zxMbqoldb61xflk",
+    "fileId": "a7vrQMGAVARIQfAx/1twL7",
     "sync": false
   },
   {
@@ -1007,9 +1007,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "06e5201a-5f7f-4d6f-9050-1005cdd552c5"
+      "__id__": 0
     },
-    "fileId": "4aExH2V0dI9oyrM33Ay91d",
+    "fileId": "ab2zozUUdD95nWcW4SwQXl",
     "sync": false
   }
 ]

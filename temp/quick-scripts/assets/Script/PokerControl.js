@@ -62,12 +62,18 @@ cc.Class({
         var numUrl = "cards/poke_" + self.cardValue;
 
         if (self.cardValue != 16 && self.cardValue != 17) {
+            self.pokerType2.enabled = true;
+            self.pokerNum.enabled = true;
             cc.loader.loadRes(numUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.pokerNum.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
         }
 
         // console.log(""+showData.showTxt+":"+self.cardValue);
+
+
+        // self.pokerType2.enabled = true;
+        // self.pokerNum.enabled = true;
 
         self.pokerDiZhu.enabled = false;
         self.pokerLight.enabled = false;

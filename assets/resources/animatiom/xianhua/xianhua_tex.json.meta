@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "755754df-5c5a-4f59-a136-42d2b7821266",
+  "atlasJson": "{\"imagePath\":\"xianhua_tex.png\",\"width\":128,\"SubTexture\":[{\"width\":1,\"y\":1,\"height\":1,\"name\":\"20180612140241\",\"x\":119},{\"y\":1,\"frameX\":0,\"frameY\":-12,\"width\":116,\"frameWidth\":122,\"height\":113,\"name\":\"meiguihua\",\"frameHeight\":135,\"x\":1},{\"y\":116,\"frameX\":-3,\"frameY\":-3,\"width\":76,\"frameWidth\":82,\"height\":57,\"name\":\"meigui\",\"frameHeight\":64,\"x\":51},{\"width\":48,\"y\":116,\"height\":114,\"name\":\"shanguang\",\"x\":1}],\"height\":256,\"name\":\"xianhua\"}",
+  "texture": "8c3cfe1c-d717-4b55-8485-1926352c2df8",
+  "subMetas": {}
+}

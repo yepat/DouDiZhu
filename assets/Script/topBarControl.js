@@ -33,14 +33,17 @@ cc.Class({
     start () {
         var self = this;
         self.setHeadUrl();
-        self.setNickName(PlayerDetailModel.getNickName());
+        var nickname = PlayerDetailModel.getNickName();
+        self.setNickName(config.parseString(nickname,5));
         self.setLevel(PlayerDetailModel.getTitle());
         self.setLeDou(PlayerDetailModel.getCoin());
         self.setLuQuan(PlayerDetailModel.getCoupon());
 
         EventHelper.AddCustomEvent(config.MyNode,"RefreshDataResult",self.onRefreshDataResult,self);
         EventHelper.AddCustomEvent(config.MyNode,"RepeatLogin",self.onRepeatLogin,self);   
-        
+    },
+    onDestroy(){
+        console.log(" topBar Destroy");
     },
     onRepeatLogin(event){
         console.log("您的账号已经在其他地方登陆！");
@@ -128,11 +131,10 @@ cc.Class({
             return;
         }
 
-
-         imgUrl = imgUrl + "?aa=aa.jpg";
-         cc.loader.load(imgUrl, function(err, texture){
-             self.headImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
-         });
+        imgUrl = imgUrl + "?aa=aa.jpg";
+        cc.loader.load(imgUrl, function(err, texture){
+            self.headImg.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
+        });
     },
     setNickName(name){
          //修改昵称
@@ -160,5 +162,11 @@ cc.Class({
         }else{
             this.playerLeQuan.string = ""+number;
         }
+    },
+    //点击头像
+    headClick(){
+        var args = "hall";
+        dialogManager.showPlayerInfo(args);
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 });

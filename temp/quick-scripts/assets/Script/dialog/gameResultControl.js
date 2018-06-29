@@ -5,7 +5,8 @@ cc._RF.push(module, 'd79724yjfxDdbgN/3Ee9zWb', 'gameResultControl', __filename);
 "use strict";
 
 var resoultInfoItemControl = require("resoultInfoItemControl");
-var dialogManager = require("dialogManager");
+// var dialogManager = require("dialogManager");
+// var config = require("config");
 
 cc.Class({
     extends: cc.Component,
@@ -67,13 +68,19 @@ cc.Class({
     },
     close: function close() {
         var self = this;
-        dialogManager.showCommonDialog("提示", "是否返回大厅！", function () {
-            if (self.backHallScene) {
-                self.backHallScene();
-                self.node.destroy();
-            }
-        }, function () {});
+        // dialogManager.showCommonDialog("提示","是否返回大厅！",function(){
+        //     if(self.backHallScene){
+        //         self.backHallScene()
+        //         self.node.destroy();
+        //     }
+        // },function(){
+        // });
         // this.node.destroy();
+
+        if (self.backHallScene) {
+            self.backHallScene();
+            self.node.destroy();
+        }
         cc.vv.audioMgr.playSFX("SpecOk");
     }
 });

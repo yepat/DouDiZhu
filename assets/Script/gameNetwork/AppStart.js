@@ -46,6 +46,16 @@ cc.Class({
         console.log("typeof(wx):"+typeof(wx));
         if(typeof(wx)=="undefined"){return;}
 
+        wx.setKeepScreenOn({
+            keepScreenOn:true,
+            success(res){
+                console.log("设置保持常亮状态成功。",res);
+            },
+            fail(res){
+                console.log("设置保持常亮状态失败。",res);
+            }
+        });
+
         wx.showShareMenu({
             withShareTicket: true
         });
@@ -143,7 +153,7 @@ cc.Class({
                 xhr = null;
                 complete = true;
                 config.GlobalRouterUpdate(ret);
-                console.log("host:"+config.GlobalRouter.host+":"+config.GlobalRouter.port);
+                console.log(config.GlobalRouter);
                 self.connectGameServer();
             },config.GlobalRouter.director);
             setTimeout(fn,5000);            
@@ -181,8 +191,11 @@ cc.Class({
             self.isShow = true;
             // dialogManager.showCommonDialog("提示","与服务器断开连接！",function(){
             //     self.isShow = false;
+            //     cc.vv.audioMgr.stopMusic();
             //     cc.director.loadScene("LoadingScene");
             // });
+            cc.vv.audioMgr.stopMusic();
+            config.stopOnMassage = false;
             cc.director.loadScene("LoadingScene");
         }
 
@@ -357,7 +370,9 @@ cc.Class({
             PlayerDetailModel.title = response["data"]["title"];
             PlayerDetailModel.isDev = isDevData;
 
-            // console.log(response["data"]);
+            PlayerDetailModel.continueRoomId = response["data"]["continueRoomId"];
+
+            console.log(response["data"]);
 
             console.log("进入游戏大厅...uid:"+parseInt(response["data"]["uid"]));
             this.labLoading.string = "进入游戏大厅...";
@@ -387,7 +402,7 @@ cc.Class({
         }else{
 
             var fileManager = wx.getFileSystemManager();
-            var soundspath = wx.env.USER_DATA_PATH+"/sounds";
+            var soundspath = wx.env.USER_DATA_PATH+"/sounds/1.0.1";
             console.log("soundspath:"+soundspath);
             fileManager.access({
                 path:soundspath,
@@ -398,7 +413,7 @@ cc.Class({
                 fail(res){
                     console.log("目录不存在!!!",res);
                     var downloadTask = wx.downloadFile({
-                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/sounds.zip',
+                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/sounds3.zip',
                         success: function(res) {
                             console.log("资源下载成功");
                             var filePath = res.tempFilePath;
@@ -421,9 +436,9 @@ cc.Class({
                     downloadTask.onProgressUpdate((res) => {
                         self.progress.string = res.progress+"%";
                         self.labLoading.string = "资源更新中...";
-                        console.log('下载进度', res.progress);
-                        console.log('已经下载的数据长度', res.totalBytesWritten);
-                        console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
+                        // console.log('下载进度', res.progress);
+                        // console.log('已经下载的数据长度', res.totalBytesWritten);
+                        // console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
                     })
                             
                 } 

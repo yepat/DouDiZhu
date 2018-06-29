@@ -4,7 +4,7 @@ cc._RF.push(module, '15c8fdeug5LtJuDTQtrqwqd', 'GameNet');
 
 "use strict";
 
-var ByteArray = require("ByteArray");
+// var ByteArray = require("ByteArray");
 var config = require("config");
 var EventHelper = require("EventHelper");
 var Protocol = require("Protocol");
@@ -65,7 +65,9 @@ var GameNet = cc.Class({
             // console.log(typeof(data));
             // console.log(data);
             cmd = data.cmd;
-            console.log("cmd:" + cmd + " code:" + data.code);
+            if (cmd != 0) {
+                console.log("cmd:" + cmd + " code:" + data.code);
+            }
 
             if (cmd == Protocol.Command.Game) {
                 if (data.code == Protocol.Response.Game.ReconnectionData) {
@@ -241,6 +243,10 @@ var GameNet = cc.Class({
                     //触发牌局任务
                     console.log("触发牌局任务");
                     EventHelper.DispatchCustomEvent(config.MyNode, "PokerTask", data);
+                } else if (data.code == Protocol.Response.Game.EmoticonData) {
+                    //广播表情包
+                    console.log("广播表情包");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "EmoticonData", data);
                 }
             }
 

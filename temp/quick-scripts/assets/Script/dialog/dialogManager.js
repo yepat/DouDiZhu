@@ -9,8 +9,9 @@ var commonControl = require("commonControl");
 var CancelDelegateController = require("CancelDelegateController");
 var opratShowCardControl = require("opratShowCardControl");
 var opratDoubleControl = require("opratDoubleControl");
-
 var doubleControl = require("doubleControl");
+var playerInfoControl = require("playerInfoControl");
+var expressionControl = require("expressionControl");
 
 var dialogManager = cc.Class({
     extends: cc.Component,
@@ -76,6 +77,11 @@ var dialogManager = cc.Class({
         },
         showChatDialog: function showChatDialog() {
             this.showDialog("prefab/chatDialog");
+        },
+
+        //个人信息
+        showPlayerInfo: function showPlayerInfo(args) {
+            this.showDialog("prefab/playerInfoDialog", playerInfoControl, args);
         },
 
 

@@ -37,6 +37,8 @@ var GameNetMgr = cc.Class({
                     this.sendOpenReliefTip();
                 }else if(eventName == "reconnection"){
                     this.sendReconnection();
+                }else if(eventName == "emoticon"){
+                    this.sendEmoticon(arg);
                 }
             }
             //系统
@@ -168,6 +170,16 @@ var GameNetMgr = cc.Class({
             params.t = Protocol.Request.Game.Reconnection;
             cc.vv.net.send("reconnection",Protocol.Command.Game,params);
         },
+        //发送表情包
+        sendEmoticon(arg){
+            var params = {};
+            params.t = Protocol.Request.Game.Emoticon;
+            params.emoticonData = arg;
+            cc.vv.net.send("emoticon",Protocol.Command.Game,params);
+        },
+
+
+
         //大厅-------
         sendMail(){//邮箱
             var params = {};

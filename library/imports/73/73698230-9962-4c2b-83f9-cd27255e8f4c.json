@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dianzan_tex",
+    "texture": "a5792f51-730a-474a-afcb-53de9774f45f",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      230,
+      140
+    ],
+    "offset": [
+      -12,
+      57
+    ],
+    "originalSize": [
+      256,
+      256
+    ]
+  }
+}

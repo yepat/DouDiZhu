@@ -14,6 +14,8 @@ config.OpenUDIDEncryptToken = "!_Tvr%^98071e~int5lmUy";
 
 config.stopOnMassage = false;
 
+config.VERSION_NAME = "2.0.0"; //当前程序版本（2.0.0 是为了兼容tv版）
+
 config.wxShareInfo = "key1=value1&key2=value2";
 
 config.playGameId = 0; //断线
@@ -78,29 +80,12 @@ config.arrayUp = function (val1, val2) {
     return val1 - val2;
 };
 //截取数组的一部分
-config.arraySub = function (index, count, arr) {
+config.arraySub = function (index, count, arr, repeat) {
     var newarr = [];
     for (var i = index; i < count; i++) {
-        newarr.push(arr[i]);
-    }
-    return newarr;
-};
-
-config.arraySub2 = function (index, count, arr) {
-    var newarr = [];
-    for (var i = index; i < count; i++) {
-        newarr.push(arr[i]);
-        newarr.push(arr[i]);
-    }
-    return newarr;
-};
-
-config.arraySub3 = function (index, count, arr) {
-    var newarr = [];
-    for (var i = index; i < count; i++) {
-        newarr.push(arr[i]);
-        newarr.push(arr[i]);
-        newarr.push(arr[i]);
+        for (var j = 0; j < repeat; j++) {
+            newarr.push(arr[i]);
+        }
     }
     return newarr;
 };
@@ -109,6 +94,7 @@ config.seatPos = {
     center: {
         pokerScale: 1, //0.5
         disBetween: 77, //45
+        disBetweenIX: 87, //iphoneX适配
         positionY: 250
     },
     left: {
@@ -234,11 +220,15 @@ config.parseNumber = function (number) {
     }
     return number;
 };
-config.parseString = function (string) {
-    if (string && string.length > 4) {} else {
+config.parseString = function (string, index) {
+    var len = 4;
+    if (index) {
+        len = index;
+    }
+    if (string && string.length > len) {} else {
         return string;
     }
-    var str = string.substring(0, 4);
+    var str = string.substring(0, len);
     str = str + "...";
     // console.log(">>string:"+string);
     return str;

@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "jidan_ske_tex",
+    "texture": "a82f6dc6-5138-4c6a-aa50-687af7c575c2",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      227,
+      243
+    ],
+    "offset": [
+      -13.5,
+      5.5
+    ],
+    "originalSize": [
+      256,
+      256
+    ]
+  }
+}

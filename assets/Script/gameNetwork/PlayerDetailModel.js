@@ -47,6 +47,10 @@ PlayerDetailModel.title = "";			    //称号
 
 PlayerDetailModel.jpqData = "";			    //记牌器数据
 
+PlayerDetailModel.continueRoomId = 0;	    //短线重连房间id
+
+
+
 PlayerDetailModel.getJpqData = function(){
     return PlayerDetailModel.jpqData;
 }

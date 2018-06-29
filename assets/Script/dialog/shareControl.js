@@ -31,6 +31,11 @@ cc.Class({
             type : cc.Button,
             opentype : "share",
         },
+        btnNode_get : {
+            default : null,
+            type : cc.Button,
+            opentype : "share",
+        },
     },
     start () {
         var self = this;
@@ -129,10 +134,20 @@ cc.Class({
     onShareGetResult(event){
         var response = event.getUserData();
         console.log(response);
-        dialogManager.showCommonDialog("温馨提示",response.data.award_desc);
+        var self = this;
+        var awarded = response.data.awarded;
+        dialogManager.showCommonDialog("温馨提示",response.data.award_desc,function(){
+            if(awarded<5&&response.data.award.length==0){
+                self.btnClick();
+                for(var i=0;i<awarded;i++){
+                    self.labCoins[i].string = "已领取";
+                }
+            }
+        });
 
         PlayerDetailModel.setShareUnReward(0);
     },
+    
     setHeadUrl(imgUrl,headImg){
         // console.log(headImg);
         // console.log(imgUrl);

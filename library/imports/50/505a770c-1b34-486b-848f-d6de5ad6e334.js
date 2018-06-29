@@ -38,13 +38,17 @@ cc.Class({
     start: function start() {
         var self = this;
         self.setHeadUrl();
-        self.setNickName(PlayerDetailModel.getNickName());
+        var nickname = PlayerDetailModel.getNickName();
+        self.setNickName(config.parseString(nickname, 5));
         self.setLevel(PlayerDetailModel.getTitle());
         self.setLeDou(PlayerDetailModel.getCoin());
         self.setLuQuan(PlayerDetailModel.getCoupon());
 
         EventHelper.AddCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
         EventHelper.AddCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
+    },
+    onDestroy: function onDestroy() {
+        console.log(" topBar Destroy");
     },
     onRepeatLogin: function onRepeatLogin(event) {
         console.log("您的账号已经在其他地方登陆！");
@@ -162,6 +166,13 @@ cc.Class({
         } else {
             this.playerLeQuan.string = "" + number;
         }
+    },
+
+    //点击头像
+    headClick: function headClick() {
+        var args = "hall";
+        dialogManager.showPlayerInfo(args);
+        cc.vv.audioMgr.playSFX("SpecOk");
     }
 });
 
