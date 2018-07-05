@@ -26,6 +26,8 @@ config.curRoomModelId = 0;//房间模式
 //房间模式
 config.ModelId = {normal : 0, contest : 3, lazarillo : 2}
 
+config.joker = "";//赖子牌
+
 //叫地主时间
 config.CallLordTimeout = 15;
 //抢地主超时时间
@@ -65,6 +67,7 @@ config.pokerCardType = {
 config.ghostCardType = {
     smallG : 5,//小王
     bigG : 6,//大王
+    // lazarillo : 7,//赖子牌
 }
 
 //数组降序排列
@@ -197,9 +200,9 @@ config.tableName = {
     1002:"中级场 底分200",
     1003:"高级场 底分500",
     
-    1007:"新手场 底分40",
-    1008:"初级场 底分150",
-    1009:"中级场 底分400",
+    1007:"新手场 底分10",
+    1008:"初级场 底分40",
+    1009:"中级场 底分150",
 }
 
 config.chatContent =

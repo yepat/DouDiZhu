@@ -28,15 +28,32 @@ cc.Class({
         },
         
     },
-    // onLoad () {},
+    onLoad () {
+        var rooms = [];
+        rooms.push(this.room1);
+        rooms.push(this.room2);
+        rooms.push(this.room3);
+        rooms.push(this.room4);
+        this.rooms = rooms;
+        // console.log(this.rooms);
+        this.initBaseInfo();
+    },
     start () {
         var self = this;
         config.IsContinueGaming = 0;
         this.roomModelId_ = config.curRoomModelId;
-        this.initRoomInfo();
+        // this.initRoomInfo();
         EventHelper.AddCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
         EventHelper.AddCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
-        // EventHelper.AddCustomEvent(config.MyNode,"ReconnectionData",self.onReconnectionData,self);
+    },
+    onEnable(){
+        console.log(" RoomLayer onEnable");
+        config.IsContinueGaming = 0;
+        this.roomModelId_ = config.curRoomModelId;
+        this.initRoomInfo();
+    },
+    onDisable(){
+        console.log(" RoomLayer onDisable");
     },
     onDestroy(){
         console.log(" RoomLayer Destroy");
@@ -48,24 +65,46 @@ cc.Class({
         // console.log(data);
         self.handleLoginRoomResult(data); 
     },
-    initRoomInfo(){
-        console.log(">>>initRoomInfo");
-
+    initBaseInfo(){
         var roomInfos = [];
         for(var i=0;i<4;i++){
             var index = i+1;
             var name = "p_room_"+index;
             var strPeopleNum = "Canvas/happyroom/rooms/"+name+"/lab_peopleNum";
             var strCoins = "Canvas/happyroom/rooms/"+name+"/lab_coins";
+            var strBaseCoin = "Canvas/happyroom/rooms/"+name+"/p_roomA_num";
 
-            var lab_peopleNum =  cc.find(strPeopleNum).getComponent(cc.Label);
-            var lab_coins =  cc.find(strCoins).getComponent(cc.Label);
+            var lab_peopleNum = cc.find(strPeopleNum).getComponent(cc.Label);
+            var lab_coins = cc.find(strCoins).getComponent(cc.Label);
+            var pBaseCoin = cc.find(strBaseCoin).getComponent(cc.Sprite);
             var item = {
                 peopleNum:lab_peopleNum,
-                coins:lab_coins
+                coins:lab_coins,
+                baseCoin:pBaseCoin
             }
             roomInfos.push(item);
+            this.rooms[i].active = false;
         }
+        this.roomInfos = roomInfos;
+        this.node_roomName = cc.find("Canvas/happyroom/topBar/p_roomName").getComponent(cc.Sprite);
+    },
+    initRoomInfo(){
+        console.log(">>>initRoomInfo");
+        var self = this;
+        for(var i=0;i<4;i++){
+            this.rooms[i].active = false;
+        }
+
+        var roomNameUrl = "roomInfo/p_roomA";
+        var baseCoinUrls = ["roomInfo/p_roomA_num_1","roomInfo/p_roomA_num_2","roomInfo/p_roomA_num_3","roomInfo/p_roomA_num_4"];
+        if(config.curRoomModelId == config.ModelId.lazarillo){
+            roomNameUrl = "roomInfo/p_roomB";
+            baseCoinUrls = ["roomInfo/p_roomB_num_1","roomInfo/p_roomB_num_2","roomInfo/p_roomB_num_3","roomInfo/p_roomB_num_4"];
+        }
+        cc.loader.loadRes(roomNameUrl,cc.SpriteFrame,function(err,spriteFrame){
+            self.node_roomName.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        });
+
 
         var roomType_ = [];
         var rooms = PlayerDetailModel.getRoom();
@@ -76,12 +115,37 @@ cc.Class({
             }
         }
         this.roomType_ = roomType_;
-        // console.log(roomType_);
+        console.log(roomType_);
+        // console.log("curRoomModelId:"+config.curRoomModelId);
+        for(var i = 0;i<roomType_.length;i++){
+            this.rooms[i].active = true;
+            this.roomInfos[i].peopleNum.string = ""+this.pepleNumAdd(roomType_[i]["onlineNum"]);
+            var str_enter = roomType_[i]["enter"].replace("乐豆", "");
+            this.roomInfos[i].coins.string = str_enter;
+        }
 
         for(var i = 0;i<roomType_.length;i++){
-            roomInfos[i].peopleNum.string = ""+this.pepleNumAdd(roomType_[i]["onlineNum"]);
-            var str_enter = roomType_[i]["enter"].replace("乐豆", "");
-            roomInfos[i].coins.string = str_enter;
+            if(i==0){
+                var baseCoin0 = this.roomInfos[i].baseCoin;
+                cc.loader.loadRes(baseCoinUrls[i],cc.SpriteFrame,function(err,spriteFrame){
+                    baseCoin0.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                });
+            }else if(i==1){
+                var baseCoin1 = this.roomInfos[i].baseCoin;
+                cc.loader.loadRes(baseCoinUrls[i],cc.SpriteFrame,function(err,spriteFrame){
+                    baseCoin1.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                });
+            }else if(i==2){
+                var baseCoin2 = this.roomInfos[i].baseCoin;
+                cc.loader.loadRes(baseCoinUrls[i],cc.SpriteFrame,function(err,spriteFrame){
+                    baseCoin2.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                });
+            }else if(i==3){
+                var baseCoin3 = this.roomInfos[i].baseCoin;
+                cc.loader.loadRes(baseCoinUrls[i],cc.SpriteFrame,function(err,spriteFrame){
+                    baseCoin3.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                });
+            }
         }
     },
     room1Click(){
@@ -239,6 +303,7 @@ cc.Class({
             if(parseInt(payload["data"]["modelId"]) == config.ModelId.lazarillo){
                 // --癞子场
                 console.log("进入癞子场");
+                // this.preloadNextScene();
             }else{
                 // --普通场
                 // DeviceHelper.addGameLog("enterRoom"..args["roomId"],"a")

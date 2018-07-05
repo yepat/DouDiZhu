@@ -34,16 +34,16 @@ cc.Class({
     },
     btnRoom1Click(){
         console.log("欢乐场")
+        config.curRoomModelId = config.ModelId.normal;
         this.hallLayer.active = false;
         this.roomLayer.active = true;
-        config.curRoomModelId = config.ModelId.normal;
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnRoom2Click(){
         console.log("赖子场")
+        // config.curRoomModelId = config.ModelId.lazarillo;
         // this.hallLayer.active = false;
         // this.roomLayer.active = true;
-        // config.curRoomModelId = config.ModelId.lazarillo;
         dialogManager.showCommonDialog("温馨提示","赖子场暂未开放！",null,null);
         cc.vv.audioMgr.playSFX("SpecOk");
     },

@@ -12,21 +12,21 @@ var PopCardUtil = require("PopCardUtil");
 var CardUtil = {};
 
 CardUtil.cardGrade = {
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 7,
-    8: 8,
-    9: 9,
-    10: 10,
-    J: 11,
-    Q: 12,
-    K: 13,
-    A: 14,
-    2: 15,
-    g: 16,
-    G: 17
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "a": 10,
+    "b": 11,
+    "c": 12,
+    "d": 13,
+    "1": 14,
+    "2": 15,
+    "g": 16,
+    "G": 17
 };
 
 //记牌器数据信息
@@ -38,9 +38,7 @@ CardUtil.getNodeCards = function (mycards) {
         myCardValue.push(card.showTxt);
     }
     myCardValue.sort(config.arrayUp);
-
     var sameCards = PopCardUtil.getSameCards(myCardValue);
-
     for (var i = 3; i <= 17; i++) {
         if (sameCards[i]) {
             tempstr += sameCards[i].length;
@@ -48,16 +46,13 @@ CardUtil.getNodeCards = function (mycards) {
             tempstr += "0";
         }
     }
-
     return tempstr;
 };
 //获取当前自己手牌(出牌后)
 CardUtil.subNodeCards = function (cards1, cards2) {
     var str = "";
     var cards1 = CardUtil.getNodeCards(cards1);
-    // console.log(cards1)
     var cards2 = CardUtil.getNodeCards(cards2);
-    // console.log(cards2)
     for (var i = 0; i < cards1.length; i++) {
         var value1 = parseInt(cards1[i]);
         var value2 = parseInt(cards2[i]);
@@ -86,11 +81,36 @@ CardUtil.gradeDown = function (card1, card2) {
     return card2.showTxt * 10 + card2.showType - (card1.showTxt * 10 + card1.showType);
 };
 //升序排列
+// CardUtil.gradeUp = function(card1,card2){
+//     return (card1.showTxt*10 + card1.showType) - (card2.showTxt*10 + card2.showType);
+// }
 CardUtil.gradeUp = function (card1, card2) {
+    if (config.joker != "") {
+        var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+        if (card1.showTxt == jokerValue && card2.showTxt == jokerValue) {
+            return card1.showTxt * 100 + card1.showType - (card2.showTxt * 100 + card2.showType);
+        } else if (card1.showTxt == jokerValue && card2.showTxt != jokerValue) {
+            return card1.showTxt * 100 + card1.showType - (card2.showTxt * 10 + card2.showType);
+        } else if (card1.showTxt != jokerValue && card2.showTxt == jokerValue) {
+            return card1.showTxt * 10 + card1.showType - (card2.showTxt * 100 + card2.showType);
+        } else {
+            return card1.showTxt * 10 + card1.showType - (card2.showTxt * 10 + card2.showType);
+        }
+    }
     return card1.showTxt * 10 + card1.showType - (card2.showTxt * 10 + card2.showType);
 };
 
-//判断两张牌的大小
+//获取客户端所有牌的数值并升序排序
+CardUtil.getAllCardsValue = function (clientCards) {
+    var cardValues = [];
+    for (var i = 0; i < clientCards.length; i++) {
+        cardValues.push(clientCards[i].showTxt);
+    }
+    if (cardValues.length > 0) {
+        cardValues.sort(config.arrayUp);
+    }
+    return cardValues;
+};
 
 //服务器牌值转化
 CardUtil.serverCardsToClient = function (serverCards) {
@@ -145,6 +165,26 @@ CardUtil.convertCardToClient = function (value) {
     cardItem.showType = cardType;
     return cardItem;
 };
+//只适用于除去大小王的牌值
+CardUtil.serverCardValueToClient = function (str2) {
+    var cardValue = -1;
+    if (str2 == "1") {
+        cardValue = 14;
+    } else if (str2 == "2") {
+        cardValue = 15;
+    } else if (str2 == "a") {
+        cardValue = 10;
+    } else if (str2 == "b") {
+        cardValue = 11;
+    } else if (str2 == "c") {
+        cardValue = 12;
+    } else if (str2 == "d") {
+        cardValue = 13;
+    } else {
+        cardValue = parseInt(str2);
+    }
+    return cardValue;
+};
 
 //客户端牌转成服务器格式
 CardUtil.clientCardsToServer = function (clientCards) {
@@ -190,6 +230,26 @@ CardUtil.convertCardToServer = function (cardItem) {
         str = "01";
     }
     return str;
+};
+//只适用于除去大小王的牌值
+CardUtil.serverCardValueToServer = function (cardValue) {
+    var str2 = "";
+    if (cardValue == 14) {
+        str2 = "1";
+    } else if (cardValue == 15) {
+        str2 = "2";
+    } else if (cardValue == 10) {
+        str2 = "a";
+    } else if (cardValue == 11) {
+        str2 = "b";
+    } else if (cardValue == 12) {
+        str2 = "c";
+    } else if (cardValue == 13) {
+        str2 = "d";
+    } else {
+        str2 = "" + cardValue;
+    }
+    return str2;
 };
 
 //获取提起的牌值

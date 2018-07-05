@@ -89,24 +89,6 @@ cc.Class({
         } else {
             this.expressionNode.active = true;
             this.nodeLequan.active = false;
-            // if(!args.player)
-            //     return;
-            // this.ledou.string = ""+args.player.getCoin();
-            // // this.lequan.string = ""+args.player.getLeQuan();
-            // this.nickname.string = ""+args.player.getNickname();
-            // this.id.string = "(ID:"+ args.player.getUid()+")";
-
-            // var Matches = args.player.getPlay();
-            // var win = args.player.getWin();
-            // var rate = 0;
-            // if (Matches == 0){
-            //     rate = 0
-            // }else{
-            //     rate = Math.ceil(win / Matches * 100);
-            // }
-            // this.duijv.string = "对局："+Matches;
-            // this.shenglv.string = "胜率："+rate+"%";
-            // this.setHeadUrl(args.player.getWechatImg());
         }
         if (!args.player) return;
         this.ledou.string = "" + args.player.getCoin();

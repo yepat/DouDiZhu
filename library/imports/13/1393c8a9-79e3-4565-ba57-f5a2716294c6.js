@@ -13,6 +13,7 @@ var PlayerDetailModel = require("PlayerDetailModel");
 var Player = require("Player");
 var EventHelper = require("EventHelper");
 var GameNetMgr = require("GameNetMgr");
+var LazarilloCardUtil = require("LazarilloCardUtil");
 
 cc.Class({
     extends: cc.Component,
@@ -55,23 +56,20 @@ cc.Class({
     },
     // LIFE-CYCLE CALLBACKS:
     onLoad: function onLoad() {
-        var self = this;
-        cc.game.on(cc.game.EVENT_HIDE, function () {
-            console.log("游戏进入后台");
-            // self.clearTable();
-            config.stopOnMassage = true;
-            cc.vv.audioMgr.stopMusic();
-        }, this);
-        cc.game.on(cc.game.EVENT_SHOW, function () {
-            console.log("重新返回游戏");
-            if (config.stopOnMassage) {
-                GameNetMgr.sendRequest("Game", "reconnection");
-                // cc.vv.audioMgr.resumeAll();
-                cc.vv.audioMgr.playBGM("MusicEx_Normal");
-            }
-        }, this);
-
-        cc.vv.audioMgr.playBGM("MusicEx_Normal");
+        //xx_test
+        // cc.game.on(cc.game.EVENT_HIDE, function(){
+        //     console.log("游戏进入后台");
+        //     config.stopOnMassage = true;
+        //     cc.vv.audioMgr.stopMusic();
+        // },this);
+        // cc.game.on(cc.game.EVENT_SHOW, function(){
+        //     console.log("重新返回游戏");
+        //     if(config.stopOnMassage){
+        //         GameNetMgr.sendRequest("Game", "reconnection");
+        //         cc.vv.audioMgr.playBGM("MusicEx_Normal");
+        //     }
+        // },this);
+        // cc.vv.audioMgr.playBGM("MusicEx_Normal");
     },
     start: function start() {
         var self = this;
@@ -132,10 +130,15 @@ cc.Class({
         self.initMyPlayerNode();
         self.playerme_.initBaseInfo();
 
-        // var cards = ["13","25","35","45","15","26","36","46","16","29","39","49","1a","2a","3a","1b","2b"];//,"3b","3c","4d"
-        // this.myPokerData = CardUtil.serverCardsToClient(cards);
-        // self.playerme_.initMyCards(this.myPokerData,this.myPokerNode,this.scene,this.sceneWidth,-1);
-        // return;
+        //xx_test
+        config.joker = "2";
+        var cards = ["42", "32", "22", "12", "01", "00", "4b", "4a", "49", "39", "48", "28", "18", "25", "15", "14", "43"]; //, "33", "23", "13"
+        this.myPokerData = CardUtil.serverCardsToClient(cards);
+        self.playerme_.initMyCards(this.myPokerData, this.myPokerNode, this.scene, this.sceneWidth, -1);
+
+        self.onMyOutCard(10000);
+        this.registerTouchEvent();
+        return;
 
         //左边玩家形象
         this.leftDispatchCard = [];
@@ -147,7 +150,6 @@ cc.Class({
         // self.left_player.initBaseInfo();
         // this.leftPokerData = this.myPokerData;
         // this.left_player.playerLeftShowCard(this.leftPokerData,this.leftPokerNode,this.pokerLayerLeft,this.sceneWidth);
-
 
         //右边玩家形象
         this.rightDispatchCard = [];
@@ -164,6 +166,7 @@ cc.Class({
         this.leftPlayer.active = false;
         this.rightPlayer.active = false;
         this.table3Card = [];
+        this.table3Cards = [];
 
         if (config.IsContinueGaming == 1) {
             // console.log(">>>>>>>>");
@@ -182,9 +185,23 @@ cc.Class({
         this.node_pCardBg = cc.find("Canvas/top_bar1/p_card_bg");
         this.node_tableTimes = cc.find("Canvas/bottom_bar3/beishu/lab_bei").getComponent(cc.Label);
         this.node_pCardBg.active = false;
+
+        this.node_lazarillo_poker = cc.find("Canvas/top_bar1/lazarillo_poker");
+        this.node_lazarillo_poker.active = false;
+        this.node_lazarillo_Num = cc.find("Canvas/top_bar1/lazarillo_poker/sp_num").getComponent(cc.Sprite);
+    },
+    setLazarillo_poker: function setLazarillo_poker(cardValue) {
+        var self = this;
+        this.node_lazarillo_poker.active = true;
+        cardValue = CardUtil.serverCardValueToClient(cardValue);
+        var numUrl = "cards/poke_" + cardValue;
+        cc.loader.loadRes(numUrl, cc.SpriteFrame, function (err, spriteFrame) {
+            self.node_lazarillo_Num.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        });
     },
     setTable3Card: function setTable3Card(severCards) {
         this.node_pCardBg.active = true;
+        this.table3Cards = severCards;
         for (var i = 0; i < 3; i++) {
             var cardNode = cc.instantiate(this.pokerCard);
             cardNode.parent = this.node_diPai;
@@ -321,7 +338,7 @@ cc.Class({
 
         var nodes = {};
         nodes.node_name = node_name; //昵称
-        nodes.node_LeDou = node_LeDou; //乐斗
+        nodes.node_LeDou = node_LeDou; //乐豆
         nodes.node_LeQuan = null; //乐券
         nodes.node_cardsNum = node_cardsNum; //剩余牌数 
         nodes.node_Landlord = node_Landlord; //地主标志
@@ -388,6 +405,7 @@ cc.Class({
 
         this.preSendCards = []; //上架出牌
         this.preSeatId = -1; //上架出牌id
+        config.joker = "";
 
         console.log("//清理拍桌");
 
@@ -412,6 +430,9 @@ cc.Class({
             this.watingStart.close();
             this.watingStart = null;
         }
+
+        this.node_lazarillo_poker.active = false;
+        this.table3Cards = [];
     },
 
     //注册触摸事件
@@ -419,7 +440,9 @@ cc.Class({
         var self = this;
         this.canvas.on(cc.Node.EventType.TOUCH_START, function (event) {
             // console.log("touchStart");
-            if (self.myPokerNode.length < 1 || self.gameState < config.gameState.ST_GAME_OutCard) return false;
+            //xx_test
+            // if(self.myPokerNode.length < 1 || self.gameState < config.gameState.ST_GAME_OutCard)
+            //     return false;
             var p = event.getLocation();
             // console.log(">>x:"+p.x+">>y:"+p.y);
             self.touchBeganX = p.x;
@@ -457,12 +480,16 @@ cc.Class({
                 self.ChatDialog.close();
                 self.ChatDialog = null;
             }
-            if (self.myPokerNode.length < 1 || self.gameState < config.gameState.ST_GAME_OutCard) return;
+            //xx_test
+            // if(self.myPokerNode.length < 1 || self.gameState < config.gameState.ST_GAME_OutCard)
+            // return;
             var p = event.getLocation();
             self.moveCard(self.myPokerNode);
         }, this.node);
         this.canvas.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-            if (self.myPokerNode.length < 1 || self.gameState < config.gameState.ST_GAME_OutCard) return;
+            //xx_test
+            // if(self.myPokerNode.length < 1 || self.gameState < config.gameState.ST_GAME_OutCard)
+            // return;
             var p = event.getLocation();
             if (Math.abs(self.touchBeganX - p.x) > 40) {
                 self.isTouchbegan = false;
@@ -528,7 +555,9 @@ cc.Class({
             }
             pokerControl.cardMove();
         }
-        if (isChoosed) cc.vv.audioMgr.playSFX("Special_selectedCrad");
+        //xx_test
+        // if(isChoosed)
+        //     cc.vv.audioMgr.playSFX("Special_selectedCrad");
     },
     moveAllCardDown: function moveAllCardDown(myPokerNode) {
         console.log("moveAllCardDown");
@@ -541,12 +570,11 @@ cc.Class({
             }
             pokerControl.cardMoveDown();
         }
-        if (isTopped) cc.vv.audioMgr.playSFX("Special_selectedCrad");
+        //xx_test
+        // if(isTopped)
+        //     cc.vv.audioMgr.playSFX("Special_selectedCrad");
     },
-    onShow: function onShow() {
-        // console.log("onShow");
-        // this.onMyOutCard();
-    },
+    onShow: function onShow() {},
     onHide: function onHide() {
         // console.log("onHide");
         // //智能提牌测试
@@ -569,12 +597,7 @@ cc.Class({
     //轮到自己出牌
     onMyOutCard: function onMyOutCard(time) {
         var self = this;
-        // var dispatchCard = this.dispatchCard;
-        // var sceneWidth = this.sceneWidth;
         var scene = cc.director.getScene();
-        // var myPokerNode = self.myPokerNode;
-        // var myPokerData = self.myPokerData;
-
         var buchuFunc = function buchuFunc() {
             self.moveAllCardDown(self.myPokerNode);
             GameNetMgr.sendRequest("Game", "giveupSendCard");
@@ -596,7 +619,6 @@ cc.Class({
             cards.sort(config.arrayUp);
 
             // console.log(cards);
-
             var cardstype = CardUtil.get_topCard_type(cards);
             var myCards = [];
             console.log(cardstype);
@@ -633,10 +655,6 @@ cc.Class({
         };
         var chupaiFunc = function chupaiFunc() {
             console.log("点击了出牌");
-            // if(self.myOpratShow){
-            //     self.myOpratShow.close();
-            //     self.myOpratShow = null;
-            // }
             //牌桌上已经有了出牌，清除掉
             if (self.dispatchCard && self.dispatchCard.length > 0) {
                 console.log("dispatchCard.length:" + self.dispatchCard.length);
@@ -661,6 +679,22 @@ cc.Class({
                 }
             }
 
+            //赖子场目前不做判断
+            if (config.joker != "") {
+                var args = CardUtil.clientCardsToServer(topCardData);
+                console.log("-----赖子出牌测试");
+                console.log(args);
+                if (args.length) {
+                    var tips = LazarilloCardUtil.get_effective_tips_cards(args, config.joker);
+                    if (tips.length == 0) return -1;
+                    // args = tips[0];
+                    console.log(tips);
+                }
+                //xx_test
+                // GameNetMgr.sendRequest("Game","sendCard",args);
+                return;
+            }
+
             if (topCards.length >= 1) {
                 var popCardsType = CardUtil.get_topCard_type(topCards);
                 // console.log(popCardsType);
@@ -683,10 +717,6 @@ cc.Class({
             curTime = time;
         }
 
-        // self.buchuFunc = buchuFunc;
-        // self.tishiFunc = tishiFunc;
-        // self.chupaiFunc = chupaiFunc;
-
         if (self.playerme_.getCardCount() == 20 || self.mySeatId == self.preSeatId) {
             self.showCallLord(curTime, null, chupaiFunc, config.opratType.mustOutCard);
         } else {
@@ -700,7 +730,7 @@ cc.Class({
             }
         }
     },
-    mySendCards: function mySendCards(severCards) {
+    mySendCards: function mySendCards(severCards, jokto) {
         //自己出牌
         var self = this;
 
@@ -709,19 +739,10 @@ cc.Class({
             var cardData = CardUtil.serverCardsToClient(severCards);
             cardData.sort(CardUtil.gradeUp); //这边生序拍下
             self.dispatchCard = self.playerme_.getSendCard(self.dispatchCard, cardData, self.myPokerNode, self.myPokerData);
-        } else {}
-        // for(var i = self.myPokerData.length - 1; i > -1;i--){//( 根据提出的牌出牌)
-        //         if(self.myPokerData[i].isTopped){ 
-        //         var isChoosedPoker = self.myPokerNode[i];
-        //         self.dispatchCard.unshift(isChoosedPoker);
-        //         self.myPokerData.splice(i,1);
-        //         self.myPokerNode.splice(i,1);
-        //     }
-        // }
-
+        }
 
         //出牌
-        self.playerme_.playCard(self.dispatchCard);
+        self.playerme_.playCard(self.dispatchCard, jokto);
         self.playerme_.neatenPoker(self.myPokerNode, config.seatPos.center, self.sceneWidth);
         //最后一张牌设置为地主牌
         if (self.playerme_.getLandlord() && self.myPokerNode.length > 0) {
@@ -732,7 +753,7 @@ cc.Class({
         }
         self.playerme_.setCardCount(self.myPokerNode.length);
     },
-    leftSendCards: function leftSendCards(severCards, cardData, isShowCard) {
+    leftSendCards: function leftSendCards(severCards, cardData, isShowCard, jokto) {
         var self = this;
         var sceneWidth = this.sceneWidth;
 
@@ -742,22 +763,21 @@ cc.Class({
 
         if (cardData) {} else {
             cardData = CardUtil.serverCardsToClient(severCards);
-            // cardData.sort(CardUtil.gradeUp);//这边生序拍下
         }
 
         //左边明牌出牌
         if (isShowCard) {
             cardData.sort(CardUtil.gradeUp); //这边生序拍下
             self.leftDispatchCard = self.left_player.getSendCard(self.leftDispatchCard, cardData, self.leftPokerNode, self.leftPokerData);
-            self.left_player.playCardLeft(self.leftDispatchCard, 320, 650);
+            self.left_player.playCardLeft(self.leftDispatchCard, 320, 650, jokto);
             self.left_player.neatenLeftPoker(self.leftPokerNode, config.seatPos.left, sceneWidth / 2, 230);
         } else {
             //左边暗牌出牌
-            self.leftDispatchCard = self.left_player.darkCardSend(self.leftDispatchCard, cardData, self.pokerLayerLeft, 2, sceneWidth);
-            self.left_player.playCardLeft(self.leftDispatchCard, 320, 650);
+            self.leftDispatchCard = self.left_player.darkCardSend(self.leftDispatchCard, cardData, self.pokerLayerLeft, 2, sceneWidth, jokto);
+            self.left_player.playCardLeft(self.leftDispatchCard, 320, 650, jokto);
         }
     },
-    rightSendCards: function rightSendCards(severCards, cardData, isShowCard) {
+    rightSendCards: function rightSendCards(severCards, cardData, isShowCard, jokto) {
         var self = this;
         var sceneWidth = this.sceneWidth;
         if (!severCards) {
@@ -766,7 +786,6 @@ cc.Class({
         if (cardData) {} else {
             if (severCards) {
                 cardData = CardUtil.serverCardsToClient(severCards);
-                // cardData.sort(CardUtil.gradeUp);//这边生序拍下
             }
         }
 
@@ -774,12 +793,12 @@ cc.Class({
             //右边明牌出牌
             cardData.sort(CardUtil.gradeUp); //这边生序拍下
             self.rightDispatchCard = self.right_player.getSendCard(self.rightDispatchCard, cardData, self.rightPokerNode, self.rightPokerData);
-            self.right_player.playCardRight(self.rightDispatchCard, 620, 650);
+            self.right_player.playCardRight(self.rightDispatchCard, 620, 650, jokto);
             self.right_player.neatenRightPoker(self.rightPokerNode, config.seatPos.right, sceneWidth / 2, sceneWidth / 2 + 140);
         } else {
             //右边暗牌出牌
-            self.rightDispatchCard = self.right_player.darkCardSend(self.rightDispatchCard, cardData, self.pokerLayerRight, 0, sceneWidth);
-            self.right_player.playCardRight(self.rightDispatchCard, 620, 650);
+            self.rightDispatchCard = self.right_player.darkCardSend(self.rightDispatchCard, cardData, self.pokerLayerRight, 0, sceneWidth, jokto);
+            self.right_player.playCardRight(self.rightDispatchCard, 620, 650, jokto);
         }
     },
 
@@ -788,14 +807,8 @@ cc.Class({
         console.log("点击自己头像");
         var args = {};
         args.player = this.playerme_;
-        // args.posName = "my";
-        // args.myPos = this.myPlayer.getPosition();
-        // args.leftPos = this.leftPlayer.getPosition();
-        // args.rightPos = this.rightPlayer.getPosition();
-        // args.player = this.playerme_;
         args.sendSeatId = this.mySeatId;
         args.receiveSeatId = this.mySeatId;
-
         dialogManager.showPlayerInfo(args);
         cc.vv.audioMgr.playSFX("SpecOk");
     },
@@ -803,14 +816,8 @@ cc.Class({
         console.log("点击左边头像");
         var args = {};
         args.player = this.left_player;
-        // args.posName = "left";
-        // args.myPos = this.myPlayer.getPosition();
-        // args.leftPos = this.leftPlayer.getPosition();
-        // args.rightPos = this.rightPlayer.getPosition();
-        // args.player = this.left_player;
         args.sendSeatId = this.mySeatId;
         args.receiveSeatId = this.left_player.getMySeatId();
-
         dialogManager.showPlayerInfo(args);
         cc.vv.audioMgr.playSFX("SpecOk");
     },
@@ -818,14 +825,8 @@ cc.Class({
         console.log("点击右边头像");
         var args = {};
         args.player = this.right_player;
-        // args.posName = "right";
-        // args.myPos = this.myPlayer.getPosition();
-        // args.leftPos = this.leftPlayer.getPosition();
-        // args.rightPos = this.rightPlayer.getPosition();
-        // args.player = this.right_player;
         args.sendSeatId = this.mySeatId;
         args.receiveSeatId = this.right_player.getMySeatId();
-
         dialogManager.showPlayerInfo(args);
         cc.vv.audioMgr.playSFX("SpecOk");
     },
@@ -1057,6 +1058,7 @@ cc.Class({
         EventHelper.AddCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
         EventHelper.AddCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
         EventHelper.AddCustomEvent(config.MyNode, "EmoticonData", self.onEmoticonData, self);
+        EventHelper.AddCustomEvent(config.MyNode, "SendLzCard", self.onSendLzCard, self);
     },
     removeEventListener: function removeEventListener() {
         var self = this;
@@ -1087,6 +1089,7 @@ cc.Class({
         EventHelper.RemoveCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
         EventHelper.RemoveCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
         EventHelper.RemoveCustomEvent(config.MyNode, "EmoticonData", self.onEmoticonData, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "SendLzCard", self.onSendLzCard, self);
     },
 
     //初始化玩家信息
@@ -1203,7 +1206,6 @@ cc.Class({
         var data = response.data;
 
         cc.vv.audioMgr.stopMusic();
-
         config.IsContinueGaming = 0;
         PlayerDetailModel.continueRoomId = 0;
 
@@ -1298,6 +1300,7 @@ cc.Class({
         self.playerme_.hideHint();
         self.left_player.hideHint();
         self.right_player.hideHint();
+        config.joker = "";
 
         self.gameState = config.gameState.ST_GAME_START;
 
@@ -1390,12 +1393,6 @@ cc.Class({
         self.myPokerData = CardUtil.serverCardsToClient(response.data.myCard);
         self.playerme_.initMyCards(self.myPokerData, self.myPokerNode, self.scene, self.sceneWidth, -1);
         cc.vv.audioMgr.playSFX("Special_Dispatch");
-
-        // var neatenPoker = function(){ //发完牌后整理牌
-        //     self.playerme_.neatenPoker(self.myPokerNode,config.seatPos.center,self.sceneWidth);
-        // }
-        // setTimeout(neatenPoker,4600);
-
         self.myHandCards = response.data.myCard;
 
         var myShowCard = response.data.showCard[self.mySeatId];
@@ -1682,12 +1679,6 @@ cc.Class({
             var _cards = CardUtil.getNodeCards(self.myHandCards);
             if (_cards) self.showJPQ(_cards);
         }
-
-        // self.myHandCards = CardUtil.clientCardsToServer(self.myPokerData);
-        // var _cards = CardUtil.getNodeCards(self.myHandCards);
-        // if(_cards){
-        //     self.showJPQ(_cards);
-        // }
     },
     onCanDoubleResult: function onCanDoubleResult(event) {
         var self = this;
@@ -1699,16 +1690,13 @@ cc.Class({
 
         if (candouble && candouble == 1) {
             var btn1Func = function btn1Func() {
-                // self.playerme_.showHint(config.hintType.double);
                 self.playerme_.showHint(config.hintType.waitingDouble);
                 GameNetMgr.sendRequest("Game", "addRatio");
             };
             var btn2Func = function btn2Func() {
-                // self.playerme_.showHint(config.hintType.doubleNo);
                 self.playerme_.showHint(config.hintType.waitingDouble);
                 cc.vv.audioMgr.playCardsEffect(self.playerme_.getGender(), "jiabeiNo");
             };
-            // dialogManager.showOpratDouble(btn1Func,btn2Func);
             var args = {};
             args.arg1 = btn1Func;
             args.arg2 = btn2Func;
@@ -1853,13 +1841,18 @@ cc.Class({
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
         var noteCards = response.data.noteCards;
         PlayerDetailModel.setJpqData(noteCards);
+        var curCardType = response["data"]["cardType"];
+
+        var jokto = [];
+        if (config.joker != "") {
+            jokto = response.data.jokto;
+        }
 
         var gender = 1;
-
         if (seatNum == 1) {
             //自己
             self.playerme_.setCurrentCards(response["data"]["sendCards"]);
-            self.mySendCards(response["data"]["sendCards"]);
+            self.mySendCards(response["data"]["sendCards"], jokto);
             var outCardsNum = response["data"]["sendCards"].length;
             var cardNum = self.playerme_.getCardCount();
             if (cardNum >= outCardsNum) self.playerme_.setCardCount(cardNum - outCardsNum);
@@ -1872,7 +1865,7 @@ cc.Class({
         } else if (seatNum == 0) {
             //右边
             self.right_player.setCurrentCards(response["data"]["sendCards"]);
-            self.rightSendCards(response["data"]["sendCards"], null, self.right_player.getOpenHandCards());
+            self.rightSendCards(response["data"]["sendCards"], null, self.right_player.getOpenHandCards(), jokto);
             var outCardsNum = response["data"]["sendCards"].length;
             var cardNum = self.right_player.getCardCount();
             if (cardNum >= outCardsNum) self.right_player.setCardCount(cardNum - outCardsNum);
@@ -1881,7 +1874,7 @@ cc.Class({
         } else if (seatNum == 2) {
             //左边
             self.left_player.setCurrentCards(response["data"]["sendCards"]);
-            self.leftSendCards(response["data"]["sendCards"], null, self.left_player.getOpenHandCards());
+            self.leftSendCards(response["data"]["sendCards"], null, self.left_player.getOpenHandCards(), jokto);
             var outCardsNum = response["data"]["sendCards"].length;
             var cardNum = self.left_player.getCardCount();
             if (cardNum >= outCardsNum) self.left_player.setCardCount(cardNum - outCardsNum);
@@ -1893,63 +1886,42 @@ cc.Class({
 
         var curSendCards = response["data"]["sendCards"]; //当前出牌
         var curSeatId = seatId; //当前玩家出牌id
-        console.log(response["data"]["sendCards"]);
-        //得到出牌类型
-        var cards = [];
+        // console.log(response["data"]["sendCards"]);
         var isShowCardType = false;
         if (curSendCards && curSendCards.length > 0) {
-            var pokerdata = CardUtil.serverCardsToClient(curSendCards);
-            console.log(pokerdata);
-            for (var i = 0; i < pokerdata.length; i++) {
-                cards.push(pokerdata[i].showTxt);
-            }
-            cards.sort(config.arrayUp);
-            var cardstype = CardUtil.get_topCard_type(cards);
-            if (cardstype.type == config.CardType.StraightThree || cardstype.type == config.CardType.StraightThreePlusSingle || cardstype.type == config.CardType.StraightThreePlusPair) {
+            var cardstype = curCardType;
+            if (cardstype == config.CardType.StraightThree || cardstype == config.CardType.StraightThreePlusSingle || cardstype == config.CardType.StraightThreePlusPair) {
                 //飞机
                 dialogManager.showAnimFeiJi();
-            } else if (cardstype.type == config.CardType.DoubleKing) {
+            } else if (cardstype == config.CardType.DoubleKing) {
                 //火箭
                 dialogManager.showAnimHuoJian();
                 self.animShakeNode();
-            } else if (cardstype.type == config.CardType.Bomb) {
+            } else if (cardstype == config.CardType.Bomb || cardstype == config.CardType.SoftBomb || cardstype == config.CardType.LazarilloBomb) {
                 //炸弹
                 dialogManager.showAnimZhaDan();
                 self.animShakeNode();
-            } else if (cardstype.type == config.CardType.Straight) {
+            } else if (cardstype == config.CardType.Straight) {
                 //顺子
                 isShowCardType = true;
-            } else if (cardstype.type == config.CardType.StraightDouble) {
+            } else if (cardstype == config.CardType.StraightDouble) {
                 //连队
                 isShowCardType = true;
             }
             if (isShowCardType) {
                 if (seatNum == 1) {
                     //自己
-                    self.showMyCardtype(cardstype.type);
+                    self.showMyCardtype(cardstype);
                 } else if (seatNum == 0) {
                     //右边
-                    self.showRightCardtype(cardstype.type);
+                    self.showRightCardtype(cardstype);
                 } else if (seatNum == 2) {
                     //左边
-                    self.showLeftCardtype(cardstype.type);
+                    self.showLeftCardtype(cardstype);
                 }
             }
 
-            // var cards2 = [];
-            // var pokerdata2 = CardUtil.serverCardsToClient(curSendCards);
-            // console.log(pokerdata2);
-            // for(var i =0;i<pokerdata2.length;i++){
-            //     cards2.push(pokerdata2[i].showTxt);
-            // }
-            // cards2.sort(config.arrayUp);
-            // var cardstype2 = CardUtil.get_topCard_type(cards2);
-
-            // if(cardstype.type == cardstype2.type && curSeatId != self.mySeatId){
-            //     cc.vv.audioMgr.playCardsEffect(gender,"dani");
-            // }else{
-            cc.vv.audioMgr.playCardsEffect(gender, cardstype.type, curSendCards);
-            // }
+            cc.vv.audioMgr.playCardsEffect(gender, cardstype, curSendCards);
         }
 
         self.preSendCards = response["data"]["sendCards"]; //上次出牌
@@ -1962,12 +1934,6 @@ cc.Class({
             var _cards = CardUtil.getNodeCards(self.myHandCards);
             if (_cards) self.showJPQ(_cards);
         }
-
-        // self.myHandCards = CardUtil.clientCardsToServer(self.myPokerData);
-        // var _cards = CardUtil.getNodeCards(self.myHandCards);
-        // if(_cards){
-        //     self.showJPQ(_cards);
-        // }
     },
     onPlayerNotSend: function onPlayerNotSend(event) {
         var self = this;
@@ -1979,7 +1945,6 @@ cc.Class({
         var seatNum = config.getPlayerSeatNum(self.mySeatId, seatId);
         if (seatNum == 1) {
             //自己
-            // self.mySendCards(response["data"]["sendCards"]);
             self.playerme_.showHint(config.hintType.dont);
             if (self.myOpratShow) {
                 self.myOpratShow.close();
@@ -1989,14 +1954,12 @@ cc.Class({
             cc.vv.audioMgr.playCardsEffect(gender, "buyao");
         } else if (seatNum == 0) {
             //右边
-            // self.rightSendCards(null,null,false);
             self.right_player.showHint(config.hintType.dont);
             self.right_player.hideClock();
             var gender = self.right_player.getGender();
             cc.vv.audioMgr.playCardsEffect(gender, "buyao");
         } else if (seatNum == 2) {
             //左边
-            // self.leftSendCards(null,null,false);
             self.left_player.showHint(config.hintType.dont);
             self.left_player.hideClock();
             var gender = self.left_player.getGender();
@@ -2122,6 +2085,7 @@ cc.Class({
         config.stopOnMassage = false;
         var self = this;
         var response = event.getUserData();
+        console.log(response);
 
         if (response.data.act == "WAIT_TOTAL_DONE" && self.gameState < config.gameState.ST_GAME_BALANCE) {
             //牌局结束等待下一轮
@@ -2135,8 +2099,10 @@ cc.Class({
         if (response.data.act == "WAIT_TOTAL_DONE") {
             return;
         }
-
         self.clearTable();
+
+        config.joker = response.data.joker;
+        var jokto = response.data.lastJokto;
 
         var players = {};
         players.lastCall = response.data.lastCall;
@@ -2154,7 +2120,7 @@ cc.Class({
         }
 
         // 任务
-        self.node_taskbg.enabled = true;
+        // self.node_taskbg.enabled = true;
         var table_task = players.task.name;
         if (players.task.coins && players.task.coins != "0") {
             table_task = table_task + " 奖" + players.task.coins + "乐豆";
@@ -2166,6 +2132,7 @@ cc.Class({
             table_task = table_task + " 奖" + players.task.coupon + "乐劵";
         }
         if (table_task) {
+            self.node_taskbg.enabled = true;
             self.node_taskName.string = table_task;
             var w = self.node_taskName.node.width;
             self.node_taskbg.node.width = w + 70;
@@ -2248,8 +2215,8 @@ cc.Class({
         self.mySeatId = response.data.mySeatId;
         if (players.lordId != 4) {
             self.loadSeatId = players.lordId;
+            self.setLazarillo_poker(config.joker);
             self.setTable3Card(response.data.lordCard);
-
             var times = response["data"]["lordBouns"];
             self.setNodeRate(times);
         }
@@ -2376,15 +2343,15 @@ cc.Class({
         if (preSeatNum == 1) {
             //自己
             self.playerme_.setCurrentCards(self.preSendCards);
-            self.mySendCards(self.preSendCards);
+            self.mySendCards(self.preSendCards, jokto);
         } else if (preSeatNum == 0) {
             //右边
             self.right_player.setCurrentCards(self.preSendCards);
-            self.rightSendCards(self.preSendCards, null, self.right_player.getOpenHandCards());
+            self.rightSendCards(self.preSendCards, null, self.right_player.getOpenHandCards(), jokto);
         } else if (preSeatNum == 2) {
             //左边
             self.left_player.setCurrentCards(self.preSendCards);
-            self.leftSendCards(self.preSendCards, null, self.left_player.getOpenHandCards());
+            self.leftSendCards(self.preSendCards, null, self.left_player.getOpenHandCards(), jokto);
         }
     },
     onPokerTask: function onPokerTask(event) {
@@ -2576,6 +2543,32 @@ cc.Class({
             cc.director.getScene().addChild(newNode, 9999);
             newNode.getComponent(require("expressionControl")).show(args);
         });
+    },
+    onSendLzCard: function onSendLzCard(event) {
+        console.log("发送癞子牌------");
+        var self = this;
+        var response = event.getUserData();
+        var joker = response.data.joker;
+        config.joker = joker;
+        this.setLazarillo_poker(joker);
+        this.clearTable3Card();
+        this.setTable3Card(this.table3Cards);
+
+        if (response.data.myCard) {
+            //插3张牌
+            if (self.myPokerNode.length > 0) {
+                //先清理桌上的牌
+                for (var i = 0; i < self.myPokerNode.length; i++) {
+                    self.myPokerNode[i].getComponent(PokerControl).node.removeFromParent();
+                }
+                self.myPokerNode = [];
+            }
+            self.myPokerData = [];
+
+            self.myPokerData = CardUtil.serverCardsToClient(response.data.myCard);
+            self.myPokerNode = self.playerme_.initMyCards(self.myPokerData, self.myPokerNode, self.scene, self.sceneWidth);
+            self.myHandCards = response.data.myCard;
+        }
     },
 
     ////////////

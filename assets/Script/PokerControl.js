@@ -47,7 +47,7 @@ cc.Class({
         isTopped:false,//是否被提起
     },
     //展示poker
-    showPoker : function(showData){
+    showPoker(showData){
         var self = this;
         self.cardData = showData;
         var showType = showData.showType;
@@ -65,8 +65,6 @@ cc.Class({
         }
         
         // console.log(""+showData.showTxt+":"+self.cardValue);
-
-        
         // self.pokerType2.enabled = true;
         // self.pokerNum.enabled = true;
         
@@ -74,6 +72,8 @@ cc.Class({
         self.pokerLight.enabled = false;
         self.pokerShow.enabled = false;
         self.pokerType.enabled = true;
+        self.pokerType2.enabled = true;
+
         var imgUrl = "cards/heitao";
         if(showType == config.pokerCardType.spade){
             imgUrl = "cards/heitao";
@@ -101,6 +101,12 @@ cc.Class({
             cc.loader.loadRes("cards/joker_black",cc.SpriteFrame,function(err,spriteFrame){
                 self.pokerBg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             })
+        }
+        var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+        if(self.cardValue == jokerValue){
+            imgUrl = "cards/laizi";
+            self.pokerNum.node.color = new cc.Color(221, 109, 30);
+            // console.log("numUrl:"+numUrl);
         }
         cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
             self.pokerType.getComponent(cc.Sprite).spriteFrame = spriteFrame;
@@ -161,5 +167,27 @@ cc.Class({
     setScale(scale){
         this.node.scaleX = scale;
         this.node.scaleY = scale;
+    },
+    convertLazarillo(cardValue){
+        var self = this;
+
+        self.pokerDiZhu.enabled = false;
+        self.pokerLight.enabled = false;
+        self.pokerShow.enabled = false;
+        self.pokerType.enabled = true;
+        self.pokerType2.enabled = true;
+
+        var numUrl = "cards/poke_" + cardValue;
+        cc.loader.loadRes(numUrl,cc.SpriteFrame,function(err,spriteFrame){
+            self.pokerNum.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            // console.log("convertLazarillo:"+numUrl);
+        });
+
+        var imgUrl = "cards/laizi";
+        self.pokerNum.node.color = new cc.Color(221, 109, 30);
+        cc.loader.loadRes(imgUrl,cc.SpriteFrame,function(err,spriteFrame){
+            self.pokerType.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            self.pokerType2.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
     }
 });

@@ -72,24 +72,9 @@ cc.Class({
     },
     setBGMVolume: function setBGMVolume(v) {
         console.log("-------------- setBGMVolume :" + v);
-        // if(this.bgmAudioID >= 0){
-        //     if(v > 0){
-        //         // cc.audioEngine.resume(this.bgmAudioID);
-        //         this.playBGM(this.bgmUrl);
-        //     }
-        //     else{
-        //         // cc.audioEngine.pause(this.bgmAudioID);
-        //         cc.audioEngine.stopAll();
-        //     }
-        //     // cc.audioEngine.setVolume(this.bgmAudioID,this.bgmVolume);
-        // }
-
-
         if (this.bgmVolume != v) {
             cc.sys.localStorage.setItem("bgmVolume", v);
             this.bgmVolume = v;
-            // if(this.bgmVolume == 1)
-            //     cc.audioEngine.setVolume(this.bgmAudioID,v);
         }
 
         if (this.bgmUrl != "" && this.bgmVolume == 1) {
@@ -186,12 +171,12 @@ cc.Class({
                 this.playSFX("Man_" + str);
                 this.playSFX("Special_give");
             } else if (cardtype == AppConfig.CardType.Pair) {
-                var value = cards[0];
+                var value = cards[1];
                 var str = this.getCardValue(value);
                 this.playSFX("Man_dui" + str);
                 this.playSFX("Special_give");
             } else if (cardtype == AppConfig.CardType.ThreeOfKind) {
-                var value = cards[0];
+                var value = cards[2];
                 var str = this.getCardValue(value);
                 this.playSFX("Man_tuple" + str);
                 this.playSFX("Special_give");
@@ -222,7 +207,7 @@ cc.Class({
             } else if (cardtype == AppConfig.CardType.FourPlusTwo) {
                 this.playSFX("Man_sidailiangdui");
                 this.playSFX("Special_give");
-            } else if (cardtype == AppConfig.CardType.Bomb) {
+            } else if (cardtype == AppConfig.CardType.Bomb || cardtype == AppConfig.CardType.SoftBomb || cardtype == AppConfig.CardType.LazarilloBomb) {
                 this.playSFX("Man_zhadan");
                 this.playSFX("Special_Bomb");
                 this.playBGM("MusicEx_Exciting");
@@ -264,12 +249,12 @@ cc.Class({
                 this.playSFX("Woman_" + str);
                 this.playSFX("Special_give");
             } else if (cardtype == AppConfig.CardType.Pair) {
-                var value = cards[0];
+                var value = cards[1];
                 var str = this.getCardValue(value);
                 this.playSFX("Woman_dui" + str);
                 this.playSFX("Special_give");
             } else if (cardtype == AppConfig.CardType.ThreeOfKind) {
-                var value = cards[0];
+                var value = cards[2];
                 var str = this.getCardValue(value);
                 this.playSFX("Woman_tuple" + str);
                 this.playSFX("Special_give");
@@ -300,7 +285,7 @@ cc.Class({
             } else if (cardtype == AppConfig.CardType.FourPlusTwo) {
                 this.playSFX("Woman_sidailiangdui");
                 this.playSFX("Special_give");
-            } else if (cardtype == AppConfig.CardType.Bomb) {
+            } else if (cardtype == AppConfig.CardType.Bomb || cardtype == AppConfig.CardType.SoftBomb || cardtype == AppConfig.CardType.LazarilloBomb) {
                 this.playSFX("Woman_zhadan");
                 this.playSFX("Special_Bomb");
                 this.playBGM("MusicEx_Exciting");

@@ -5581,7 +5581,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "p_roomA",
+    "_name": "p_roomName",
     "_objFlags": 0,
     "_parent": {
       "__id__": 108
@@ -5841,7 +5841,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "p_roomA_num_1",
+    "_name": "p_roomA_num",
     "_objFlags": 0,
     "_parent": {
       "__id__": 147
@@ -6223,7 +6223,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "p_roomA_num_2",
+    "_name": "p_roomA_num",
     "_objFlags": 0,
     "_parent": {
       "__id__": 157
@@ -6605,7 +6605,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "p_roomA_num_3",
+    "_name": "p_roomA_num",
     "_objFlags": 0,
     "_parent": {
       "__id__": 167
@@ -6987,7 +6987,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "p_roomA_num_4",
+    "_name": "p_roomA_num",
     "_objFlags": 0,
     "_parent": {
       "__id__": 177

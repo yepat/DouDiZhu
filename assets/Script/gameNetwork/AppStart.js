@@ -86,7 +86,7 @@ cc.Class({
                     var params = {};
                     params.game_id = 1034;
                     params.version = "1.0.0";
-                    params.code = ress.code;
+                    params.code = ress.code;//game_id=1034
                     var sign = "code=" + ress.code + "&" + "game_id=" + "1034" + "&" + "version="+ "1.0.0"
                     console.log("sign:"+sign);
                     var _sign = self.getSign(sign);
@@ -101,6 +101,7 @@ cc.Class({
                             complete = true;
                             console.log("connectSdkServer = " + JSON.stringify(ret));
                             self.sdkuid = ret.data.user_id;
+                            console.log("------------sdkuid:"+self.sdkuid);
                             self.getServerInfo();
                         },_url);
                         setTimeout(fn,5000);            
@@ -231,6 +232,7 @@ cc.Class({
         var self = this;
         console.log("Regist---");
         var data = event.getUserData();
+        console.log(data)
         config.temppassword = data.data.data.password;
         self.sendLogin();
     },
@@ -266,15 +268,22 @@ cc.Class({
             return;
         }
         var self = this;
-        var code = self.sdkuid+config.OpenUDIDEncryptToken;
-        var _d = MD5.hex_md5(code);
+        var username = "3rdplt_" + self.sdkuid;
+        var password = username + config.OpenUDIDEncryptToken + "suffix";
+        password = MD5.hex_md5(password);
+        var encodedUsername = username + config.OpenUDIDEncryptToken;
+        encodedUsername = MD5.hex_md5(encodedUsername);
+        var encodedUDID = self.sdkuid + config.OpenUDIDEncryptToken
+        encodedUDID = MD5.hex_md5(encodedUDID);
+
         var params = {};
         params.t = Protocol.Request.Login.Regist;
-        params.d = _d;
-        params.u = "50ee8041a7fd8baa6348252ea114432bb3be23bd";
-        params.v = "2.0.0";
+        params.d = encodedUsername;
+        params.a = username;
+        params.p = password;
+        params.v = config.VERSION_NAME;
         params.c = "weichatgame";
-        params.e = "defaults";
+        params.e = encodedUDID;
         params.type = "third";
         params.sdkid = self.sdkuid;
         cc.vv.net.send("Regist",Protocol.Command.Login,params);  

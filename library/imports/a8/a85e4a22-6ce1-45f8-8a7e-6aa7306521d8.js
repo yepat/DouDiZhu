@@ -12,26 +12,10 @@ var PopCardUtil = {};
 //牌直转换（文本转数值）
 PopCardUtil.StringToNumber = function (str) {
     var num = 0;
-    if (str == "J") {
-        num = 11;
-    } else if (str == "Q") {
-        num = 12;
-    } else if (str == "K") {
-        num = 13;
-    } else if (str == "A") {
-        num = 14;
-    } else if (str == "2") {
-        num = 15;
-    } else if (str == "g") {
-        num = 16;
-    } else if (str == "G") {
-        num = 17;
+    if (typeof str == "string") {
+        num = parseInt(str);
     } else {
-        if (typeof str == "string") {
-            num = parseInt(str);
-        } else {
-            num = str;
-        }
+        num = str;
     }
     return num;
 };
@@ -75,6 +59,7 @@ PopCardUtil.getSameCards = function (cards) {
             }
         }
     }
+    // console.log(sameValues);
     return sameValues;
 };
 

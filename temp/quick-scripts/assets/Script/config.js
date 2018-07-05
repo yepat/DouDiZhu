@@ -29,10 +29,12 @@ config.tableInfo = null; //桌子信息
 
 config.curRoomModelId = 0; //房间模式
 //房间模式
-config.ModelId = { normal: 0, contest: 3, lazarillo: 2
+config.ModelId = { normal: 0, contest: 3, lazarillo: 2 };
 
-    //叫地主时间
-};config.CallLordTimeout = 15;
+config.joker = ""; //赖子牌
+
+//叫地主时间
+config.CallLordTimeout = 15;
 //抢地主超时时间
 config.GrabLordTimeout = 15;
 //出牌倒计时时间
@@ -69,6 +71,7 @@ config.pokerCardType = {
 config.ghostCardType = {
     smallG: 5, //小王
     bigG: 6 //大王
+    // lazarillo : 7,//赖子牌
 
 
     //数组降序排列
@@ -198,9 +201,9 @@ config.tableName = {
     1002: "中级场 底分200",
     1003: "高级场 底分500",
 
-    1007: "新手场 底分40",
-    1008: "初级场 底分150",
-    1009: "中级场 底分400"
+    1007: "新手场 底分10",
+    1008: "初级场 底分40",
+    1009: "中级场 底分150"
 };
 
 config.chatContent = ["", "大家好,很高兴见到各位", "快点啊,等到花儿都谢了", "你的牌打的也太好了", "不要吵了不要吵了，专心玩游戏吧", "怎么又断线,网络怎么这么差啊", "不好意思,我要离开一会", "再见了,我会想念大家的"];

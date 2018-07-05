@@ -415,7 +415,7 @@ var Player = cc.Class({
 
             if (!seatNumber) {
                 //new
-                console.log("test 自己-----");
+                // console.log("test 自己-----");
                 cardNode.setPosition(sceneWidth / 2, config.seatPos.center.positionY);
             }
 
@@ -487,12 +487,10 @@ var Player = cc.Class({
         var moveCard = function moveCard() {
             if (j < 8) {
                 for (var i = 0; i < 8 - j; i++) {
-                    // console.log("i="+i);
                     var move = cc.moveBy(0.22, -disBetween, 0);
                     if (pokerNode[i]) pokerNode[i].runAction(move);
                 }
                 for (var k = j + 9; k < pokerNum; k++) {
-                    // console.log("k="+k);
                     var move = cc.moveBy(0.22, disBetween, 0);
                     if (pokerNode[k]) pokerNode[k].runAction(move);
                 }
@@ -547,17 +545,6 @@ var Player = cc.Class({
             dispatchCard = [];
         }
         var index = 0;
-        // for(var i = PokerData.length - 1; i > -1;i--){
-        //     var cardValue = CardUtil.StringToNumber(PokerData[i].showTxt);
-        //     if(index<cards.length&&cards[index]==cardValue){ 
-        //         console.log("cards:"+cards[index]);
-        //         var isChoosedPoker = PokerNode[i];
-        //         dispatchCard.unshift(isChoosedPoker);
-        //         PokerData.splice(i,1);
-        //         PokerNode.splice(i,1);
-        //         index++;
-        //     }
-        // }
         for (var i = PokerData.length - 1; i > -1; i--) {
             //这里要添加花色判断
             var cardValue = CardUtil.StringToNumber(PokerData[i].showTxt);
@@ -576,7 +563,7 @@ var Player = cc.Class({
     },
 
     //出牌
-    playCard: function playCard(pokerNode) {
+    playCard: function playCard(pokerNode, jokto) {
         if (pokerNode.length < 1) {
             return;
         }
@@ -604,13 +591,34 @@ var Player = cc.Class({
         //     }
         // },200);
 
-
+        var joktoIndex = 0;
         var curSendCards = this.getCurrentCards();
         for (var i = 0; i < pokerNode.length; i++) {
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.setPokerBg();
             var pokerData = CardUtil.convertCardToClient(curSendCards[i]);
-            poker.showPoker(pokerData);
+            // poker.showPoker(pokerData);
+            if (config.joker != "") {
+                //赖子牌值转换
+                if (jokto && jokto.length > 0) {
+                    var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+                    if (jokto[joktoIndex] && pokerData.showTxt == jokerValue) {
+                        var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
+                        // console.log(joktoValue);
+                        poker.convertLazarillo(joktoValue);
+                        joktoIndex++;
+                    } else {
+                        // console.log(pokerData);
+                        poker.showPoker(pokerData);
+                    }
+                } else {
+                    console.log(pokerData);
+                    poker.showPoker(pokerData);
+                }
+            } else {
+                // console.log(PokerData[i]);
+                poker.showPoker(pokerData);
+            }
         }
 
         //最后一张牌设置为地主牌 
@@ -660,17 +668,13 @@ var Player = cc.Class({
     },
 
     //左边出牌
-    playCardLeft: function playCardLeft(pokerNode, startX, startY) {
+    playCardLeft: function playCardLeft(pokerNode, startX, startY, jokto) {
         if (pokerNode.length < 1) {
             return;
         }
         var cardScale = 0.5; //0.38
         var disBetween = 37; //27
-        // var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
-        // var sceneWidth = cc.director.getWinSize().width;
-
         startX = startX + 64;
-
         //设置出去的牌的大小
         for (var i = 0; i < pokerNode.length; i++) {
             pokerNode[i].scale = cardScale;
@@ -679,13 +683,35 @@ var Player = cc.Class({
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.node.runAction(cc.moveTo(0.1, posX, startY));
         }
-
+        var joktoIndex = 0;
         var curSendCards = this.getCurrentCards();
         for (var i = 0; i < pokerNode.length; i++) {
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.setPokerBg();
             var pokerData = CardUtil.convertCardToClient(curSendCards[i]);
-            poker.showPoker(pokerData);
+            // poker.showPoker(pokerData);
+
+            if (config.joker != "") {
+                //赖子牌值转换
+                if (jokto && jokto.length > 0) {
+                    var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+                    if (jokto[joktoIndex] && pokerData.showTxt == jokerValue) {
+                        var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
+                        console.log(joktoValue);
+                        poker.convertLazarillo(joktoValue);
+                        joktoIndex++;
+                    } else {
+                        console.log(pokerData);
+                        poker.showPoker(pokerData);
+                    }
+                } else {
+                    console.log(pokerData);
+                    poker.showPoker(pokerData);
+                }
+            } else {
+                // console.log(PokerData[i]);
+                poker.showPoker(pokerData);
+            }
         }
 
         //最后一张牌设置为地主牌 
@@ -733,13 +759,12 @@ var Player = cc.Class({
             }
         }
     },
-    playCardRight: function playCardRight(pokerNode, startX, startY) {
+    playCardRight: function playCardRight(pokerNode, startX, startY, jokto) {
         if (pokerNode.length < 1) {
             return;
         }
         var cardScale = 0.5; //0.38
         var disBetween = 37; //27
-        // var showCardWidth = (pokerNode.length - 1) * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale;
         var sceneWidth = cc.director.getWinSize().width;
         startX = sceneWidth / 2 + 590 - disBetween * pokerNode.length - 64;
 
@@ -751,12 +776,34 @@ var Player = cc.Class({
             poker.node.runAction(cc.moveTo(0.2, posX, startY));
         }
 
+        var joktoIndex = 0;
         var curSendCards = this.getCurrentCards();
         for (var i = 0; i < pokerNode.length; i++) {
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.setPokerBg();
             var pokerData = CardUtil.convertCardToClient(curSendCards[i]);
-            poker.showPoker(pokerData);
+            // poker.showPoker(pokerData);
+            if (config.joker != "") {
+                //赖子牌值转换
+                if (jokto && jokto.length > 0) {
+                    var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+                    if (jokto[joktoIndex] && pokerData.showTxt == jokerValue) {
+                        var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
+                        // console.log(joktoValue);
+                        poker.convertLazarillo(joktoValue);
+                        joktoIndex++;
+                    } else {
+                        // console.log(pokerData);
+                        poker.showPoker(pokerData);
+                    }
+                } else {
+                    console.log(pokerData);
+                    poker.showPoker(pokerData);
+                }
+            } else {
+                // console.log(PokerData[i]);
+                poker.showPoker(pokerData);
+            }
         }
 
         //最后一张牌设置为地主牌 
@@ -769,7 +816,7 @@ var Player = cc.Class({
     },
 
     //其他玩家没有明牌 暗牌出牌 seatNumber//0右边 1下边 2左边
-    darkCardSend: function darkCardSend(dispatchCard, cardData, parentNode, seatNumber, sceneWidth) {
+    darkCardSend: function darkCardSend(dispatchCard, cardData, parentNode, seatNumber, sceneWidth, jokto) {
 
         if (dispatchCard.length > 0) {
             //先清理桌上的牌
@@ -778,13 +825,10 @@ var Player = cc.Class({
             }
             dispatchCard = [];
         }
-
-        // cardData.sort(CardUtil.gradeDown);
-
-        console.log(cardData);
+        // console.log(cardData);
+        // console.log(jokto);
 
         var PokerData = cardData;
-
         for (var i = 0; i < PokerData.length; i++) {
             var cardNode = cc.instantiate(this.pokerCard);
             cardNode.parent = parentNode;

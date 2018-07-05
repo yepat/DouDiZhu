@@ -49,6 +49,8 @@ var GameNet = cc.Class({
         },
         send: function send(event, cmd, params) {
             console.log("send:" + event);
+            console.log(params);
+
             params.cmd = cmd;
             var info = JSON.stringify(params);
             // console.log(params);
@@ -247,11 +249,12 @@ var GameNet = cc.Class({
                     //广播表情包
                     console.log("广播表情包");
                     EventHelper.DispatchCustomEvent(config.MyNode, "EmoticonData", data);
+                } else if (data.code == Protocol.Response.Game.SendLzCard) {
+                    //发送癞子牌
+                    console.log("发送癞子牌");
+                    EventHelper.DispatchCustomEvent(config.MyNode, "SendLzCard", data);
                 }
             }
-
-            //系统
-
         },
         handleLoginRoomResult: function handleLoginRoomResult(response, code) {
             var succ = true;

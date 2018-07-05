@@ -1,6 +1,6 @@
 {
   "androidStudio": true,
-  "apiLevel": "",
+  "apiLevel": "android-10",
   "appABIs": [],
   "buildPath": "./build",
   "debug": false,
