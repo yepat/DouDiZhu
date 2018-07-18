@@ -1,0 +1,10 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "huodedaoju_tex",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_atlasJson": "{\"width\":1024,\"height\":512,\"name\":\"huodedaoju\",\"imagePath\":\"huodedaoju_tex.png\",\"SubTexture\":[{\"width\":167,\"y\":247,\"height\":167,\"name\":\"diguang\",\"x\":499},{\"width\":232,\"y\":247,\"height\":232,\"name\":\"light_getcoin4\",\"x\":265},{\"width\":262,\"y\":247,\"height\":262,\"name\":\"light_getcoin2\",\"x\":1},{\"width\":268,\"y\":1,\"height\":268,\"name\":\"light_getcoin\",\"x\":727},{\"width\":724,\"y\":1,\"height\":244,\"name\":\"gongxihuode\",\"x\":1}]}",
+  "texture": {
+    "__uuid__": "198164e7-e073-4e87-b75e-32cedf3e6fde"
+  }
+}

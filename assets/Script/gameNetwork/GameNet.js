@@ -14,14 +14,17 @@ var GameNet = cc.Class({
         isPinging:false,
         fnDisconnect:null,
         handlers:{},
-        addHandler:function(event,fn){
-            
+        addHandler:function(event,fn){ 
         },
         connect:function(ip,port,callback){
             var self = this;
             self.callback = callback;
             this.ip = ip + ":" + port;
             this.sio = new WebSocket("wss://"+this.ip);
+            //xx_test
+            // this.ip = "180.150.178.112:9300";
+            // this.sio = new WebSocket("ws://"+this.ip);
+
             this.sio.binaryType = "arraybuffer";
             this.sio.onopen = function(evt) { 
                 console.log("Connection open ");
@@ -46,8 +49,9 @@ var GameNet = cc.Class({
             }; 
         },
         send:function(event,cmd,params){
-            console.log("send:"+event);
-            console.log(params);
+            if(event !="HeartBeat")
+                console.log("<- send:"+event);
+            // console.log(params);
             
             params.cmd = cmd;
             var info = JSON.stringify(params);
@@ -67,7 +71,7 @@ var GameNet = cc.Class({
             // console.log(data);
             cmd = data.cmd;
             if(cmd != 0){
-                console.log("cmd:"+cmd+" code:"+data.code);
+                console.log("-> cmd:"+cmd+" code:"+data.code);
             }
             
             if(cmd == Protocol.Command.Game){
@@ -141,8 +145,12 @@ var GameNet = cc.Class({
                     //分享领取结果
                     console.log("分享领取结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"ShareGetResult",data);
+                }else if(data.code == Protocol.Response.System.ShareWxResResult){
+                    //微信分享成功发送结果
+                    console.log("微信分享成功发送结果");
+                    console.log(data);
+                    EventHelper.DispatchCustomEvent(config.MyNode,"ShareWxResResult",data);
                 }
-                
             }
 
             if(cmd == Protocol.Command.Game){
@@ -253,6 +261,10 @@ var GameNet = cc.Class({
                     //发送癞子牌
                     console.log("发送癞子牌");
                     EventHelper.DispatchCustomEvent(config.MyNode,"SendLzCard",data);
+                }else if(data.code == Protocol.Response.Game.InvalidCardType){
+                    //出牌有非法数据 [非法出牌] InvalidCardType : 1020,     //出牌有非法数据 [非法出牌]
+                    console.log("出牌有非法数据 [非法出牌]");
+                    EventHelper.DispatchCustomEvent(config.MyNode,"InvalidCardType",data);
                 }
             }
         },
@@ -292,8 +304,7 @@ var GameNet = cc.Class({
             params.msg = msg;
             params.newRoomId = newRoomId;
 
-            console.log(">>>>>>>>>>Events.Network.LoginRoomResult");
-
+            // console.log(">>>>>>>>>>Events.Network.LoginRoomResult");
             EventHelper.DispatchCustomEvent(config.MyNode,Events.Network.LoginRoomResult,params);
         }
     },

@@ -13,6 +13,10 @@ cc.Class({
         node_ske: {
             default: null,
             type: cc.Node
+        },
+        node_pic: {
+            default: null,
+            type: cc.Sprite
         }
     },
     onLoad: function onLoad() {
@@ -23,7 +27,14 @@ cc.Class({
         this.node.width = width;
         this.node.height = height;
     },
-    start: function start() {},
+    start: function start() {
+        // var args = {
+        //     beginPos:cc.p(0,0),
+        //     endpos:cc.p(300,300),
+        //     audioUrl:""
+        // }
+        // this.show(args);
+    },
     show: function show(args) {
         if (!args) return;
 
@@ -31,9 +42,13 @@ cc.Class({
         var endpos = args.endpos;
         var audioUrl = args.audioUrl;
 
-        this.node_ske.setPosition(beginPos);
+        this.node_pic.node.setPosition(beginPos);
+        this.node_ske.setPosition(cc.p(endpos.x, endpos.y - 50));
+        this.node_ske.active = false;
         var self = this;
         var callFunc1 = cc.callFunc(function () {
+            self.node_ske.active = true;
+            self.node_pic.enabled = false;
             var dragonDisplay = self.node_ske.getComponent(dragonBones.ArmatureDisplay);
             if (dragonDisplay) {
                 dragonDisplay.playAnimation('newAnimation');
@@ -46,7 +61,7 @@ cc.Class({
 
         var move = cc.moveTo(0.2, cc.p(endpos.x, endpos.y - 50));
         var delay = cc.delayTime(2);
-        this.node_ske.runAction(cc.sequence(move, callFunc1, delay, callFunc2));
+        this.node_pic.node.runAction(cc.sequence(move, callFunc1, delay, callFunc2));
     },
     close: function close() {
         this.node.destroy();

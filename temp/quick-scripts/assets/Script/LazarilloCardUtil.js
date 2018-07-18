@@ -4,11 +4,68 @@ cc._RF.push(module, 'cfc00zTG3FGgL4E2ZZPOFFW', 'LazarilloCardUtil', __filename);
 
 "use strict";
 
-var AppConfig = require("config");
+var config = require("config");
 var PopCardUtil = require("PopCardUtil");
 var CardUtil = require("CardUtil");
+var helper = require("helper");
 
 var LazarilloCardUtil = {};
+
+//获取大于上家的赖子牌组合
+LazarilloCardUtil.get_big_tips_cards = function (cardlist, preCardType) {
+    var return_cards = [];
+
+    // var testType = {
+    //     rank:1,
+    //     repeatCount:1,
+    //     type:88
+    // }
+    // preCardType = testType;
+
+    console.log("------获取大于上家的赖子牌组合");
+    console.log("cardlist", cardlist);
+    console.log("preCardType", preCardType);
+    var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+
+    var newCardlist = [];
+    for (var i = 0; i < cardlist.length; i++) {
+        var cards = cardlist[i][0];
+        var jokto = cardlist[i][1];
+        console.log(">>>cards", cards);
+        console.log(">>>jokto", jokto);
+        var joktoIndex = 0;
+        var tempcards = [];
+        for (var j = 0; j < cards.length; j++) {
+            var str2 = cards[j].substring(1);
+            var cardvalue = CardUtil.serverCardValueToClient(str2);
+            if (jokto[joktoIndex] && cardvalue == jokerValue) {
+                var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
+                tempcards.push(joktoValue);
+                joktoIndex++;
+            } else {
+                tempcards.push(cardvalue);
+            }
+        }
+        tempcards.sort(config.arrayUp);
+        console.log(">>>>tempcards", tempcards);
+        var cardstype = CardUtil.get_topCard_type(tempcards);
+        var item = {
+            cardlist: cardlist[i],
+            cardstype: cardstype
+        };
+        newCardlist.push(item);
+    }
+
+    console.log(">>>newCardlist", newCardlist);
+    for (var i = 0; i < newCardlist.length; i++) {
+        var cardsType = newCardlist[i].cardstype;
+        if (cardsType.type == preCardType.type && cardsType.rank > preCardType.rank || cardsType.type == 88) {
+            return_cards.push(newCardlist[i].cardlist);
+        }
+    }
+    console.log(">>>return_cards", return_cards);
+    return return_cards;
+};
 
 //根据提起的牌获得全部有效牌面(必须有癞子)
 LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
@@ -106,7 +163,7 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机不带
         all_cards = [];
         var len = 2; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThree);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThree);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -135,7 +192,7 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机带单
         all_cards = [];
         var len = 2; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusSingle);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusSingle);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -149,7 +206,7 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机不带
         all_cards = [];
         var len = 3; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThree);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThree);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -169,7 +226,7 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机带对
         all_cards = [];
         var len = 2; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusPair);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusPair);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -189,14 +246,14 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机不带
         all_cards = [];
         var len = 4; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThree);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThree);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
         //飞机带单
         all_cards = [];
         len = 3; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusSingle);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusSingle);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -211,14 +268,14 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机
         //飞机不带
         var len = 5; //飞机长度
-        var all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThree);
+        var all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThree);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
         //飞机带对
         all_cards = [];
         len = 3; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusPair);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusPair);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -232,7 +289,7 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机带单
         all_cards = [];
         var len = 4; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusSingle);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusSingle);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -246,7 +303,7 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机不带
         all_cards = [];
         var len = 6; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThree);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThree);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -260,14 +317,14 @@ LazarilloCardUtil.get_effective_tips_cards = function (cards, lazarillo) {
         //飞机带单
         all_cards = [];
         var len = 5; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusSingle);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusSingle);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
         //飞机带对
         all_cards = [];
         len = 4; //飞机长度
-        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, AppConfig.CardType.StraightThreePlusPair);
+        all_cards = LazarilloCardUtil.get_straight_three_lazarillo_cards(len, tip_cards, lazarillo, lzLen, cards, config.CardType.StraightThreePlusPair);
         for (var k in all_cards) {
             return_cards[return_cards.length] = all_cards[k];
         }
@@ -778,7 +835,7 @@ LazarilloCardUtil.get_straight_three_lazarillo_cards = function (straightLen, ti
     var return_cards = [];
     var tipCards = [];
 
-    var kingCount = LazarilloCardUtil.checkTopCardsHasKing(cards);
+    // var kingCount = LazarilloCardUtil.checkTopCardsHasKing(cards);
 
     for (var i = 0; i < tip_cards.length; i++) {
         tipCards.push(tip_cards[i].showTxt);
@@ -843,9 +900,9 @@ LazarilloCardUtil.get_straight_three_lazarillo_cards = function (straightLen, ti
         }
     }
     //升序
-    tip_cards_val.sort(AppConfig.arrayUp);
+    tip_cards_val.sort(config.arrayUp);
 
-    console.log(tip_cards_val);
+    // console.log(tip_cards_val);
 
     var minCard = 0; //连对最小值
     var maxCard = 0; //连对最大值
@@ -883,22 +940,7 @@ LazarilloCardUtil.get_straight_three_lazarillo_cards = function (straightLen, ti
         }
     }
 
-    // --飞机
-    // for i=3, mapping["ace"] do--3-A
-    //     if i >= minCard - 1 and i <= maxCard then
-    //         if i + (straightLen - 1) <= mapping["ace"] then --要的起的飞机
-    //             local straightThree = {i,i,i}
-    //             for j=1, straightLen-1 do--飞机的牌数
-    //                 for n=1, 3 do
-    //                     straightThree[#straightThree + 1] = i+j
-    //                 end
-    //             end
-    //             all_result[#all_result + 1] = straightThree
-    //         end
-    //     end
-    // end
-
-    console.log(all_result);
+    // console.log(all_result);
 
     var effectiveType = []; //有效牌型
     for (var key in all_result) {
@@ -926,10 +968,10 @@ LazarilloCardUtil.get_straight_three_lazarillo_cards = function (straightLen, ti
         }
     }
 
-    console.log(effectiveType);
+    // console.log(effectiveType);
 
     if (effectiveType.length > 0) {
-        if (tType == AppConfig.CardType.StraightThree) {
+        if (tType == config.CardType.StraightThree) {
             //飞机不带
             for (var k in effectiveType) {
                 //剩下的癞子数
@@ -940,7 +982,7 @@ LazarilloCardUtil.get_straight_three_lazarillo_cards = function (straightLen, ti
                     return_cards.push(item);
                 }
             }
-        } else if (tType == AppConfig.CardType.StraightThreePlusSingle) {
+        } else if (tType == config.CardType.StraightThreePlusSingle) {
             //飞机带单张
             for (var k in effectiveType) {
                 //剩下的癞子数
@@ -979,7 +1021,7 @@ LazarilloCardUtil.get_straight_three_lazarillo_cards = function (straightLen, ti
                     }
                 }
             }
-        } else if (tType == AppConfig.CardType.StraightThreePlusPair) {
+        } else if (tType == config.CardType.StraightThreePlusPair) {
             //飞机带对子
             //提起的牌里不能有王
             if (tip_kings.length == 0) {
@@ -1110,12 +1152,11 @@ LazarilloCardUtil.get_straight_double_lazarillo_cards = function (straightLen, t
                     }
                 }
                 if (haveCard) {
-                    if (n + i == lazarillo) {
-                        //是癞子本身值，不用转化
-                        lz_nochange_count = lz_nochange_count + 1;
-                    } else {
-                        lz_straight_val.push(n + i);
-                    }
+                    // if(n+i == lazarillo){ //是癞子本身值，不用转化
+                    //     lz_nochange_count = lz_nochange_count + 1;
+                    // }else{
+                    lz_straight_val.push(n + i);
+                    // }
                 } else {
                     for (var k in pairSet.cards) {
                         //先判断单张里有值没
@@ -1125,13 +1166,12 @@ LazarilloCardUtil.get_straight_double_lazarillo_cards = function (straightLen, t
                         }
                     }
                     if (!haveCard) {
-                        if (n + i == lazarillo) {
-                            //是癞子本身值，不用转化
-                            lz_nochange_count = lz_nochange_count + 2;
-                        } else {
-                            lz_straight_val.push(n + i);
-                            lz_straight_val.push(n + i);
-                        }
+                        // if(n+i == lazarillo){ //是癞子本身值，不用转化
+                        //     lz_nochange_count = lz_nochange_count + 2
+                        // }else{
+                        lz_straight_val.push(n + i);
+                        lz_straight_val.push(n + i);
+                        // }
                     }
                 }
             }
@@ -1186,12 +1226,11 @@ LazarilloCardUtil.get_straight_lazarillo_cards = function (straightLen, tip_card
                     }
                 }
                 if (!haveCard) {
-                    if (n + i == lazarillo) {
-                        //是癞子本身值，不用转化
-                        lz_nochange_count = lz_nochange_count + 1;
-                    } else {
-                        lz_straight_val.push(n + i);
-                    }
+                    // if(n+i == lazarillo){ //是癞子本身值，不用转化
+                    //     lz_nochange_count = lz_nochange_count + 1;
+                    // }else{
+                    lz_straight_val.push(n + i);
+                    // }
                 }
             }
 
@@ -1205,6 +1244,1083 @@ LazarilloCardUtil.get_straight_lazarillo_cards = function (straightLen, tip_card
     console.log("---赖子组合成顺子的值");
     console.log(return_cards);
     return return_cards;
+};
+
+//--------------------------分割线---------------------------------
+//赖子出牌提示 //CardUtil 等下统一改下****
+// 获取能比上家牌大的全部牌型
+LazarilloCardUtil.get_cards_larger = function (last_cards_type, myCards) {
+    var all_result = [];
+    // console.log("myCards=",myCards);
+    var prop = PopCardUtil.getSameCards(myCards);
+    var lzValue = CardUtil.serverCardValueToClient(config.joker);
+    var lzLen = 0;
+    for (var i = 0; i < myCards.length; i++) {
+        if (myCards[i] == lzValue) {
+            lzLen++;
+        }
+    }
+
+    var cardsType = last_cards_type.type;
+    if (cardsType == config.CardType.Single) {
+        all_result = LazarilloCardUtil.find_single_card(last_cards_type, prop, myCards);
+    } else if (cardsType == config.CardType.Pair) {
+        all_result = LazarilloCardUtil.find_pair_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.ThreeOfKind) {
+        all_result = LazarilloCardUtil.find_three_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.SoftBomb) {
+        //SoftBomb
+        all_result = LazarilloCardUtil.find_SoftBomb_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.Bomb) {
+        all_result = LazarilloCardUtil.find_bomb_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.LazarilloBomb) {
+        //LazarilloBomb
+        all_result = LazarilloCardUtil.find_LazarilloBomb_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.ThreeOfKindPlusOne) {
+        all_result = LazarilloCardUtil.find_three_with_one_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.ThreeOfKindPlusPair) {
+        all_result = LazarilloCardUtil.find_three_with_two_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.FourPlusOne) {
+        all_result = LazarilloCardUtil.find_four_with_two_single_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.FourPlusTwo) {
+        all_result = LazarilloCardUtil.find_four_with_two_pair_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.Straight) {
+        all_result = LazarilloCardUtil.find_straight(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.StraightDouble) {
+        all_result = LazarilloCardUtil.find_pair_straight(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.StraightThree) {
+        all_result = LazarilloCardUtil.find_three_straight(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.StraightThreePlusSingle) {
+        all_result = LazarilloCardUtil.find_three_straight_with_single_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    } else if (cardsType == config.CardType.StraightThreePlusPair) {
+        all_result = LazarilloCardUtil.find_three_straight_with_pair_card(last_cards_type, prop, myCards, lzLen, lzValue);
+    }
+
+    if (cardsType != config.CardType.SoftBomb && cardsType != config.CardType.Bomb && cardsType != config.CardType.LazarilloBomb && cardsType != config.CardType.DoubleKing) {
+        var all_bomb = LazarilloCardUtil.find_allBomb_card(last_cards_type, prop, myCards, lzLen, lzValue);
+        for (var i = 0; i < all_bomb.length; i++) {
+            all_result.push(all_bomb[i]);
+        }
+    }
+
+    return all_result;
+};
+
+//符合条件的单张牌
+LazarilloCardUtil.find_single_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var single = PopCardUtil.getSingle();
+    var rank = parseInt(last_cards_type.rank);
+    if (single.count > 0) {
+        for (var k in single.cards) {
+            var v = single.cards[k];
+            if (rank < v) {
+                all_result.push(v);
+            }
+        }
+    }
+    //没有适合单张 就拆分牌
+    var allcards = []; //所有牌值
+    for (var k in prop) {
+        var v = prop[k];
+        allcards.push(k);
+    }
+    if (all_result.length <= 0) {
+        for (var k in allcards) {
+            var v = parseInt(allcards[k]);
+            if (rank < v && v != lzValue) {
+                all_result.push(v);
+            }
+        }
+    }
+
+    //赖子牌加在最后
+    if (lzLen >= 1 && rank < lzValue) {
+        all_result.push(lzValue);
+    }
+
+    return all_result;
+};
+
+//找合适的对子出牌
+LazarilloCardUtil.find_pair_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var pair = PopCardUtil.getPair();
+    var rank = parseInt(last_cards_type.rank);
+    if (pair.count > 0) {
+        for (var k in pair.cards) {
+            var v = pair.cards[k];
+            if (rank < v[0]) {
+                all_result.push(v);
+            }
+        }
+    }
+    //赖子组合单张
+    if (lzLen > 0) {
+        var single = PopCardUtil.getSingle();
+        if (single.count > 0) {
+            for (var k in single.cards) {
+                var v = single.cards[k];
+                if (rank < v && v <= CardUtil.cardGrade["2"]) {
+                    var item = [lzValue, v];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    //没有适合对子 就拆分牌
+    var allcards = []; //所有牌值
+    if (all_result.length <= 0) {
+        var three = PopCardUtil.getThree();
+        var four = PopCardUtil.getFour();
+        if (three.count > 0) {
+            for (var k in three.cards) {
+                var d = three.cards[k];
+                if (rank < d[0]) {
+                    var temp = d.slice(0, 2);
+                    allcards.push(temp);
+                }
+            }
+        }
+        if (four.count > 0) {
+            for (var k in four.cards) {
+                var d = four.cards[k];
+                if (rank < d[0]) {
+                    var temp = d.slice(0, 2);
+                    allcards.push(temp);
+                }
+            }
+        }
+        return allcards;
+    }
+
+    return all_result;
+};
+
+//寻找合适的三个出牌
+LazarilloCardUtil.find_three_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var single = PopCardUtil.getSingle();
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+    var rank = parseInt(last_cards_type.rank);
+    if (three.count > 0) {
+        for (var k in three.cards) {
+            var v = three.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (rank < v[0]) {
+                all_result.push(v);
+            }
+        }
+        // return all_result;
+    }
+
+    if (lzLen >= 1) {
+        if (pair.count > 0) {
+            for (var k in pair.cards) {
+                var v = pair.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (rank < v[0]) {
+                    var item = [lzValue, v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    if (lzLen >= 2) {
+        if (single.count > 0) {
+            for (var k in single.cards) {
+                var v = single.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (rank < v[0] && v[0] <= CardUtil.cardGrade["2"]) {
+                    var item = [lzValue, lzValue, v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    return all_result;
+};
+
+//所有的炸弹牌
+LazarilloCardUtil.find_allBomb_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var single = PopCardUtil.getSingle();
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+    var four = PopCardUtil.getFour();
+    var rank = parseInt(last_cards_type.rank);
+
+    console.log("赖子场所有的炸弹牌---");
+
+    if (lzLen >= 1) {
+        if (three.count > 0) {
+            for (var k in three.cards) {
+                var v = three.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (v[0] != lzValue) {
+                    var item = [lzValue, v[0], v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+    if (lzLen >= 2) {
+        if (pair.count > 0) {
+            for (var k in pair.cards) {
+                var v = pair.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (v[0] != lzValue) {
+                    var item = [lzValue, lzValue, v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    if (lzLen >= 3) {
+        if (single.count > 0) {
+            for (var k in single.cards) {
+                var v = single.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (v[0] != lzValue && v[0] <= CardUtil.cardGrade["2"]) {
+                    var item = [lzValue, lzValue, lzValue, v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    if (four.count > 0) {
+        for (var k in four.cards) {
+            var v = four.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            // if (rank < v[0]){
+            all_result.push(v);
+            // }else{
+            //     if(v[0] == lzValue){
+            //         all_result.push(v);//纯赖子炸弹
+            //     }
+            // }
+        }
+    }
+    if (prop[16] && prop[17]) {
+        console.log("有王炸");
+        var values = [16, 17];
+        all_result.push(values);
+    }
+
+    console.log("赖子场所有的炸弹牌", all_result);
+    return all_result;
+};
+
+//找合适的软炸弹牌
+LazarilloCardUtil.find_SoftBomb_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var single = PopCardUtil.getSingle();
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+    var four = PopCardUtil.getFour();
+    var rank = parseInt(last_cards_type.rank);
+
+    if (lzLen >= 1) {
+        if (three.count > 0) {
+            for (var k in three.cards) {
+                var v = three.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (rank < v[0] && v[0] != lzValue) {
+                    var item = [lzValue, v[0], v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+    if (lzLen >= 2) {
+        if (pair.count > 0) {
+            for (var k in pair.cards) {
+                var v = pair.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (rank < v[0] && v[0] != lzValue) {
+                    var item = [lzValue, lzValue, v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    if (lzLen >= 3) {
+        if (single.count > 0) {
+            for (var k in single.cards) {
+                var v = single.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (rank < v[0] && v[0] <= CardUtil.cardGrade["2"]) {
+                    var item = [lzValue, lzValue, lzValue, v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    if (four.count > 0) {
+        for (var k in four.cards) {
+            var v = four.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (v[0] != lzValue) {
+                all_result.push(v);
+            } else {
+                if (v[0] == lzValue) {
+                    all_result.push(v); //纯赖子炸弹
+                }
+            }
+        }
+    }
+    if (prop[16] && prop[17]) {
+        console.log("有王炸");
+        var values = [16, 17];
+        all_result.push(values);
+    }
+
+    return all_result;
+};
+
+//找合适的炸弹牌
+LazarilloCardUtil.find_bomb_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var four = PopCardUtil.getFour();
+    var rank = parseInt(last_cards_type.rank);
+    if (four.count > 0) {
+        for (var k in four.cards) {
+            var v = four.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (rank < v[0]) {
+                all_result.push(v);
+            } else {
+                if (v[0] == lzValue) {
+                    all_result.push(v); //纯赖子炸弹
+                }
+            }
+        }
+    }
+
+    if (prop[16] && prop[17]) {
+        console.log("有王炸");
+        var values = [16, 17];
+        all_result.push(values);
+    } else {
+        console.log("没有王炸");
+    }
+    return all_result;
+};
+
+//纯癞子炸弹牌
+LazarilloCardUtil.find_LazarilloBomb_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    if (prop[16] && prop[17]) {
+        console.log("有王炸");
+        var values = [16, 17];
+        all_result.push(values);
+    }
+    return all_result;
+};
+
+//找合适的三带一
+LazarilloCardUtil.find_three_with_one_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+    var rank = parseInt(last_cards_type.rank);
+    if (three.count > 0) {
+        for (var k in three.cards) {
+            var v = three.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (rank < v[0]) {
+                all_result.push(v);
+            }
+        }
+        // return all_result;
+    }
+
+    if (lzLen >= 1) {
+        if (pair.count > 0) {
+            for (var k in pair.cards) {
+                var v = pair.cards[k];
+                console.log("v:" + v[0] + "  k:" + k);
+                if (rank < v[0] && v[0] != lzValue) {
+                    var item = [lzValue, v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    // if(lzLen >= 2){
+    //     if(single.count>0){
+    //         for(var k in single.cards){
+    //             var v = single.cards[k];
+    //             // console.log("v:"+v[0]+"  k:"+k);
+    //             if (rank < v[0]){
+    //                 var item = [lzValue,lzValue,v[0]];
+    //                 all_result.push(item);
+    //             }
+    //         }
+    //     }
+    // }
+
+    var single = PopCardUtil.getSingle();
+    var pair = PopCardUtil.getPair();
+    // var three = PopCardUtil.getThree();
+    var allOne = []; //所有三张的牌值 单张组
+
+    var onecard = 0;
+    if (single.count > 0) {
+        console.log(single.cards);
+        if (single.count >= 1 && single.cards[0][0] != lzValue) {
+            onecard = single.cards[0][0];
+        } else {
+            onecard = single.cards[1][0];
+        }
+        console.log("onecard1:" + onecard);
+    } else if (pair.count > 0) {
+        onecard = parseInt(pair.cards[0][0]);
+        console.log("onecard2:" + onecard);
+    } else {
+        //拆分3张
+        for (var k in three.cards) {
+            var v = three.cards[k];
+            allOne.push(v[0]);
+        }
+    }
+
+    for (var k in all_result) {
+        var v = all_result[k];
+        console.log("v:" + v + "  k:" + k + " allone:" + allOne[k]);
+
+        if (onecard == 0) {
+            if (k < allOne.length - 1) {
+                if (v[0] != allOne[k]) {
+                    onecard = allOne[k];
+                } else {
+                    var n = parseInt(k) + 1;
+                    onecard = allOne[n];
+                }
+            } else {
+                onecard = allOne[0];
+            }
+        }
+        v[v.length] = onecard; //onecard
+        v.sort(config.arrayUp);
+    }
+
+    console.log("找合适的三带一");
+    console.log("all_result:", all_result);
+
+    return all_result;
+};
+
+//三带一对
+LazarilloCardUtil.find_three_with_two_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+    var rank = parseInt(last_cards_type.rank);
+    if (three.count > 0) {
+        for (var k in three.cards) {
+            var v = three.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (rank < v[0]) {
+                all_result.push(v);
+            }
+        }
+        // return all_result;
+    }
+
+    if (lzLen >= 1) {
+        if (pair.count > 0) {
+            for (var k in pair.cards) {
+                var v = pair.cards[k];
+                // console.log("v:"+v[0]+"  k:"+k);
+                if (rank < v[0] && v[0] != lzValue) {
+                    var item = [lzValue, v[0], v[0]];
+                    all_result.push(item);
+                }
+            }
+        }
+    }
+
+    // if(lzLen >= 2){
+    //     if(single.count>0){
+    //         for(var k in single.cards){
+    //             var v = single.cards[k];
+    //             // console.log("v:"+v[0]+"  k:"+k);
+    //             if (rank < v[0]){
+    //                 var item = [lzValue,lzValue,v[0]];
+    //                 all_result.push(item);
+    //             }
+    //         }
+    //     }
+    // }
+
+    var allOne = []; //所有三张的牌值 对子组
+
+    var pair = PopCardUtil.getPair();
+    var tempPair = [];
+    if (pair.count > 0) {
+        // tempPair = pair.cards[0];
+        if (pair.count >= 1 && parseInt(pair.cards[0][0]) != lzValue) {
+            tempPair = pair.cards[0];
+        } else {
+            tempPair = pair.cards[1];
+        }
+    }
+
+    if (tempPair.length == 0) {
+        //拆分3张
+        for (var k in three.cards) {
+            var v = three.cards[k];
+            allOne.push(v[0]);
+        }
+    }
+
+    console.log("tempPair:", tempPair);
+
+    // console.log("tempPair:"+tempPair+" allOne:"+allOne.length);
+
+    var onecard = tempPair.length;
+
+    for (var k in all_result) {
+        var v = all_result[k];
+        // console.log("v:"+v+"  k:"+k);
+
+        if (onecard == 0) {
+            if (k < allOne.length - 1) {
+                if (v[0] != allOne[k]) {
+                    onecard = allOne[k];
+                } else {
+                    var n = parseInt(k) + 1;
+                    onecard = allOne[n];
+                }
+            } else {
+                onecard = allOne[0];
+            }
+            for (var i = 0; i < 2; i++) {
+                v.push(parseInt(onecard));
+            }
+            onecard = 0;
+        } else {
+            for (var i = 0; i < tempPair.length; i++) {
+                v.push(parseInt(tempPair[i]));
+            }
+        }
+
+        // v.concat(tempPair[0],tempPair[1]);
+        console.log("v2:" + v);
+        v.sort(config.arrayUp);
+    }
+
+    return all_result;
+};
+
+//四带二
+LazarilloCardUtil.find_four_with_two_single_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var four = PopCardUtil.getFour();
+    var rank = parseInt(last_cards_type.rank);
+
+    if (four.count > 0) {
+        for (var k in four.cards) {
+            var v = four.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (rank < v[0]) {
+                all_result.push(v);
+            }
+        }
+        // return all_result;
+    }
+
+    var temps = [];
+    var single = PopCardUtil.getSingle();
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+
+    // if(lzLen >=1){
+    //     if(three.count>0){
+    //         for(var k in three.cards){
+    //             var v = three.cards[k];
+    //             // console.log("v:"+v[0]+"  k:"+k);
+    //             if (rank < v[0]){
+    //                 var item = [lzValue,v[0],v[0],v[0]];
+    //                 all_result.push(item);
+    //             }
+    //         }
+    //     }
+    // }
+
+    if (single.count > 1) {
+        for (var i = 0; i < 2; i++) {
+            temps.push(parseInt(single.cards[i]));
+        }
+    } else if (pair.count > 0) {
+        for (var i = 0; i < 2; i++) {
+            temps.push(parseInt(pair.cards[0]));
+        }
+    } else if (three.count > 0) {
+        for (var i = 0; i < 2; i++) {
+            temps.push(parseInt(three.cards[0]));
+        }
+    }
+
+    for (var k in all_result) {
+        var v = all_result[k];
+
+        for (var i = 0; i < temps.length; i++) {
+            v.push(parseInt(temps[i]));
+        }
+        console.log("v2:" + v);
+        v.sort(config.arrayUp);
+    }
+
+    return all_result;
+};
+
+//四带两队
+LazarilloCardUtil.find_four_with_two_pair_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var four = PopCardUtil.getFour();
+    var rank = parseInt(last_cards_type.rank);
+
+    if (four.count > 0) {
+        for (var k in four.cards) {
+            var v = four.cards[k];
+            // console.log("v:"+v[0]+"  k:"+k);
+            if (rank < v[0]) {
+                all_result.push(v);
+            }
+        }
+        // return all_result;
+    }
+
+    var temps = [];
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+
+    if (pair.count > 1) {
+        for (var i = 0; i < 2; i++) {
+            for (var j = 0; j < 2; j++) {
+                temps.push(parseInt(pair.cards[i]));
+            }
+        }
+    } else if (pair.count == 1 && three.count > 0) {
+        for (var i = 0; i < 2; i++) {
+            temps.push(parseInt(pair.cards[0]));
+        }
+        for (var i = 0; i < 2; i++) {
+            temps.push(parseInt(three.cards[0]));
+        }
+    } else if (three.count > 1) {
+        for (var i = 0; i < 2; i++) {
+            for (var j = 0; j < 2; j++) {
+                temps.push(parseInt(three.cards[i]));
+            }
+        }
+    }
+
+    for (var k in all_result) {
+        var v = all_result[k];
+
+        for (var i = 0; i < temps.length; i++) {
+            v.push(parseInt(temps[i]));
+        }
+        console.log("v2:" + v);
+        v.sort(config.arrayUp);
+    }
+
+    return all_result;
+};
+
+//符合的顺子牌
+LazarilloCardUtil.find_straight = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var rank = parseInt(last_cards_type.rank);
+    var repeatCount = last_cards_type.repeatCount;
+    var single = PopCardUtil.getSingle();
+
+    console.log("rank:" + rank + " repeatCount:" + repeatCount);
+
+    var maxRank = rank + repeatCount - 1;
+    if (maxRank == CardUtil.cardGrade["1"]) {
+        console.log("-----已经是通天顺子");
+        return all_result;
+    }
+
+    //所有牌可以组成的顺子
+    // var autoCards = [];
+    // var tempCards = [];
+    // var key = rank;
+    // for(var i =1;i<20;i++){
+    //     if (prop[key+i] && key+i < CardUtil.cardGrade["2"]){
+    //         //满足组成顺子的牌
+    //         autoCards.push(prop[key+i][0]);
+    //     }else{
+    //         if(autoCards.length>=repeatCount){
+    //             tempCards.push(autoCards);
+    //         }
+    //         autoCards = [];
+    //         continue;
+    //     }
+    // }
+
+    // console.log(tempCards);
+
+    // if(tempCards.length > 0 && tempCards[0].length > repeatCount){
+    //     var len = tempCards[0].length - repeatCount;
+    //     var temparr = [];
+    //     for(var i=0;i<=len;i++){
+    //         if(tempCards[0].length >= repeatCount+i){
+    //             temparr = config.arraySub(i,repeatCount+i,tempCards[0],1);
+    //             all_result.push(temparr);
+    //         }
+    //     }
+    // }else{
+    //     all_result = tempCards;
+    // }
+
+    // if(all_result.length<1){
+    //     all_result = [];
+    //     autoCards = [];
+    //     tempCards = [];
+    //     key = rank;
+    //     for(var i =1;i<20;i++){
+    //         if (prop[key+i] && key+i < CardUtil.cardGrade["2"]){
+    //             //满足组成顺子的牌
+    //             autoCards.push(prop[key+i][0]);
+    //         }else{
+    //             if(autoCards.length>=3){
+    //                 tempCards.push(autoCards);
+    //             }
+    //             // tempCards.push(autoCards);
+    //             autoCards = [];
+    //             continue;
+    //         }
+    //     }
+    //     // lzLen,lzValue
+
+    //     console.log("tempCards",tempCards)
+    //     for(var i=0;i<tempCards.length;i++){
+    //         //要补齐的张数
+    //         var repCount = repeatCount - tempCards[i].length;
+    //         if(lzLen>=repCount){
+    //             for(var j=0;j<repCount;j++){
+    //                 tempCards[i].push(lzValue);
+    //             }
+    //             if(tempCards[i].length == repeatCount){
+    //                 all_result=tempCards;
+    //             }
+    //         }
+    //     } 
+    // }
+
+    //所有赖子补齐--new
+    if (true) {
+        console.log("-------所有顺子赖子补齐");
+        var tempAllcards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        var begin = rank + 1;
+        var tempCards = config.arraySub(begin, tempAllcards.length, tempAllcards, 1);
+        var tempAll_result = [];
+        var len = tempCards.length - repeatCount;
+        var temparr = [];
+        for (var i = 0; i <= len; i++) {
+            if (tempCards.length >= repeatCount + i) {
+                temparr = config.arraySub(i, repeatCount + i, tempCards, 1);
+                tempAll_result.push(temparr);
+            }
+        }
+        console.log("tempAll_result:", tempAll_result);
+        //自己所有单张牌
+        var singles = [];
+        for (var k in prop) {
+            singles.push(k);
+        }
+        console.log("singles:", singles);
+        var xx_All_result = [];
+        for (var i = 0; i < tempAll_result.length; i++) {
+            var xx_temp = [];
+            for (var m = 0; m < tempAll_result[i].length; m++) {
+                for (var n = 0; n < singles.length; n++) {
+                    if (tempAll_result[i][m] == singles[n]) {
+                        xx_temp.push(tempAll_result[i][m]);
+                    }
+                }
+            }
+            xx_All_result.push(xx_temp);
+        }
+        console.log("xx_All_result:", xx_All_result);
+        // lzLen
+        for (var i = 0; i < xx_All_result.length; i++) {
+            //要补齐的张数
+            // var lznum = 0;
+            // for(var j=0;j<xx_All_result[i].length;j++){
+            //     if(xx_All_result[i][j]==lzValue){
+            //         lznum++;
+            //     }
+            // }
+            // // console.log("-------lznum:",lznum);
+            // if(lzLen>1){
+            //     lznum = 0;
+            // }
+            var repCount = repeatCount - xx_All_result[i].length;
+            if (lzLen >= repCount) {
+                for (var m = 0; m < repCount; m++) {
+                    xx_All_result[i].push(lzValue);
+                }
+                all_result.push(xx_All_result[i]);
+            }
+        }
+    }
+
+    console.log(all_result);
+    return all_result;
+};
+
+//符合的连对
+LazarilloCardUtil.find_pair_straight = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var rank = parseInt(last_cards_type.rank);
+    var repeatCount = last_cards_type.repeatCount;
+
+    console.log("rank:" + rank + " repeatCount:" + repeatCount);
+
+    var maxRank = rank + repeatCount - 1;
+    if (maxRank == CardUtil.cardGrade["1"]) {
+        console.log("-----已经是通天连队");
+        return all_result;
+    }
+
+    var pair = PopCardUtil.getPair();
+    var three = PopCardUtil.getThree();
+    var four = PopCardUtil.getFour();
+    var allpair = [];
+
+    for (var i = 0; i < pair.count; i++) {
+        allpair.push(pair.cards[i][0]);
+    }
+    for (var i = 0; i < three.count; i++) {
+        allpair.push(three.cards[i][0]);
+    }
+    for (var i = 0; i < four.count; i++) {
+        allpair.push(four.cards[i][0]);
+    }
+
+    allpair.sort(config.arrayUp);
+
+    // console.log("allpair:",allpair)
+
+    var autoCards = [];
+    var tempCards = [];
+    var tempNum = 0;
+    for (var i = 0; i < allpair.length; i++) {
+
+        if (allpair[i] < CardUtil.cardGrade["2"] && allpair[i] > rank) {
+            // console.log("i:"+i);
+            if (allpair[i] + 1 == allpair[i + 1] && allpair[i + 1] < CardUtil.cardGrade["2"]) {
+                // console.log("i2:"+i);
+                // console.log("tempNum:",tempNum)
+                if (tempNum + 1 == allpair[i + 1]) {
+                    autoCards.push(tempNum);
+                    // tempNum++;//--new
+                }
+                if (i == 0) {
+                    autoCards.push(allpair[i]);
+                }
+                // console.log("allpair[i+1]:",allpair[i+1])
+                autoCards.push(allpair[i + 1]);
+            } else {
+                tempNum = allpair[i + 1];
+                // console.log("---tempNum:",tempNum)
+                if (autoCards.length >= repeatCount) {
+                    tempCards.push(autoCards);
+                }
+                autoCards = [];
+                continue;
+            }
+        }
+    }
+
+    // console.log("tempCards:",tempCards)
+    for (var i = 0; i < tempCards.length; i++) {
+        if (tempCards[i].length >= repeatCount) {
+            var len = tempCards[i].length - repeatCount;
+            var temparr = [];
+            for (var j = 0; j <= len; j++) {
+                if (tempCards[i].length >= repeatCount + j) {
+                    temparr = config.arraySub(j, repeatCount + j, tempCards[i], 2);
+                    all_result.push(temparr);
+                }
+            }
+        }
+    }
+
+    if (all_result.length < 1) {
+        all_result = [];
+        autoCards = [];
+        tempCards = [];
+        var key = rank;
+        for (var i = 1; i < 20; i++) {
+            if (prop[key + i] && key + i < CardUtil.cardGrade["2"]) {
+                //满足组成顺子的牌
+                autoCards.push(prop[key + i][0]);
+            } else {
+                if (autoCards.length >= repeatCount) {
+                    tempCards.push(autoCards);
+                }
+                autoCards = [];
+                continue;
+            }
+        }
+        // lzLen,lzValue
+        console.log("tempCards", tempCards);
+
+        var copyTempCards = [];
+        for (var m = 0; m < tempCards.length; m++) {
+            var len = tempCards[m].length - repeatCount;
+            var temparr = [];
+            for (var i = 0; i <= len; i++) {
+                if (tempCards[m].length >= repeatCount + i) {
+                    temparr = config.arraySub(i, repeatCount + i, tempCards[m], 1);
+                    copyTempCards.push(temparr);
+                }
+            }
+        }
+        console.log("copyTempCards", copyTempCards);
+
+        for (var i = 0; i < copyTempCards.length; i++) {
+            //要补齐的张数
+            var repCount = 0;
+            var addCards = [];
+            for (var n = 0; n < copyTempCards[i].length; n++) {
+                var value = copyTempCards[i][n];
+                if (prop[value].length > 1) {
+                    addCards.push(value);
+                } else {
+                    repCount++;
+                }
+            }
+            // var repCount = repeatCount - copyTempCards[i].length;
+            if (lzLen >= repCount) {
+                for (var j = 0; j < addCards.length; j++) {
+                    copyTempCards[i].push(addCards[j]);
+                }
+                copyTempCards[i].sort(config.arrayUp);
+                for (var j = 0; j < repCount; j++) {
+                    copyTempCards[i].push(lzValue);
+                }
+                if (copyTempCards[i].length == repeatCount * 2) {
+                    all_result[all_result.length] = copyTempCards[i];
+                }
+            }
+        }
+    }
+
+    console.log(all_result);
+    return all_result;
+};
+
+//符合的飞机不带
+LazarilloCardUtil.find_three_straight = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    PopCardUtil.setSameVulueCardCount(prop);
+    var rank = parseInt(last_cards_type.rank);
+    var repeatCount = last_cards_type.repeatCount;
+
+    console.log("rank:" + rank + " repeatCount:" + repeatCount);
+
+    var three = PopCardUtil.getThree();
+    var four = PopCardUtil.getFour();
+    var allpair = [];
+
+    for (var i = 0; i < three.count; i++) {
+        allpair.push(three.cards[i][0]);
+    }
+    for (var i = 0; i < four.count; i++) {
+        allpair.push(four.cards[i][0]);
+    }
+
+    allpair.sort(config.arrayUp);
+
+    console.log(allpair);
+
+    var autoCards = [];
+    var tempCards = [];
+    var tempNum = 0;
+    for (var i = 0; i < allpair.length; i++) {
+
+        if (allpair[i] < CardUtil.cardGrade["2"] && allpair[i] > rank) {
+            console.log("i:" + i);
+            if (allpair[i] + 1 == allpair[i + 1] && allpair[i + 1] < CardUtil.cardGrade["2"]) {
+                console.log("i2:" + i);
+                if (tempNum + 1 == allpair[i + 1]) {
+                    autoCards.push(tempNum);
+                }
+                if (i == 0) {
+                    autoCards.push(allpair[i]);
+                }
+                autoCards.push(allpair[i + 1]);
+            } else {
+                tempNum = allpair[i + 1];
+                if (autoCards.length >= repeatCount) {
+                    tempCards.push(autoCards);
+                }
+                autoCards = [];
+                continue;
+            }
+        }
+    }
+
+    console.log(tempCards);
+
+    for (var i = 0; i < tempCards.length; i++) {
+        if (tempCards[i].length >= repeatCount) {
+            var len = tempCards[i].length - repeatCount;
+            var temparr = [];
+            for (var j = 0; j <= len; j++) {
+                if (tempCards[i].length >= repeatCount + j) {
+                    temparr = config.arraySub(j, repeatCount + j, tempCards[i], 3);
+                    all_result.push(temparr);
+                }
+            }
+        }
+    }
+
+    console.log(all_result);
+    return all_result;
+};
+
+//符合的飞机带单
+LazarilloCardUtil.find_three_straight_with_single_card = function (last_cards_type, prop, myCards, lzLen, lzValue) {
+    var all_result = [];
+    all_result = LazarilloCardUtil.find_three_straight(last_cards_type, prop, myCards, lzLen, lzValue);
+    return all_result;
+};
+
+LazarilloCardUtil.find_three_straight_with_pair_card = function (last_cards_type, prop, myCards) {
+    var all_result = [];
+    all_result = LazarilloCardUtil.find_three_straight(last_cards_type, prop, myCards, lzLen, lzValue);
+    return all_result;
 };
 
 module.exports = LazarilloCardUtil;

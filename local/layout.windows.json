@@ -5,8 +5,8 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 100,
-      "y": 47,
+      "x": 111,
+      "y": 31,
       "width": 1361,
       "height": 756,
       "layout": {
@@ -103,8 +103,8 @@
   },
   "panels": {
     "project-settings": {
-      "x": 441,
-      "y": 170,
+      "x": 359,
+      "y": 124,
       "width": 600,
       "height": 564
     },
@@ -121,8 +121,8 @@
       "height": 564
     },
     "builder": {
-      "x": 354,
-      "y": 44,
+      "x": 374,
+      "y": 26,
       "width": 500,
       "height": 722
     }

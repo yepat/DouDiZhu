@@ -5,6 +5,7 @@ var EventHelper = require("EventHelper");
 var PlayerDetailModel = require("PlayerDetailModel");
 var dialogManager = require("dialogManager");
 var MD5 = require("md5");
+var GameNetMgr = require("GameNetMgr");
 
 function initMgr(){
     cc.vv = {};
@@ -57,25 +58,34 @@ cc.Class({
         });
 
         wx.showShareMenu({
-            withShareTicket: true
+            withShareTicket: true,
+            success(res){
+                console.log(">>>>>>>>>showShareMenu");
+            }
         });
-        cc.loader.loadRes("shareImg",function(err,data){
-            console.log("url:"+data.url);
+
+        // var index = config.getRandom(1);//config.shareIndex
+        // var shareTxt = config.shareTxt["task"][config.shareIndex];
+        var shareImg = config.getShareImgPath("task");
+        console.log(">>>shareImg:",shareImg);
+        // cc.loader.loadRes("shareImg",function(err,data){
+            // console.log("url:"+data.url);
             wx.onShareAppMessage(function(res){
                 return {
-                    title: "小伙伴们帮帮忙，小手一点助我拿豆！",
-                    imageUrl: data.url,
+                    title: config.shareTxt["task"][config.shareIndex],
+                    imageUrl: shareImg,
                     query :  "key="+PlayerDetailModel.uid,
                     success(res){
                         console.log("转发成功!!!");
                         console.log(res);
+                        GameNetMgr.sendRequest("System","ShareWxRes",1);
                     },
                     fail(res){
                         console.log("转发失败!!!")
                     } 
                 }
             })
-        });
+        // });
     },
     weixinLogin(){
         var self = this;
@@ -135,12 +145,12 @@ cc.Class({
     getServerInfo:function(){
         var params = {};
         params.env = "prod";
-        params.ver = "2.0.0";
+        params.ver = config.VERSION_NAME;
         params.channel = "weichatgame";
         params.udid = "udid";
-        params.pver = "2.0.0";
+        params.pver = config.VERSION_NAME;
         params.pchannel = "weichatgame";
-        params.presver = "2.0.0";
+        params.presver = config.VERSION_NAME;
         
         var self = this;
         var xhr = null;
@@ -251,6 +261,8 @@ cc.Class({
         var params = {};
         params.t = Protocol.Request.HeartBeat.Alive;
         cc.vv.net.send("HeartBeat",Protocol.Command.HeartBeat,params);
+
+        config.shareIndex = config.getRandom(1);
     },
     sendRegist(){
         //注册请求
@@ -259,7 +271,7 @@ cc.Class({
             params.t = Protocol.Request.Login.Regist;
             params.d = MD5.hex_md5("yepat123");
             params.u = "50ee8041a7fd8baa6348252ea114432bb3be23bd";
-            params.v = "2.0.0";
+            params.v = config.VERSION_NAME;
             params.c = "weichatgame";
             params.e = "defaults";
             params.type = "guest";
@@ -295,7 +307,7 @@ cc.Class({
             params.d = MD5.hex_md5("yepat123");
             params.p = config.temppassword;
             params.c = "weichatgame";
-            params.v = "2.0.0";
+            params.v = config.VERSION_NAME;
             params.tv = 1;
             params.e = "defaults";
             params.wn = config.wxInfo.nickName;
@@ -309,7 +321,7 @@ cc.Class({
         params.d = self.sdkuid;
         params.p = config.temppassword;
         params.c = "weichatgame";
-        params.v = "2.0.0";
+        params.v = config.VERSION_NAME;
         params.tv = 1;
         params.e = "defaults";
         params.f = self.sdkuid;
@@ -337,7 +349,9 @@ cc.Class({
             config.playGameId = response["data"].playGameId;
             config.playGameMsg = response["data"].playGameMsg;
 
-    
+            // console.log(">>>>>>>>>>>>>>>",response["data"].today_first_login)
+            config.firstLogin = response["data"].today_first_login;
+
             PlayerDetailModel.nickname = response["data"]["nick"];
             PlayerDetailModel.uid = parseInt(response["data"]["uid"]);
             PlayerDetailModel.coin = parseInt(response["data"]["coins"]);
@@ -379,7 +393,8 @@ cc.Class({
             PlayerDetailModel.title = response["data"]["title"];
             PlayerDetailModel.isDev = isDevData;
 
-            PlayerDetailModel.continueRoomId = response["data"]["continueRoomId"];
+            if(response["data"]["continueRoomId"])
+                PlayerDetailModel.continueRoomId = response["data"]["continueRoomId"];
 
             console.log(response["data"]);
 
@@ -411,7 +426,7 @@ cc.Class({
         }else{
 
             var fileManager = wx.getFileSystemManager();
-            var soundspath = wx.env.USER_DATA_PATH+"/sounds/1.0.1";
+            var soundspath = wx.env.USER_DATA_PATH+"/ddz_res/1.0.2";
             console.log("soundspath:"+soundspath);
             fileManager.access({
                 path:soundspath,
@@ -422,7 +437,7 @@ cc.Class({
                 fail(res){
                     console.log("目录不存在!!!",res);
                     var downloadTask = wx.downloadFile({
-                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/sounds3.zip',
+                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/ddz_res_102.zip',
                         success: function(res) {
                             console.log("资源下载成功");
                             var filePath = res.tempFilePath;

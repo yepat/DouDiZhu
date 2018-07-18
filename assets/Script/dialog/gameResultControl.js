@@ -46,9 +46,9 @@ cc.Class({
         if(this.click1){
             this.click1();
         }
-        if(this.node){
-            this.node.destroy();
-        }
+        // if(this.node){
+        //     this.node.destroy();
+        // }
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btn2Click(){
@@ -56,9 +56,9 @@ cc.Class({
         if(this.click2){
             this.click2();
         }
-        if(this.node){
-            this.node.destroy();
-        }
+        // if(this.node){
+        //     this.node.destroy();
+        // }
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     close(){
@@ -77,5 +77,10 @@ cc.Class({
             self.node.destroy();
         }
         cc.vv.audioMgr.playSFX("SpecOk");
+    },
+    closeClick(){
+        if(this.node){
+            this.node.destroy();
+        }
     }
 });

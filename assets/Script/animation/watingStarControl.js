@@ -39,5 +39,15 @@ cc.Class({
             this.node.destroy();
         }
     },
-
+    showNode(){
+        console.log("wating-----showNode");
+        if(this.timeCount <= 1)
+            this.show(30);
+        this.node.active = true;
+    },
+    hideNode(){
+        console.log("wating-----hideNode");
+        this.timeCount = 0;
+        this.node.active = false;
+    }
 });

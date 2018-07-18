@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_ludou_1000",
+    "texture": "7f0fe078-d87f-47ee-a9ca-e60668c83535",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      422,
+      107
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      425,
+      107
+    ]
+  }
+}

@@ -61,6 +61,8 @@ var GameNetMgr = cc.Class({
                     this.sendShareInfo();
                 }else if(eventName == "ShareGet"){//分享领取
                     this.sendShareGet();
+                }else if(eventName == "ShareWxRes"){//微信分享成功发送
+                    this.sendShareWxRes(arg);
                 }
 
             }
@@ -224,6 +226,12 @@ var GameNetMgr = cc.Class({
             var params = {};
             params.t = Protocol.Request.System.ShareGet;
             cc.vv.net.send("ShareGet",Protocol.Command.System,params);
+        },
+        sendShareWxRes(arg){ //type 1系统自动分享 2邀请好友分享  3救济分享 4记牌器分享 5春天分享
+            var params = {};
+            params.t = Protocol.Request.System.ShareWxRes;
+            params.type = arg;
+            cc.vv.net.send("ShareWxRes",Protocol.Command.System,params);
         }
 
 

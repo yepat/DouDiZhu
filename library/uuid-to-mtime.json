@@ -40,7 +40,7 @@
     "relativePath": "prefab"
   },
   "20ac1e46-8924-4b7f-96a9-5509888c2233": {
-    "asset": 1530514731061,
+    "asset": 1530973705218,
     "meta": 1528080484339,
     "relativePath": "resources"
   },
@@ -65,7 +65,7 @@
     "relativePath": "Scene/HallScene.fire"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1530605226796,
+    "asset": 1531383556101,
     "meta": 1528080484297,
     "relativePath": "Script"
   },
@@ -80,7 +80,7 @@
     "relativePath": "Script/PokerData.js"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1529420456463,
+    "asset": 1531383767687,
     "meta": 1528080484313,
     "relativePath": "Texture"
   },
@@ -145,7 +145,7 @@
     "relativePath": "resources/showTips"
   },
   "d548c4c5-eb56-4844-a967-b22bb15b7ce0": {
-    "asset": 1529997698931,
+    "asset": 1531383767565,
     "meta": 1528080484379,
     "relativePath": "resources/prefab"
   },
@@ -155,7 +155,7 @@
     "relativePath": "resources/prefab/setDialog.prefab"
   },
   "8fa038d3-e14e-4272-ad9e-5593ef65b16a": {
-    "asset": 1529996981711,
+    "asset": 1531383767661,
     "meta": 1528080484301,
     "relativePath": "Script/dialog"
   },
@@ -215,8 +215,8 @@
     "relativePath": "resources/prefab/exchangeRecordItem.prefab"
   },
   "31364be6-d893-4507-b93d-58ecc9701e5b": {
-    "asset": 1529065784839,
-    "meta": 1529065784845,
+    "asset": 1530857599537,
+    "meta": 1530857599544,
     "relativePath": "resources/prefab/taskItem.prefab"
   },
   "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
@@ -425,8 +425,8 @@
     "relativePath": "resources/prefab/gameResultLose.prefab"
   },
   "9510c904-8db6-412f-8765-495324f8a971": {
-    "asset": 1530500646669,
-    "meta": 1530500646674,
+    "asset": 1531741572823,
+    "meta": 1531741572829,
     "relativePath": "Scene/LoadingScene.fire"
   },
   "f75a5595-f731-4821-90f6-77dfb613f9f2": {
@@ -445,7 +445,7 @@
     "relativePath": "resources/prefab/commonDialog.prefab"
   },
   "7ad35a3b-0e5d-4a27-9fd6-09f8e3f777eb": {
-    "asset": 1530151633121,
+    "asset": 1530881339045,
     "meta": 1528082367240,
     "relativePath": "resources/animatiom"
   },
@@ -470,7 +470,7 @@
     "relativePath": "Texture/star_LabelAtlas.labelatlas"
   },
   "e1bffa97-b850-4f95-9452-bf7214e3b741": {
-    "asset": 1530150829424,
+    "asset": 1531283795823,
     "meta": 1528083442080,
     "relativePath": "Script/animation"
   },
@@ -1435,8 +1435,8 @@
     "relativePath": "resources/p_taskbg.png"
   },
   "5ec0809b-b563-429c-b49a-86050054f2bc": {
-    "asset": 1530520570405,
-    "meta": 1530520570417,
+    "asset": 1531878835307,
+    "meta": 1531878835325,
     "relativePath": "Scene/GameScene.fire"
   },
   "b47e0f48-07ca-4a66-b7c7-a7f9229a3325": {
@@ -1584,35 +1584,20 @@
     "meta": 1528911983204,
     "relativePath": "Script/CancelDelegateController.js"
   },
-  "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
-    "asset": 1529049586662,
-    "meta": 1529050155299,
-    "relativePath": "Script/gameNetwork/Protocol.js"
-  },
-  "779849af-6032-4740-a307-9c3f9ad98e17": {
-    "asset": 1529053493950,
-    "meta": 1529053529428,
-    "relativePath": "resources/shareImg.png"
-  },
   "0b776a3c-fdcd-4df4-8c54-7d612513b132": {
     "asset": 1529059662395,
     "meta": 1529059662428,
     "relativePath": "resources/img_dialog/p_about2.png"
   },
   "06e5201a-5f7f-4d6f-9050-1005cdd552c5": {
-    "asset": 1530066785148,
-    "meta": 1530066785159,
+    "asset": 1531574426089,
+    "meta": 1531574426097,
     "relativePath": "resources/prefab/aboutDialog.prefab"
   },
   "d59d8f4d-1fee-4e79-98aa-b62db3fadbbd": {
     "asset": 1530066907342,
     "meta": 1530066907350,
     "relativePath": "resources/prefab/fankuiDialog.prefab"
-  },
-  "8bdcebdf-fd7c-4500-a0db-3ef316de8719": {
-    "asset": 1529068515309,
-    "meta": 1529069177470,
-    "relativePath": "Script/animation/watingStarControl.js"
   },
   "5f640cfa-e0e2-423b-ba9f-ad00c9a26de4": {
     "asset": 1529162126071,
@@ -1645,7 +1630,7 @@
     "relativePath": "resources/animatiom/anim_double.prefab"
   },
   "475a3a4d-16b3-4431-826c-d3a5fbcd53bc": {
-    "asset": 1530174091189,
+    "asset": 1531828973165,
     "meta": 1529416899546,
     "relativePath": "resources/sounds"
   },
@@ -2514,11 +2499,6 @@
     "meta": 1529550799177,
     "relativePath": "Script/dialog/chatControl.js"
   },
-  "cff8db00-0ecd-4ef3-b6ec-1bce75344180": {
-    "asset": 1529551324747,
-    "meta": 1529551673854,
-    "relativePath": "Script/dialog/aboutControl.js"
-  },
   "f4f030cc-a97d-417e-a6ca-05f9f2d55527": {
     "asset": 1529551322619,
     "meta": 1529551673867,
@@ -2539,11 +2519,6 @@
     "meta": 1529551673996,
     "relativePath": "Script/dialog/shopControl.js"
   },
-  "bbe821e2-bda1-48b2-88f1-875f4d7774ab": {
-    "asset": 1529971823523,
-    "meta": 1529978370384,
-    "relativePath": "Script/dialog/taskItemControl.js"
-  },
   "59af9496-99d8-4469-a3af-1824bb66604e": {
     "asset": 1529551817619,
     "meta": 1529552112748,
@@ -2558,11 +2533,6 @@
     "asset": 1529551819453,
     "meta": 1529552112793,
     "relativePath": "Script/dialog/fankuiControl.js"
-  },
-  "48cbad31-fa67-44b9-988b-465fc3563887": {
-    "asset": 1529551799367,
-    "meta": 1529552113169,
-    "relativePath": "Script/dialog/taskControl.js"
   },
   "32b681a6-04b6-4ceb-a328-c757dffddea3": {
     "asset": 1529551813716,
@@ -2594,11 +2564,6 @@
     "meta": 1529653739485,
     "relativePath": "Script/gameNetwork/PlayerDetailModel.js"
   },
-  "ca1bfb0e-2554-487d-9f89-688d205a1f8d": {
-    "asset": 1529977731733,
-    "meta": 1529978370511,
-    "relativePath": "Script/HallLayerControl.js"
-  },
   "5b94b725-464f-4afc-94bf-193c9678951b": {
     "asset": 1529663508244,
     "meta": 1529663508279,
@@ -2618,11 +2583,6 @@
     "asset": 1529738017405,
     "meta": 1529738029615,
     "relativePath": "Script/animation/cardTypeControl.js"
-  },
-  "f7e34808-122e-4638-be31-637ebe239112": {
-    "asset": 1529830559636,
-    "meta": 1529830608771,
-    "relativePath": "Script/opratCallLordControl.js"
   },
   "1198194a-566e-4f09-8155-dd4f18902727": {
     "asset": 1529830574554,
@@ -2659,11 +2619,6 @@
     "meta": 1529912932320,
     "relativePath": "resources/sounds/Special_selectedCrad.mp3"
   },
-  "d7972e32-8dfc-4375-b80d-ff711ef7359b": {
-    "asset": 1529963269799,
-    "meta": 1529978369848,
-    "relativePath": "Script/dialog/gameResultControl.js"
-  },
   "47a652df-d68b-411b-82e8-d25fe7943287": {
     "asset": 1529993463704,
     "meta": 1529993463729,
@@ -2673,11 +2628,6 @@
     "asset": 1530175035417,
     "meta": 1530175035428,
     "relativePath": "resources/prefab/playerInfoDialog.prefab"
-  },
-  "6918640e-19c3-4fdb-833c-c08eec6e42ee": {
-    "asset": 1530003069710,
-    "meta": 1530003082590,
-    "relativePath": "Script/dialog/shareControl.js"
   },
   "3c263b1c-8b64-4513-a5a5-c341e3764f90": {
     "asset": 1530066187240,
@@ -2795,23 +2745,23 @@
     "relativePath": "resources/animatiom/xianhua"
   },
   "a1d4afc8-08e3-4416-bdac-ea35de6b9e40": {
-    "asset": 1530153732962,
-    "meta": 1530153732970,
+    "asset": 1531740788618,
+    "meta": 1531740788625,
     "relativePath": "resources/animatiom/anim_dianzan.prefab"
   },
   "16ba07c1-413f-442f-8483-61c33c4215be": {
-    "asset": 1530170722831,
-    "meta": 1530170722836,
+    "asset": 1531740786000,
+    "meta": 1531740786005,
     "relativePath": "resources/animatiom/anim_jidan.prefab"
   },
   "ef75ed1e-ff23-4a06-9c51-121a1e450611": {
-    "asset": 1530170698452,
-    "meta": 1530170698457,
+    "asset": 1531740783688,
+    "meta": 1531740783697,
     "relativePath": "resources/animatiom/anim_tuoxie.prefab"
   },
   "1858594c-17c3-420b-b007-cf0abdbe92ca": {
-    "asset": 1530170772844,
-    "meta": 1530170772849,
+    "asset": 1531740791335,
+    "meta": 1531740791339,
     "relativePath": "resources/animatiom/anim_xianhua.prefab"
   },
   "f90f93bd-1279-4702-b32a-4ce1e99e5a9f": {
@@ -2819,30 +2769,10 @@
     "meta": 1530155003616,
     "relativePath": "resources/playerInfo/p_di.png"
   },
-  "4b8676a3-47a8-4be8-aa45-451566dd0be5": {
-    "asset": 1530170505820,
-    "meta": 1530170594989,
-    "relativePath": "Script/dialog/dialogManager.js"
-  },
   "ac46f296-5981-462e-8edf-8cd7a2a6a96d": {
     "asset": 1530173544221,
     "meta": 1530174091189,
     "relativePath": "resources/sounds/mf_tuoxie.mp3"
-  },
-  "72ee4884-126a-47a8-b1e7-29e00414de87": {
-    "asset": 1530175723050,
-    "meta": 1530176206677,
-    "relativePath": "Script/gameNetwork/GameNetMgr.js"
-  },
-  "d0a23dde-faf1-482e-a727-6465ba68c082": {
-    "asset": 1530182735776,
-    "meta": 1530183349381,
-    "relativePath": "Script/animation/expressionControl.js"
-  },
-  "505a770c-1b34-486b-848f-d6de5ad6e334": {
-    "asset": 1530182833849,
-    "meta": 1530183350683,
-    "relativePath": "Script/topBarControl.js"
   },
   "5918ba28-6f78-495a-8189-d9536558958d": {
     "asset": 1530495680261,
@@ -2854,69 +2784,334 @@
     "meta": 1530514724108,
     "relativePath": "resources/roomInfo"
   },
-  "5123232e-460d-44b6-887a-78ca0e60f209": {
-    "asset": 1530607799140,
-    "meta": 1530608274203,
-    "relativePath": "Script/config.js"
-  },
   "00f79829-1ecf-4977-b041-07976b7dbb77": {
     "asset": 1530681909607,
     "meta": 1530683055180,
     "relativePath": "Script/PokerControl.js"
-  },
-  "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
-    "asset": 1530685034878,
-    "meta": 1530685128131,
-    "relativePath": "Script/Player.js"
-  },
-  "bcf074c0-7ee5-458c-9c39-42a12d5f5c9c": {
-    "asset": 1530685944131,
-    "meta": 1530686739789,
-    "relativePath": "Script/CardUtil.js"
-  },
-  "e24c90bc-4747-45ba-a355-a32cb56406aa": {
-    "asset": 1530685547041,
-    "meta": 1530686739895,
-    "relativePath": "Script/sound/AudioMgr.js"
-  },
-  "7b0e54dd-bc85-463e-8722-cd9f37a06ba3": {
-    "asset": 1530701666489,
-    "meta": 1530701870429,
-    "relativePath": "Script/HallCanvasControl.js"
-  },
-  "09476f32-25ce-457f-ba19-04eab8f0608f": {
-    "asset": 1530701636361,
-    "meta": 1530701870430,
-    "relativePath": "Script/RoomLayerControl.js"
-  },
-  "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
-    "asset": 1530710710116,
-    "meta": 1530710712554,
-    "relativePath": "Script/gameNetwork/GameNet.js"
-  },
-  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
-    "asset": 1530757719538,
-    "meta": 1530757776308,
-    "relativePath": "Script/gameNetwork/AppStart.js"
-  },
-  "74c75cf8-f801-40da-9d19-da4c90275c2f": {
-    "asset": 1530760195696,
-    "meta": 1530760202294,
-    "relativePath": "Script/ClockControl.js"
   },
   "a85e4a22-6ce1-45f8-8a7e-6aa7306521d8": {
     "asset": 1530762378173,
     "meta": 1530762382194,
     "relativePath": "Script/PopCardUtil.js"
   },
+  "74c75cf8-f801-40da-9d19-da4c90275c2f": {
+    "asset": 1530847071383,
+    "meta": 1530847192883,
+    "relativePath": "Script/ClockControl.js"
+  },
+  "ea51e1b7-8b57-4938-8cc1-b7127b1792e2": {
+    "asset": 1530871065551,
+    "meta": 1530871065556,
+    "relativePath": "resources/prefab/ShareGetDialog.prefab"
+  },
+  "72ee4884-126a-47a8-b1e7-29e00414de87": {
+    "asset": 1530862867783,
+    "meta": 1530862898422,
+    "relativePath": "Script/gameNetwork/GameNetMgr.js"
+  },
+  "ca1bfb0e-2554-487d-9f89-688d205a1f8d": {
+    "asset": 1530865186701,
+    "meta": 1530867104419,
+    "relativePath": "Script/HallLayerControl.js"
+  },
+  "5d495224-beb3-41ec-9d1f-54548e3be2f1": {
+    "asset": 1530871107277,
+    "meta": 1530871107283,
+    "relativePath": "resources/prefab/JpqGetDialog.prefab"
+  },
+  "e1abd54a-84a9-4414-a525-9cce7401fd72": {
+    "asset": 1530872834036,
+    "meta": 1530873603485,
+    "relativePath": "Script/dialog/ShareGetControl.js"
+  },
+  "7f95989f-7918-4e30-8071-413336f1f551": {
+    "asset": 1530876867215,
+    "meta": 1530877272654,
+    "relativePath": "Script/dialog/JpqGetControl.js"
+  },
+  "f86035ff-afae-4d11-ad14-fc46fd8d3503": {
+    "asset": 1530877509154,
+    "meta": 1530877509152,
+    "relativePath": "resources/animatiom/huodedaoju"
+  },
+  "060aac34-2a63-472a-82c6-ef4e3b5474bf": {
+    "asset": 1530154784000,
+    "meta": 1530877509167,
+    "relativePath": "resources/animatiom/huodedaoju/huodedaoju_ske.json"
+  },
+  "198164e7-e073-4e87-b75e-32cedf3e6fde": {
+    "asset": 1530868119428,
+    "meta": 1530877509206,
+    "relativePath": "resources/animatiom/huodedaoju/huodedaoju_tex.png"
+  },
+  "7f0b07fd-d564-4a1f-ad70-e6c85715259e": {
+    "asset": 1530154784000,
+    "meta": 1530877509209,
+    "relativePath": "resources/animatiom/huodedaoju/huodedaoju_tex.json"
+  },
+  "e3af7bbc-6e58-48ea-81f7-59533fb3f395": {
+    "asset": 1530877806490,
+    "meta": 1530878371559,
+    "relativePath": "resources/sounds/gifteffect.mp3"
+  },
+  "4eee42e2-f941-42c3-9e51-6d62c5e7a0fd": {
+    "asset": 1530879437061,
+    "meta": 1530879437115,
+    "relativePath": "resources/p_daoju_lequan.png"
+  },
+  "89dfedf5-7891-4aa9-9975-03000f56f194": {
+    "asset": 1530880946958,
+    "meta": 1530880947000,
+    "relativePath": "resources/p_daoju_jpq.png"
+  },
+  "cc4fef0b-3581-4b61-a811-138aa9c4d416": {
+    "asset": 1531287211108,
+    "meta": 1531287211113,
+    "relativePath": "resources/animatiom/anim_huodedaoju.prefab"
+  },
+  "aec0e095-8986-430d-b863-02cf1c7ff247": {
+    "asset": 1530942332507,
+    "meta": 1530881974201,
+    "relativePath": "Script/myCreate"
+  },
+  "b37c9e6b-3083-43c9-b69e-9e8d621eadec": {
+    "asset": 1531829321843,
+    "meta": 1530882027776,
+    "relativePath": "resources/shareBig"
+  },
+  "cf751515-a1bf-44bc-8c8e-63846a4dffaa": {
+    "asset": 1530882027766,
+    "meta": 1530882027819,
+    "relativePath": "resources/shareBig/p_daoju_jpq.png"
+  },
+  "10de7b12-cecf-48f1-9ee3-90b4c96b0e60": {
+    "asset": 1530882027768,
+    "meta": 1530882027822,
+    "relativePath": "resources/shareBig/p_chuntian.png"
+  },
+  "a0960fc5-0aa9-4a08-9ffd-37fd04f9487f": {
+    "asset": 1530882027766,
+    "meta": 1530882027844,
+    "relativePath": "resources/shareBig/p_daoju_lequan.png"
+  },
+  "48d95145-f600-4d78-bb57-74ec2efe9242": {
+    "asset": 1530882027767,
+    "meta": 1530882027862,
+    "relativePath": "resources/p_fenxiang.png"
+  },
+  "f9101776-4f15-4365-adef-8a98d5476baa": {
+    "asset": 1530882027767,
+    "meta": 1530882027867,
+    "relativePath": "resources/shareBig/p_douzi.png"
+  },
+  "301ff8c8-2687-43d9-9a13-28029b24c038": {
+    "asset": 1530882027767,
+    "meta": 1530882027890,
+    "relativePath": "resources/shareBig/p_tip_jipaiqi.png"
+  },
+  "c7218e42-810c-401c-9884-2863159723fa": {
+    "asset": 1530882027769,
+    "meta": 1530882027892,
+    "relativePath": "resources/shareBig/p_get_lequan.png"
+  },
+  "64cdda5a-f3a6-4519-9a2c-ee7f02927698": {
+    "asset": 1530882027765,
+    "meta": 1530882027904,
+    "relativePath": "resources/p_X.png"
+  },
+  "e1e73fe1-03b8-4386-8a57-d0469223462e": {
+    "asset": 1530882027770,
+    "meta": 1530882027917,
+    "relativePath": "resources/shareBig/p_yaoqing.png"
+  },
+  "7f0fe078-d87f-47ee-a9ca-e60668c83535": {
+    "asset": 1530882864795,
+    "meta": 1530882864828,
+    "relativePath": "resources/shareBig/p_ludou_1000.png"
+  },
+  "02c6ae89-6ca1-4173-858e-fdadd3bd37d4": {
+    "asset": 1531592198863,
+    "meta": 1531592198870,
+    "relativePath": "resources/prefab/tableShareGetDialog.prefab"
+  },
+  "657d9588-9d39-47a4-9a09-63ebb45005c6": {
+    "asset": 1530943512086,
+    "meta": 1530943512089,
+    "relativePath": "resources/prefab/taskCompleteShareDialog.prefab"
+  },
+  "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
+    "asset": 1530950522562,
+    "meta": 1530950853326,
+    "relativePath": "Script/gameNetwork/Protocol.js"
+  },
+  "5e473555-45e4-4a09-ab64-653e7ee5c0e7": {
+    "asset": 1530971232174,
+    "meta": 1530971240296,
+    "relativePath": "resources/p_daoju_ledou.png"
+  },
+  "ff8746e6-deba-42ca-8f16-723a4ebd4a70": {
+    "asset": 1530973705213,
+    "meta": 1530973705236,
+    "relativePath": "resources/p_ledou_500.png"
+  },
+  "d400badb-6d3c-420a-8e52-01bc05c8b333": {
+    "asset": 1531284092774,
+    "meta": 1531284092783,
+    "relativePath": "Texture/anim_prop.prefab"
+  },
+  "a588ad9c-be23-49d7-b7bf-0d6e5daac951": {
+    "asset": 1531284061750,
+    "meta": 1531284079034,
+    "relativePath": "Script/animation/animPropControl.js"
+  },
+  "83448f02-0d07-491e-b190-a9bc29ad77a1": {
+    "asset": 1531288713843,
+    "meta": 1531289190123,
+    "relativePath": "Script/animation/huodedaojuControl.js"
+  },
+  "4b8676a3-47a8-4be8-aa45-451566dd0be5": {
+    "asset": 1531288601417,
+    "meta": 1531289190182,
+    "relativePath": "Script/dialog/dialogManager.js"
+  },
+  "48cbad31-fa67-44b9-988b-465fc3563887": {
+    "asset": 1531289168948,
+    "meta": 1531289190233,
+    "relativePath": "Script/dialog/taskControl.js"
+  },
+  "6918640e-19c3-4fdb-833c-c08eec6e42ee": {
+    "asset": 1531293265121,
+    "meta": 1531293268449,
+    "relativePath": "Script/dialog/shareControl.js"
+  },
+  "52569629-1f0a-4361-9158-a562463ee790": {
+    "asset": 1531297960267,
+    "meta": 1531297963983,
+    "relativePath": "Script/myCreate/TableShareGetControl.js"
+  },
+  "505a770c-1b34-486b-848f-d6de5ad6e334": {
+    "asset": 1531301582744,
+    "meta": 1531301816457,
+    "relativePath": "Script/topBarControl.js"
+  },
+  "eb22fb4f-b707-49b1-83e8-4a780b67224e": {
+    "asset": 1531462706385,
+    "meta": 1531462706395,
+    "relativePath": "resources/prefab/LazarilloPokerSelected.prefab"
+  },
+  "10353aa3-8fa7-4730-81bf-a05a003b1f56": {
+    "asset": 1531384036572,
+    "meta": 1531384036575,
+    "relativePath": "Texture/card_list.prefab"
+  },
+  "7b0e54dd-bc85-463e-8722-cd9f37a06ba3": {
+    "asset": 1531384185075,
+    "meta": 1531384187456,
+    "relativePath": "Script/HallCanvasControl.js"
+  },
+  "09476f32-25ce-457f-ba19-04eab8f0608f": {
+    "asset": 1531393842533,
+    "meta": 1531395142235,
+    "relativePath": "Script/RoomLayerControl.js"
+  },
+  "bedbc7d9-23b9-4dc3-a735-86a7bd0242f3": {
+    "asset": 1531468687763,
+    "meta": 1531468709967,
+    "relativePath": "Script/dialog/LazarilloPokerSelectedControl.js"
+  },
+  "f7e34808-122e-4638-be31-637ebe239112": {
+    "asset": 1531474198314,
+    "meta": 1531474208021,
+    "relativePath": "Script/opratCallLordControl.js"
+  },
+  "0f81d15e-ab96-4c5b-b376-126af5dcbe25": {
+    "asset": 1531571872470,
+    "meta": 1531571898722,
+    "relativePath": "Script/dialog/LazarilloCardListControl.js"
+  },
+  "cff8db00-0ecd-4ef3-b6ec-1bce75344180": {
+    "asset": 1531574623217,
+    "meta": 1531574636772,
+    "relativePath": "Script/dialog/aboutControl.js"
+  },
+  "bcf074c0-7ee5-458c-9c39-42a12d5f5c9c": {
+    "asset": 1531591133137,
+    "meta": 1531591244120,
+    "relativePath": "Script/CardUtil.js"
+  },
+  "d7972e32-8dfc-4375-b80d-ff711ef7359b": {
+    "asset": 1531668773546,
+    "meta": 1531669346370,
+    "relativePath": "Script/dialog/gameResultControl.js"
+  },
+  "d0a23dde-faf1-482e-a727-6465ba68c082": {
+    "asset": 1531742334758,
+    "meta": 1531742338689,
+    "relativePath": "Script/animation/expressionControl.js"
+  },
+  "bbe821e2-bda1-48b2-88f1-875f4d7774ab": {
+    "asset": 1531798177263,
+    "meta": 1531798202646,
+    "relativePath": "Script/dialog/taskItemControl.js"
+  },
+  "bbe63ad8-483a-4dba-a211-94de36638585": {
+    "asset": 1531828227049,
+    "meta": 1531828974663,
+    "relativePath": "Script/myCreate/TaskCompleteShareControl.js"
+  },
+  "e24c90bc-4747-45ba-a355-a32cb56406aa": {
+    "asset": 1531828055773,
+    "meta": 1531828974664,
+    "relativePath": "Script/sound/AudioMgr.js"
+  },
+  "5ee7da5f-6178-4985-b77a-e9debe7faa03": {
+    "asset": 1503277252000,
+    "meta": 1531828973164,
+    "relativePath": "resources/sounds/Man_baojing2.mp3"
+  },
+  "117f967b-e604-4c63-939e-15e35a37bf18": {
+    "asset": 1503277253000,
+    "meta": 1531828973165,
+    "relativePath": "resources/sounds/Woman_baojing2.mp3"
+  },
+  "12f52be2-10ce-4f62-9584-3ffd34d311be": {
+    "asset": 1531828741358,
+    "meta": 1531829321884,
+    "relativePath": "resources/shareBig/p_liansheng_3.png"
+  },
+  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
+    "asset": 1531831269242,
+    "meta": 1531831288994,
+    "relativePath": "Script/gameNetwork/AppStart.js"
+  },
+  "8bdcebdf-fd7c-4500-a0db-3ef316de8719": {
+    "asset": 1531866823758,
+    "meta": 1531866826577,
+    "relativePath": "Script/animation/watingStarControl.js"
+  },
+  "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
+    "asset": 1531867200980,
+    "meta": 1531867220483,
+    "relativePath": "Script/Player.js"
+  },
+  "5123232e-460d-44b6-887a-78ca0e60f209": {
+    "asset": 1531882104580,
+    "meta": 1531882109516,
+    "relativePath": "Script/config.js"
+  },
+  "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
+    "asset": 1531886507661,
+    "meta": 1531886743362,
+    "relativePath": "Script/gameNetwork/GameNet.js"
+  },
   "1393c8a9-79e3-4565-ba57-f5a2716294c6": {
-    "asset": 1530771684263,
-    "meta": 1530771688222,
+    "asset": 1531894049588,
+    "meta": 1531894054422,
     "relativePath": "Script/GameTable.js"
   },
   "cfc00cd3-1b71-4680-be04-d9964f385156": {
-    "asset": 1530788791778,
-    "meta": 1530788797813,
+    "asset": 1531894548335,
+    "meta": 1531894835435,
     "relativePath": "Script/LazarilloCardUtil.js"
   }
 }

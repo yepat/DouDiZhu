@@ -78,6 +78,24 @@ cc.Class({
     onGetTaskRewardResult(event){
         var response = event.getUserData();
         console.log(response);
-        dialogManager.showCommonDialog("温馨提示",response.data.error);
+        // dialogManager.showCommonDialog("温馨提示",response.data.error);
+        var award = response.data.award;
+        var list = [];
+        if(award.coins){
+            var args = {
+                arg1:"ledou",
+                arg2:award.coins,
+            }
+            list.push(args);
+        }
+        if(award.coupon){
+            var args = {
+                arg1:"lequan",
+                arg2:award.coupon,
+            }
+            list.push(args);
+        } 
+        if(list.length>0)
+            dialogManager.showAnimGetProp(list);
     }
 });

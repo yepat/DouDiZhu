@@ -46,6 +46,7 @@ cc.Class({
 
         EventHelper.AddCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
         EventHelper.AddCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
+        // EventHelper.AddCustomEvent(config.MyNode,"ShareWxResResult",self.onShareWxResResult,self);
     },
     onDestroy: function onDestroy() {
         console.log(" topBar Destroy");
@@ -57,6 +58,7 @@ cc.Class({
         console.log(data);
         dialogManager.showCommonDialog("提示", "您的账号已经在其他地方登陆！", function () {
             self.isShow = false;
+            cc.vv.audioMgr.stopMusic();
             cc.director.loadScene("LoadingScene");
         });
     },
@@ -72,6 +74,18 @@ cc.Class({
         if (payload.data && payload.data.coins) {
             PlayerDetailModel.setCoin(payload.data.coins);
             self.setLeDou(PlayerDetailModel.getCoin());
+
+            //分享获取乐豆
+            if (config.leDouShareSucss) {
+                config.leDouShareSucss = false;
+                var list = [];
+                var args = {
+                    arg1: "ledou",
+                    arg2: 1000
+                };
+                list.push(args);
+                dialogManager.showAnimGetProp(list);
+            }
         }
         //用户奖券数
         if (payload.data && payload.data.coupon) {
@@ -174,7 +188,21 @@ cc.Class({
         dialogManager.showPlayerInfo(args);
         cc.vv.audioMgr.playSFX("SpecOk");
     }
-});
+}
+// onShareWxResResult(event){
+//     console.log("微信分享成功发送结果------");
+//     // var self = this;
+//     var response = event.getUserData();
+//     console.log(response);
+
+//     if(config.leQuanShareSucss){
+//         GameNetMgr.sendRequest("System","ShareWxRes",5);
+//     }else if(config.leDouShareSucss){
+//         GameNetMgr.sendRequest("System","ShareWxRes",3);
+//         GameNetMgr.sendRequest("Game", "openReliefTip", {});
+//     }
+// },
+);
 
 cc._RF.pop();
         }

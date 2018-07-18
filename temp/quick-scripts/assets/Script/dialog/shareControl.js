@@ -52,6 +52,7 @@ cc.Class({
         // var nodeHeads = [];//头像节点
         this.pHeads = []; //微信头像
         this.labCoins = []; //奖励乐豆
+        this.palyerNum = 0; //邀请玩家人数
 
         for (var i = 1; i <= 5; i++) {
             // var nodeHead = "shareDialog/"+"head_"+i;
@@ -95,13 +96,40 @@ cc.Class({
         //     }
         // });
 
-        cc.loader.loadRes("shareImg", function (err, data) {
-            wx.shareAppMessage({
-                title: "小伙伴们帮帮忙，小手一点助我拿豆！",
-                imageUrl: data.url,
-                query: "key=" + PlayerDetailModel.uid
-            });
+        //"小伙伴们帮帮忙，小手一点助我拿豆！"
+        var _palyerNum = 5 - this.palyerNum;
+
+        console.log("xxxxxxx", _palyerNum);
+
+        if (_palyerNum > 0) {} else {
+            return;
+        }
+
+        var index = config.getRandom(1);
+        var shareTxt = config.shareTxt["share"][index];
+        if (index == 1) {
+            shareTxt = "【仅剩" + _palyerNum + "人】麻烦你啦，点击帮我拆礼包吧！";
+        }
+        console.log(">>>>shareTxt:", shareTxt);
+
+        var shareImg = config.getShareImgPath("share");
+        console.log(">>>shareImg:", shareImg);
+
+        // cc.loader.loadRes("shareImg",function(err,data){
+        wx.shareAppMessage({
+            title: shareTxt,
+            imageUrl: shareImg,
+            query: "key=" + PlayerDetailModel.uid,
+            success: function success(res) {
+                console.log("---转发成功!!!");
+                console.log(res);
+                GameNetMgr.sendRequest("System", "ShareWxRes", 2);
+            },
+            fail: function fail(res) {
+                console.log("---转发失败!!!");
+            }
         });
+        // });
 
         cc.vv.audioMgr.playSFX("SpecOk");
     },
@@ -119,13 +147,15 @@ cc.Class({
         // "uid":uid
         // "award":0没有领取1已领取
         // "award_info":[ //奖品
-        //   "gold":金币
+        // "gold":金币
 
         var list = response.data.list;
+        this.palyerNum = 0;
         for (var i = 0; i < list.length; i++) {
             if (list[i].img) {
                 this.pHeads[i].enabled = true;
                 this.setHeadUrl(list[i].img, this.pHeads[i]);
+                this.palyerNum++;
             }
             if (list[i].award) {
                 if (list[i].award == 0) {
@@ -141,14 +171,49 @@ cc.Class({
         console.log(response);
         var self = this;
         var awarded = response.data.awarded;
-        dialogManager.showCommonDialog("温馨提示", response.data.award_desc, function () {
-            if (awarded < 5 && response.data.award.length == 0) {
-                self.btnClick();
-                for (var i = 0; i < awarded; i++) {
-                    self.labCoins[i].string = "已领取";
+        // dialogManager.showCommonDialog("温馨提示",response.data.award_desc,function(){
+        //     if(awarded<5&&response.data.award.length==0){
+        //         self.btnClick();
+        //         for(var i=0;i<awarded;i++){
+        //             self.labCoins[i].string = "已领取";
+        //         }
+        //     }
+        // });
+        var award = response.data.award;
+        var list = [];
+        if (award.coins) {
+            var args = {
+                arg1: "ledou",
+                arg2: award.coins
+            };
+            list.push(args);
+        }
+        if (award.coupon) {
+            var args = {
+                arg1: "lequan",
+                arg2: award.coupon
+            };
+            list.push(args);
+        }
+        if (list.length > 0) {
+            dialogManager.showAnimGetProp(list, function () {
+                if (awarded <= 5) {
+                    // self.btnClick();
+                    for (var i = 0; i < awarded; i++) {
+                        self.labCoins[i].string = "已领取";
+                    }
                 }
+            });
+        } else {
+            if (awarded == 5) {
+                dialogManager.showCommonDialog("温馨提示", response.data.award_desc);
+            } else {
+                // self.btnClick();
+                dialogManager.showCommonDialog("温馨提示", response.data.award_desc, function () {
+                    self.btnClick();
+                });
             }
-        });
+        }
 
         PlayerDetailModel.setShareUnReward(0);
     },

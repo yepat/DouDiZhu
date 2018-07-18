@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_tip_jipaiqi",
+    "texture": "301ff8c8-2687-43d9-9a13-28029b24c038",
+    "atlas": "",
+    "rect": [
+      0,
+      8,
+      730,
+      195
+    ],
+    "offset": [
+      -15,
+      -4
+    ],
+    "originalSize": [
+      760,
+      203
+    ]
+  }
+}

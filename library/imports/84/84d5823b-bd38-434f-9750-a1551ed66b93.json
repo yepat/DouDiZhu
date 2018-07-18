@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_daoju_ledou",
+    "texture": "5e473555-45e4-4a09-ab64-653e7ee5c0e7",
+    "atlas": "",
+    "rect": [
+      20,
+      16,
+      166,
+      164
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      206,
+      198
+    ]
+  }
+}

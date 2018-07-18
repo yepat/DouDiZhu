@@ -1,5 +1,6 @@
 var GameNetMgr = require("GameNetMgr");
 var PlayerDetailModel = require("PlayerDetailModel");
+var config = require("config");
 cc.Class({
     extends: cc.Component,
 
@@ -16,6 +17,10 @@ cc.Class({
             default : null,
             type : cc.Node
         },
+        nodeGoto : {
+            default : null,
+            type : cc.Node
+        },
         labTitle : {
             default : null,
             type : cc.Label
@@ -28,12 +33,18 @@ cc.Class({
             default : null,
             type : cc.Label
         },
+        btnNode_goto : {
+            default : null,
+            type : cc.Button,
+            opentype : "share",
+        },
 
     },
     onLoad () {
          this.nodeGet.active = false;
          this.nodeComplete.active = false;
          this.nodeProgrss.active = false;
+         this.nodeGoto.active = false;
          this.state = 0;
          this.id = 0;
     },
@@ -46,6 +57,9 @@ cc.Class({
         if(this.state == "0"){ //进行中
             this.nodeProgrss.active = true;
             this.labProgress.string = progress;
+            if(this.goto == 2){
+                this.nodeGoto.active = true;
+            }
         }else if(this.state == "1"){//领取
             this.nodeGet.active = true;
         }else if(this.state == "2"){//完成
@@ -67,12 +81,34 @@ cc.Class({
     },
     gotoClick(){
         console.log("this.goto:"+this.goto);
+
+        var index = config.getRandom(1);
+        var shareTxt = config.shareTxt["task"][index];
+        console.log(">>>shareTxt:",shareTxt);
+        var shareImg = config.getShareImgPath("task");
+        console.log(">>>shareImg:",shareImg);
+
         if(this.goto&&this.state == "0"){ //1房间  2邀请好友
             if(this.goto == 1){
                 console.log("前往普通场");
                 // this.onWantGotoRoom();
             }else if(this.goto == 2){
                 console.log("前往分享");
+                // cc.loader.loadRes("shareImg",function(err,data){//data.url
+                    wx.shareAppMessage({
+                        title: shareTxt,
+                        imageUrl: shareImg,
+                        query : "key="+PlayerDetailModel.uid,
+                        success(res){
+                            console.log("task---转发成功!!!");
+                            console.log(res);
+                            GameNetMgr.sendRequest("System","ShareWxRes",7);
+                        },
+                        fail(res){
+                            console.log("task---转发失败!!!")
+                        } 
+                    })
+                // });
             }
         }
     },

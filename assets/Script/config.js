@@ -9,12 +9,16 @@ config.OpenUDIDEncryptToken = "!_Tvr%^98071e~int5lmUy";
 
 config.stopOnMassage = false;
 
-config.VERSION_NAME = "2.0.0" //当前程序版本（2.0.0 是为了兼容tv版）
+config.VERSION_NAME = "2.1.0"; //当前程序版本（2.0.0 是为了兼容tv版）
+
+config.VERSION_ABOUT = "1.0.2";//关于版本号
 
 config.wxShareInfo = "key1=value1&key2=value2";
 
 config.playGameId = 0; //断线
 config.playGameMsg = "";
+
+config.firstLogin = false; //第一次登陆
 
 config.IsContinueGaming = 0; //1是断线重连牌桌
 
@@ -27,6 +31,15 @@ config.curRoomModelId = 0;//房间模式
 config.ModelId = {normal : 0, contest : 3, lazarillo : 2}
 
 config.joker = "";//赖子牌
+
+config.jpqShareSucss = false;//获得记牌器分享成功
+config.leQuanShareSucss = false;//获得乐券分享成功
+config.leDouShareSucss = false;//获得乐豆分享成功
+
+config.shareIndex = 0;
+
+config.sendCardState = false;//发牌状态
+
 
 //叫地主时间
 config.CallLordTimeout = 15;
@@ -68,6 +81,12 @@ config.ghostCardType = {
     smallG : 5,//小王
     bigG : 6,//大王
     // lazarillo : 7,//赖子牌
+}
+
+//获取随机数
+config.getRandom = function(index){
+    index = Math.round(Math.random() * index);
+    return index;
 }
 
 //数组降序排列
@@ -154,7 +173,6 @@ config.UpdateWxInfo = function(userInfo){
     config.wxInfo.gender = userInfo.gender;
     config.wxInfo.avatarUrl = userInfo.avatarUrl;
 }
-
 
 config.GlobalRouter = {
     director : "https://ddzprotocal.51864.com/clientConfig/host.php", // host_inner
@@ -280,6 +298,48 @@ config.getPlayerSeatNum = function(mySeatId,curSeatId){
         }
     }
     return seatNum;
+}
+
+//分享文字
+config.shareTxt = {
+    "task":["【有乐开心斗地主】，点击就能和我一起玩！","只有10秒，炸还是不炸，交给你来决定！"],
+    "share":["就差你了！帮我一下我就能拆礼包了~","【仅剩N人】麻烦你啦，点击帮我拆礼包吧！"],
+    "jiuji":["【含泪求助】老铁们帮帮忙，小手一点助我拿豆！","小伙伴们帮帮忙，小手一点助我拿豆！"],
+    "jipaiqi":["世界上最悲伤的事情是什么？","对3，我只剩一张牌啦！"],
+    "lequan":["小手一抖，奖券到手，免费兑话费咯！","我在玩【有乐开心斗地主】，赢奖券兑话费！"],
+    "chuntian":["对不起，牌好就是可以为所欲为！","又打出春天咯！你能超越我吗？"],
+    "liansheng_3":["【有人@你】来和我比一比，看谁更厉害！","已经没有人可以阻止我的连胜了！"],
+}
+//分享图片
+config.shareImg = {
+    "task":"share1.png",
+    "share":"share2.png",
+    "jiuji":"share3.png",
+    "jipaiqi":"share4.png",
+    "lequan":"share5.png",
+    "chuntian":"share6.png",
+    "liansheng_3":"share7.png",
+}
+config.getShareImgPath = function(name){
+    return config.imagePath() + config.shareImg[name];
+}
+
+config.imagePath = function () {
+    return wx.env.USER_DATA_PATH + "/ddz_res/image/"; //用户目录图片路径
+}
+config.soundsPath = function () {
+    return wx.env.USER_DATA_PATH + "/ddz_res/sounds/"; //用户目录音频路径
+}
+
+config.loadImage = function(imagnode,name){
+    var path = cc.url.raw("resources/shareBig/" + name + ".png");
+    if(typeof(wx)=="undefined"){
+    }else{
+        path = wx.env.USER_DATA_PATH + "/ddz_res/image/shareBig/" + name + ".png";
+    }
+    cc.loader.load(path,function(err, texture){
+        imagnode.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
+    });
 }
 
 module.exports = config;

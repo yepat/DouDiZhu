@@ -43,6 +43,16 @@ cc.Class({
         if (this.node) {
             this.node.destroy();
         }
+    },
+    showNode: function showNode() {
+        console.log("wating-----showNode");
+        if (this.timeCount <= 1) this.show(30);
+        this.node.active = true;
+    },
+    hideNode: function hideNode() {
+        console.log("wating-----hideNode");
+        this.timeCount = 0;
+        this.node.active = false;
     }
 });
 

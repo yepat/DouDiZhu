@@ -1,5 +1,6 @@
 var config = require("config");
 var dialogManager = require("dialogManager");
+var GameNetMgr = require("GameNetMgr");
 cc.Class({
     extends: cc.Component,
 
@@ -14,6 +15,15 @@ cc.Class({
         }
     },
     onLoad () {
+        var sendReq = function(){
+            var fn = function(){
+                if(config.leDouShareSucss){
+                    GameNetMgr.sendRequest("System","ShareWxRes",3);
+                    GameNetMgr.sendRequest("Game", "openReliefTip", {});
+                }
+            }
+            setTimeout(fn,1000);
+        }
         cc.game.on(cc.game.EVENT_HIDE, function(){
             console.log("游戏进入后台");   
             // config.stopOnMassage = true;  
@@ -22,6 +32,7 @@ cc.Class({
         cc.game.on(cc.game.EVENT_SHOW, function(){
             console.log("重新返回游戏");
             cc.vv.audioMgr.playBGM("MusicEx_Welcome");
+            sendReq();
         },this);
 
         cc.vv.audioMgr.playBGM("MusicEx_Welcome");
@@ -41,10 +52,10 @@ cc.Class({
     },
     btnRoom2Click(){
         console.log("赖子场")
-        // config.curRoomModelId = config.ModelId.lazarillo;
-        // this.hallLayer.active = false;
-        // this.roomLayer.active = true;
-        dialogManager.showCommonDialog("温馨提示","赖子场暂未开放！",null,null);
+        config.curRoomModelId = config.ModelId.lazarillo;
+        this.hallLayer.active = false;
+        this.roomLayer.active = true;
+        // dialogManager.showCommonDialog("温馨提示","赖子场暂未开放！",null,null);
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     roomBackHall(){

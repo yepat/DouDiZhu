@@ -1,59 +1,67 @@
-2018-07-05T01:43:50.515Z - normal: Load ~/.CocosCreator/settings.json
-2018-07-05T01:43:50.518Z - normal: checking language setting...
-2018-07-05T01:43:50.519Z - normal: Language: zh
-2018-07-05T01:43:51.545Z - success: protocol editor-framework registered
-2018-07-05T01:43:51.545Z - success: protocol app registered
-2018-07-05T01:43:51.545Z - success: protocol theme registered
-2018-07-05T01:43:51.545Z - success: protocol packages registered
-2018-07-05T01:43:51.546Z - success: protocol unpack registerred
-2018-07-05T01:43:51.546Z - success: protocol disable-commonjs registerred
-2018-07-05T01:43:51.786Z - normal: connected!
-2018-07-05T01:43:51.789Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-05T01:43:51.791Z - normal: Initializing Cocos2d
-2018-07-05T01:43:52.061Z - normal: Initializing Asset Database
-2018-07-05T01:43:52.100Z - success: protocol uuid registerred
-2018-07-05T01:43:52.100Z - success: protocol db registerred
-2018-07-05T01:43:52.100Z - success: protocol thumbnail registerred
-2018-07-05T01:43:52.101Z - normal: Loading editor/builtin packages
-2018-07-05T01:43:52.127Z - success: anysdk loaded
-2018-07-05T01:43:52.260Z - success: assets loaded
-2018-07-05T01:43:52.264Z - success: builder loaded
-2018-07-05T01:43:52.267Z - success: cocos-analytics loaded
-2018-07-05T01:43:52.271Z - success: console loaded
-2018-07-05T01:43:52.301Z - success: fb-instant-games loaded
-2018-07-05T01:43:52.307Z - success: hierarchy loaded
-2018-07-05T01:43:52.313Z - success: inspector loaded
-2018-07-05T01:43:52.315Z - success: keystore loaded
-2018-07-05T01:43:52.324Z - success: node-library loaded
-2018-07-05T01:43:52.326Z - success: package-asset loaded
-2018-07-05T01:43:52.330Z - success: preferences loaded
-2018-07-05T01:43:52.333Z - success: project-exporter loaded
-2018-07-05T01:43:52.350Z - success: project-importer loaded
-2018-07-05T01:43:52.353Z - success: project-settings loaded
-2018-07-05T01:43:52.356Z - success: ui-kit loaded
-2018-07-05T01:43:52.361Z - success: ui-grid loaded
-2018-07-05T01:43:52.365Z - success: scene loaded
-2018-07-05T01:43:52.366Z - success: sprite-editor loaded
-2018-07-05T01:43:52.370Z - success: store loaded
-2018-07-05T01:43:52.376Z - success: timeline loaded
-2018-07-05T01:43:52.376Z - normal: Loading builtin packages
-2018-07-05T01:43:52.381Z - success: asset-db-debugger loaded
-2018-07-05T01:43:52.382Z - success: color-picker loaded
-2018-07-05T01:43:52.386Z - success: package-manager loaded
-2018-07-05T01:43:52.392Z - success: sdkbox loaded
-2018-07-05T01:43:52.399Z - success: tester loaded
-2018-07-05T01:43:52.402Z - success: ui-kit-preview-extra loaded
-2018-07-05T01:43:52.405Z - success: ui-kit-preview loaded
-2018-07-05T01:43:52.408Z - success: ui-tree loaded
-2018-07-05T01:43:53.471Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-05T01:43:53.474Z - normal: Loading packages
-2018-07-05T01:43:53.478Z - normal: Watching packages
-2018-07-05T01:43:53.487Z - normal: Run Application
-2018-07-05T01:43:54.708Z - success: preview server running at http://localhost:7456
-2018-07-05T01:43:59.348Z - normal: 1.9.1
-2018-07-05T01:44:00.790Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T02:29:36.952Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T02:29:43.942Z - normal: Start building with options : {
+2018-07-18T01:43:52.415Z - normal: Load ~/.CocosCreator/settings.json
+2018-07-18T01:43:52.418Z - normal: checking language setting...
+2018-07-18T01:43:52.418Z - normal: Language: zh
+2018-07-18T01:43:52.926Z - success: protocol editor-framework registered
+2018-07-18T01:43:52.926Z - success: protocol app registered
+2018-07-18T01:43:52.926Z - success: protocol theme registered
+2018-07-18T01:43:52.926Z - success: protocol packages registered
+2018-07-18T01:43:52.926Z - success: protocol unpack registerred
+2018-07-18T01:43:52.926Z - success: protocol disable-commonjs registerred
+2018-07-18T01:43:53.079Z - normal: connected!
+2018-07-18T01:43:53.082Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T01:43:53.093Z - normal: Initializing Cocos2d
+2018-07-18T01:43:53.244Z - normal: Initializing Asset Database
+2018-07-18T01:43:53.271Z - success: protocol uuid registerred
+2018-07-18T01:43:53.271Z - success: protocol db registerred
+2018-07-18T01:43:53.271Z - success: protocol thumbnail registerred
+2018-07-18T01:43:53.271Z - normal: Loading editor/builtin packages
+2018-07-18T01:43:53.288Z - success: anysdk loaded
+2018-07-18T01:43:53.379Z - success: assets loaded
+2018-07-18T01:43:53.382Z - success: builder loaded
+2018-07-18T01:43:53.384Z - success: cocos-analytics loaded
+2018-07-18T01:43:53.388Z - success: console loaded
+2018-07-18T01:43:53.414Z - success: fb-instant-games loaded
+2018-07-18T01:43:53.418Z - success: hierarchy loaded
+2018-07-18T01:43:53.421Z - success: inspector loaded
+2018-07-18T01:43:53.422Z - success: keystore loaded
+2018-07-18T01:43:53.430Z - success: node-library loaded
+2018-07-18T01:43:53.431Z - success: package-asset loaded
+2018-07-18T01:43:53.433Z - success: preferences loaded
+2018-07-18T01:43:53.435Z - success: project-exporter loaded
+2018-07-18T01:43:53.447Z - success: project-importer loaded
+2018-07-18T01:43:53.450Z - success: project-settings loaded
+2018-07-18T01:43:53.453Z - success: ui-kit loaded
+2018-07-18T01:43:53.456Z - success: ui-grid loaded
+2018-07-18T01:43:53.460Z - success: scene loaded
+2018-07-18T01:43:53.461Z - success: sprite-editor loaded
+2018-07-18T01:43:53.464Z - success: store loaded
+2018-07-18T01:43:53.469Z - success: timeline loaded
+2018-07-18T01:43:53.469Z - normal: Loading builtin packages
+2018-07-18T01:43:53.472Z - success: asset-db-debugger loaded
+2018-07-18T01:43:53.473Z - success: color-picker loaded
+2018-07-18T01:43:53.475Z - success: package-manager loaded
+2018-07-18T01:43:53.479Z - success: sdkbox loaded
+2018-07-18T01:43:53.484Z - success: tester loaded
+2018-07-18T01:43:53.487Z - success: ui-kit-preview-extra loaded
+2018-07-18T01:43:53.490Z - success: ui-kit-preview loaded
+2018-07-18T01:43:53.492Z - success: ui-tree loaded
+2018-07-18T01:43:54.226Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T01:43:54.228Z - normal: Loading packages
+2018-07-18T01:43:54.231Z - normal: Watching packages
+2018-07-18T01:43:54.240Z - normal: Run Application
+2018-07-18T01:43:55.356Z - success: preview server running at http://localhost:7456
+2018-07-18T01:44:00.092Z - normal: 1.9.1
+2018-07-18T01:44:01.172Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T01:52:50.164Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T01:53:45.546Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T01:55:30.896Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T01:56:11.119Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:08:01.428Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:09:53.612Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:21:59.407Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:34:34.208Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:36:18.769Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:43:45.664Z - normal: Start building with options : {
   "androidStudio": true,
   "apiLevel": "android-10",
   "appABIs": [],
@@ -125,125 +133,441 @@
   "projectName": "doudizhu",
   "debugBuildWorker": false
 }
-2018-07-05T02:29:43.945Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-05T02:29:43.945Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
-2018-07-05T02:29:44.281Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
-2018-07-05T02:29:48.640Z - normal: Compiled project javascript file successfully
-2018-07-05T02:29:48.640Z - normal: Start building assets
-2018-07-05T02:29:48.640Z - normal: Start spawn build-worker
-2018-07-05T02:29:49.259Z - normal: Finish spawn build-worker
-2018-07-05T02:29:49.260Z - normal: Start init build-worker
-2018-07-05T02:29:50.991Z - normal: 1.9.1
-2018-07-05T02:29:51.147Z - normal: Finish init build-worker
-2018-07-05T02:29:51.147Z - normal: Start build-assets in worker
-2018-07-05T02:29:53.259Z - normal: Finish build-assets in worker
-2018-07-05T02:29:53.263Z - normal: Finish building assets
-2018-07-05T02:29:53.343Z - normal: Start building raw assets
-2018-07-05T02:29:53.344Z - normal: Start building plugin scripts
-2018-07-05T02:29:53.835Z - normal: Finish building raw assets
-2018-07-05T02:29:53.855Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-07-05T02:29:53.948Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
-2018-07-05T02:29:55.905Z - error: 请在 [偏好设置 -> 原生开发环境] 中设置微信开发者工具路径。
-    at Object.run (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/core/wechat-game.js:1:387)
-    at EventEmitter.ipcMain.on (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/core/ipc/app-ipc.js:1:1115)
-    at emitTwo (events.js:106:13)
-    at EventEmitter.emit (events.js:194:7)
-    at WebContents.<anonymous> (/Applications/CocosCreator.app/Contents/Resources/electron.asar/browser/api/web-contents.js:247:13)
-    at emitTwo (events.js:106:13)
-    at WebContents.emit (events.js:194:7)
-2018-07-05T02:31:00.287Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
-2018-07-05T02:31:00.288Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
-2018-07-05T02:31:00.583Z - normal: Initializing...
+2018-07-18T02:43:45.667Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T02:43:45.667Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-18T02:43:46.040Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-18T02:43:50.747Z - normal: Compiled project javascript file successfully
+2018-07-18T02:43:50.748Z - normal: Start building assets
+2018-07-18T02:43:50.748Z - normal: Start spawn build-worker
+2018-07-18T02:43:51.311Z - normal: Finish spawn build-worker
+2018-07-18T02:43:51.312Z - normal: Start init build-worker
+2018-07-18T02:43:52.930Z - normal: 1.9.1
+2018-07-18T02:43:53.119Z - normal: Finish init build-worker
+2018-07-18T02:43:53.119Z - normal: Start build-assets in worker
+2018-07-18T02:43:55.320Z - normal: Finish build-assets in worker
+2018-07-18T02:43:55.327Z - normal: Finish building assets
+2018-07-18T02:43:55.442Z - normal: Start building raw assets
+2018-07-18T02:43:55.443Z - normal: Start building plugin scripts
+2018-07-18T02:43:55.956Z - normal: Finish building raw assets
+2018-07-18T02:43:55.976Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-18T02:43:56.089Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
+2018-07-18T02:43:58.178Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
+2018-07-18T02:43:58.178Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
+2018-07-18T02:43:58.700Z - normal: Initializing...
 
-2018-07-05T02:31:00.590Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
+2018-07-18T02:43:58.708Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
 
-2018-07-05T02:31:00.610Z - normal: starting ide...
+2018-07-18T02:43:58.726Z - normal: starting ide...
 
-2018-07-05T02:31:03.401Z - normal: IDE server has started, listening on http://127.0.0.1:50778
+2018-07-18T02:44:02.154Z - normal: IDE server has started, listening on http://127.0.0.1:28630
 
-2018-07-05T02:31:03.405Z - normal: initialization finished
+2018-07-18T02:44:02.158Z - normal: initialization finished
 
-2018-07-05T02:31:04.316Z - normal: open IDE success
+2018-07-18T02:44:02.599Z - normal: open IDE success
 
-2018-07-05T02:39:00.981Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
-2018-07-05T02:39:00.984Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
-2018-07-05T02:39:01.598Z - normal: Initializing...
+2018-07-18T02:48:29.754Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T02:48:34.404Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "android-10",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build",
+  "debug": false,
+  "dest": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame",
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [
+    "TiledMap",
+    "EditorBox",
+    "VideoPlayer",
+    "WebView",
+    "AudioSource",
+    "Collider",
+    "Graphics",
+    "Physics",
+    "StudioComponent",
+    "Camera"
+  ],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.helloworld",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "renderMode": "0",
+  "scenes": [
+    "9510c904-8db6-412f-8765-495324f8a971",
+    "fb2529d1-7f43-49d5-9763-12c971b6c309",
+    "5ec0809b-b563-429c-b49a-86050054f2bc"
+  ],
+  "sourceMaps": false,
+  "startScene": "9510c904-8db6-412f-8765-495324f8a971",
+  "template": "link",
+  "title": "doudizhu",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "appid": "wxd5d072385196f513",
+    "orientation": "landscape"
+  },
+  "xxteaKey": "d85967f3-7cf7-45",
+  "zipCompressJs": true,
+  "project": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1",
+  "projectName": "doudizhu",
+  "debugBuildWorker": false
+}
+2018-07-18T02:48:34.414Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T02:48:34.415Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-18T02:48:34.416Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-18T02:48:40.382Z - normal: Compiled project javascript file successfully
+2018-07-18T02:48:40.382Z - normal: Start building assets
+2018-07-18T02:48:40.382Z - normal: Start spawn build-worker
+2018-07-18T02:48:40.949Z - normal: Finish spawn build-worker
+2018-07-18T02:48:40.949Z - normal: Start init build-worker
+2018-07-18T02:48:42.721Z - normal: 1.9.1
+2018-07-18T02:48:42.946Z - normal: Finish init build-worker
+2018-07-18T02:48:42.947Z - normal: Start build-assets in worker
+2018-07-18T02:48:45.511Z - normal: Finish build-assets in worker
+2018-07-18T02:48:45.515Z - normal: Finish building assets
+2018-07-18T02:48:45.638Z - normal: Start building raw assets
+2018-07-18T02:48:45.638Z - normal: Start building plugin scripts
+2018-07-18T02:48:46.176Z - normal: Finish building raw assets
+2018-07-18T02:48:46.182Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-18T02:48:46.302Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
+2018-07-18T03:06:45.854Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:08:41.282Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:08:48.078Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "android-10",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build",
+  "debug": false,
+  "dest": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame",
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [
+    "TiledMap",
+    "EditorBox",
+    "VideoPlayer",
+    "WebView",
+    "AudioSource",
+    "Collider",
+    "Graphics",
+    "Physics",
+    "StudioComponent",
+    "Camera"
+  ],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.helloworld",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "renderMode": "0",
+  "scenes": [
+    "9510c904-8db6-412f-8765-495324f8a971",
+    "fb2529d1-7f43-49d5-9763-12c971b6c309",
+    "5ec0809b-b563-429c-b49a-86050054f2bc"
+  ],
+  "sourceMaps": false,
+  "startScene": "9510c904-8db6-412f-8765-495324f8a971",
+  "template": "link",
+  "title": "doudizhu",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "appid": "wxd5d072385196f513",
+    "orientation": "landscape"
+  },
+  "xxteaKey": "d85967f3-7cf7-45",
+  "zipCompressJs": true,
+  "project": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1",
+  "projectName": "doudizhu",
+  "debugBuildWorker": false
+}
+2018-07-18T03:08:48.082Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T03:08:48.083Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-18T03:08:48.084Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-18T03:08:54.351Z - normal: Compiled project javascript file successfully
+2018-07-18T03:08:54.351Z - normal: Start building assets
+2018-07-18T03:08:54.352Z - normal: Start spawn build-worker
+2018-07-18T03:08:54.965Z - normal: Finish spawn build-worker
+2018-07-18T03:08:54.965Z - normal: Start init build-worker
+2018-07-18T03:08:56.718Z - normal: 1.9.1
+2018-07-18T03:08:56.986Z - normal: Finish init build-worker
+2018-07-18T03:08:56.986Z - normal: Start build-assets in worker
+2018-07-18T03:08:59.503Z - normal: Finish build-assets in worker
+2018-07-18T03:08:59.511Z - normal: Finish building assets
+2018-07-18T03:08:59.635Z - normal: Start building raw assets
+2018-07-18T03:08:59.635Z - normal: Start building plugin scripts
+2018-07-18T03:09:00.421Z - normal: Finish building raw assets
+2018-07-18T03:09:00.444Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-18T03:09:00.521Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
+2018-07-18T03:39:08.357Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:40:34.491Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:41:28.906Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:42:38.378Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:44:02.824Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:44:18.636Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T03:52:50.635Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T04:05:44.352Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T05:42:18.157Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T05:42:30.026Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "android-10",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build",
+  "debug": false,
+  "dest": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame",
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [
+    "TiledMap",
+    "EditorBox",
+    "VideoPlayer",
+    "WebView",
+    "AudioSource",
+    "Collider",
+    "Graphics",
+    "Physics",
+    "StudioComponent",
+    "Camera"
+  ],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.helloworld",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "renderMode": "0",
+  "scenes": [
+    "9510c904-8db6-412f-8765-495324f8a971",
+    "fb2529d1-7f43-49d5-9763-12c971b6c309",
+    "5ec0809b-b563-429c-b49a-86050054f2bc"
+  ],
+  "sourceMaps": false,
+  "startScene": "9510c904-8db6-412f-8765-495324f8a971",
+  "template": "link",
+  "title": "doudizhu",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "appid": "wxd5d072385196f513",
+    "orientation": "landscape"
+  },
+  "xxteaKey": "d85967f3-7cf7-45",
+  "zipCompressJs": true,
+  "project": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1",
+  "projectName": "doudizhu",
+  "debugBuildWorker": false
+}
+2018-07-18T05:42:30.028Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T05:42:30.028Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-18T05:42:30.029Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-18T05:42:34.871Z - normal: Compiled project javascript file successfully
+2018-07-18T05:42:34.871Z - normal: Start building assets
+2018-07-18T05:42:34.872Z - normal: Start spawn build-worker
+2018-07-18T05:42:35.441Z - normal: Finish spawn build-worker
+2018-07-18T05:42:35.441Z - normal: Start init build-worker
+2018-07-18T05:42:37.041Z - normal: 1.9.1
+2018-07-18T05:42:37.267Z - normal: Finish init build-worker
+2018-07-18T05:42:37.267Z - normal: Start build-assets in worker
+2018-07-18T05:42:39.396Z - normal: Finish build-assets in worker
+2018-07-18T05:42:39.400Z - normal: Finish building assets
+2018-07-18T05:42:39.508Z - normal: Start building raw assets
+2018-07-18T05:42:39.509Z - normal: Start building plugin scripts
+2018-07-18T05:42:39.886Z - normal: Finish building raw assets
+2018-07-18T05:42:39.893Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-18T05:42:39.978Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
+2018-07-18T05:42:42.603Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
+2018-07-18T05:42:42.604Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
+2018-07-18T05:42:43.108Z - normal: Initializing...
 
-2018-07-05T02:39:01.603Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
+2018-07-18T05:42:43.114Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
 
-2018-07-05T02:39:01.617Z - normal: starting ide...
+2018-07-18T05:42:43.132Z - normal: starting ide...
 
-2018-07-05T02:39:05.180Z - normal: IDE server has started, listening on http://127.0.0.1:40744
+2018-07-18T05:42:46.252Z - normal: IDE server has started, listening on http://127.0.0.1:53957
 
-2018-07-05T02:39:05.183Z - normal: initialization finished
+2018-07-18T05:42:46.256Z - normal: initialization finished
 
-2018-07-05T02:39:05.443Z - normal: open IDE success
+2018-07-18T05:42:46.642Z - normal: open IDE success
 
-2018-07-05T02:58:50.252Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:03:38.383Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:05:42.098Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:07:20.932Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:10:03.236Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:13:26.318Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:16:40.060Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:20:43.510Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:22:25.016Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:39:32.680Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:41:35.448Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:42:47.538Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:44:27.736Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:46:22.643Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:48:33.980Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:49:15.914Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T03:49:55.097Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T04:03:58.583Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:38:45.295Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:41:28.291Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:42:30.113Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:48:18.718Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:52:23.118Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:54:25.838Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T05:55:44.537Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:03:26.308Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:13:55.705Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:17:18.081Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:19:44.074Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:21:29.086Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:24:01.383Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:29:33.148Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:32:35.792Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:36:30.671Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:41:18.024Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:43:01.750Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T06:47:09.831Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T07:01:14.697Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T08:02:08.933Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T08:03:32.617Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T08:07:38.270Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T08:09:10.949Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T08:17:51.917Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T08:30:18.131Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T09:06:19.493Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T09:08:40.881Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T10:53:15.924Z - failed: [db-task][sync-changes] Failed to import asset /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/LazarilloCardUtil.js, message: Compile error: SyntaxError: /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/assets/Script/LazarilloCardUtil.js: Invalid left-hand side in for-in statement (978:32)
-  976 | 
-  977 |                             var through = true;
-> 978 |                             for(i,j in tempTipCards){
-      |                                 ^
-  979 |                                 var j = tempTipCards[i];
-  980 |                                 if(j.length != 2){
-  981 |                                     through = false
-    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
-    at Parser.pp$2.toAssignable (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3008:16)
-    at Parser.pp$1.parseForStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2039:10)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1836:19)
-    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
-    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1868:19)
-    at Parser.pp$1.parseIfStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2059:26)
-    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1846:19)
-    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
-2018-07-05T10:54:05.742Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T10:59:23.087Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T11:06:38.245Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-05T11:11:42.959Z - info: shutdown preview server
+2018-07-18T05:50:10.170Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T05:51:56.496Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T05:52:43.820Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T05:53:52.521Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T05:59:45.349Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T06:02:09.263Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T06:07:35.599Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-18T06:07:54.609Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "android-10",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build",
+  "debug": false,
+  "dest": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame",
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [
+    "TiledMap",
+    "EditorBox",
+    "VideoPlayer",
+    "WebView",
+    "AudioSource",
+    "Collider",
+    "Graphics",
+    "Physics",
+    "StudioComponent",
+    "Camera"
+  ],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.helloworld",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "renderMode": "0",
+  "scenes": [
+    "9510c904-8db6-412f-8765-495324f8a971",
+    "fb2529d1-7f43-49d5-9763-12c971b6c309",
+    "5ec0809b-b563-429c-b49a-86050054f2bc"
+  ],
+  "sourceMaps": false,
+  "startScene": "9510c904-8db6-412f-8765-495324f8a971",
+  "template": "link",
+  "title": "doudizhu",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "appid": "wxd5d072385196f513",
+    "orientation": "landscape"
+  },
+  "xxteaKey": "d85967f3-7cf7-45",
+  "zipCompressJs": true,
+  "project": "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1",
+  "projectName": "doudizhu",
+  "debugBuildWorker": false
+}
+2018-07-18T06:07:54.610Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-18T06:07:54.611Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-18T06:07:54.611Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-18T06:08:01.471Z - normal: Compiled project javascript file successfully
+2018-07-18T06:08:01.471Z - normal: Start building assets
+2018-07-18T06:08:01.472Z - normal: Start spawn build-worker
+2018-07-18T06:08:02.034Z - normal: Finish spawn build-worker
+2018-07-18T06:08:02.034Z - normal: Start init build-worker
+2018-07-18T06:08:03.693Z - normal: 1.9.1
+2018-07-18T06:08:03.896Z - normal: Finish init build-worker
+2018-07-18T06:08:03.897Z - normal: Start build-assets in worker
+2018-07-18T06:08:06.495Z - normal: Finish build-assets in worker
+2018-07-18T06:08:06.500Z - normal: Finish building assets
+2018-07-18T06:08:06.643Z - normal: Start building raw assets
+2018-07-18T06:08:06.644Z - normal: Start building plugin scripts
+2018-07-18T06:08:07.034Z - normal: Finish building raw assets
+2018-07-18T06:08:07.039Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-18T06:08:07.113Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
+2018-07-18T06:08:09.299Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
+2018-07-18T06:08:09.299Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
+2018-07-18T06:08:09.944Z - normal: Initializing...
+
+2018-07-18T06:08:09.953Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
+
+2018-07-18T06:08:09.980Z - normal: IDE server has started, listening on http://127.0.0.1:53957
+
+2018-07-18T06:08:09.983Z - normal: initialization finished
+
+2018-07-18T06:08:10.137Z - normal: open IDE success
+
+2018-07-18T06:20:35.899Z - warn: ctor of CCClass 'undefined' should not accept any arguments.

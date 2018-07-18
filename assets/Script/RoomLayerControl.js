@@ -303,7 +303,7 @@ cc.Class({
             if(parseInt(payload["data"]["modelId"]) == config.ModelId.lazarillo){
                 // --癞子场
                 console.log("进入癞子场");
-                // this.preloadNextScene();
+                this.preloadNextScene();
             }else{
                 // --普通场
                 // DeviceHelper.addGameLog("enterRoom"..args["roomId"],"a")
@@ -343,6 +343,7 @@ cc.Class({
                     dialogManager.showCommonDialog("温馨提示","您还在其他癞子场中对局哟，现在进去看看吧！",function(){
                         console.log("短线重连赖子场");
                         // self.onWantContinueLzGaming();
+                        self.onWantContinueGaming(event);
                     });
                 }else{
                     console.log("您正在竞技场牌局中，请返回继续！");
@@ -448,17 +449,20 @@ cc.Class({
         var response = event.getUserData();
         console.log(response);
         var trial_count = response.data.trial_count;
+        var trial_cooldown = response.data.trial_cooldown;
         var content = "";
 
         var click = function(){
             console.log("点击了领取救济按钮");
-            GameNetMgr.sendRequest("Game", "openReliefTip", {});
+            // GameNetMgr.sendRequest("Game", "openReliefTip", {});
         }
 
-        if(trial_count<3){
+        if(trial_cooldown == 0){
             var index = trial_count+1;
             content = "系统第"+index+"次赠送您1000乐豆。";
-            dialogManager.showCommonDialog("领救济",content,click);
+            // dialogManager.showCommonDialog("领救济",content,click);
+            // dialogManager.showShareGetDialog("","",click);
+            dialogManager.showTableShareGet("jiuji");
         }else{
             content = "今天乐豆已经领完了哦，明天在过来吧！";
             dialogManager.showCommonDialog("领救济",content);

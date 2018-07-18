@@ -104,8 +104,14 @@ var Player = cc.Class({
         this.play = parm.play;//游戏总局数
         this.win = parm.win;//胜利局数
     },
+    setPlay(play){
+        this.play = play;
+    },
     getPlay(){
         return this.play;
+    },
+    setWin(win){
+        this.win = win;
     },
     getWin(){
         return this.win;
@@ -134,17 +140,17 @@ var Player = cc.Class({
     },
     continueInfo(parm){
         // console.log("短线重连玩家信息");
+        this.play = parm.play;//游戏总局数
+        this.win = parm.win;//胜利局数
+        this.uid = parm.uid;//胜利局数
+        this.gender = parm.sex;
+
         this.setnickname(parm.nickname);
         this.setCoin(parm.coin); 
         this.setLeQuan(parm.lequan); 
         this.setWechatImg(parm.wechatImg);
         this.setCardCount(parm.cardCount);
         this.setMySeatId(parm.seatId);
-
-        this.play = parm.play;//游戏总局数
-        this.win = parm.win;//胜利局数
-        this.uid = parm.uid;//胜利局数
-        this.gender = parm.sex;
     },
     clear(){
         this.cardCount = 0; //手牌数量
@@ -181,6 +187,11 @@ var Player = cc.Class({
         }
         if(this.node_alarm){
             this.node_alarm.active = false;
+        }
+    },
+    setNode_alarmShow(blt){
+        if(this.node_alarm){
+            this.node_alarm.active = blt;
         }
     },
     setOpenHandCards(blt){
@@ -384,7 +395,6 @@ var Player = cc.Class({
     getShowHintType(){
         return this.showHintType;
     },
-
 
     //初始化自己的牌
     initMyCards(myPokerData,myPokerNode,parentNode,sceneWidth,seatNumber){ //0右边 1下边 2左边
@@ -591,7 +601,7 @@ var Player = cc.Class({
                         poker.showPoker(pokerData);
                     }
                 }else{
-                    console.log(pokerData);
+                    // console.log(pokerData);
                     poker.showPoker(pokerData);
                 }
             }else{
@@ -669,15 +679,15 @@ var Player = cc.Class({
                     var jokerValue = CardUtil.serverCardValueToClient(config.joker);
                     if(jokto[joktoIndex] && pokerData.showTxt == jokerValue){
                         var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
-                        console.log(joktoValue);
+                        // console.log(joktoValue);
                         poker.convertLazarillo(joktoValue);
                         joktoIndex++;
                     }else{
-                        console.log(pokerData);
+                        // console.log(pokerData);
                         poker.showPoker(pokerData);
                     }
                 }else{
-                    console.log(pokerData);
+                    // console.log(pokerData);
                     poker.showPoker(pokerData);
                 }
             }else{
@@ -764,7 +774,7 @@ var Player = cc.Class({
                         poker.showPoker(pokerData);
                     }
                 }else{
-                    console.log(pokerData);
+                    // console.log(pokerData);
                     poker.showPoker(pokerData);
                 }
             }else{

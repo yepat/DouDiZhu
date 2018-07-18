@@ -60,9 +60,6 @@ cc.Class({
                 this.timeTxt.string = pre + t; 
             }   
         }, 1);
-
-        //xx_test
-        // this.show(10,null,null,2);
     },
     show(time,btn1Func,btn2Func,type){
         this.timeCount = time;
@@ -119,9 +116,6 @@ cc.Class({
     },
     btn2Click() {
         console.log("btn2Click");
-        if(this.btn2Func){
-            this.btn2Func();
-        }
         if(this.type == config.opratType.mustOutCard){
             // this.node.destroy();
             if(this.btn2Func){
@@ -137,6 +131,9 @@ cc.Class({
                 }
             }
         }else{
+            if(this.btn2Func){
+                this.btn2Func();
+            }
             this.node.destroy();
         }
         cc.vv.audioMgr.playSFX("SpecOk");

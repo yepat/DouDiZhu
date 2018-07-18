@@ -94,8 +94,7 @@ Protocol.Request = {
         ShareInfo : 515, //分享信息
         ShareGet  : 517, //分享领取
 
-
-
+        ShareWxRes : 519, //微信分享成功发送
 
         // 511 请求任务列表  515  517
         // 512
@@ -238,6 +237,8 @@ Protocol.Response = {
 
         ShareInfoResult : 516, //分享信息结果
         ShareGetResult  : 518, //分享领取结果
+
+        ShareWxResResult : 520, //微信分享成功发送结果
     },
     Game : {
         NoLogin : 1000,         //未登录

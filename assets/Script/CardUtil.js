@@ -281,6 +281,25 @@ CardUtil.AutoChooseLiftUpCard = function(myPokerNode,PokerControl,cards){
 
     console.log("maxLenght:"+maxLenght);
 
+    if(maxLenght>1 && config.joker != ""){//赖子牌排序
+        var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+        cards.sort(config.arrayUp);
+        var lzcards = [];
+        var tempcards = [];
+        for(var i=0;i<maxLenght;i++){
+            if(cards[i]==jokerValue){
+                lzcards.push(cards[i]);
+            }else{
+                tempcards.push(cards[i]);
+            }
+        }
+        for(var i=0;i<lzcards.length;i++){
+            tempcards.push(lzcards[i]);
+        }
+        cards = tempcards;
+        console.log("tempcards:",tempcards);
+    }
+
     for(var i = myPokerNode.length-1;i >= 0;i--){
         var pokerControl = myPokerNode[i].getComponent(PokerControl);
         // var pktxt = pokerControl.cardData.showTxt;
@@ -345,7 +364,7 @@ CardUtil.extend = function(table1, table2){
 }
 
 //判断提起的牌是否合法
-CardUtil.get_topCard_type = function(topCards){
+CardUtil.get_topCard_type = function(topCards,card_type){
 
     if(typeof(topCards) == "number"){
         console.log("这是个数字");
@@ -406,7 +425,11 @@ CardUtil.get_topCard_type = function(topCards){
         var three = PopCardUtil.getThree();
         var four = PopCardUtil.getFour();
         if(four.count>0){
-            cardtype.type = config.CardType.Bomb;
+            if(card_type){
+                cardtype.type = card_type;
+            }else{
+                cardtype.type = config.CardType.Bomb;
+            }
             cardtype.rank = four.cards[0][0];
             cardtype.repeatCount = 1;
             console.log("炸弹");
@@ -866,7 +889,6 @@ CardUtil.find_pair_card = function(last_cards_type, prop, myCards){
         }
         return allcards;
     }
-
     return all_result;
 }
 
@@ -1256,7 +1278,7 @@ CardUtil.find_pair_straight = function(last_cards_type, prop, myCards){
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
             console.log("i:"+i);
-            if(allpair[i]+1==allpair[i+1]){
+            if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
                 console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
@@ -1324,7 +1346,7 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
             console.log("i:"+i);
-            if(allpair[i]+1==allpair[i+1]){
+            if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
                 console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
@@ -1394,7 +1416,7 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
             console.log("i:"+i);
-            if(allpair[i]+1==allpair[i+1]){
+            if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
                 console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
@@ -1463,7 +1485,7 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
             console.log("i:"+i);
-            if(allpair[i]+1==allpair[i+1]){
+            if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
                 console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);

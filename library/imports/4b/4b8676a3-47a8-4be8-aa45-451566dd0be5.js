@@ -11,7 +11,10 @@ var opratShowCardControl = require("opratShowCardControl");
 var opratDoubleControl = require("opratDoubleControl");
 var doubleControl = require("doubleControl");
 var playerInfoControl = require("playerInfoControl");
-var expressionControl = require("expressionControl");
+// var ShareGetControl = require("ShareGetControl");
+var TableShareGetControl = require("TableShareGetControl");
+var TaskCompleteShareControl = require("TaskCompleteShareControl");
+var huodedaojuControl = require("huodedaojuControl");
 
 var dialogManager = cc.Class({
     extends: cc.Component,
@@ -38,6 +41,15 @@ var dialogManager = cc.Class({
             args.arg4 = cancelClick;
             this.showDialog("prefab/commonDialog", commonControl, args);
         },
+
+        // showShareGetDialog(title,content,enterClick,cancelClick){//分享获取乐豆
+        //     var args = {};
+        //     args.arg1 = title;
+        //     args.arg2 = content;
+        //     args.arg3 = enterClick;
+        //     args.arg4 = cancelClick;
+        //     this.showDialog("prefab/ShareGetDialog",ShareGetControl,args);//ShareGetControl
+        // },
         showBagDialog: function showBagDialog() {
             this.showDialog("prefab/bagDialog");
         },
@@ -126,6 +138,24 @@ var dialogManager = cc.Class({
             args.arg1 = rate;
             args.arg2 = seatNum;
             this.showDialog("animatiom/anim_double", doubleControl, args);
+        },
+
+        //获得道具
+        showAnimGetProp: function showAnimGetProp(list, enterClick) {
+            //name,num
+            var args = {};
+            args.arg1 = list;
+            args.arg2 = enterClick;
+            this.showDialog("animatiom/anim_huodedaoju", huodedaojuControl, args);
+        },
+
+
+        //动态加载弹出框
+        showTableShareGet: function showTableShareGet(name) {
+            this.showDialog("prefab/tableShareGetDialog", TableShareGetControl, name);
+        },
+        showTaskCompleteShare: function showTaskCompleteShare(name) {
+            this.showDialog("prefab/taskCompleteShareDialog", TaskCompleteShareControl, name);
         }
     }
 });

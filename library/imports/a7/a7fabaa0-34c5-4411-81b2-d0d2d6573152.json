@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "huodedaoju_tex",
+    "texture": "198164e7-e073-4e87-b75e-32cedf3e6fde",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      994,
+      508
+    ],
+    "offset": [
+      -14,
+      1
+    ],
+    "originalSize": [
+      1024,
+      512
+    ]
+  }
+}

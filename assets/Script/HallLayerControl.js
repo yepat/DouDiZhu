@@ -52,6 +52,16 @@ cc.Class({
              this.node.runAction(cc.sequence(delay,callFunc));
              EventHelper.AddCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
         }
+
+        // var index = config.getRandom(1);
+        // console.log("index=",index);
+
+
+        //第一次登陆弹出分享窗口
+        if(config.firstLogin){
+            config.firstLogin = false;
+            dialogManager.showShareDialog();
+        }
     },
     onDestroy(){
         console.log(" HallLayer Destroy");

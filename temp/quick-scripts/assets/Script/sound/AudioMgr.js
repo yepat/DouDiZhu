@@ -13,37 +13,50 @@ cc.Class({
         sfxVolume: 1.0,
         bgmAudioID: -1
     },
-
     onLoad: function onLoad() {
         this.bgmUrl = "";
         var t = cc.sys.localStorage.getItem("bgmVolume");
-        if (t != null) this.bgmVolume = t;
+        this.bgmVolume = t;
 
         var t2 = cc.sys.localStorage.getItem("sfxVolume");
-        if (t2 != null) this.sfxVolume = t2;
+        this.sfxVolume = t2;
     },
 
     // use this for initialization
     init: function init() {
         var t = cc.sys.localStorage.getItem("bgmVolume");
-        if (t != null) {
+
+        this.bgmVolume = 1;
+        this.sfxVolume = 1;
+
+        if (t) {
             this.bgmVolume = t;
+            cc.sys.localStorage.setItem("bgmVolume", this.bgmVolume);
         } else {
-            cc.sys.localStorage.setItem("bgmVolume", 1);
+            if (typeof t == "string") {
+                cc.sys.localStorage.setItem("bgmVolume", this.bgmVolume);
+            } else {
+                this.bgmVolume = 0;
+            }
         }
 
         var t2 = cc.sys.localStorage.getItem("sfxVolume");
-        if (t2 != null) {
+        if (t2) {
             this.sfxVolume = t2;
+            cc.sys.localStorage.setItem("sfxVolume", this.sfxVolume);
         } else {
-            cc.sys.localStorage.setItem("sfxVolume", 1);
+            if (typeof t2 == "string") {
+                cc.sys.localStorage.setItem("sfxVolume", this.sfxVolume);
+            } else {
+                this.sfxVolume = 0;
+            }
         }
     },
     getUrl: function getUrl(url) {
         if (typeof wx == "undefined") {
             return cc.url.raw("resources/sounds/" + url + ".mp3");
         } else {
-            return wx.env.USER_DATA_PATH + "/sounds/" + url + ".mp3";
+            return AppConfig.soundsPath() + url + ".mp3";
         }
     },
     getBgmUrl: function getBgmUrl() {
