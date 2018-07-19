@@ -32,6 +32,9 @@ config.ModelId = {normal : 0, contest : 3, lazarillo : 2}
 
 config.joker = "";//赖子牌
 
+config.adCdTime = 0;//广告冷却时间
+config.showAd = 0;//显示广告
+
 config.jpqShareSucss = false;//获得记牌器分享成功
 config.leQuanShareSucss = false;//获得乐券分享成功
 config.leDouShareSucss = false;//获得乐豆分享成功

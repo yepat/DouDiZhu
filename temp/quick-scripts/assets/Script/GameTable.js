@@ -75,16 +75,6 @@ cc.Class({
         }, this);
         cc.vv.audioMgr.playBGM("MusicEx_Normal");
         this.showWatingStartGame();
-
-        // if(typeof(wx)=="undefined"){
-        //     return;
-        // }
-        // wx.onHide(function () {
-        //     console.log("wx 游戏进入后台");
-        // });
-        // wx.onShow(function (){
-        //     console.log("wx 重新返回游戏");
-        // });
     },
     start: function start() {
         var self = this;
@@ -134,6 +124,8 @@ cc.Class({
         params.title = detailModel.getTitle();
         params.emoticon = {};
         params.emoticonItems = {};
+        params.play = PlayerDetailModel.getMatches(); //游戏总局数
+        params.win = PlayerDetailModel.getWin(); //胜利局数
 
         this.myOpratShow = null; //我自己的弹出操作洁面
         this.CancelDelegate = null;

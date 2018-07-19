@@ -123,11 +123,20 @@ cc.Class({
         var imgUrl = "";
         if (player) {
             imgUrl = player.getWechatImg();
+        } else {
+            imgUrl = config.wxInfo.avatarUrl;
+        }
+
+        var gender = 0;
+        if (player) {
+            gender = player.getGender();
+        } else {
+            gender = PlayerDetailModel.getGender();
         }
 
         if (imgUrl == "") {
             var headUrl = "p_head_woman";
-            if (player && player.getGender() == 1) {
+            if (gender == 1) {
                 headUrl = "p_head_man";
             }
             cc.loader.loadRes(headUrl, cc.SpriteFrame, function (err, spriteFrame) {

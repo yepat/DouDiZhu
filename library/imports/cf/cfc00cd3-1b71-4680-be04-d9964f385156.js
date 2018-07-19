@@ -1952,12 +1952,11 @@ LazarilloCardUtil.find_four_with_two_pair_card = function (last_cards_type, prop
 
 //符合的顺子牌
 LazarilloCardUtil.find_straight = function (last_cards_type, prop, myCards, lzLen, lzValue) {
-
     var all_result = [];
     PopCardUtil.setSameVulueCardCount(prop);
     var rank = parseInt(last_cards_type.rank);
     var repeatCount = last_cards_type.repeatCount;
-    var single = PopCardUtil.getSingle();
+    // var single = PopCardUtil.getSingle();
 
     console.log("rank:" + rank + " repeatCount:" + repeatCount);
 
@@ -1967,74 +1966,7 @@ LazarilloCardUtil.find_straight = function (last_cards_type, prop, myCards, lzLe
         return all_result;
     }
 
-    //所有牌可以组成的顺子
-    // var autoCards = [];
-    // var tempCards = [];
-    // var key = rank;
-    // for(var i =1;i<20;i++){
-    //     if (prop[key+i] && key+i < CardUtil.cardGrade["2"]){
-    //         //满足组成顺子的牌
-    //         autoCards.push(prop[key+i][0]);
-    //     }else{
-    //         if(autoCards.length>=repeatCount){
-    //             tempCards.push(autoCards);
-    //         }
-    //         autoCards = [];
-    //         continue;
-    //     }
-    // }
-
-    // console.log(tempCards);
-
-    // if(tempCards.length > 0 && tempCards[0].length > repeatCount){
-    //     var len = tempCards[0].length - repeatCount;
-    //     var temparr = [];
-    //     for(var i=0;i<=len;i++){
-    //         if(tempCards[0].length >= repeatCount+i){
-    //             temparr = config.arraySub(i,repeatCount+i,tempCards[0],1);
-    //             all_result.push(temparr);
-    //         }
-    //     }
-    // }else{
-    //     all_result = tempCards;
-    // }
-
-    // if(all_result.length<1){
-    //     all_result = [];
-    //     autoCards = [];
-    //     tempCards = [];
-    //     key = rank;
-    //     for(var i =1;i<20;i++){
-    //         if (prop[key+i] && key+i < CardUtil.cardGrade["2"]){
-    //             //满足组成顺子的牌
-    //             autoCards.push(prop[key+i][0]);
-    //         }else{
-    //             if(autoCards.length>=3){
-    //                 tempCards.push(autoCards);
-    //             }
-    //             // tempCards.push(autoCards);
-    //             autoCards = [];
-    //             continue;
-    //         }
-    //     }
-    //     // lzLen,lzValue
-
-    //     console.log("tempCards",tempCards)
-    //     for(var i=0;i<tempCards.length;i++){
-    //         //要补齐的张数
-    //         var repCount = repeatCount - tempCards[i].length;
-    //         if(lzLen>=repCount){
-    //             for(var j=0;j<repCount;j++){
-    //                 tempCards[i].push(lzValue);
-    //             }
-    //             if(tempCards[i].length == repeatCount){
-    //                 all_result=tempCards;
-    //             }
-    //         }
-    //     } 
-    // }
-
-    //所有赖子补齐--new
+    //所有赖子补齐
     if (true) {
         console.log("-------所有顺子赖子补齐");
         var tempAllcards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
@@ -2049,13 +1981,13 @@ LazarilloCardUtil.find_straight = function (last_cards_type, prop, myCards, lzLe
                 tempAll_result.push(temparr);
             }
         }
-        console.log("tempAll_result:", tempAll_result);
+        // console.log("tempAll_result:",tempAll_result);
         //自己所有单张牌
         var singles = [];
         for (var k in prop) {
             singles.push(k);
         }
-        console.log("singles:", singles);
+        // console.log("singles:",singles);
         var xx_All_result = [];
         for (var i = 0; i < tempAll_result.length; i++) {
             var xx_temp = [];
@@ -2068,26 +2000,23 @@ LazarilloCardUtil.find_straight = function (last_cards_type, prop, myCards, lzLe
             }
             xx_All_result.push(xx_temp);
         }
-        console.log("xx_All_result:", xx_All_result);
+        // console.log("xx_All_result:",xx_All_result);
         // lzLen
         for (var i = 0; i < xx_All_result.length; i++) {
             //要补齐的张数
-            // var lznum = 0;
-            // for(var j=0;j<xx_All_result[i].length;j++){
-            //     if(xx_All_result[i][j]==lzValue){
-            //         lznum++;
-            //     }
-            // }
-            // // console.log("-------lznum:",lznum);
-            // if(lzLen>1){
-            //     lznum = 0;
-            // }
+            var lznum = 0;
             var repCount = repeatCount - xx_All_result[i].length;
             if (lzLen >= repCount) {
                 for (var m = 0; m < repCount; m++) {
                     xx_All_result[i].push(lzValue);
                 }
-                all_result.push(xx_All_result[i]);
+                for (var j = 0; j < xx_All_result[i].length; j++) {
+                    if (xx_All_result[i][j] == lzValue) {
+                        lznum++;
+                    }
+                }
+                // console.log("-------lznum:",lznum);
+                if (lznum <= lzLen) all_result.push(xx_All_result[i]);
             }
         }
     }

@@ -21,6 +21,14 @@ cc.Class({
             default : null,
             type : cc.Sprite
         },
+        btn_videoAd : {
+            default : null,
+            type : cc.Sprite
+        },
+        ad_time : {
+            default : null,
+            type : cc.Label
+        },
     },
     // onLoad () {},
     start () {
@@ -28,6 +36,10 @@ cc.Class({
         this.taskTip.enabled = false;
         this.mailTip.enabled = false;
         this.shareTip.enabled = false;
+        this.ad_time.string = "";
+        this.timeCount = 0;
+        this.adCanTouch = true;
+        this.btn_videoAd.enabled = false;
 
         if(PlayerDetailModel.getTaskUnReward()>0){
             this.taskTip.enabled = true;
@@ -40,6 +52,7 @@ cc.Class({
         }
 
         EventHelper.AddCustomEvent(config.MyNode,"RefreshDataResult",self.onRefreshDataResult,self);
+        EventHelper.AddCustomEvent(config.MyNode,"WatchAdvertisementResult",self.onWatchAdvertisementResult,self);
 
         if(PlayerDetailModel.continueRoomId != 0){
             var callFunc = cc.callFunc(function(){
@@ -53,15 +66,89 @@ cc.Class({
              EventHelper.AddCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
         }
 
-        // var index = config.getRandom(1);
-        // console.log("index=",index);
-
-
         //第一次登陆弹出分享窗口
         if(config.firstLogin){
             config.firstLogin = false;
             dialogManager.showShareDialog();
         }
+
+        //微信视频广告
+        this.initWxVideoAd();
+    },
+    initWxVideoAd(){
+        var self = this;
+        if(config.showAd == 1){
+            this.btn_videoAd.enabled = true;
+        }else{
+            return;
+        }
+        if(typeof(wx)=="undefined"){
+            return;
+        }
+        var rewardedVideoAd = wx.createRewardedVideoAd({ adUnitId: 'adunit-5e51a762e521fda5' })
+        rewardedVideoAd.onLoad(() => {
+            console.log('激励视频 广告加载成功')
+        })
+        rewardedVideoAd.onError(err => {
+            console.log("激励视频 拉取失败"+err)
+        })
+        rewardedVideoAd.onClose(res => {
+            if (res && res.isEnded || res === undefined) {
+                console.log("正常播放结束，可以下发游戏奖励")
+                GameNetMgr.sendRequest("System", "WatchAdvertisement");
+                // self.timeCount = 60;
+                self.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+                self.adCanTouch = false;
+            }
+            else {
+                console.log("播放中途退出，不下发游戏奖励")
+            }
+            cc.vv.audioMgr.playBGM("MusicEx_Welcome");
+        })
+        this.rewardedVideoAd = rewardedVideoAd;
+
+        if(config.adCdTime>1){
+            self.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+            self.adCanTouch = false;
+        }
+
+        //计时器
+        this.timeCount = config.adCdTime;
+        this.schedule(function() {
+            if(this.timeCount > 0){
+                this.timeCount -= 1;
+                this.ad_time.string = this.showTimes(this.timeCount); 
+                if(this.timeCount == 0){
+                    this.ad_time.string = "";
+                    this.btn_videoAd.node.color = new cc.Color(255, 255, 255);
+                    this.adCanTouch = true;
+                }
+            }
+        }, 1);
+    },
+    showTimes(time){
+        //秒转换分钟格式 2:00 == 120
+        var times = "00:00";
+        var fen = Math.floor(time/60);
+        var miao = time - fen*60; 
+        var strfen = "00";
+        var strmiao = "00";
+        if(fen == 0){
+            strfen = "00";
+        }else if(fen < 10){
+            strfen = "0"+fen;
+        }else{
+            strfen = ""+fen;
+        }
+        if(miao == 0){
+            strmiao = "00";
+        }else if(miao < 10){
+            strmiao = "0"+miao;
+        }else{
+            strmiao = ""+miao;
+        }
+        times = strfen+":"+strmiao;
+        return times;
     },
     onDestroy(){
         console.log(" HallLayer Destroy");
@@ -139,6 +226,19 @@ cc.Class({
         dialogManager.showShareDialog();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
+    btnVideoAdClick(){
+        console.log("btnVideoAdClick");
+        if(!this.adCanTouch){
+            console.log("cd中。。。。。。。。")
+            return;
+        }
+        cc.vv.audioMgr.playSFX("SpecOk");
+        if(typeof(wx)=="undefined"){
+            return;
+        }
+        if(this.rewardedVideoAd)
+            this.rewardedVideoAd.show().then(() => cc.vv.audioMgr.stopMusic());
+    },
     handleLoginRoomResult(event){
         console.log("--进入上局未完的普通牌桌>>>");
         var payload = event.payload;
@@ -182,5 +282,37 @@ cc.Class({
 
         config.IsContinueGaming = 1;
         this.preloadNextScene();
+    },
+    onWatchAdvertisementResult(event){
+        console.log("-----看完广告领奖");
+        var response = event.getUserData();
+        var award = response.data;
+        var list = [];
+        if(award.coins){
+            var args = {
+                arg1:"ledou",
+                arg2:award.coins,
+            }
+            list.push(args);
+        } 
+        if(award.coupon){
+            var args = {
+                arg1:"lequan",
+                arg2:award.coupon,
+            }
+            list.push(args);
+        } 
+        if(award.noteCards){
+            var args = {
+                arg1:"jipaiqi",
+                arg2:award.coupon,
+            }
+            list.push(args);
+        } 
+        if(list.length>0){
+            dialogManager.showAnimGetProp(list);
+        }
+        config.adCdTime = award.watch_advertisement_cd;
+        this.timeCount = config.adCdTime;
     }
 });

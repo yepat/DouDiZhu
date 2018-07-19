@@ -40,7 +40,7 @@
     "relativePath": "prefab"
   },
   "20ac1e46-8924-4b7f-96a9-5509888c2233": {
-    "asset": 1530973705218,
+    "asset": 1531899880132,
     "meta": 1528080484339,
     "relativePath": "resources"
   },
@@ -60,8 +60,8 @@
     "relativePath": "Scene"
   },
   "fb2529d1-7f43-49d5-9763-12c971b6c309": {
-    "asset": 1530514615003,
-    "meta": 1530514615017,
+    "asset": 1531902544977,
+    "meta": 1531902544994,
     "relativePath": "Scene/HallScene.fire"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
@@ -1435,8 +1435,8 @@
     "relativePath": "resources/p_taskbg.png"
   },
   "5ec0809b-b563-429c-b49a-86050054f2bc": {
-    "asset": 1531878835307,
-    "meta": 1531878835325,
+    "asset": 1531966251602,
+    "meta": 1531966251627,
     "relativePath": "Scene/GameScene.fire"
   },
   "b47e0f48-07ca-4a66-b7c7-a7f9229a3325": {
@@ -2774,11 +2774,6 @@
     "meta": 1530174091189,
     "relativePath": "resources/sounds/mf_tuoxie.mp3"
   },
-  "5918ba28-6f78-495a-8189-d9536558958d": {
-    "asset": 1530495680261,
-    "meta": 1530499645181,
-    "relativePath": "Script/dialog/playerInfoControl.js"
-  },
   "b5073dfd-57a1-4fe2-b997-7e5d04cd8d2a": {
     "asset": 1530514753388,
     "meta": 1530514724108,
@@ -2803,16 +2798,6 @@
     "asset": 1530871065551,
     "meta": 1530871065556,
     "relativePath": "resources/prefab/ShareGetDialog.prefab"
-  },
-  "72ee4884-126a-47a8-b1e7-29e00414de87": {
-    "asset": 1530862867783,
-    "meta": 1530862898422,
-    "relativePath": "Script/gameNetwork/GameNetMgr.js"
-  },
-  "ca1bfb0e-2554-487d-9f89-688d205a1f8d": {
-    "asset": 1530865186701,
-    "meta": 1530867104419,
-    "relativePath": "Script/HallLayerControl.js"
   },
   "5d495224-beb3-41ec-9d1f-54548e3be2f1": {
     "asset": 1530871107277,
@@ -2939,11 +2924,6 @@
     "meta": 1530943512089,
     "relativePath": "resources/prefab/taskCompleteShareDialog.prefab"
   },
-  "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
-    "asset": 1530950522562,
-    "meta": 1530950853326,
-    "relativePath": "Script/gameNetwork/Protocol.js"
-  },
   "5e473555-45e4-4a09-ab64-653e7ee5c0e7": {
     "asset": 1530971232174,
     "meta": 1530971240296,
@@ -2979,11 +2959,6 @@
     "meta": 1531289190233,
     "relativePath": "Script/dialog/taskControl.js"
   },
-  "6918640e-19c3-4fdb-833c-c08eec6e42ee": {
-    "asset": 1531293265121,
-    "meta": 1531293268449,
-    "relativePath": "Script/dialog/shareControl.js"
-  },
   "52569629-1f0a-4361-9158-a562463ee790": {
     "asset": 1531297960267,
     "meta": 1531297963983,
@@ -3003,11 +2978,6 @@
     "asset": 1531384036572,
     "meta": 1531384036575,
     "relativePath": "Texture/card_list.prefab"
-  },
-  "7b0e54dd-bc85-463e-8722-cd9f37a06ba3": {
-    "asset": 1531384185075,
-    "meta": 1531384187456,
-    "relativePath": "Script/HallCanvasControl.js"
   },
   "09476f32-25ce-457f-ba19-04eab8f0608f": {
     "asset": 1531393842533,
@@ -3079,39 +3049,74 @@
     "meta": 1531829321884,
     "relativePath": "resources/shareBig/p_liansheng_3.png"
   },
-  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
-    "asset": 1531831269242,
-    "meta": 1531831288994,
-    "relativePath": "Script/gameNetwork/AppStart.js"
-  },
   "8bdcebdf-fd7c-4500-a0db-3ef316de8719": {
     "asset": 1531866823758,
     "meta": 1531866826577,
     "relativePath": "Script/animation/watingStarControl.js"
   },
-  "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
-    "asset": 1531867200980,
-    "meta": 1531867220483,
-    "relativePath": "Script/Player.js"
+  "19e0d5b4-1096-4703-93b0-b7965b0c2995": {
+    "asset": 1531899019655,
+    "meta": 1531899019698,
+    "relativePath": "resources/btn_shipin_0.png"
   },
   "5123232e-460d-44b6-887a-78ca0e60f209": {
-    "asset": 1531882104580,
-    "meta": 1531882109516,
+    "asset": 1531905305655,
+    "meta": 1531905310641,
     "relativePath": "Script/config.js"
   },
+  "6918640e-19c3-4fdb-833c-c08eec6e42ee": {
+    "asset": 1531906745390,
+    "meta": 1531907137622,
+    "relativePath": "Script/dialog/shareControl.js"
+  },
+  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
+    "asset": 1531905965114,
+    "meta": 1531907137828,
+    "relativePath": "Script/gameNetwork/AppStart.js"
+  },
   "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
-    "asset": 1531886507661,
-    "meta": 1531886743362,
+    "asset": 1531906553281,
+    "meta": 1531907137997,
     "relativePath": "Script/gameNetwork/GameNet.js"
   },
+  "72ee4884-126a-47a8-b1e7-29e00414de87": {
+    "asset": 1531906305510,
+    "meta": 1531907138066,
+    "relativePath": "Script/gameNetwork/GameNetMgr.js"
+  },
+  "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
+    "asset": 1531906187619,
+    "meta": 1531907138195,
+    "relativePath": "Script/gameNetwork/Protocol.js"
+  },
+  "ca1bfb0e-2554-487d-9f89-688d205a1f8d": {
+    "asset": 1531908433477,
+    "meta": 1531908437075,
+    "relativePath": "Script/HallLayerControl.js"
+  },
+  "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
+    "asset": 1531948561934,
+    "meta": 1531948665846,
+    "relativePath": "Script/Player.js"
+  },
+  "5918ba28-6f78-495a-8189-d9536558958d": {
+    "asset": 1531948993389,
+    "meta": 1531948997976,
+    "relativePath": "Script/dialog/playerInfoControl.js"
+  },
   "1393c8a9-79e3-4565-ba57-f5a2716294c6": {
-    "asset": 1531894049588,
-    "meta": 1531894054422,
+    "asset": 1531949621135,
+    "meta": 1531949690571,
     "relativePath": "Script/GameTable.js"
   },
+  "7b0e54dd-bc85-463e-8722-cd9f37a06ba3": {
+    "asset": 1531949651101,
+    "meta": 1531949690939,
+    "relativePath": "Script/HallCanvasControl.js"
+  },
   "cfc00cd3-1b71-4680-be04-d9964f385156": {
-    "asset": 1531894548335,
-    "meta": 1531894835435,
+    "asset": 1531949516421,
+    "meta": 1531949691111,
     "relativePath": "Script/LazarilloCardUtil.js"
   }
 }

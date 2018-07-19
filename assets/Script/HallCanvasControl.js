@@ -36,8 +36,17 @@ cc.Class({
         },this);
 
         cc.vv.audioMgr.playBGM("MusicEx_Welcome");
-
         // this.loadSubpackage();
+
+        // if(typeof(wx)=="undefined"){
+        //     return;
+        // }
+        // wx.onHide(function () {
+        //     console.log("wx 游戏进入后台");
+        // });
+        // wx.onShow(function (){
+        //     console.log("wx 重新返回游戏");
+        // });
     },
     start () {
        this.hallLayer.active = true;

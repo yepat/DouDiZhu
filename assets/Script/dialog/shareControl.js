@@ -210,9 +210,7 @@ cc.Class({
                 });
             }
         }
-            
-
-
+        
         PlayerDetailModel.setShareUnReward(0);
     },
     

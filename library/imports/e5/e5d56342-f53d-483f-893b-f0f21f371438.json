@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_shipin_0",
+    "texture": "19e0d5b4-1096-4703-93b0-b7965b0c2995",
+    "atlas": "",
+    "rect": [
+      0,
+      7,
+      139,
+      115
+    ],
+    "offset": [
+      -2,
+      -3.5
+    ],
+    "originalSize": [
+      143,
+      122
+    ]
+  }
+}

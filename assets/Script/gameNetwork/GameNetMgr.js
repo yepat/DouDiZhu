@@ -63,6 +63,8 @@ var GameNetMgr = cc.Class({
                     this.sendShareGet();
                 }else if(eventName == "ShareWxRes"){//微信分享成功发送
                     this.sendShareWxRes(arg);
+                }else if(eventName == "WatchAdvertisement"){//看完广告发送
+                    this.sendWatchAdvertisement();
                 }
 
             }
@@ -232,10 +234,11 @@ var GameNetMgr = cc.Class({
             params.t = Protocol.Request.System.ShareWxRes;
             params.type = arg;
             cc.vv.net.send("ShareWxRes",Protocol.Command.System,params);
+        },
+        sendWatchAdvertisement(){
+            var params = {};
+            params.t = Protocol.Request.System.WatchAdvertisement;
+            cc.vv.net.send("WatchAdvertisement",Protocol.Command.System,params);
         }
-
-
-    
-
     },
 });

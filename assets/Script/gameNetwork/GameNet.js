@@ -150,6 +150,11 @@ var GameNet = cc.Class({
                     console.log("微信分享成功发送结果");
                     console.log(data);
                     EventHelper.DispatchCustomEvent(config.MyNode,"ShareWxResResult",data);
+                }else if(data.code == Protocol.Response.System.WatchAdvertisementResult){
+                    //看完广告领奖
+                    console.log("看完广告领奖");
+                    console.log(data);
+                    EventHelper.DispatchCustomEvent(config.MyNode,"WatchAdvertisementResult",data);
                 }
             }
 

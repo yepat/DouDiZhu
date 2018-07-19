@@ -98,10 +98,9 @@ Protocol.CommandRevert = {
         ShareInfo: 515, //分享信息
         ShareGet: 517, //分享领取
 
-        ShareWxRes: 519 //微信分享成功发送
+        ShareWxRes: 519, //微信分享成功发送
 
-        // 511 请求任务列表  515  517
-        // 512
+        WatchAdvertisement: 521 //看完广告发送
     },
     Game: {
         Init: 0, //进入房间
@@ -241,7 +240,9 @@ Protocol.CommandRevert = {
         ShareInfoResult: 516, //分享信息结果
         ShareGetResult: 518, //分享领取结果
 
-        ShareWxResResult: 520 //微信分享成功发送结果
+        ShareWxResResult: 520, //微信分享成功发送结果
+
+        WatchAdvertisementResult: 522 //看完广告领奖
     },
     Game: {
         NoLogin: 1000, //未登录

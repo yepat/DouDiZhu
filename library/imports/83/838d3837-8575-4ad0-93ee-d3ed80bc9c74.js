@@ -50,6 +50,9 @@ var Player = cc.Class({
         this.emoticon = parm.emoticon; //表情包
         this.emoticonItems = parm.emoticonItems; //表情包道具
 
+        this.play = parm.play; //游戏总局数
+        this.win = parm.win; //胜利局数
+
         this.state = -1;
         this.seatNumber = 0; //座位编号(客户端) 0右边 1下边 2左边
         this.isLandlord = false; // 是否是地主

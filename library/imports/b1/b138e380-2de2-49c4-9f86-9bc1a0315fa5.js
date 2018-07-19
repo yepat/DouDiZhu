@@ -227,6 +227,12 @@ cc.Class({
             }
         }.bind(this), 10000);
 
+        setInterval(function () {
+            if (config.adCdTime > 0) {
+                config.adCdTime -= 1;
+            }
+        }.bind(this), 1000);
+
         EventHelper.AddCustomEvent(config.MyNode, "Regist", self.onRegist, self);
         EventHelper.AddCustomEvent(config.MyNode, "HeartBeat", self.onHeartBeat, self);
         EventHelper.AddCustomEvent(config.MyNode, "LoginOK", self.onLoginOK, self);
@@ -403,6 +409,13 @@ cc.Class({
             if (response["data"]["continueRoomId"]) PlayerDetailModel.continueRoomId = response["data"]["continueRoomId"];
 
             console.log(response["data"]);
+
+            //看广告cd
+            // if(response["data"]["watch_advertisement_cd"]){
+            config.adCdTime = response["data"]["watch_advertisement_cd"];
+            config.showAd = response["data"]["watch_advertisement_open"];
+            console.log("-----config.showAd:", config.showAd);
+            // }
 
             console.log("进入游戏大厅...uid:" + parseInt(response["data"]["uid"]));
             this.labLoading.string = "进入游戏大厅...";
