@@ -14,7 +14,11 @@ cc.Class({
             default : null,
             type : cc.Sprite
         },
-        btn_enter : {
+        btn_1 : {
+            default : null,
+            type : cc.Node,
+        },
+        btn_2 : {
             default : null,
             type : cc.Node,
             opentype : "share"
@@ -42,7 +46,6 @@ cc.Class({
         var self = this;
          //设置微信头像
          var imgUrl=config.wxInfo.avatarUrl;
-
          if(imgUrl==""){
             var headUrl = "p_head_woman";
             if(PlayerDetailModel.getGender() == 1){
@@ -60,13 +63,11 @@ cc.Class({
         });
     },
     closeClick(){
-        console.log("close click");
+        // console.log("close click");
         this.node.destroy();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnEnterClick(){
-        console.log("btnEnter click");
-
         var dialogName = this.dialogName; //lequan 5  //chuntian  5
         var shareType = 5;
         if(dialogName == "lequan"){
@@ -79,11 +80,7 @@ cc.Class({
 
         var index = config.getRandom(1);
         var shareTxt = config.shareTxt[dialogName][index];
-        console.log(">>>shareTxt:",shareTxt);
-
         var shareImg = config.getShareImgPath(dialogName);
-        console.log(">>>shareImg:",shareImg);
-    
         wx.shareAppMessage({
             title: shareTxt,
             imageUrl: shareImg,
@@ -100,5 +97,18 @@ cc.Class({
 
         this.node.destroy();
         cc.vv.audioMgr.playSFX("SpecOk");
+    },
+    btnKanShiPinClick(){
+        console.log("btnKanShiPinClick");
+        cc.vv.audioMgr.playSFX("SpecOk");
+        if(typeof(wx)=="undefined"){
+            return;
+        }
+        config.rewardedVideoType = 3;
+        if(config.rewardedVideoAd){
+            config.rewardedVideoAd.show().then();//() => cc.vv.audioMgr.stopMusic()
+            if(this.node)
+                this.node.destroy();
+        }
     }
 });

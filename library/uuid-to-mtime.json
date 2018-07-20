@@ -40,7 +40,7 @@
     "relativePath": "prefab"
   },
   "20ac1e46-8924-4b7f-96a9-5509888c2233": {
-    "asset": 1531899880132,
+    "asset": 1531997298654,
     "meta": 1528080484339,
     "relativePath": "resources"
   },
@@ -60,8 +60,8 @@
     "relativePath": "Scene"
   },
   "fb2529d1-7f43-49d5-9763-12c971b6c309": {
-    "asset": 1531902544977,
-    "meta": 1531902544994,
+    "asset": 1531991182752,
+    "meta": 1531991182763,
     "relativePath": "Scene/HallScene.fire"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
@@ -145,7 +145,7 @@
     "relativePath": "resources/showTips"
   },
   "d548c4c5-eb56-4844-a967-b22bb15b7ce0": {
-    "asset": 1531383767565,
+    "asset": 1531994082015,
     "meta": 1528080484379,
     "relativePath": "resources/prefab"
   },
@@ -155,13 +155,13 @@
     "relativePath": "resources/prefab/setDialog.prefab"
   },
   "8fa038d3-e14e-4272-ad9e-5593ef65b16a": {
-    "asset": 1531383767661,
+    "asset": 1531993534802,
     "meta": 1528080484301,
     "relativePath": "Script/dialog"
   },
   "84e34780-5258-4f7f-9a5e-bcd7164a4154": {
-    "asset": 1529066041437,
-    "meta": 1529066041445,
+    "asset": 1531990521162,
+    "meta": 1531990521170,
     "relativePath": "resources/prefab/bagDialog.prefab"
   },
   "a7582735-a0b3-4aa2-ba45-187f6aaf2862": {
@@ -200,8 +200,8 @@
     "relativePath": "Script/gameNetwork"
   },
   "ab5b47be-1813-4802-95f9-3c8f2909512b": {
-    "asset": 1528080484380,
-    "meta": 1528080886162,
+    "asset": 1531983246070,
+    "meta": 1531983246074,
     "relativePath": "resources/prefab/bagItem.prefab"
   },
   "756bcc27-ce37-4a4a-a14a-30585fe5a6c4": {
@@ -425,8 +425,8 @@
     "relativePath": "resources/prefab/gameResultLose.prefab"
   },
   "9510c904-8db6-412f-8765-495324f8a971": {
-    "asset": 1531741572823,
-    "meta": 1531741572829,
+    "asset": 1532006873246,
+    "meta": 1532006873254,
     "relativePath": "Scene/LoadingScene.fire"
   },
   "f75a5595-f731-4821-90f6-77dfb613f9f2": {
@@ -523,11 +523,6 @@
     "asset": 1528608251163,
     "meta": 1528608251165,
     "relativePath": "resources/prefab/chatBox.prefab"
-  },
-  "e7857b84-68dd-4057-9657-6256dce73af0": {
-    "asset": 1528608504628,
-    "meta": 1528608757704,
-    "relativePath": "Script/dialog/chatBoxControl.js"
   },
   "cc8b92a4-c2a4-4ff4-9a24-2e993909def5": {
     "asset": 1528704507203,
@@ -1435,8 +1430,8 @@
     "relativePath": "resources/p_taskbg.png"
   },
   "5ec0809b-b563-429c-b49a-86050054f2bc": {
-    "asset": 1531966251602,
-    "meta": 1531966251627,
+    "asset": 1531967871350,
+    "meta": 1531967871372,
     "relativePath": "Scene/GameScene.fire"
   },
   "b47e0f48-07ca-4a66-b7c7-a7f9229a3325": {
@@ -1579,11 +1574,6 @@
     "meta": 1528893887949,
     "relativePath": "resources/img_dialog/p_task.png"
   },
-  "917adc76-da60-4e8b-b3b2-5b712497ab64": {
-    "asset": 1528911944686,
-    "meta": 1528911983204,
-    "relativePath": "Script/CancelDelegateController.js"
-  },
   "0b776a3c-fdcd-4df4-8c54-7d612513b132": {
     "asset": 1529059662395,
     "meta": 1529059662428,
@@ -1603,11 +1593,6 @@
     "asset": 1529162126071,
     "meta": 1529162611963,
     "relativePath": "Script/gameNetwork/EventHelper.js"
-  },
-  "edffd51f-b3c6-4c63-8786-2cd6119e3fc7": {
-    "asset": 1529162199847,
-    "meta": 1529162612305,
-    "relativePath": "Script/gameNetwork/HTTP.js"
   },
   "3a462b07-6a9e-4756-b587-44107099376f": {
     "asset": 1529372666753,
@@ -2484,45 +2469,20 @@
     "meta": 1529473511650,
     "relativePath": "resources/sounds/Woman_zhadan.mp3"
   },
-  "0bbd68e1-ef62-42d4-9335-e7f43aa66416": {
-    "asset": 1529493769274,
-    "meta": 1529493868740,
-    "relativePath": "Script/dialog/jpqNodeControl.js"
-  },
   "befceada-3237-4419-943e-9fdb42e6903e": {
     "asset": 1529497980967,
     "meta": 1529498001665,
     "relativePath": "Script/dialog/resoultInfoItemControl.js"
-  },
-  "a70f7a03-df83-4e7a-b817-edb96990ea09": {
-    "asset": 1529550796914,
-    "meta": 1529550799177,
-    "relativePath": "Script/dialog/chatControl.js"
-  },
-  "f4f030cc-a97d-417e-a6ca-05f9f2d55527": {
-    "asset": 1529551322619,
-    "meta": 1529551673867,
-    "relativePath": "Script/dialog/BagControl.js"
   },
   "b2e3e901-00c4-47d7-82eb-cd4e12612a33": {
     "asset": 1529551374936,
     "meta": 1529551673920,
     "relativePath": "Script/dialog/commonControl.js"
   },
-  "a70aef6c-5b14-4e2e-811c-950c6bfce000": {
-    "asset": 1529551415461,
-    "meta": 1529551673974,
-    "relativePath": "Script/dialog/emailItemControl.js"
-  },
   "500ad9a3-7e4c-42e2-972e-c5d16a59e0f3": {
     "asset": 1529551513094,
     "meta": 1529551673996,
     "relativePath": "Script/dialog/shopControl.js"
-  },
-  "59af9496-99d8-4469-a3af-1824bb66604e": {
-    "asset": 1529551817619,
-    "meta": 1529552112748,
-    "relativePath": "Script/dialog/emailControl.js"
   },
   "78080bb4-f0f6-4d6f-a5bc-ac4f13aceb61": {
     "asset": 1529551818551,
@@ -2533,11 +2493,6 @@
     "asset": 1529551819453,
     "meta": 1529552112793,
     "relativePath": "Script/dialog/fankuiControl.js"
-  },
-  "32b681a6-04b6-4ceb-a328-c757dffddea3": {
-    "asset": 1529551813716,
-    "meta": 1529552113433,
-    "relativePath": "Script/opratShowCardControl.js"
   },
   "519fb765-15c9-4efd-bfc8-8e2ecbd7d986": {
     "asset": 1529561012819,
@@ -2583,11 +2538,6 @@
     "asset": 1529738017405,
     "meta": 1529738029615,
     "relativePath": "Script/animation/cardTypeControl.js"
-  },
-  "1198194a-566e-4f09-8155-dd4f18902727": {
-    "asset": 1529830574554,
-    "meta": 1529830608786,
-    "relativePath": "Script/opratOutCardControl.js"
   },
   "72169c70-ca1e-49ea-bf48-96ac5ce57c44": {
     "asset": 1529894320385,
@@ -2860,7 +2810,7 @@
     "relativePath": "Script/myCreate"
   },
   "b37c9e6b-3083-43c9-b69e-9e8d621eadec": {
-    "asset": 1531829321843,
+    "asset": 1531997298654,
     "meta": 1530882027776,
     "relativePath": "resources/shareBig"
   },
@@ -2904,24 +2854,19 @@
     "meta": 1530882027904,
     "relativePath": "resources/p_X.png"
   },
-  "e1e73fe1-03b8-4386-8a57-d0469223462e": {
-    "asset": 1530882027770,
-    "meta": 1530882027917,
-    "relativePath": "resources/shareBig/p_yaoqing.png"
-  },
   "7f0fe078-d87f-47ee-a9ca-e60668c83535": {
     "asset": 1530882864795,
     "meta": 1530882864828,
     "relativePath": "resources/shareBig/p_ludou_1000.png"
   },
   "02c6ae89-6ca1-4173-858e-fdadd3bd37d4": {
-    "asset": 1531592198863,
-    "meta": 1531592198870,
+    "asset": 1531997721398,
+    "meta": 1531997721404,
     "relativePath": "resources/prefab/tableShareGetDialog.prefab"
   },
   "657d9588-9d39-47a4-9a09-63ebb45005c6": {
-    "asset": 1530943512086,
-    "meta": 1530943512089,
+    "asset": 1531997340549,
+    "meta": 1531997340555,
     "relativePath": "resources/prefab/taskCompleteShareDialog.prefab"
   },
   "5e473555-45e4-4a09-ab64-653e7ee5c0e7": {
@@ -2949,25 +2894,10 @@
     "meta": 1531289190123,
     "relativePath": "Script/animation/huodedaojuControl.js"
   },
-  "4b8676a3-47a8-4be8-aa45-451566dd0be5": {
-    "asset": 1531288601417,
-    "meta": 1531289190182,
-    "relativePath": "Script/dialog/dialogManager.js"
-  },
   "48cbad31-fa67-44b9-988b-465fc3563887": {
     "asset": 1531289168948,
     "meta": 1531289190233,
     "relativePath": "Script/dialog/taskControl.js"
-  },
-  "52569629-1f0a-4361-9158-a562463ee790": {
-    "asset": 1531297960267,
-    "meta": 1531297963983,
-    "relativePath": "Script/myCreate/TableShareGetControl.js"
-  },
-  "505a770c-1b34-486b-848f-d6de5ad6e334": {
-    "asset": 1531301582744,
-    "meta": 1531301816457,
-    "relativePath": "Script/topBarControl.js"
   },
   "eb22fb4f-b707-49b1-83e8-4a780b67224e": {
     "asset": 1531462706385,
@@ -2978,11 +2908,6 @@
     "asset": 1531384036572,
     "meta": 1531384036575,
     "relativePath": "Texture/card_list.prefab"
-  },
-  "09476f32-25ce-457f-ba19-04eab8f0608f": {
-    "asset": 1531393842533,
-    "meta": 1531395142235,
-    "relativePath": "Script/RoomLayerControl.js"
   },
   "bedbc7d9-23b9-4dc3-a735-86a7bd0242f3": {
     "asset": 1531468687763,
@@ -3004,11 +2929,6 @@
     "meta": 1531574636772,
     "relativePath": "Script/dialog/aboutControl.js"
   },
-  "bcf074c0-7ee5-458c-9c39-42a12d5f5c9c": {
-    "asset": 1531591133137,
-    "meta": 1531591244120,
-    "relativePath": "Script/CardUtil.js"
-  },
   "d7972e32-8dfc-4375-b80d-ff711ef7359b": {
     "asset": 1531668773546,
     "meta": 1531669346370,
@@ -3023,11 +2943,6 @@
     "asset": 1531798177263,
     "meta": 1531798202646,
     "relativePath": "Script/dialog/taskItemControl.js"
-  },
-  "bbe63ad8-483a-4dba-a211-94de36638585": {
-    "asset": 1531828227049,
-    "meta": 1531828974663,
-    "relativePath": "Script/myCreate/TaskCompleteShareControl.js"
   },
   "e24c90bc-4747-45ba-a355-a32cb56406aa": {
     "asset": 1531828055773,
@@ -3059,64 +2974,199 @@
     "meta": 1531899019698,
     "relativePath": "resources/btn_shipin_0.png"
   },
-  "5123232e-460d-44b6-887a-78ca0e60f209": {
-    "asset": 1531905305655,
-    "meta": 1531905310641,
-    "relativePath": "Script/config.js"
-  },
   "6918640e-19c3-4fdb-833c-c08eec6e42ee": {
     "asset": 1531906745390,
     "meta": 1531907137622,
     "relativePath": "Script/dialog/shareControl.js"
-  },
-  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
-    "asset": 1531905965114,
-    "meta": 1531907137828,
-    "relativePath": "Script/gameNetwork/AppStart.js"
-  },
-  "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
-    "asset": 1531906553281,
-    "meta": 1531907137997,
-    "relativePath": "Script/gameNetwork/GameNet.js"
-  },
-  "72ee4884-126a-47a8-b1e7-29e00414de87": {
-    "asset": 1531906305510,
-    "meta": 1531907138066,
-    "relativePath": "Script/gameNetwork/GameNetMgr.js"
-  },
-  "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
-    "asset": 1531906187619,
-    "meta": 1531907138195,
-    "relativePath": "Script/gameNetwork/Protocol.js"
-  },
-  "ca1bfb0e-2554-487d-9f89-688d205a1f8d": {
-    "asset": 1531908433477,
-    "meta": 1531908437075,
-    "relativePath": "Script/HallLayerControl.js"
-  },
-  "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
-    "asset": 1531948561934,
-    "meta": 1531948665846,
-    "relativePath": "Script/Player.js"
   },
   "5918ba28-6f78-495a-8189-d9536558958d": {
     "asset": 1531948993389,
     "meta": 1531948997976,
     "relativePath": "Script/dialog/playerInfoControl.js"
   },
-  "1393c8a9-79e3-4565-ba57-f5a2716294c6": {
-    "asset": 1531949621135,
-    "meta": 1531949690571,
-    "relativePath": "Script/GameTable.js"
-  },
   "7b0e54dd-bc85-463e-8722-cd9f37a06ba3": {
     "asset": 1531949651101,
     "meta": 1531949690939,
     "relativePath": "Script/HallCanvasControl.js"
   },
+  "e7857b84-68dd-4057-9657-6256dce73af0": {
+    "asset": 1531967700884,
+    "meta": 1531967864187,
+    "relativePath": "Script/dialog/chatBoxControl.js"
+  },
+  "a70f7a03-df83-4e7a-b817-edb96990ea09": {
+    "asset": 1531968594269,
+    "meta": 1531969045686,
+    "relativePath": "Script/dialog/chatControl.js"
+  },
+  "15f8ed54-1d3f-482e-95a2-edfd2305918b": {
+    "asset": 1531986862492,
+    "meta": 1531987267126,
+    "relativePath": "Script/gameNetwork/Protocol.js"
+  },
+  "59af9496-99d8-4469-a3af-1824bb66604e": {
+    "asset": 1531989270659,
+    "meta": 1531989279641,
+    "relativePath": "Script/dialog/emailControl.js"
+  },
+  "a70aef6c-5b14-4e2e-811c-950c6bfce000": {
+    "asset": 1531989226454,
+    "meta": 1531989279642,
+    "relativePath": "Script/dialog/emailItemControl.js"
+  },
+  "7db1db70-f1ce-443b-809a-fcb1e7c4fe9f": {
+    "asset": 1531989663876,
+    "meta": 1531990226095,
+    "relativePath": "Script/dialog/BagItemControl.js"
+  },
+  "b86229b2-289e-476a-ba7c-7f0b0b55716a": {
+    "asset": 1531990816260,
+    "meta": 1531990816299,
+    "relativePath": "resources/btn_kefu.png"
+  },
+  "1ca73d70-fedf-4ece-9366-4b6632e676ae": {
+    "asset": 1531994326573,
+    "meta": 1531994326580,
+    "relativePath": "resources/prefab/AuthorizeDialog.prefab"
+  },
+  "4b8676a3-47a8-4be8-aa45-451566dd0be5": {
+    "asset": 1531994221635,
+    "meta": 1531994226977,
+    "relativePath": "Script/dialog/dialogManager.js"
+  },
+  "33b877a6-5f5a-453e-8f0d-6809e202e2fb": {
+    "asset": 1531994746689,
+    "meta": 1531995111091,
+    "relativePath": "Script/dialog/AuthorizeControl.js"
+  },
+  "24e918e1-f65d-4525-981e-426ce5688c0c": {
+    "asset": 1531995903779,
+    "meta": 1531996116490,
+    "relativePath": "resources/btn_jieshuan.png"
+  },
+  "ea3d9dc0-d34b-4a12-ac43-36a28622c809": {
+    "asset": 1531995903881,
+    "meta": 1531996116503,
+    "relativePath": "resources/btn_yaoqing_1.png"
+  },
+  "e1e73fe1-03b8-4386-8a57-d0469223462e": {
+    "asset": 1531995904418,
+    "meta": 1531996116508,
+    "relativePath": "resources/shareBig/p_yaoqing.png"
+  },
+  "1e85b87b-8bcb-4a73-93aa-db3fd10e1e31": {
+    "asset": 1531995903615,
+    "meta": 1531996116528,
+    "relativePath": "resources/p_btn_di.png"
+  },
+  "0025af0d-92b8-47ea-8001-1d91b8acd280": {
+    "asset": 1531995903716,
+    "meta": 1531996116532,
+    "relativePath": "resources/btn_yaoqing_2.png"
+  },
+  "2005d1a8-888f-4281-bee7-b9184d73b7c3": {
+    "asset": 1531995903666,
+    "meta": 1531996116540,
+    "relativePath": "resources/p_kanshipin.png"
+  },
+  "a5bed158-9d6d-4f8c-96e7-64b8260e18c3": {
+    "asset": 1531995903639,
+    "meta": 1531996116544,
+    "relativePath": "resources/p_xuanyao.png"
+  },
+  "f4f030cc-a97d-417e-a6ca-05f9f2d55527": {
+    "asset": 1531999134904,
+    "meta": 1531999201269,
+    "relativePath": "Script/dialog/BagControl.js"
+  },
+  "917adc76-da60-4e8b-b3b2-5b712497ab64": {
+    "asset": 1532006714311,
+    "meta": 1532006809845,
+    "relativePath": "Script/CancelDelegateController.js"
+  },
+  "0bbd68e1-ef62-42d4-9335-e7f43aa66416": {
+    "asset": 1532009865305,
+    "meta": 1532010024419,
+    "relativePath": "Script/dialog/jpqNodeControl.js"
+  },
+  "5123232e-460d-44b6-887a-78ca0e60f209": {
+    "asset": 1532011279326,
+    "meta": 1532011342028,
+    "relativePath": "Script/config.js"
+  },
+  "1393c8a9-79e3-4565-ba57-f5a2716294c6": {
+    "asset": 1532055252092,
+    "meta": 1532055261262,
+    "relativePath": "Script/GameTable.js"
+  },
+  "bcf074c0-7ee5-458c-9c39-42a12d5f5c9c": {
+    "asset": 1532068414924,
+    "meta": 1532070559089,
+    "relativePath": "Script/CardUtil.js"
+  },
+  "b138e380-2de2-49c4-9f86-9bc1a0315fa5": {
+    "asset": 1532066936973,
+    "meta": 1532070559165,
+    "relativePath": "Script/gameNetwork/AppStart.js"
+  },
+  "15c8f75e-ba0e-4bb4-9b83-4d0b6bab0a9d": {
+    "asset": 1532067560481,
+    "meta": 1532070559265,
+    "relativePath": "Script/gameNetwork/GameNet.js"
+  },
+  "72ee4884-126a-47a8-b1e7-29e00414de87": {
+    "asset": 1532067608448,
+    "meta": 1532070559280,
+    "relativePath": "Script/gameNetwork/GameNetMgr.js"
+  },
+  "edffd51f-b3c6-4c63-8786-2cd6119e3fc7": {
+    "asset": 1532067666563,
+    "meta": 1532070559365,
+    "relativePath": "Script/gameNetwork/HTTP.js"
+  },
+  "ca1bfb0e-2554-487d-9f89-688d205a1f8d": {
+    "asset": 1532069102532,
+    "meta": 1532070559742,
+    "relativePath": "Script/HallLayerControl.js"
+  },
   "cfc00cd3-1b71-4680-be04-d9964f385156": {
-    "asset": 1531949516421,
-    "meta": 1531949691111,
+    "asset": 1532069205703,
+    "meta": 1532070559929,
     "relativePath": "Script/LazarilloCardUtil.js"
+  },
+  "52569629-1f0a-4361-9158-a562463ee790": {
+    "asset": 1532067957444,
+    "meta": 1532070559963,
+    "relativePath": "Script/myCreate/TableShareGetControl.js"
+  },
+  "bbe63ad8-483a-4dba-a211-94de36638585": {
+    "asset": 1532067918695,
+    "meta": 1532070560032,
+    "relativePath": "Script/myCreate/TaskCompleteShareControl.js"
+  },
+  "1198194a-566e-4f09-8155-dd4f18902727": {
+    "asset": 1532069270202,
+    "meta": 1532070560048,
+    "relativePath": "Script/opratOutCardControl.js"
+  },
+  "32b681a6-04b6-4ceb-a328-c757dffddea3": {
+    "asset": 1532069284518,
+    "meta": 1532070560288,
+    "relativePath": "Script/opratShowCardControl.js"
+  },
+  "838d3837-8575-4ad0-93ee-d3ed80bc9c74": {
+    "asset": 1532069315165,
+    "meta": 1532070560406,
+    "relativePath": "Script/Player.js"
+  },
+  "09476f32-25ce-457f-ba19-04eab8f0608f": {
+    "asset": 1532070543450,
+    "meta": 1532070560470,
+    "relativePath": "Script/RoomLayerControl.js"
+  },
+  "505a770c-1b34-486b-848f-d6de5ad6e334": {
+    "asset": 1532069537813,
+    "meta": 1532070560471,
+    "relativePath": "Script/topBarControl.js"
   }
 }

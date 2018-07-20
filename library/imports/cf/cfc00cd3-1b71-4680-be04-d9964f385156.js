@@ -22,17 +22,17 @@ LazarilloCardUtil.get_big_tips_cards = function (cardlist, preCardType) {
     // }
     // preCardType = testType;
 
-    console.log("------获取大于上家的赖子牌组合");
-    console.log("cardlist", cardlist);
-    console.log("preCardType", preCardType);
+    // console.log("------获取大于上家的赖子牌组合")
+    // console.log("cardlist",cardlist);
+    // console.log("preCardType",preCardType);
     var jokerValue = CardUtil.serverCardValueToClient(config.joker);
 
     var newCardlist = [];
     for (var i = 0; i < cardlist.length; i++) {
         var cards = cardlist[i][0];
         var jokto = cardlist[i][1];
-        console.log(">>>cards", cards);
-        console.log(">>>jokto", jokto);
+        // console.log(">>>cards",cards);
+        // console.log(">>>jokto",jokto);
         var joktoIndex = 0;
         var tempcards = [];
         for (var j = 0; j < cards.length; j++) {
@@ -47,7 +47,7 @@ LazarilloCardUtil.get_big_tips_cards = function (cardlist, preCardType) {
             }
         }
         tempcards.sort(config.arrayUp);
-        console.log(">>>>tempcards", tempcards);
+        // console.log(">>>>tempcards",tempcards);
         var cardstype = CardUtil.get_topCard_type(tempcards);
         var item = {
             cardlist: cardlist[i],
@@ -56,7 +56,7 @@ LazarilloCardUtil.get_big_tips_cards = function (cardlist, preCardType) {
         newCardlist.push(item);
     }
 
-    console.log(">>>newCardlist", newCardlist);
+    // console.log(">>>newCardlist",newCardlist);
     for (var i = 0; i < newCardlist.length; i++) {
         var cardsType = newCardlist[i].cardstype;
         if (cardsType.type == preCardType.type && cardsType.rank > preCardType.rank || cardsType.type == 88) {
@@ -414,7 +414,7 @@ LazarilloCardUtil.get_three_single_lazarillo_cards = function (straightLen, tip_
     var tipCards = [];
 
     var kingCount = LazarilloCardUtil.checkTopCardsHasKing(cards);
-    console.log("kingCount:" + kingCount);
+    // console.log("kingCount:"+kingCount);
 
     if (kingCount > 1) {
         return return_cards;

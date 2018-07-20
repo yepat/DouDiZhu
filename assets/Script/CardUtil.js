@@ -594,8 +594,6 @@ CardUtil.get_topCard_type = function(topCards,card_type){
                     console.log("特殊牌型");
                     return cardtype;
                 }
-
-                
                 // cardtype.type = -1;
                 return cardtype; //一些特殊情况交给服务器了 比如：3个拆开当单只， 
             } 
@@ -999,8 +997,7 @@ CardUtil.find_three_with_one_card = function(last_cards_type, prop, myCards){
 
     for(var k in all_result){
         var v = all_result[k];
-        console.log("v:"+v+"  k:"+k+" allone:"+allOne[k]);
-
+        // console.log("v:"+v+"  k:"+k+" allone:"+allOne[k]);
         if(onecard == 0){
             if(k<allOne.length-1){
                 if(v[0]!=allOne[k]){
@@ -1080,7 +1077,7 @@ CardUtil.find_three_with_two_card = function(last_cards_type, prop, myCards){
         }
 
         // v.concat(tempPair[0],tempPair[1]);
-        console.log("v2:"+v);
+        // console.log("v2:"+v);
         v.sort(config.arrayUp);
     }
 
@@ -1130,7 +1127,7 @@ CardUtil.find_four_with_two_single_card = function(last_cards_type, prop, myCard
         for(var i=0;i<temps.length;i++){
             v.push(parseInt(temps[i]));
         }
-        console.log("v2:"+v);
+        // console.log("v2:"+v);
         v.sort(config.arrayUp);
     }
 
@@ -1186,7 +1183,7 @@ CardUtil.find_four_with_two_pair_card = function(last_cards_type, prop, myCards)
         for(var i=0;i<temps.length;i++){
             v.push(parseInt(temps[i]));
         }
-        console.log("v2:"+v);
+        // console.log("v2:"+v);
         v.sort(config.arrayUp);
     }
 
@@ -1202,7 +1199,7 @@ CardUtil.find_straight = function(last_cards_type, prop, myCards){
     var repeatCount = last_cards_type.repeatCount;
     var single = PopCardUtil.getSingle();
 
-    console.log("rank:"+rank+" repeatCount:"+repeatCount);
+    // console.log("rank:"+rank+" repeatCount:"+repeatCount);
 
     //所有牌可以组成的顺子
     var autoCards = [];
@@ -1222,10 +1219,10 @@ CardUtil.find_straight = function(last_cards_type, prop, myCards){
     }
 
 
-    console.log(tempCards);
+    // console.log(tempCards);
     if(tempCards.length == 0)
         return all_result;
-    console.log("length:"+tempCards[0].length);
+    // console.log("length:"+tempCards[0].length);
 
     if(tempCards[0].length > repeatCount){
         var len = tempCards[0].length - repeatCount;
@@ -1240,7 +1237,7 @@ CardUtil.find_straight = function(last_cards_type, prop, myCards){
         all_result = tempCards;
     }
 
-    console.log(all_result);
+    // console.log(all_result);
 
     return all_result;
 }
@@ -1252,7 +1249,7 @@ CardUtil.find_pair_straight = function(last_cards_type, prop, myCards){
     var rank = parseInt(last_cards_type.rank);
     var repeatCount = last_cards_type.repeatCount;
     
-    console.log("rank:"+rank+" repeatCount:"+repeatCount);
+    // console.log("rank:"+rank+" repeatCount:"+repeatCount);
     
     var pair = PopCardUtil.getPair();
     var three = PopCardUtil.getThree();
@@ -1277,9 +1274,9 @@ CardUtil.find_pair_straight = function(last_cards_type, prop, myCards){
     for(var i = 0;i<allpair.length;i++){
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
-            console.log("i:"+i);
+            // console.log("i:"+i);
             if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
-                console.log("i2:"+i);
+                // console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
                 }
@@ -1311,7 +1308,7 @@ CardUtil.find_pair_straight = function(last_cards_type, prop, myCards){
         }
     }
 
-    console.log(all_result);
+    // console.log(all_result);
     return all_result;
 }
 
@@ -1322,7 +1319,7 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
     var rank = parseInt(last_cards_type.rank);
     var repeatCount = last_cards_type.repeatCount;
     
-    console.log("rank:"+rank+" repeatCount:"+repeatCount);
+    // console.log("rank:"+rank+" repeatCount:"+repeatCount);
 
     var three = PopCardUtil.getThree();
     var four = PopCardUtil.getFour();
@@ -1337,7 +1334,7 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
 
     allpair.sort(config.arrayUp);
 
-    console.log(allpair);
+    // console.log(allpair);
 
     var autoCards = [];
     var tempCards = [];
@@ -1345,9 +1342,9 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
     for(var i = 0;i<allpair.length;i++){
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
-            console.log("i:"+i);
+            // console.log("i:"+i);
             if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
-                console.log("i2:"+i);
+                // console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
                 }
@@ -1366,7 +1363,7 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
         }
     }
 
-    console.log(tempCards);
+    // console.log(tempCards);
 
     for(var i = 0;i<tempCards.length;i++){
         if(tempCards[i].length >= repeatCount){
@@ -1381,7 +1378,7 @@ CardUtil.find_three_straight = function(last_cards_type, prop, myCards){
         }
     }
 
-    console.log(all_result);
+    // console.log(all_result);
     return all_result;
 }
 
@@ -1392,7 +1389,7 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
     var rank = parseInt(last_cards_type.rank);
     var repeatCount = last_cards_type.repeatCount;
     
-    console.log("rank:"+rank+" repeatCount:"+repeatCount);
+    // console.log("rank:"+rank+" repeatCount:"+repeatCount);
 
     var three = PopCardUtil.getThree();
     var four = PopCardUtil.getFour();
@@ -1407,7 +1404,7 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
 
     allpair.sort(config.arrayUp);
 
-    console.log(allpair);
+    // console.log(allpair);
 
     var autoCards = [];
     var tempCards = [];
@@ -1415,9 +1412,9 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
     for(var i = 0;i<allpair.length;i++){
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
-            console.log("i:"+i);
+            // console.log("i:"+i);
             if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
-                console.log("i2:"+i);
+                // console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
                 }
@@ -1436,7 +1433,7 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
         }
     }
 
-    console.log(tempCards);
+    // console.log(tempCards);
 
     for(var i = 0;i<tempCards.length;i++){
         if(tempCards[i].length >= repeatCount){
@@ -1451,7 +1448,7 @@ CardUtil.find_three_straight_with_single_card = function(last_cards_type, prop, 
         }
     }
 
-    console.log(all_result);
+    // console.log(all_result);
     return all_result;
 }
 //符合的飞机带双
@@ -1461,7 +1458,7 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
     var rank = parseInt(last_cards_type.rank);
     var repeatCount = last_cards_type.repeatCount;
     
-    console.log("rank:"+rank+" repeatCount:"+repeatCount);
+    // console.log("rank:"+rank+" repeatCount:"+repeatCount);
 
     var three = PopCardUtil.getThree();
     var four = PopCardUtil.getFour();
@@ -1476,7 +1473,7 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
 
     allpair.sort(config.arrayUp);
 
-    console.log(allpair);
+    // console.log(allpair);
 
     var autoCards = [];
     var tempCards = [];
@@ -1484,9 +1481,9 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
     for(var i = 0;i<allpair.length;i++){
 
         if(allpair[i]<CardUtil.cardGrade["2"]&&allpair[i]>rank){
-            console.log("i:"+i);
+            // console.log("i:"+i);
             if(allpair[i]+1==allpair[i+1]&&allpair[i+1]<CardUtil.cardGrade["2"]){
-                console.log("i2:"+i);
+                // console.log("i2:"+i);
                 if(tempNum+1 == allpair[i+1]){
                     autoCards.push(tempNum);
                 }
@@ -1505,7 +1502,7 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
         }
     }
 
-    console.log(tempCards);
+    // console.log(tempCards);
 
     for(var i = 0;i<tempCards.length;i++){
         if(tempCards[i].length >= repeatCount){
@@ -1520,7 +1517,7 @@ CardUtil.find_three_straight_with_pair_card = function(last_cards_type, prop, my
         }
     }
 
-    console.log(all_result);
+    // console.log(all_result);
     return all_result;
 }
 

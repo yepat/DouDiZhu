@@ -5,6 +5,7 @@ cc._RF.push(module, 'a70ae9sWxROLoEclQxr/OAA', 'emailItemControl');
 "use strict";
 
 var GameNetMgr = require("GameNetMgr");
+var PlayerDetailModel = require("PlayerDetailModel");
 cc.Class({
     extends: cc.Component,
 

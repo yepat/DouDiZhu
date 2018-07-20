@@ -47,6 +47,8 @@ cc.Class({
             this.labNodes[i].string = ""+num;
             if(num == 0){
                 this.labNodes[i].node.color = new cc.Color(113, 113, 113);
+            }else{
+                this.labNodes[i].node.color = new cc.Color(191, 45, 0);
             }
         } 
     },
@@ -54,6 +56,8 @@ cc.Class({
         console.log("close click");
         if(this.node){
             this.node.destroy();
+            // this.node.active = false;
+            // this.isActive = false;
         } 
     },
     showNode(blt){

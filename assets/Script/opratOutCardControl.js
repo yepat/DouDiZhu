@@ -33,8 +33,6 @@ cc.Class({
     onLoad () {
         this.clockX = this.clock.getPositionX();
         this.clockY = this.clock.getPositionY();
-
-        // this.tishi.visible = false;
         this.tishi.enabled = false;
 
         this.schedule(function() {
@@ -48,7 +46,8 @@ cc.Class({
                 var pre = "";
                 if(this.timeCount <= 0){
                     this.timeCount = 0;
-                    this.node.destroy();
+                    // this.node.destroy();
+                    this.node.active = false;
                 }
                 var t = Math.ceil(this.timeCount);
                 if(t < 10){
@@ -61,47 +60,69 @@ cc.Class({
     },
     // start () {
     // },
-    show(time,buchuFunc,tishiFunc,chupaiFunc){
+    show(time,buchuFunc,tishiFunc,chupaiFunc,type){//type 1必出 2要不起
+        this.node.active = true;
         this.timeCount = time;
         this.buchuFunc = buchuFunc;
         this.tishiFunc = tishiFunc;
         this.chupaiFunc = chupaiFunc;
-
         var pre = "";
         this.timeTxt.string = pre + time;
+
+        this.buchuBtn.active = true;
+        this.tishiBtn.active = true;
+        this.chupaiBtn.active = true;
+        this.buchuBtn.x = -370;
+        this.tishiBtn.x = 79;
+        this.chupaiBtn.x = 387;
+        this.clock.x = -147;
+
+        if(type==1){
+            this.clock.x = -163;
+            this.chupaiBtn.x = 63;
+            this.buchuBtn.active = false;
+            this.tishiBtn.active = false;
+        }else if(type==2){
+            this.clock.x = -163;
+            this.buchuBtn.x = 63;
+            this.tishiBtn.active = false;
+            this.chupaiBtn.active = false;
+        }
     },
     close(){
         if(this.node){
-            this.node.destroy();
+            // this.node.destroy();
+            this.node.active = false;
         }
     },
     buchuClick() {
-        console.log("不出");
+        // console.log("不出");
         if(this.buchuFunc)
             this.buchuFunc();
-        this.node.destroy();
+        // this.node.destroy();
+        this.node.active = false;
         // cc.vv.audioMgr.playSFX("SpecOk");
     },
     tishiClick() {
-        console.log("提示");
+        // console.log("提示");
         if(this.tishiFunc)
             this.tishiFunc();
         // cc.vv.audioMgr.playSFX("SpecOk");
     },
     chupaiClick(num) {
-        console.log(">>>出牌");
+        // console.log(">>>出牌");
         var typenum = 0;
         if(this.chupaiFunc)
         {
             typenum = this.chupaiFunc();
-            console.log("typenum:"+typenum);
+            // console.log("typenum:"+typenum);
         }
             
         if(typeof(num)=="number"){
             typenum = num;
         }
 
-        console.log("typenum11111:"+typenum);
+        // console.log("typenum11111:"+typenum);
 
         if(typenum == 0){
             // this.showTips("没有选择要出的牌！");
@@ -115,9 +136,7 @@ cc.Class({
         }else{
             // this.tishi.enabled = false;
         }
-
         // cc.vv.audioMgr.playSFX("SpecOk");
-        
     },
     shakeClock(){
         var mt1 = cc.moveTo(0.05,this.clockX,this.clockY-2);

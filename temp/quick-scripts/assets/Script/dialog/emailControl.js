@@ -107,7 +107,7 @@ cc.Class({
             text = text + "获得乐劵" + response.data.coupon;
         }
         if (response.data.propItems) {
-            for (k in response.data.propItems) {
+            for (var k in response.data.propItems) {
                 var v = response.data.propItems[k];
                 text = text + "获得道具" + v.name + v.num + "个";
             }

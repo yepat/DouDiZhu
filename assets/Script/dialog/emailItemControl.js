@@ -1,4 +1,5 @@
 var GameNetMgr = require("GameNetMgr");
+var PlayerDetailModel = require("PlayerDetailModel");
 cc.Class({
     extends: cc.Component,
 

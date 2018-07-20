@@ -10,8 +10,9 @@ config.OpenUDIDEncryptToken = "!_Tvr%^98071e~int5lmUy";
 config.stopOnMassage = false;
 
 config.VERSION_NAME = "2.1.0"; //当前程序版本（2.0.0 是为了兼容tv版）
-
 config.VERSION_ABOUT = "1.0.2";//关于版本号
+
+config.TrialShareShow = 0; //分享领豆显示 1 true
 
 config.wxShareInfo = "key1=value1&key2=value2";
 
@@ -34,6 +35,8 @@ config.joker = "";//赖子牌
 
 config.adCdTime = 0;//广告冷却时间
 config.showAd = 0;//显示广告
+config.rewardedVideoAd = null;//广告控件
+config.rewardedVideoType = 0;
 
 config.jpqShareSucss = false;//获得记牌器分享成功
 config.leQuanShareSucss = false;//获得乐券分享成功
@@ -42,6 +45,8 @@ config.leDouShareSucss = false;//获得乐豆分享成功
 config.shareIndex = 0;
 
 config.sendCardState = false;//发牌状态
+
+config.videoEndFuc = null;
 
 
 //叫地主时间

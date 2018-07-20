@@ -4,29 +4,9 @@ cc._RF.push(module, '838d3g3hXVK0JPu0+2AvJx0', 'Player', __filename);
 
 "use strict";
 
-//玩家状态
-// Player.ST_PLAYER_WAITTOSTART      = 0 //等待开始
-// Player.ST_PLAYER_PUSHCARD         = 1 //发牌
-// Player.ST_PLAYER_CALLLANDLORD     = 2 //叫/抢地主
-// Player.ST_PLAYER_CONFIRM_LANDLORD = 3 //确认地主
-// Player.ST_PLAYER_CONFIRM_LAIZI    = 4 //确认癞子
-// Player.ST_PLAYER_WAITING          = 5 //等待其他玩家出牌
-// Player.ST_PLAYER_DOUBLE           = 6 //加倍
-// Player.ST_PLAYER_PUTCARD          = 7 //出牌
-// Player.ST_PLAYER_BALANCE          = 8 //结算
-// Player.ST_PLAYER_DELEGATED        = 9 //托管状态
-// Player.ST_PLAYER_SENDCARD         = 10 //出牌
-// Player.ST_PLAYER_READY            = 11 //准备好了
-// Player.LOAD_TYPE_CALL             = 0 //叫地主
-// Player.LOAD_TYPE_NOTCALL          = 1 //不叫地主
-// Player.LOAD_TYPE_GRAP             = 2 //抢地主
-// Player.LOAD_TYPE_NOTGRAP          = 3 //不抢地主
-
-
 var PokerControl = require("PokerControl");
 var config = require("config");
 var CardUtil = require("CardUtil");
-var PopCardUtil = require("PopCardUtil");
 var ClockControl = require("ClockControl");
 
 var Player = cc.Class({
@@ -434,18 +414,6 @@ var Player = cc.Class({
             }
 
             myPokerNode.push(cardNode);
-
-            // if(seatNumber == 0){
-            //     console.log("右边玩家明牌-----");
-            //     // console.log(myPokerNode);
-            //     this.neatenRightPoker(myPokerNode,config.seatPos.right,sceneWidth/2, sceneWidth/2 + 140);
-            // }else if(seatNumber == 2){
-            //     console.log("左边玩家明牌-----");
-            //     // console.log(myPokerNode);
-            //     this.neatenLeftPoker(myPokerNode,config.seatPos.left,sceneWidth/2, 230);
-            // }else{
-            //     this.neatenPoker(myPokerNode,config.seatPos.center,sceneWidth);
-            // }  
         }
 
         if (seatNumber == 0) {
@@ -513,7 +481,6 @@ var Player = cc.Class({
             }
         };
         moveCard();
-        // setTimeout(moveCard,224);
     },
 
     //理牌
@@ -564,7 +531,7 @@ var Player = cc.Class({
             var cardValue = CardUtil.StringToNumber(PokerData[i].showTxt);
             var cardType = CardUtil.StringToNumber(PokerData[i].showType);
             if (index < cards.length && cards[index].showTxt == cardValue && cards[index].showType == cardType) {
-                console.log("cards:" + cards[index].showTxt);
+                // console.log("cards:"+cards[index].showTxt);
                 var isChoosedPoker = PokerNode[i];
                 dispatchCard.unshift(isChoosedPoker);
                 PokerData.splice(i, 1);

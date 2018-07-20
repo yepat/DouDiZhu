@@ -25,6 +25,7 @@ cc.Class({
         }
     },   
     show(click){
+        this.node.active = true;
         this.click = click;
     },
     close(){
@@ -32,6 +33,7 @@ cc.Class({
         if(this.click){
             this.click();
         }
-        this.node.destroy();
+        // this.node.destroy();
+        this.node.active = false;
     }
 });

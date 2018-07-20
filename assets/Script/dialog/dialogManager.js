@@ -11,6 +11,8 @@ var TableShareGetControl = require("TableShareGetControl");
 var TaskCompleteShareControl = require("TaskCompleteShareControl");
 var huodedaojuControl = require("huodedaojuControl");
 
+var AuthorizeControl = require("AuthorizeControl");
+
 var dialogManager = cc.Class({
     extends: cc.Component,
     statics: {
@@ -36,14 +38,14 @@ var dialogManager = cc.Class({
             args.arg4 = cancelClick;
             this.showDialog("prefab/commonDialog",commonControl,args);
         },
-        // showShareGetDialog(title,content,enterClick,cancelClick){//分享获取乐豆
-        //     var args = {};
-        //     args.arg1 = title;
-        //     args.arg2 = content;
-        //     args.arg3 = enterClick;
-        //     args.arg4 = cancelClick;
-        //     this.showDialog("prefab/ShareGetDialog",ShareGetControl,args);//ShareGetControl
-        // },
+        
+        showAuthorizeDialog(title,content,enterClick){//授权信息
+            var args = {};
+            args.arg1 = title;
+            args.arg2 = content;
+            args.arg3 = enterClick;
+            this.showDialog("prefab/AuthorizeDialog",AuthorizeControl,args);
+        },
         showBagDialog(){
             this.showDialog("prefab/bagDialog");
         },

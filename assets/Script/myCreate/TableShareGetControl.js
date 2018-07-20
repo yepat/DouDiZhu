@@ -18,11 +18,6 @@ cc.Class({
             default : null,
             type : cc.Sprite
         },
-        btn_enter : {
-            default : null,
-            type : cc.Node,
-            opentype : "share"
-        },
         jpq_num : {
             default : null,
             type : cc.Label
@@ -30,6 +25,15 @@ cc.Class({
         lab_tips : {
             default : null,
             type : cc.Label
+        },
+        btn_1 : {
+            default : null,
+            type : cc.Node,
+        },
+        btn_2 : {
+            default : null,
+            type : cc.Node,
+            opentype : "share"
         },
     },
     onLoad () {
@@ -53,16 +57,19 @@ cc.Class({
             config.loadImage(this.img_daoju,"p_daoju_jpq");
             this.jpq_num.string = "X 3";
             this.lab_tips.string = "分享任意好友即可获得哦！";
+
+            this.btn_1.active = false;
+            this.btn_2.x = 183;
         }
         
     },
     closeClick(){
-        console.log("close click");
+        // console.log("close click");
         this.node.destroy();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnEnterClick(){
-        console.log("btnEnter click");
+        // console.log("btnEnter click");
 
         var dialogName = this.dialogName; //jipaiqi 4  //jiuji  3
         var shareType = 3;
@@ -75,10 +82,7 @@ cc.Class({
 
         var index = config.getRandom(1);
         var shareTxt = config.shareTxt[dialogName][index];
-        console.log(">>>shareTxt:",shareTxt);
-
         var shareImg = config.getShareImgPath(dialogName);
-        console.log(">>>shareImg:",shareImg);
     
         wx.shareAppMessage({
             title: shareTxt,
@@ -102,5 +106,18 @@ cc.Class({
 
         this.node.destroy();
         cc.vv.audioMgr.playSFX("SpecOk");
+    },
+    btnKanShiPinClick(){
+        console.log("btnKanShiPinClick");
+        cc.vv.audioMgr.playSFX("SpecOk");
+        if(typeof(wx)=="undefined"){
+            return;
+        }
+        config.rewardedVideoType = 2;
+        if(config.rewardedVideoAd){
+            config.rewardedVideoAd.show().then();//() => cc.vv.audioMgr.stopMusic()
+            if(this.node)
+                this.node.destroy();
+        }    
     }
 });

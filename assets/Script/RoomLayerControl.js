@@ -47,16 +47,19 @@ cc.Class({
         EventHelper.AddCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
     },
     onEnable(){
-        console.log(" RoomLayer onEnable");
+        // console.log(" RoomLayer onEnable");
         config.IsContinueGaming = 0;
         this.roomModelId_ = config.curRoomModelId;
         this.initRoomInfo();
     },
     onDisable(){
-        console.log(" RoomLayer onDisable");
+        // console.log(" RoomLayer onDisable");
     },
     onDestroy(){
         console.log(" RoomLayer Destroy");
+        // var self = this;
+        // EventHelper.RemoveCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
+        // EventHelper.RemoveCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
     },
     onLoginRoomResult(event){
         var self = this;
@@ -149,7 +152,7 @@ cc.Class({
         }
     },
     room1Click(){
-        console.log("room1Click");
+        // console.log("room1Click");
         this.selectedIdx_ = 0
         this.roomMinScore = this.roomType_[0]["enterLimit"];
         this.trialInfo = this.roomType_[0]["trial"];
@@ -157,7 +160,7 @@ cc.Class({
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     room2Click(){
-        console.log("room2Click");
+        // console.log("room2Click");
         this.selectedIdx_ = 1
         this.roomMinScore = this.roomType_[1]["enterLimit"];
         this.trialInfo = this.roomType_[1]["trial"];
@@ -165,7 +168,7 @@ cc.Class({
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     room3Click(){
-        console.log("room3Click");
+        // console.log("room3Click");
         // cc.director.loadScene("GameScene");
         this.selectedIdx_ = 2
         this.roomMinScore = this.roomType_[2]["enterLimit"];
@@ -174,7 +177,7 @@ cc.Class({
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     room4Click(){
-        console.log("room4Click");
+        // console.log("room4Click");
         this.selectedIdx_ = 3
         this.roomMinScore = this.roomType_[3]["enterLimit"];
         this.trialInfo = this.roomType_[3]["trial"];
@@ -182,7 +185,7 @@ cc.Class({
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     quickStartClick(){
-        console.log("quickStartClick");
+        // console.log("quickStartClick");
         // cc.director.loadScene("GameScene");
         this.onWantGotoRoom();
         cc.vv.audioMgr.playSFX("SpecOk");
@@ -306,10 +309,7 @@ cc.Class({
                 this.preloadNextScene();
             }else{
                 // --普通场
-                // DeviceHelper.addGameLog("enterRoom"..args["roomId"],"a")
-                // app:enterPokerScene(args)
                 console.log("进入普通场");
-                // cc.director.loadScene("GameScene");
                 this.preloadNextScene();
             }
 
@@ -321,7 +321,7 @@ cc.Class({
                         console.log("打开商城");
                     });
                 }else{//--0:钱多
-                    console.log("亲,豆子太多啦,系统为您推送到合适的房间！")
+                    // console.log("亲,豆子太多啦,系统为您推送到合适的房间！")
                     dialogManager.showCommonDialog("温馨提示","亲,豆子太多啦,系统为您推送到合适的房间！",function(){
                         console.log("去合适场次");
                         self.onWantGotoRoom();
@@ -333,22 +333,22 @@ cc.Class({
 
             }else if(event.inGaming){
                 if ( !payload.data.modelId || parseInt(payload.data.modelId) == config.ModelId.normal){
-                    console.log("您还在其他房间中对局哟，现在进去看看吧！");
+                    // console.log("您还在其他房间中对局哟，现在进去看看吧！");
                     dialogManager.showCommonDialog("温馨提示","您还在其他房间中对局哟，现在进去看看吧！",function(){
-                        console.log("短线重连普通场");
+                        // console.log("短线重连普通场");
                         self.onWantContinueGaming(event);
                     });
                 }else if(!payload.data.modelId || parseInt(payload.data.modelId) == config.ModelId.lazarillo){
-                    console.log("您还在其他癞子场中对局哟，现在进去看看吧！");
+                    // console.log("您还在其他癞子场中对局哟，现在进去看看吧！");
                     dialogManager.showCommonDialog("温馨提示","您还在其他癞子场中对局哟，现在进去看看吧！",function(){
-                        console.log("短线重连赖子场");
+                        // console.log("短线重连赖子场");
                         // self.onWantContinueLzGaming();
                         self.onWantContinueGaming(event);
                     });
                 }else{
-                    console.log("您正在竞技场牌局中，请返回继续！");
+                    // console.log("您正在竞技场牌局中，请返回继续！");
                     dialogManager.showCommonDialog("温馨提示","您正在竞技场牌局中，请返回继续！",function(){
-                        console.log("短线重连比赛场");
+                        // console.log("短线重连比赛场");
                         // self.onWantContest();
                     });
                 }
@@ -454,15 +454,17 @@ cc.Class({
 
         var click = function(){
             console.log("点击了领取救济按钮");
-            // GameNetMgr.sendRequest("Game", "openReliefTip", {});
+            GameNetMgr.sendRequest("Game", "openReliefTip", {});
         }
 
         if(trial_cooldown == 0){
             var index = trial_count+1;
             content = "系统第"+index+"次赠送您1000乐豆。";
-            // dialogManager.showCommonDialog("领救济",content,click);
-            // dialogManager.showShareGetDialog("","",click);
-            dialogManager.showTableShareGet("jiuji");
+            if(config.TrialShareShow == 1){
+                dialogManager.showTableShareGet("jiuji");
+            }else{
+                dialogManager.showCommonDialog("领救济",content,click);
+            }  
         }else{
             content = "今天乐豆已经领完了哦，明天在过来吧！";
             dialogManager.showCommonDialog("领救济",content);
@@ -474,7 +476,7 @@ cc.Class({
         EventHelper.RemoveCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
         EventHelper.RemoveCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
         cc.director.preloadScene("GameScene", function () {
-            cc.log("Next scene preloaded");
+            // cc.log("Next scene preloaded");
             cc.director.loadScene("GameScene");
         });
     },
@@ -513,10 +515,9 @@ cc.Class({
                 curTimes : m_curTimes,
             };
             //刷新用户乐豆乐券
-            console.log("刷新用户乐豆乐券");
+            // console.log("刷新用户乐豆乐券");
         }
         config.tableInfo = args;
-
         console.log(config.tableInfo);
 
         config.IsContinueGaming = 1;

@@ -77,7 +77,7 @@ var GameNet = cc.Class({
             if(cmd == Protocol.Command.Game){
                 if(data.code == Protocol.Response.Game.ReconnectionData){
                     //短线重连
-                    console.log("短线重连");
+                    // console.log("短线重连");
                     EventHelper.DispatchCustomEvent(config.MyNode,"ReconnectionData",data);
                 }
             }
@@ -103,58 +103,63 @@ var GameNet = cc.Class({
     
                 if(data.code == Protocol.Response.System.RepeatLogin){
                     //通知用户连接被另外一个连接踢掉
-                    console.log("通知用户连接被另外一个连接踢掉");
+                    // console.log("通知用户连接被另外一个连接踢掉");
                     EventHelper.DispatchCustomEvent(config.MyNode,"RepeatLogin",data);
                 }
 
                 if(data.code == Protocol.Response.System.RefreshDataResult){
                     //刷新用户信息数据
-                    console.log("刷新用户信息数据");
+                    // console.log("刷新用户信息数据");
                     EventHelper.DispatchCustomEvent(config.MyNode,"RefreshDataResult",data);
                 }else if(data.code == Protocol.Response.System.MailResult){
                     //邮箱数据
-                    console.log("邮箱数据");
+                    // console.log("邮箱数据");
                     EventHelper.DispatchCustomEvent(config.MyNode,"MailResult",data);
                 }else if(data.code == Protocol.Response.System.ReadMailResult){
                     //标记邮件已读结果
-                    console.log("标记邮件已读结果");
+                    // console.log("标记邮件已读结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"ReadMailResult",data);
                 }
                 else if(data.code == Protocol.Response.System.GetMailAttachmentResult){
                     //领取邮件附件结果
-                    console.log("领取邮件附件结果");
+                    // console.log("领取邮件附件结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"GetMailAttachmentResult",data);
                 }
                 else if(data.code == Protocol.Response.System.DelMailResult){
                     //删除某个邮件结果
-                    console.log("删除某个邮件结果");
+                    // console.log("删除某个邮件结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"DelMailResult",data);
                 }else if(data.code == Protocol.Response.System.TaskDailyResult){
                     //打开每日任务面板
-                    console.log("打开每日任务面板");
+                    // console.log("打开每日任务面板");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TaskDailyResult",data);
                 }else if(data.code == Protocol.Response.System.GetTaskRewardResult){
                     //领取任务奖励
-                    console.log("领取任务奖励");
+                    // console.log("领取任务奖励");
                     EventHelper.DispatchCustomEvent(config.MyNode,"GetTaskRewardResult",data);
                 }else if(data.code == Protocol.Response.System.ShareInfoResult){
                     //分享信息结果
-                    console.log("分享信息结果");
+                    // console.log("分享信息结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"ShareInfoResult",data);
                 }else if(data.code == Protocol.Response.System.ShareGetResult){
                     //分享领取结果
-                    console.log("分享领取结果");
+                    // console.log("分享领取结果");
                     EventHelper.DispatchCustomEvent(config.MyNode,"ShareGetResult",data);
                 }else if(data.code == Protocol.Response.System.ShareWxResResult){
                     //微信分享成功发送结果
-                    console.log("微信分享成功发送结果");
-                    console.log(data);
+                    // console.log("微信分享成功发送结果");
+                    // console.log(data);
                     EventHelper.DispatchCustomEvent(config.MyNode,"ShareWxResResult",data);
                 }else if(data.code == Protocol.Response.System.WatchAdvertisementResult){
                     //看完广告领奖
-                    console.log("看完广告领奖");
-                    console.log(data);
+                    // console.log("看完广告领奖");
+                    // console.log(data);
                     EventHelper.DispatchCustomEvent(config.MyNode,"WatchAdvertisementResult",data);
+                }else if(data.code == Protocol.Response.System.BagInfoResult){
+                    //背包信息
+                    // console.log("背包信息");
+                    // console.log(data);
+                    EventHelper.DispatchCustomEvent(config.MyNode,"BagInfoResult",data);
                 }
             }
 
@@ -168,107 +173,107 @@ var GameNet = cc.Class({
                     this.handleLoginRoomResult(data,data.code);
                 }else if(data.code == Protocol.Response.Game.Queued){
                     //进入队列
-                    console.log("进入队列");
+                    // console.log("进入队列");
                     EventHelper.DispatchCustomEvent(config.MyNode,"Queued",data);
                 }else if(data.code == Protocol.Response.Game.GameReady){
                     //游戏准备好了
-                    console.log("游戏准备好了");
+                    // console.log("游戏准备好了");
                     EventHelper.DispatchCustomEvent(config.MyNode,"GameReady",data);
                 }else if(data.code == Protocol.Response.Game.TableTimesUpdate){
                     //桌子的倍数发生改变
-                    console.log("桌子的倍数发生改变");
+                    // console.log("桌子的倍数发生改变");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TableTimesUpdate",data);
                 }else if(data.code == Protocol.Response.Game.SendCard){
                     //发牌, 包括各用户的牌信息
-                    console.log("发牌, 包括各用户的牌信息");
+                    // console.log("发牌, 包括各用户的牌信息");
                     EventHelper.DispatchCustomEvent(config.MyNode,"SendCard",data);
                 }else if(data.code == Protocol.Response.Game.RefreshPlayerData){
                     //刷新用户金币(用户桌面)
-                    console.log("刷新用户金币");
+                    // console.log("刷新用户金币");
                     EventHelper.DispatchCustomEvent(config.MyNode,"RefreshPlayerData",data);
                 }else if(data.code == Protocol.Response.Game.TurnCallLord){
                     //轮到谁叫地主
-                    console.log("轮到谁叫地主");
+                    // console.log("轮到谁叫地主");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TurnCallLord",data);
                 }else if(data.code == Protocol.Response.Game.CallLord){
                     //玩家叫地主
-                    console.log("玩家叫地主");
+                    // console.log("玩家叫地主");
                     EventHelper.DispatchCustomEvent(config.MyNode,"CallLord",data);
                 }else if(data.code == Protocol.Response.Game.TurnGrabLord){
                     //轮到谁抢地主
-                    console.log("轮到谁抢地主");
+                    // console.log("轮到谁抢地主");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TurnGrabLord",data);
                 }else if(data.code == Protocol.Response.Game.GrabLord){
                     //玩家抢地主
-                    console.log("玩家抢地主");
+                    // console.log("玩家抢地主");
                     EventHelper.DispatchCustomEvent(config.MyNode,"GrabLord",data);
                 }else if(data.code == Protocol.Response.Game.CallLordOver){
                     //叫地主结束
-                    console.log("叫地主结束");
+                    // console.log("叫地主结束");
                     EventHelper.DispatchCustomEvent(config.MyNode,"CallLordOver",data);
                 }else if(data.code == Protocol.Response.Game.CanDoubleResult){
                     //通知是否可以加倍
-                    console.log("通知是否可以加倍");
+                    // console.log("通知是否可以加倍");
                     EventHelper.DispatchCustomEvent(config.MyNode,"CanDoubleResult",data);
                 }else if(data.code == Protocol.Response.Game.TurnSendCard){
                     //轮到谁出牌
-                    console.log("轮到谁出牌");
+                    // console.log("轮到谁出牌");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TurnSendCard",data);
                 }else if(data.code == Protocol.Response.Game.PlayerDelegated){
                     //用户托管
-                    console.log("用户托管");
+                    // console.log("用户托管");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PlayerDelegated",data);
                 }else if(data.code == Protocol.Response.Game.PlayerCancelDelegate){
                     //用户取消托管
-                    console.log("用户取消托管");
+                    // console.log("用户取消托管");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PlayerCancelDelegate",data);
                 }else if(data.code == Protocol.Response.Game.PlayerSendCard){
                     //用户出牌
-                    console.log("用户出牌");
+                    // console.log("用户出牌");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PlayerSendCard",data);
                 }else if(data.code == Protocol.Response.Game.PlayerNotSend){
                     //用户不出牌
-                    console.log("用户不出牌");
+                    // console.log("用户不出牌");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PlayerNotSend",data);
                 }else if(data.code == Protocol.Response.Game.PlayerShowCard){
                     //用户明牌
-                    console.log("用户明牌");
+                    // console.log("用户明牌");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PlayerShowCard",data);
                 }else if(data.code == Protocol.Response.Game.GameComplete){
                     //本局结束
-                    console.log("本局结束");
+                    // console.log("本局结束");
                     EventHelper.DispatchCustomEvent(config.MyNode,"GameComplete",data);
                 }else if(data.code == Protocol.Response.Game.TableUserExit){
                     //有用户退出 通知桌上的玩家重新进入队列
-                    console.log("有用户退出 通知桌上的玩家重新进入队列");
+                    // console.log("有用户退出 通知桌上的玩家重新进入队列");
                     EventHelper.DispatchCustomEvent(config.MyNode,"TableUserExit",data);
                 }else if(data.code == Protocol.Response.Game.InvalidCardNum){
                     //出的牌不够大 [非法出牌]
-                    console.log("出的牌不够大 [非法出牌]");
+                    // console.log("出的牌不够大 [非法出牌]");
                     EventHelper.DispatchCustomEvent(config.MyNode,"InvalidCardNum",data);
                 }else if(data.code == Protocol.Response.Game.SayToTableInfo){
                     //聊天信息
-                    console.log("聊天信息");
+                    // console.log("聊天信息");
                     EventHelper.DispatchCustomEvent(config.MyNode,"SayToTableInfo",data);
                 }else if(data.code == Protocol.Response.Game.OpenRechargeTipResult){
                     //打开救济面板
-                    console.log("打开救济面板");
+                    // console.log("打开救济面板");
                     EventHelper.DispatchCustomEvent(config.MyNode,"OpenRechargeTipResult",data);
                 }else if(data.code == Protocol.Response.Game.PokerTask){
                     //触发牌局任务
-                    console.log("触发牌局任务");
+                    // console.log("触发牌局任务");
                     EventHelper.DispatchCustomEvent(config.MyNode,"PokerTask",data);
                 }else if(data.code == Protocol.Response.Game.EmoticonData){
                     //广播表情包
-                    console.log("广播表情包");
+                    // console.log("广播表情包");
                     EventHelper.DispatchCustomEvent(config.MyNode,"EmoticonData",data);
                 }else if(data.code == Protocol.Response.Game.SendLzCard){
                     //发送癞子牌
-                    console.log("发送癞子牌");
+                    // console.log("发送癞子牌");
                     EventHelper.DispatchCustomEvent(config.MyNode,"SendLzCard",data);
                 }else if(data.code == Protocol.Response.Game.InvalidCardType){
-                    //出牌有非法数据 [非法出牌] InvalidCardType : 1020,     //出牌有非法数据 [非法出牌]
-                    console.log("出牌有非法数据 [非法出牌]");
+                    //出牌有非法数据 [非法出牌]
+                    // console.log("出牌有非法数据 [非法出牌]");
                     EventHelper.DispatchCustomEvent(config.MyNode,"InvalidCardType",data);
                 }
             }
@@ -287,7 +292,7 @@ var GameNet = cc.Class({
             }else if (code == Protocol.Response.Game.InitOk){
                 console.log("进入房间成功");
                 if (response["data"]["isGaming"] == 1){
-                    console.log("进入未完成牌局");
+                    // console.log("进入未完成牌局");
                     inGaming = true;
                     succ = false;
                     config.RoomId = response["data"]["roomId"];
@@ -308,8 +313,6 @@ var GameNet = cc.Class({
             params.inGaming = inGaming;
             params.msg = msg;
             params.newRoomId = newRoomId;
-
-            // console.log(">>>>>>>>>>Events.Network.LoginRoomResult");
             EventHelper.DispatchCustomEvent(config.MyNode,Events.Network.LoginRoomResult,params);
         }
     },

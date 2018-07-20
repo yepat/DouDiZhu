@@ -42,12 +42,11 @@ cc.Class({
         }
     },
     btnClick: function btnClick() {
-        console.log("点击了明牌按钮");
+        // console.log("点击了明牌按钮");
         if (this.click) {
             this.click(this.time);
         }
         this.node.destroy();
-
         cc.vv.audioMgr.playSFX("SpecOk");
     }
 });

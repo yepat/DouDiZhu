@@ -50,6 +50,9 @@ cc.Class({
     },
     onDestroy: function onDestroy() {
         console.log(" topBar Destroy");
+        var self = this;
+        EventHelper.RemoveCustomEvent(config.MyNode, "RefreshDataResult", self.onRefreshDataResult, self);
+        EventHelper.RemoveCustomEvent(config.MyNode, "RepeatLogin", self.onRepeatLogin, self);
     },
     onRepeatLogin: function onRepeatLogin(event) {
         console.log("您的账号已经在其他地方登陆！");

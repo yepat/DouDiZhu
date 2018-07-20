@@ -73,43 +73,31 @@ cc.Class({
         }
 
         //微信视频广告
+        if(config.showAd == 1){
+            this.btn_videoAd.enabled = true;
+        }
         this.initWxVideoAd();
+    },
+    onEnable(){
+        console.log(" HallLayer onEnable");
+        if(config.adCdTime>1){
+            this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+            this.adCanTouch = false;
+        }
+    },
+    onDisable(){
+        console.log(" HallLayer onDisable");
     },
     initWxVideoAd(){
         var self = this;
-        if(config.showAd == 1){
-            this.btn_videoAd.enabled = true;
-        }else{
-            return;
-        }
         if(typeof(wx)=="undefined"){
             return;
         }
-        var rewardedVideoAd = wx.createRewardedVideoAd({ adUnitId: 'adunit-5e51a762e521fda5' })
-        rewardedVideoAd.onLoad(() => {
-            console.log('激励视频 广告加载成功')
-        })
-        rewardedVideoAd.onError(err => {
-            console.log("激励视频 拉取失败"+err)
-        })
-        rewardedVideoAd.onClose(res => {
-            if (res && res.isEnded || res === undefined) {
-                console.log("正常播放结束，可以下发游戏奖励")
-                GameNetMgr.sendRequest("System", "WatchAdvertisement");
-                // self.timeCount = 60;
-                self.btn_videoAd.node.color = new cc.Color(218, 218, 218);
-                self.adCanTouch = false;
-            }
-            else {
-                console.log("播放中途退出，不下发游戏奖励")
-            }
-            cc.vv.audioMgr.playBGM("MusicEx_Welcome");
-        })
-        this.rewardedVideoAd = rewardedVideoAd;
+        var rewardedVideoAd = null;
 
         if(config.adCdTime>1){
-            self.btn_videoAd.node.color = new cc.Color(218, 218, 218);
-            self.adCanTouch = false;
+            this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+            this.adCanTouch = false;
         }
 
         //计时器
@@ -125,6 +113,35 @@ cc.Class({
                 }
             }
         }, 1);
+
+        if(!config.rewardedVideoAd){
+            rewardedVideoAd = wx.createRewardedVideoAd({ adUnitId: 'adunit-5e51a762e521fda5' })
+        }else{
+            return;
+        }
+        rewardedVideoAd.onLoad(() => {
+            // console.log('激励视频 广告加载成功')
+        })
+        rewardedVideoAd.onError(err => {
+            // console.log("激励视频 拉取失败"+err)
+        })
+        rewardedVideoAd.onClose(res => {
+            if (res && res.isEnded || res === undefined) {
+                // console.log("正常播放结束，可以下发游戏奖励")
+                GameNetMgr.sendRequest("System", "WatchAdvertisement",config.rewardedVideoType);
+                // console.log(">>>>>rewardedVideoType:",config.rewardedVideoType);
+                if(config.rewardedVideoType == 1){
+                    if(config.videoEndFuc)
+                        config.videoEndFuc();
+                }
+            }
+            else {
+                // console.log("播放中途退出，不下发游戏奖励")
+            }
+            // cc.vv.audioMgr.playBGM("MusicEx_Welcome");
+        })
+
+        config.rewardedVideoAd = rewardedVideoAd;
     },
     showTimes(time){
         //秒转换分钟格式 2:00 == 120
@@ -152,6 +169,9 @@ cc.Class({
     },
     onDestroy(){
         console.log(" HallLayer Destroy");
+        var self = this;
+        EventHelper.RemoveCustomEvent(config.MyNode,"RefreshDataResult",self.onRefreshDataResult,self);
+        EventHelper.RemoveCustomEvent(config.MyNode,"WatchAdvertisementResult",self.onWatchAdvertisementResult,self);
     },
     onLoginRoomResult(event){
         var self = this;
@@ -163,9 +183,8 @@ cc.Class({
     preloadNextScene(){
         var self = this;
         EventHelper.RemoveCustomEvent(config.MyNode,Events.Network.LoginRoomResult,self.onLoginRoomResult,self);
-        // EventHelper.RemoveCustomEvent(config.MyNode,"OpenRechargeTipResult",self.onOpenRechargeTipResult,self);
         cc.director.preloadScene("GameScene", function () {
-            cc.log("Next scene preloaded");
+            // cc.log("Next scene preloaded");
             cc.director.loadScene("GameScene");
         });
     },
@@ -198,46 +217,76 @@ cc.Class({
         }
     },
     btnSetClick(){
-        console.log("btnSetClick");
+        // console.log("btnSetClick");
         dialogManager.showSetDialog();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnTaskClick(){
-        console.log("btnTaskClick");
+        // console.log("btnTaskClick");
         dialogManager.showTaskDialog();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnEmailClick(){
-        console.log("btnEmailClick");
+        // console.log("btnEmailClick");
         dialogManager.showEmailDialog();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnBagClick(){
-        console.log("btnBagClick");
+        // console.log("btnBagClick");
         dialogManager.showBagDialog();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnShopClick(){
-        console.log("btnShopClick");
+        // console.log("btnShopClick");
         // dialogManager.showShopDialog();
     },
     btnShareClick(){
-        console.log("btnShareClick");
+        // console.log("btnShareClick");
         dialogManager.showShareDialog();
         cc.vv.audioMgr.playSFX("SpecOk");
     },
     btnVideoAdClick(){
-        console.log("btnVideoAdClick");
+        // console.log("btnVideoAdClick");
         if(!this.adCanTouch){
-            console.log("cd中。。。。。。。。")
+            // console.log("cd中。。。。。。。。")
             return;
         }
         cc.vv.audioMgr.playSFX("SpecOk");
         if(typeof(wx)=="undefined"){
             return;
         }
-        if(this.rewardedVideoAd)
-            this.rewardedVideoAd.show().then(() => cc.vv.audioMgr.stopMusic());
+        config.rewardedVideoType = 1;
+        if(config.rewardedVideoAd){
+            var self = this;
+            var videoEndFuc  = function(){
+                self.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+                self.adCanTouch = false;
+            }
+            config.videoEndFuc = videoEndFuc;
+            config.rewardedVideoAd.show().then();//() => cc.vv.audioMgr.stopMusic()
+        }
+           
+
+        
+    },
+    btnKefuClick(){
+        // console.log("btnKefuClick");
+        cc.vv.audioMgr.playSFX("SpecOk");
+        
+        if(typeof(wx)=="undefined"){
+            return;
+        }
+        wx.openCustomerServiceConversation({
+            success:function(res) {
+                // console.log("吊起会话成功>>>>>>>");
+            },
+            fail:function(res){
+                // console.log("吊起会失败>>>>>>>");
+            },
+            complete:function(res){
+                // console.log("会话完成>>>>>>>>");
+            }
+        })
     },
     handleLoginRoomResult(event){
         console.log("--进入上局未完的普通牌桌>>>");
@@ -274,7 +323,7 @@ cc.Class({
                 curTimes : m_curTimes,
             };
             //刷新用户乐豆乐券
-            console.log("刷新用户乐豆乐券");
+            // console.log("刷新用户乐豆乐券");
         }
         config.tableInfo = args;
 
@@ -284,7 +333,7 @@ cc.Class({
         this.preloadNextScene();
     },
     onWatchAdvertisementResult(event){
-        console.log("-----看完广告领奖");
+        // console.log("-----看完广告领奖");
         var response = event.getUserData();
         var award = response.data;
         var list = [];
@@ -305,7 +354,7 @@ cc.Class({
         if(award.noteCards){
             var args = {
                 arg1:"jipaiqi",
-                arg2:award.coupon,
+                arg2:award.noteCards,
             }
             list.push(args);
         } 

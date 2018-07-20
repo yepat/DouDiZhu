@@ -10,17 +10,20 @@ cc.Class({
     properties: {},
     start: function start() {},
     show: function show(click) {
+        this.node.active = true;
         this.click = click;
     },
     close: function close() {
         if (this.node) {
-            this.node.destroy();
+            // this.node.destroy();
+            this.node.active = false;
         }
     },
     btnClick: function btnClick() {
         console.log("取消托管");
         if (this.click) this.click();
-        this.node.destroy();
+        // this.node.destroy();
+        this.node.active = false;
     }
 });
 

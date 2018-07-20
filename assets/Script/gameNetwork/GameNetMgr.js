@@ -64,9 +64,10 @@ var GameNetMgr = cc.Class({
                 }else if(eventName == "ShareWxRes"){//微信分享成功发送
                     this.sendShareWxRes(arg);
                 }else if(eventName == "WatchAdvertisement"){//看完广告发送
-                    this.sendWatchAdvertisement();
+                    this.sendWatchAdvertisement(arg);
+                }else if(eventName == "BagInfo"){//背包信息
+                    this.sendBagInfo();
                 }
-
             }
         },
         sendLoginRoom(arg){
@@ -235,10 +236,17 @@ var GameNetMgr = cc.Class({
             params.type = arg;
             cc.vv.net.send("ShareWxRes",Protocol.Command.System,params);
         },
-        sendWatchAdvertisement(){
+        sendWatchAdvertisement(arg){//1大厅 2救济 3炫耀分享
             var params = {};
             params.t = Protocol.Request.System.WatchAdvertisement;
+            params.type = arg;
             cc.vv.net.send("WatchAdvertisement",Protocol.Command.System,params);
+        },
+        // 背包信息
+        sendBagInfo(){
+            var params = {};
+            params.t = Protocol.Request.System.BagInfo;
+            cc.vv.net.send("BagInfo",Protocol.Command.System,params);
         }
     },
 });

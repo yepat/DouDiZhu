@@ -31,6 +31,7 @@ cc.Class({
         }
     },
     show: function show(click) {
+        this.node.active = true;
         this.click = click;
     },
     close: function close() {
@@ -38,7 +39,8 @@ cc.Class({
         if (this.click) {
             this.click();
         }
-        this.node.destroy();
+        // this.node.destroy();
+        this.node.active = false;
     }
 });
 

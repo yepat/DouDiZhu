@@ -70,16 +70,11 @@ cc.Class({
         wx.showShareMenu({
             withShareTicket: true,
             success: function success(res) {
-                console.log(">>>>>>>>>showShareMenu");
+                // console.log(">>>>>>>>>showShareMenu");
             }
         });
 
-        // var index = config.getRandom(1);//config.shareIndex
-        // var shareTxt = config.shareTxt["task"][config.shareIndex];
         var shareImg = config.getShareImgPath("task");
-        console.log(">>>shareImg:", shareImg);
-        // cc.loader.loadRes("shareImg",function(err,data){
-        // console.log("url:"+data.url);
         wx.onShareAppMessage(function (res) {
             return {
                 title: config.shareTxt["task"][config.shareIndex],
@@ -95,7 +90,6 @@ cc.Class({
                 }
             };
         });
-        // });
     },
     weixinLogin: function weixinLogin() {
         var self = this;
@@ -115,13 +109,13 @@ cc.Class({
                     var xhr = null;
                     var complete = false;
                     var fnRequest = function fnRequest() {
-                        console.log("sdk.youjoy.tv 正在连接服务器...");
+                        // console.log("sdk.youjoy.tv 正在连接服务器...");
                         xhr = cc.vv.http.sendRequest("", params, function (ret) {
                             xhr = null;
                             complete = true;
-                            console.log("connectSdkServer = " + JSON.stringify(ret));
+                            // console.log("connectSdkServer = " + JSON.stringify(ret));
                             self.sdkuid = ret.data.user_id;
-                            console.log("------------sdkuid:" + self.sdkuid);
+                            console.log("------------sdkuid:", self.sdkuid);
                             self.getServerInfo();
                         }, _url);
                         setTimeout(fn, 5000);
@@ -166,10 +160,10 @@ cc.Class({
         var xhr = null;
         var complete = false;
         var fnRequest = function fnRequest() {
-            console.log("正在连接服务器...");
+            // console.log("正在连接服务器...");
             self.labLoading.string = "正在连接服务器...";
             xhr = cc.vv.http.sendRequest("", params, function (ret) {
-                console.log("连接成功");
+                // console.log("连接成功");
                 self.labLoading.string = "连接成功...";
                 xhr = null;
                 complete = true;
@@ -184,7 +178,7 @@ cc.Class({
             if (!complete) {
                 if (xhr) {
                     xhr.abort();
-                    console.log("连接失败，即将重试...");
+                    // console.log("连接失败，即将重试...");
                     self.labLoading.string = "连接失败，即将重试...";
                     setTimeout(function () {
                         fnRequest();
@@ -249,6 +243,10 @@ cc.Class({
                 console.log("res.userInfo = " + JSON.stringify(res.userInfo));
                 config.UpdateWxInfo(res.userInfo);
                 self.sendRegist();
+            },
+            fail: function fail(res) {
+                console.log("获取信息失败!!!");
+                // dialogManager.showAuthorizeDialog("","",null);
             }
         });
     },
@@ -325,7 +323,9 @@ cc.Class({
             params.tv = 1;
             params.e = "defaults";
             params.wn = config.wxInfo.nickName;
+            params.wgender = config.wxInfo.gender;
             params.wurl = config.wxInfo.avatarUrl;
+            params.weichatgame_version = config.VERSION_ABOUT; //显示版本
             cc.vv.net.send("Login", Protocol.Command.Login, params);
             return;
         }
@@ -340,9 +340,12 @@ cc.Class({
         params.e = "defaults";
         params.f = self.sdkuid;
         params.wn = config.wxInfo.nickName;
+        params.wgender = config.wxInfo.gender;
         params.wurl = config.wxInfo.avatarUrl;
         params.invite = self.shareUid;
+        params.weichatgame_version = config.VERSION_ABOUT; //显示版本
         cc.vv.net.send("Login", Protocol.Command.Login, params);
+        // console.log(">>>>>>wgender:",config.wxInfo.gender)
     },
     setPlayerDetailModel: function setPlayerDetailModel(response) {
         var room = response.data.room;
@@ -411,11 +414,11 @@ cc.Class({
             console.log(response["data"]);
 
             //看广告cd
-            // if(response["data"]["watch_advertisement_cd"]){
             config.adCdTime = response["data"]["watch_advertisement_cd"];
             config.showAd = response["data"]["watch_advertisement_open"];
             console.log("-----config.showAd:", config.showAd);
-            // }
+            config.TrialShareShow = response["data"]["weichatgame_trial_share_show"];
+            console.log("-----config.TrialShareShow:", config.TrialShareShow);
 
             console.log("进入游戏大厅...uid:" + parseInt(response["data"]["uid"]));
             this.labLoading.string = "进入游戏大厅...";
@@ -446,7 +449,7 @@ cc.Class({
         } else {
 
             var fileManager = wx.getFileSystemManager();
-            var soundspath = wx.env.USER_DATA_PATH + "/ddz_res/1.0.2";
+            var soundspath = wx.env.USER_DATA_PATH + "/ddz_res/1.0.3";
             console.log("soundspath:" + soundspath);
             fileManager.access({
                 path: soundspath,
@@ -457,7 +460,7 @@ cc.Class({
                 fail: function fail(res) {
                     console.log("目录不存在!!!", res);
                     var downloadTask = wx.downloadFile({
-                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/ddz_res_102.zip',
+                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/ddz_res_103.zip',
                         success: function success(res) {
                             console.log("资源下载成功");
                             var filePath = res.tempFilePath;

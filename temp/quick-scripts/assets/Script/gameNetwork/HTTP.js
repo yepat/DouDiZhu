@@ -43,7 +43,7 @@ var HTTP = cc.Class({
                         var ret = JSON.parse(xhr.responseText);
                         if (handler !== null) {
                             handler(ret);
-                        } /* code */
+                        }
                     } catch (e) {
                         console.log("err:" + e);
                         //handler(null);

@@ -70,6 +70,9 @@ cc.Class({
         },this);
         cc.vv.audioMgr.playBGM("MusicEx_Normal");
         this.showWatingStartGame();
+        if(!config.rewardedVideoAd){
+            this.initWxVideoAd();
+        }
     },
     start () {
         var self = this;
@@ -193,6 +196,13 @@ cc.Class({
         this.node_pCardBg = cc.find("Canvas/top_bar1/p_card_bg");
         this.node_tableTimes = cc.find("Canvas/bottom_bar3/beishu/lab_bei").getComponent(cc.Label);
         this.node_pCardBg.active = false;
+        this.node_diPai.active = false;
+
+        for(var i=1;i<=3;i++){
+            var path = "Canvas/top_bar1/diPai/poker_"+i;
+            var poker = cc.find(path);
+            this.table3Card.push(poker);
+        }
 
         this.node_lazarillo_poker = cc.find("Canvas/top_bar1/lazarillo_poker");
         this.node_lazarillo_poker.active = false;
@@ -209,24 +219,17 @@ cc.Class({
     },
     setTable3Card(severCards){
         this.node_pCardBg.active = true;
+        this.node_diPai.active = true;
         this.table3Cards = severCards;
         for(var i=0;i<3;i++){
-            var cardNode = cc.instantiate(this.pokerCard);
-            cardNode.parent = this.node_diPai;
-            cardNode.scale = 0.35;
-            var poker = cardNode.getComponent(PokerControl);
+            var poker = this.table3Card[i].getComponent(PokerControl);
+            poker.setPokerBg();
             poker.showPoker(CardUtil.convertCardToClient(severCards[i]));
-            this.table3Card.push(cardNode);
         }
     },
     clearTable3Card(){
         this.node_pCardBg.active = false;
-        if(this.table3Card.length > 0){ //先清理桌上的牌
-            for(var i = 0; i < this.table3Card.length; i++){
-                this.table3Card[i].getComponent(PokerControl).node.removeFromParent();
-            }
-            this.table3Card = [];
-        }
+        this.node_diPai.active = false;
     },
     setNodeRate(times){
         console.log(times);
@@ -295,11 +298,9 @@ cc.Class({
         self.leftCardtype.enabled = false;
         self.rightCardtype.enabled = false;
 
-
         //底牌倍数
         self.nodeRate = cc.find("Canvas/top_bar1/p_rate").getComponent(cc.Sprite);
         self.nodeRate.enabled = false;
-
     },
     initLeftPlayerNode(){
         var self = this;
@@ -368,6 +369,7 @@ cc.Class({
         self.right_player.initNodes(nodes);
     },
     clearTable(){//清理拍桌
+        // var self = this;
         this.playerme_.clear();
         this.left_player.clear();
         this.right_player.clear();
@@ -416,9 +418,14 @@ cc.Class({
         console.log("//清理拍桌");
 
         if(this.CancelDelegate){
-            console.log("//清理托管 11111");
+            console.log("//清理托管 22222");
             this.CancelDelegate.close();
-            this.CancelDelegate = null;
+            // this.CancelDelegate = null;
+        }
+
+        if(this.ChatDialog){//聊天界面
+            this.ChatDialog.close();
+            // this.ChatDialog = null;
         }
 
         if(this.jpqNode){
@@ -429,7 +436,7 @@ cc.Class({
 
         if(this.myOpratShow){
             this.myOpratShow.close();
-            this.myOpratShow = null;
+            // this.myOpratShow = null;
         }
     
         if(this.myOpratCall){
@@ -490,7 +497,7 @@ cc.Class({
             // console.log("touchEnd");
             if(self.ChatDialog){
                 self.ChatDialog.close();
-                self.ChatDialog = null;
+                // self.ChatDialog = null;
             }
             if(self.LazarilloPokerSelected){
                 self.LazarilloPokerSelected.closeClick();
@@ -611,22 +618,20 @@ cc.Class({
         //     CardUtil.AutoChooseLiftUpCard(this.myPokerNode,PokerControl,autocards);
         // } 
     },
-    //轮到自己出牌
     onMyOutCard(time){
         var self = this;
-        var scene = cc.director.getScene();
         var buchuFunc = function(){
             self.moveAllCardDown(self.myPokerNode);
             GameNetMgr.sendRequest("Game","giveupSendCard");
             if(self.myOpratShow){
                 self.myOpratShow.close();
-                self.myOpratShow = null;
+                // self.myOpratShow = null;
             }
         }
         var tishiNum = 0;
         var tishiFunc = function(){
             //xx_test
-            // var cards = ["3","4","5","6","7","8"];//"3","3","3","3"
+            // var cards = ["17"];//"3","3","3","3"
             var cards = [];
             // console.log("-------preSendCards",self.preSendCards);
             if(self.preSendCards&&self.preSendCards.length>0){
@@ -808,22 +813,31 @@ cc.Class({
             curTime = time;
         }
 
-        if(self.playerme_.getCardCount()==20 || self.mySeatId == self.preSeatId){
-            self.showCallLord(curTime,null,chupaiFunc,config.opratType.mustOutCard);
+        if(this.myOpratShow){
+            if(this.playerme_.getCardCount()==20 || this.mySeatId == this.preSeatId){
+                this.myOpratShow.show(curTime,buchuFunc,tishiFunc,chupaiFunc,1);
+            }else{
+                this.myOpratShow.show(curTime,buchuFunc,tishiFunc,chupaiFunc);
+            }
+            return;
+        }
+
+        if(this.playerme_.getCardCount()==20 || this.mySeatId == this.preSeatId){
+            var opOutCard = cc.instantiate(this.opratOutCard);
+            cc.director.getScene().addChild(opOutCard,999);
+            var opOutCardControl = opOutCard.getComponent(opratOutCardControl);
+            opOutCardControl.show(curTime,buchuFunc,tishiFunc,chupaiFunc,1);
+            this.myOpratShow = opOutCardControl;
         }else{
             var opOutCard = cc.instantiate(this.opratOutCard);
-            opOutCard.parent = scene;
+            cc.director.getScene().addChild(opOutCard,999);
             var opOutCardControl = opOutCard.getComponent(opratOutCardControl);
             opOutCardControl.show(curTime,buchuFunc,tishiFunc,chupaiFunc);
-
-            if(!self.myOpratShow){
-                self.myOpratShow = opOutCardControl;
-            } 
+            this.myOpratShow = opOutCardControl;
         }
     },
     mySendCards(severCards,jokto){//自己出牌
         var self = this;
-
         if(severCards){//(根据服务器返回的牌出牌)
             var cardData = CardUtil.serverCardsToClient(severCards);
             cardData.sort(CardUtil.gradeUp);//这边生序拍下
@@ -892,7 +906,6 @@ cc.Class({
             self.right_player.playCardRight(self.rightDispatchCard,620,650,jokto);
         }  
     },
-    //返回按钮点击事件
     btnMyPlayerClick(){
         console.log("点击自己头像")
         var args = {};
@@ -920,6 +933,7 @@ cc.Class({
         dialogManager.showPlayerInfo(args);
         cc.vv.audioMgr.playSFX("SpecOk");
     },
+    //返回按钮点击事件
     btnBackClick(){
         var self = this;
         console.log("btnBackClick");
@@ -957,14 +971,15 @@ cc.Class({
     },
     showCancelDelegate(){
         var self = this;
-        if(self.CancelDelegate){
-            return;
-        }
         var click = function(){
             GameNetMgr.sendRequest("Game","cancelDelegate");
-            self.CancelDelegate = null;
+            // self.CancelDelegate = null;
             self.playerme_.setDelegated(false);
             cc.vv.audioMgr.playSFX("SpecOk");
+        }
+        if(self.CancelDelegate){
+            self.CancelDelegate.show(click);
+            return;
         }
         cc.loader.loadRes("prefab/CancelDelegate", function (err, prefab) {
             //匹配计数动画
@@ -987,6 +1002,8 @@ cc.Class({
     btnJiPaiQiClick(){
         console.log("btnJiPaiQiClick");
         //没有记牌器弹出分享窗口
+        // if(this.gameState <= 6)
+        //     return;
         this.showJPQShareGet();
 
         var self = this;
@@ -1006,7 +1023,6 @@ cc.Class({
         if (propItems["5"] && propItems["5"] == 1){
             return;
         }
-
         console.log(">>>>>>gameState:",self.gameState)
         if(self.gameState > config.gameState.ST_GAME_START)
             dialogManager.showTableShareGet("jipaiqi");
@@ -1014,8 +1030,6 @@ cc.Class({
     showJPQ(mycards){
         var self = this;
         if(self.jpqNode){
-            // self.jpqNode.close();
-            // self.jpqNode = null;
             self.jpqNode.show(mycards);
             return;
         }
@@ -1035,11 +1049,10 @@ cc.Class({
         console.log("btnChatClick");
         var self = this;
         if(self.ChatDialog){
-            self.ChatDialog.close();
-            self.ChatDialog = null;
+            self.ChatDialog.show();
         }else{
             var click = function(){
-                self.ChatDialog = null;
+                // self.ChatDialog = null;
             }
             cc.loader.loadRes("prefab/chatDialog", function (err, prefab) {
                 if (err) {
@@ -1057,6 +1070,11 @@ cc.Class({
     },
     showMyChat(content){
         var self = this;
+        if(self.myChatBox){
+            self.myChatBox.show(content);
+            console.log("myChatBox 已存在");
+            return;
+        }
         cc.loader.loadRes("prefab/chatBox", function (err, prefab) {
             if (err) {
                 console.log(err);
@@ -1065,6 +1083,7 @@ cc.Class({
             var newNode = cc.instantiate(prefab);
             cc.director.getScene().addChild(newNode,9999);
             var prefabControl= newNode.getComponent(require("chatBoxControl"));
+            self.myChatBox = prefabControl;
             prefabControl.show(content);
         });
     },
@@ -1169,6 +1188,8 @@ cc.Class({
         //ShareWxResResult
         EventHelper.AddCustomEvent(config.MyNode,"ShareWxResResult",self.onShareWxResResult,self);
         EventHelper.AddCustomEvent(config.MyNode,"InvalidCardType",self.onInvalidCardType,self);
+
+        EventHelper.AddCustomEvent(config.MyNode,"WatchAdvertisementResult",self.onWatchAdvertisementResult,self);
     },
     removeEventListener(){
         var self = this;
@@ -1202,6 +1223,8 @@ cc.Class({
         EventHelper.RemoveCustomEvent(config.MyNode,"SendLzCard",self.onSendLzCard,self);
         EventHelper.RemoveCustomEvent(config.MyNode,"ShareWxResResult",self.onShareWxResResult,self);
         EventHelper.RemoveCustomEvent(config.MyNode,"InvalidCardType",self.onInvalidCardType,self);
+
+        EventHelper.RemoveCustomEvent(config.MyNode,"WatchAdvertisementResult",self.onWatchAdvertisementResult,self);
     },
     //初始化玩家信息
     initPlayerInfo(response){
@@ -1299,15 +1322,15 @@ cc.Class({
                 return;
             }
             var newNode = cc.instantiate(prefab);
-            cc.director.getScene().addChild(newNode);
+            cc.director.getScene().addChild(newNode,999);
             var prefabControl= newNode.getComponent(require("opratCallLordControl"));
             prefabControl.show(time,btn1Func,btn2Func,type);
             
-            if(type == 3 && !self.myOpratShow){
-                self.myOpratShow = prefabControl; 
-            }else{
+            // if(type == 3 && !self.myOpratShow){
+            //     self.myOpratShow = prefabControl; 
+            // }else{
                 self.myOpratCall = prefabControl;
-            }
+            // }
         });
     },
     //结算洁面
@@ -1627,14 +1650,14 @@ cc.Class({
                 GameNetMgr.sendRequest("Game","callLord",1);
                 if(self.myOpratShow){
                     self.myOpratShow.close();
-                    self.myOpratShow = null;
+                    // self.myOpratShow = null;
                 }
             }
             var btn2Func = function(){
                 GameNetMgr.sendRequest("Game","callLord",2);
                 if(self.myOpratShow){
                     self.myOpratShow.close();
-                    self.myOpratShow = null;
+                    // self.myOpratShow = null;
                 }
             }
             self.showCallLord(config.CallLordTimeout,btn1Func,btn2Func,config.opratType.callLoad);
@@ -1879,7 +1902,7 @@ cc.Class({
         if(seatNum == 1){//自己
             if(self.myOpratShow){
                 self.myOpratShow.close()
-                self.myOpratShow = null;
+                // self.myOpratShow = null;
             }
             // self.onMyOutCard();
             self.playerme_.hideHint();
@@ -1919,7 +1942,7 @@ cc.Class({
             self.right_player.clearTableCard(self.rightDispatchCard);
             if(self.myOpratShow){
                 self.myOpratShow.close()
-                self.myOpratShow = null;
+                // self.myOpratShow = null;
             }
         }else if(seatNum == 2){//左边
             self.left_player.showClock(config.SendCardTimeout);
@@ -1928,7 +1951,7 @@ cc.Class({
 
             if(self.myOpratShow){
                 self.myOpratShow.close()
-                self.myOpratShow = null;
+                // self.myOpratShow = null;
             }
         }
     },
@@ -1962,11 +1985,7 @@ cc.Class({
 
         console.log("用户取消托管---"+seatNum);
         if(seatNum == 1){//自己
-            // if(self.playerme_.getDelegated()){
-            //     self.CancelDelegate.close();
-            //     self.CancelDelegate = null;
-            //     self.playerme_.setDelegated(false);
-            // }
+            
         }else if(seatNum == 0){//右边
             self.right_player.setDelegated(false); 
         }else if(seatNum == 2){//左边
@@ -2001,7 +2020,7 @@ cc.Class({
 
             if(self.myOpratShow){
                 self.myOpratShow.close()
-                self.myOpratShow = null;
+                // self.myOpratShow = null;
             }
             gender = self.playerme_.getGender();
         }else if(seatNum == 0){//右边
@@ -2111,7 +2130,7 @@ cc.Class({
             self.playerme_.showHint(config.hintType.dont);
             if(self.myOpratShow){
                 self.myOpratShow.close()
-                self.myOpratShow = null;
+                // self.myOpratShow = null;
             }
             var gender = self.playerme_.getGender();
             cc.vv.audioMgr.playCardsEffect(gender,"buyao");
@@ -2181,7 +2200,7 @@ cc.Class({
         if(this.CancelDelegate){
             console.log("//清理托管弹框");
             this.CancelDelegate.close();
-            this.CancelDelegate = null;
+            // this.CancelDelegate = null;
         }
 
         //实现玩家剩余牌
@@ -2536,7 +2555,7 @@ cc.Class({
             }else if(players.act == "AUTO_PLAY_CARD"){
                 if(self.myOpratShow){
                     self.myOpratShow.close()
-                    self.myOpratShow = null;
+                    // self.myOpratShow = null;
                 }
                 self.onMyOutCard(players.time);//players.time 23
                 self.playerme_.hideHint();
@@ -2590,18 +2609,20 @@ cc.Class({
         var callFunc = cc.callFunc(function(){
             var click = function(){
                 console.log("点击了领取救济按钮");
-                // if(trial_cooldown == 0){
-                //     GameNetMgr.sendRequest("Game", "openReliefTip", {});
-                // }else{
-                //     self.preloadNextScene();
-                // }
+                if(trial_cooldown == 0){
+                    GameNetMgr.sendRequest("Game", "openReliefTip", {});
+                }else{
+                    self.preloadNextScene();
+                }
             }
             if(trial_cooldown == 0){
                 var index = trial_count+1;
                 content = "系统第"+index+"次赠送您1000乐豆。";
-                // dialogManager.showCommonDialog("领救济",content,click);
-                // dialogManager.showShareGetDialog("","",click);
-                dialogManager.showTableShareGet("jiuji");
+                if(config.TrialShareShow == 1){
+                    dialogManager.showTableShareGet("jiuji");
+                }else{
+                    dialogManager.showCommonDialog("领救济",content,click);
+                }
             }else{
                 content = "今天乐豆已经领完了哦，明天在过来吧！";
                 dialogManager.showCommonDialog("温馨提示",content,function(){
@@ -2786,7 +2807,7 @@ cc.Class({
         config.joker = joker;
         if(config.joker!="")
             this.setLazarillo_poker(joker);
-        this.clearTable3Card();
+        // this.clearTable3Card();
         this.setTable3Card(this.table3Cards);
 
         if(response.data.myCard){ //插3张牌
@@ -2859,10 +2880,41 @@ cc.Class({
             setTimeout(fn,500);
         } 
     },
+    onWatchAdvertisementResult(event){
+        console.log("-----看完广告领奖");
+        var response = event.getUserData();
+        var award = response.data;
+        var list = [];
+        if(award.coins){
+            var args = {
+                arg1:"ledou",
+                arg2:award.coins,
+            }
+            list.push(args);
+        } 
+        if(award.coupon){
+            var args = {
+                arg1:"lequan",
+                arg2:award.coupon,
+            }
+            list.push(args);
+        } 
+        if(award.noteCards){
+            var args = {
+                arg1:"jipaiqi",
+                arg2:award.coupon,
+            }
+            list.push(args);
+        } 
+        if(list.length>0){
+            dialogManager.showAnimGetProp(list);
+        }
+        config.adCdTime = award.watch_advertisement_cd;
+    },
 ////////////
     preloadNextScene(){
         cc.director.preloadScene("HallScene", function () {
-            cc.log("Next scene preloaded");
+            // cc.log("Next scene preloaded");
             cc.director.loadScene("HallScene");
         });
     },
@@ -2909,6 +2961,29 @@ cc.Class({
             prefabControl.show(cardsList,click);
             self.LazarilloPokerSelected = prefabControl; 
         });
-    }
+    },
+    initWxVideoAd(){
+        if(typeof(wx)=="undefined"){
+            return;
+        }
+        var rewardedVideoAd = config.rewardedVideoAd;
+        rewardedVideoAd.onLoad(() => {
+            // console.log('激励视频 广告加载成功')
+        })
+        rewardedVideoAd.onError(err => {
+            // console.log("激励视频 拉取失败"+err)
+        })
+        rewardedVideoAd.onClose(res => {
+            if (res && res.isEnded || res === undefined) {
+                // console.log("正常播放结束，可以下发游戏奖励")
+                GameNetMgr.sendRequest("System", "WatchAdvertisement",config.rewardedVideoType);
+            }
+            else {
+                // console.log("播放中途退出，不下发游戏奖励")
+            }
+            cc.vv.audioMgr.playBGM("MusicEx_Welcome");
+        })
+        this.rewardedVideoAd = rewardedVideoAd;
+    },
 
 });
