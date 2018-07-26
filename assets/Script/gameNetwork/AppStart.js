@@ -72,14 +72,33 @@ cc.Class({
                 query :  "key="+PlayerDetailModel.uid,
                 success(res){
                     console.log("转发成功!!!");
-                    console.log(res);
+                    // console.log(res);
                     GameNetMgr.sendRequest("System","ShareWxRes",1);
                 },
                 fail(res){
                     console.log("转发失败!!!")
                 } 
             }
-        })
+        });
+
+        //获取系统信息
+        wx.getSystemInfo({
+            success(res){
+                console.log("获取系统信息成功。",res);
+                config.SystemInfo = res;
+                config.setDevice(res.system);
+            },
+            fail(res){
+                console.log("获取系统信息失败。",res);
+            }
+        });
+    },
+    onDestroy(){
+        console.log("appStart Destroy");
+        var self = this;
+        EventHelper.RemoveCustomEvent(config.MyNode,"Regist",self.onRegist,self);
+        EventHelper.RemoveCustomEvent(config.MyNode,"HeartBeat",self.onHeartBeat,self);
+        EventHelper.RemoveCustomEvent(config.MyNode,"LoginOK",self.onLoginOK,self); 
     },
     weixinLogin(){
         var self = this;
@@ -105,6 +124,7 @@ cc.Class({
                             complete = true;
                             // console.log("connectSdkServer = " + JSON.stringify(ret));
                             self.sdkuid = ret.data.user_id;
+                            config.SDKUID = ret.data.user_id;
                             console.log("------------sdkuid:",self.sdkuid);
                             self.getServerInfo();
                         },_url);
@@ -154,7 +174,8 @@ cc.Class({
             self.labLoading.string = "正在连接服务器...";
             xhr = cc.vv.http.sendRequest("",params,function(ret){
                 // console.log("连接成功");
-                self.labLoading.string = "连接成功...";
+                if(self.labLoading)
+                    self.labLoading.string = "连接成功...";
                 xhr = null;
                 complete = true;
                 config.GlobalRouterUpdate(ret);
@@ -169,7 +190,8 @@ cc.Class({
                 if(xhr){
                     xhr.abort();
                     // console.log("连接失败，即将重试...");
-                    self.labLoading.string = "连接失败，即将重试...";
+                    if(self.labLoading)
+                        self.labLoading.string = "连接失败，即将重试...";
                     setTimeout(function(){
                         fnRequest();
                     },5000);
@@ -238,7 +260,7 @@ cc.Class({
              },
              fail: function (res){
                 console.log("获取信息失败!!!")
-                // dialogManager.showAuthorizeDialog("","",null);
+                dialogManager.showAuthorizeDialog("授权失败","请您重新授权",null);
             } 
         });
     },
@@ -265,7 +287,6 @@ cc.Class({
         var params = {};
         params.t = Protocol.Request.HeartBeat.Alive;
         cc.vv.net.send("HeartBeat",Protocol.Command.HeartBeat,params);
-
         config.shareIndex = config.getRandom(1);
     },
     sendRegist(){
@@ -332,7 +353,7 @@ cc.Class({
         params.e = "defaults";
         params.f = self.sdkuid;
         params.wn = config.wxInfo.nickName;
-        params.wgender = config.wxInfo.gender;
+        params.wgender = config.wxInfo.gender;//性别 0：未知、1：男、2：女
         params.wurl = config.wxInfo.avatarUrl;
         params.invite = self.shareUid;
         params.weichatgame_version = config.VERSION_ABOUT;//显示版本
@@ -402,24 +423,28 @@ cc.Class({
             PlayerDetailModel.title = response["data"]["title"];
             PlayerDetailModel.isDev = isDevData;
 
-            if(response["data"]["continueRoomId"])
-                PlayerDetailModel.continueRoomId = response["data"]["continueRoomId"];
+            // if(response["data"]["continueRoomId"])
+            PlayerDetailModel.continueRoomId = response["data"]["continueRoomId"];
 
             console.log(response["data"]);
 
             //看广告cd
             config.adCdTime = response["data"]["watch_advertisement_cd"];
             config.showAd = response["data"]["watch_advertisement_open"];
-            console.log("-----config.showAd:",config.showAd);
+            config.canSeeVideoAd = response["data"]["weichatgame_can_watch_advertisement"];
+            console.log("config.canSeeVideoAd:",config.canSeeVideoAd);
+
+
+            // console.log("-----config.showAd:",config.showAd);
             config.TrialShareShow = response["data"]["weichatgame_trial_share_show"];
-            console.log("-----config.TrialShareShow:",config.TrialShareShow);
+            // console.log("-----config.TrialShareShow:",config.TrialShareShow);
 
             console.log("进入游戏大厅...uid:"+parseInt(response["data"]["uid"]));
             this.labLoading.string = "进入游戏大厅...";
             // this.preloadNextScene();
             this.downloadFile();
         }else{
-            console.log("登陆游戏失败！");
+            // console.log("登陆游戏失败！");
             this.labLoading.string = "登陆游戏失败！";
             dialogManager.showCommonDialog("提示","登陆游戏失败！",function(){
                 cc.director.loadScene("LoadingScene");
@@ -429,7 +454,7 @@ cc.Class({
      //
      preloadNextScene(){
         cc.director.preloadScene("HallScene", function () {
-            cc.log("Next scene preloaded");
+            // cc.log("Next scene preloaded");
             cc.director.loadScene("HallScene");
         });
     },
@@ -441,7 +466,7 @@ cc.Class({
         }else{
 
             var fileManager = wx.getFileSystemManager();
-            var soundspath = wx.env.USER_DATA_PATH+"/ddz_res/1.0.3";
+            var soundspath = wx.env.USER_DATA_PATH+"/ddz_res/1.0.6";
             console.log("soundspath:"+soundspath);
             fileManager.access({
                 path:soundspath,
@@ -452,7 +477,7 @@ cc.Class({
                 fail(res){
                     console.log("目录不存在!!!",res);
                     var downloadTask = wx.downloadFile({
-                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/ddz_res_103.zip',
+                        url: 'https://sg.youjoy.tv/ddzwechatgame/resources/ddz_res_106.zip',
                         success: function(res) {
                             console.log("资源下载成功");
                             var filePath = res.tempFilePath;

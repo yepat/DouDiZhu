@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '838d3g3hXVK0JPu0+2AvJx0', 'Player');
-// Script/Player.js
+// Script/util/Player.js
 
 "use strict";
 
@@ -254,9 +254,9 @@ var Player = cc.Class({
         var self = this;
         this.wechatImg = wechatImg;
         if (wechatImg == "") {
-            var headUrl = "p_head_woman";
+            var headUrl = "common/p_head_woman";
             if (this.gender == 1) {
-                headUrl = "p_head_man";
+                headUrl = "common/p_head_man";
             }
             cc.loader.loadRes(headUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.node_wechatImg.getComponent(cc.Sprite).spriteFrame = spriteFrame;
@@ -559,9 +559,9 @@ var Player = cc.Class({
             pokerNode[i].scale = cardScale;
             var posX = startX + i * disBetween + pokerNode[0].getComponent(PokerControl).node.width * cardScale * 0.5;
             var move = cc.moveTo(0.1, posX, 500);
-            // move.easing(cc.easeIn(2));
             var poker = pokerNode[i].getComponent(PokerControl);
             poker.node.runAction(move);
+            // pokerNode[i].setPosition(posX,500);
         }
 
         // setTimeout(function(){

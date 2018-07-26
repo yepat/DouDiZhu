@@ -28,11 +28,11 @@ cc.Class({
         self.lab_name.string = "";
         if(propName == "jipaiqi"){
             self.lab_name.string = "记牌器";
-            numUrl = "p_daoju_jpq";
+            numUrl = "common/p_daoju_jpq";
             self.lab_num.string = "" + this.showTime(propNum);
         }else if(propName == "lequan"){
             self.lab_name.string = "乐券";
-            numUrl = "p_daoju_lequan";
+            numUrl = "common/p_daoju_lequan";
             self.lab_num.string = "" + propNum;
         }
 

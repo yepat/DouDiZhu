@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_ios_sc",
+    "texture": "067c81ce-1d77-413e-a318-d2f0ec442455",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      460,
+      410
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      460,
+      410
+    ]
+  }
+}

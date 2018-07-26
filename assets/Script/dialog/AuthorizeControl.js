@@ -1,7 +1,8 @@
 // var GameNetMgr = require("GameNetMgr");
 // var PlayerDetailModel = require("PlayerDetailModel");
 // var config = require("config");
-var dialogManager = require("dialogManager");
+// var MD5 = require("md5");
+// var dialogManager = require("dialogManager");
 cc.Class({
     extends: cc.Component,
 
@@ -16,21 +17,46 @@ cc.Class({
         },
         btn_enter : {
             default : null,
-            type : cc.Node,
+            type : cc.Button,
             opentype : "getUserInfo"
         }
     },
-    start () {   
-        // var enter = function(){
-        //     console.log("确认按钮");
-        // }
-        // this.show("xx","但想啊想啊啊想啊",enter,null);
-    },   
+    onLoad () {
+        this.btn_enter.active = false;
+        var self = this;
+        var res = wx.getSystemInfoSync()
+        var topdis = res.screenHeight/2+30;
+        var leftdis = res.screenWidth/2-50;
+        var button = wx.createUserInfoButton({
+            type: 'text',
+            text: '确定',
+            style: {
+                left: leftdis,
+                top: topdis,
+                width: 100,
+                height: 40,
+                lineHeight: 40,
+                backgroundColor: '#27AAFD',
+                color: '#ffffff',
+                textAlign: 'center',
+                fontSize: 16,
+                borderRadius: 20
+            }
+        });
+        button.onTap((res) =>{
+            if(res.userInfo){
+                button.destroy()
+                self.preloadNextScene();
+                console.log("获取用户信息成功。",res);
+            }else{
+                console.log("获取用户信息失败。",res);
+            }
+        });
+    },
     show(args){
         var title = args.arg1;
         var content = args.arg2;
         var enterClick = args.arg3;
-
         if(title!="")
             this.title.string = title;
         if(content!="") 
@@ -44,20 +70,11 @@ cc.Class({
     },
     btnEnterClick(){
         console.log("btn2 click");
-        wx.authorize({
-            // scope: 'scope.userInfo',
-            success: function (res) {
-                console.log("authorize 获取信息成功!!!")
-            },
-            fail: function (res) {
-              // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
-              if (res.errMsg.indexOf('auth deny') > -1 || res.errMsg.indexOf('auth denied') > -1 ) {
-                // 处理用户拒绝授权的情况
-                console.log("authorize 获取信息失败!!!")
-                // dialogManager.showAuthorizeDialog("","",null);
-              }    
-            }
-          });
-        this.node.destroy();
-    }
+        // this.node.destroy();
+    },
+    preloadNextScene(){
+        cc.director.preloadScene("LoadingScene", function () {
+            cc.director.loadScene("LoadingScene");
+        });
+    },
 });

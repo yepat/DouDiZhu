@@ -1,12 +1,13 @@
 "use strict";
 cc._RF.push(module, '51232MuRg1Etoh6eMoOYPIJ', 'config');
-// Script/config.js
+// Script/util/config.js
 
 "use strict";
 
 var config = {};
 
 config.MyNode = null; //常驻节点
+config.initMgr = null; //全局变量
 
 config.temppassword = "";
 
@@ -15,7 +16,11 @@ config.OpenUDIDEncryptToken = "!_Tvr%^98071e~int5lmUy";
 config.stopOnMassage = false;
 
 config.VERSION_NAME = "2.1.0"; //当前程序版本（2.0.0 是为了兼容tv版）
-config.VERSION_ABOUT = "1.0.2"; //关于版本号
+config.VERSION_ABOUT = "1.0.3"; //关于版本号
+config.SDKUID = 0;
+
+config.SystemInfo = null;
+config.device = null; //iOS  Android
 
 config.TrialShareShow = 0; //分享领豆显示 1 true
 
@@ -42,16 +47,18 @@ config.adCdTime = 0; //广告冷却时间
 config.showAd = 0; //显示广告
 config.rewardedVideoAd = null; //广告控件
 config.rewardedVideoType = 0;
+config.canSeeVideoAd = true;
 
 config.jpqShareSucss = false; //获得记牌器分享成功
 config.leQuanShareSucss = false; //获得乐券分享成功
 config.leDouShareSucss = false; //获得乐豆分享成功
 
 config.shareIndex = 0;
-
 config.sendCardState = false; //发牌状态
-
 config.videoEndFuc = null;
+
+config.maxRateShare = 0; //高倍分享倍数
+
 
 //叫地主时间
 config.CallLordTimeout = 15;
@@ -94,8 +101,50 @@ config.ghostCardType = {
     // lazarillo : 7,//赖子牌
 
 
-    //获取随机数
-};config.getRandom = function (index) {
+    //获取设备类型 config.device = null; //iOS  Android
+};config.setDevice = function (str) {
+    if (str.indexOf("iOS") != -1) {
+        config.device = "iOS";
+    } else if (str.indexOf("Android") != -1) {
+        config.device = "Android";
+    } else {
+        config.device = "otherDevice";
+    }
+};
+
+//版本号比较  “2.2.1” “2.0.4”
+config.compareVersion = function (Version1, Version2) {
+    var blt = false;
+    var temp = [100, 10, 1];
+    var arr1 = Version1.split(".");
+    var arr2 = Version2.split(".");
+    var value1 = 0;
+    var value2 = 0;
+    var rate = 0;
+    for (var i = 0; i < arr1.length; i++) {
+        if (i > 2) {
+            rate = 1;
+        } else {
+            rate = temp[i];
+        }
+        value1 += parseInt(arr1[i]) * rate;
+    }
+    for (var i = 0; i < arr2.length; i++) {
+        if (i > 2) {
+            rate = 1;
+        } else {
+            rate = temp[i];
+        }
+        value2 += parseInt(arr2[i]) * rate;
+    }
+    if (value1 > value2) {
+        blt = true;
+    }
+    return blt;
+};
+
+//获取随机数
+config.getRandom = function (index) {
     index = Math.round(Math.random() * index);
     return index;
 };
@@ -296,7 +345,8 @@ config.shareTxt = {
     "jipaiqi": ["世界上最悲伤的事情是什么？", "对3，我只剩一张牌啦！"],
     "lequan": ["小手一抖，奖券到手，免费兑话费咯！", "我在玩【有乐开心斗地主】，赢奖券兑话费！"],
     "chuntian": ["对不起，牌好就是可以为所欲为！", "又打出春天咯！你能超越我吗？"],
-    "liansheng_3": ["【有人@你】来和我比一比，看谁更厉害！", "已经没有人可以阻止我的连胜了！"]
+    "liansheng_3": ["【有人@你】来和我比一比，看谁更厉害！", "已经没有人可以阻止我的连胜了！"],
+    "gaobei": ["【有人@你】看我这一手高倍，就问你敢不敢来挑战！", "没有什么事情是炸弹不能解决的，如果有，就王炸！"]
     //分享图片
 };config.shareImg = {
     "task": "share1.png",
@@ -305,7 +355,8 @@ config.shareTxt = {
     "jipaiqi": "share4.png",
     "lequan": "share5.png",
     "chuntian": "share6.png",
-    "liansheng_3": "share7.png"
+    "liansheng_3": "share7.png",
+    "gaobei": "share8.png"
 };
 config.getShareImgPath = function (name) {
     return config.imagePath() + config.shareImg[name];

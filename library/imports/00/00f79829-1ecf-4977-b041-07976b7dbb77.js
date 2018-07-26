@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '00f79gpHs9Jd7BBB5drfbt3', 'PokerControl');
-// Script/PokerControl.js
+// Script/util/PokerControl.js
 
 "use strict";
 
@@ -127,6 +127,7 @@ cc.Class({
     },
     cardMove: function cardMove() {
         if (this.cardData.isChoosed && this.cardData.isTopped) {
+            // this.node.
             var move = cc.moveBy(0.1, 0, -30);
             move.easing(cc.easeIn(3));
             this.node.runAction(move);

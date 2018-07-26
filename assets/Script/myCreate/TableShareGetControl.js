@@ -50,8 +50,12 @@ cc.Class({
         config.loadImage(this.img_bg,"p_yaoqing");
         if(dialogName == "jiuji"){
             config.loadImage(this.img_title,"p_douzi");
-            // config.loadImage(this.img_daoju,"p_ludou_1000");
             this.lab_tips.string = "现在发送分享额外再得500乐豆呦～";
+
+            if(!config.canSeeVideoAd){
+                this.btn_1.active = false;
+                this.btn_2.x = 183;
+            }
         }else if(dialogName == "jipaiqi"){
             config.loadImage(this.img_title,"p_tip_jipaiqi");
             config.loadImage(this.img_daoju,"p_daoju_jpq");

@@ -118,7 +118,7 @@ cc.Class({
             }
         }
         this.roomType_ = roomType_;
-        console.log(roomType_);
+        // console.log(roomType_);
         // console.log("curRoomModelId:"+config.curRoomModelId);
         for(var i = 0;i<roomType_.length;i++){
             this.rooms[i].active = true;

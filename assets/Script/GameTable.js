@@ -144,7 +144,7 @@ cc.Class({
 
         //xx_test
         // config.joker = "c";//"43", "33","23", "13", 
-        // var cards = ["2c", "1c", "31", "21", "1d","4b","3b", "2a", "49", "29", "47", "47", "44"];//, "33", "23", "13"
+        // var cards = ["3c","2c", "1c", "31", "21", "1d","4b","3b","2b", "2a", "49", "39","29", "47", "47", "44"];//, "33", "23", "13"
         // this.myPokerData = CardUtil.serverCardsToClient(cards);
         // self.playerme_.initMyCards(this.myPokerData,this.myPokerNode,this.scene,this.sceneWidth,-1);
         
@@ -240,11 +240,11 @@ cc.Class({
         var self = this;
         self.nodeRate.enabled = true;
         if(times == 3){
-            cc.loader.loadRes("p_rate3",cc.SpriteFrame,function(err,spriteFrame){
+            cc.loader.loadRes("common/p_rate3",cc.SpriteFrame,function(err,spriteFrame){
                 self.nodeRate.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
         }else{
-            cc.loader.loadRes("p_rate2",cc.SpriteFrame,function(err,spriteFrame){
+            cc.loader.loadRes("common/p_rate2",cc.SpriteFrame,function(err,spriteFrame){
                 self.nodeRate.getComponent(cc.Sprite).spriteFrame = spriteFrame;
             });
         }
@@ -598,27 +598,69 @@ cc.Class({
         if(isTopped)
             cc.vv.audioMgr.playSFX("Special_selectedCrad");
     },
-    onShow(){
+    autoLiftUpCard(){
+        //智能提牌测试
+        var topcards = CardUtil.getMyTopCards(this.myPokerNode,PokerControl);
+        var mycards = [];
+        for(var i = this.myPokerData.length - 1; i > -1;i--){
+            mycards.push(this.myPokerData[i].showTxt);
+            console.log("xx"+this.myPokerData[i].showTxt);
+        }
+        var autocards = CardUtil.getCardsFromTopCards(mycards,topcards);
+        if(autocards.length < 1){
+        }else{
+            this.moveAllCardDown(this.myPokerNode);//先放下在提起
+            CardUtil.AutoChooseLiftUpCard(this.myPokerNode,PokerControl,autocards);
+        } 
     },
-    onHide(){
-        // console.log("onHide");
-        // //智能提牌测试
-        // var topcards = CardUtil.getMyTopCards(this.myPokerNode,PokerControl);
-        
-        // var mycards = [];
-        // for(var i = this.myPokerData.length - 1; i > -1;i--){
-        //     mycards.push(this.myPokerData[i].showTxt);
-        //     console.log("xx"+this.myPokerData[i].showTxt);
-        // } 
+    getCardsLarger(){
+        //获取大于上家的牌
+        console.log(">>>>>>获取大于上家的牌")
+        var self = this;
+        var cards = [];
+        // console.log("-------preSendCards",self.preSendCards);
+        if(self.preSendCards&&self.preSendCards.length>0){
+            var pokerdata = CardUtil.serverCardsToClient(self.preSendCards);
+            // console.log(pokerdata);
+            if(self.prejokto&&self.prejokto.length>0){
+                var joktoIndex = 0;
+                var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+                var jokto = self.prejokto;
+                for(var i=0;i<pokerdata.length;i++){
+                    if(jokto[joktoIndex] && pokerdata[i].showTxt == jokerValue){
+                        var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
+                        cards.push(joktoValue);
+                        joktoIndex++;
+                    }else{
+                        cards.push(pokerdata[i].showTxt);
+                    }
+                }
+            }else{
+                for(var i =0;i<pokerdata.length;i++){
+                    cards.push(pokerdata[i].showTxt);
+                }
+            }
+        }
+        cards.sort(config.arrayUp);
+        // console.log(cards);
+        var cardstype = CardUtil.get_topCard_type(cards,self.preCardType);
+        var myCards = [];
+        console.log(cardstype);
+        for(var i = self.myPokerData.length - 1; i > -1;i--){
+            var cardValue = CardUtil.StringToNumber(self.myPokerData[i].showTxt);
+            myCards.push(cardValue); 
+        }
 
-        // var autocards = CardUtil.getCardsFromTopCards(mycards,topcards);
-        // if(autocards.length < 1){
-        // }else{
-        //     this.moveAllCardDown(this.myPokerNode);//先放下在提起
-        //     CardUtil.AutoChooseLiftUpCard(this.myPokerNode,PokerControl,autocards);
-        // } 
+        var tishicards = null;
+        if(config.joker != ""){
+            tishicards = LazarilloCardUtil.get_cards_larger(cardstype,myCards);
+        }else{
+            tishicards = CardUtil.get_cards_larger(cardstype,myCards);
+        }
+        console.log(">>>>>>>tishicards:",tishicards);
+        return tishicards;
     },
-    onMyOutCard(time){
+    onMyOutCard(time,tishicards){
         var self = this;
         var buchuFunc = function(){
             self.moveAllCardDown(self.myPokerNode);
@@ -630,58 +672,54 @@ cc.Class({
         }
         var tishiNum = 0;
         var tishiFunc = function(){
-            //xx_test
-            // var cards = ["17"];//"3","3","3","3"
             var cards = [];
-            // console.log("-------preSendCards",self.preSendCards);
-            if(self.preSendCards&&self.preSendCards.length>0){
-                var pokerdata = CardUtil.serverCardsToClient(self.preSendCards);
-                // console.log(pokerdata);
-                if(self.prejokto&&self.prejokto.length>0){
-                    var joktoIndex = 0;
-                    var jokerValue = CardUtil.serverCardValueToClient(config.joker);
-                    var jokto = self.prejokto;
-                    for(var i=0;i<pokerdata.length;i++){
-                        if(jokto[joktoIndex] && pokerdata[i].showTxt == jokerValue){
-                            var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
-                            cards.push(joktoValue);
-                            joktoIndex++;
-                        }else{
-                            cards.push(pokerdata[i].showTxt);
-                        }
-                    }
-                }else{
-                    for(var i =0;i<pokerdata.length;i++){
-                        cards.push(pokerdata[i].showTxt);
-                    }
-                }
-            }
-            cards.sort(config.arrayUp);
-            // console.log(cards);
-            var cardstype = CardUtil.get_topCard_type(cards,self.preCardType);
-            var myCards = [];
-            console.log(cardstype);
-            for(var i = self.myPokerData.length - 1; i > -1;i--){
-                var cardValue = CardUtil.StringToNumber(self.myPokerData[i].showTxt);
-                myCards.push(cardValue); 
-            }
-
-            var tishicards = null;
-            if(config.joker != ""){
-                tishicards = LazarilloCardUtil.get_cards_larger(cardstype,myCards);
-            }else{
-                tishicards = CardUtil.get_cards_larger(cardstype,myCards);
-            }
-            // var tishicards = CardUtil.get_cards_larger(cardstype,myCards);
-            if(tishicards.length == 0){
+            //xx_test
+            // cards = ["3","3","4","4","5","5"];//"3","3","3","3"
+            // if(self.preSendCards&&self.preSendCards.length>0){
+            //     var pokerdata = CardUtil.serverCardsToClient(self.preSendCards);
+            //     if(self.prejokto&&self.prejokto.length>0){
+            //         var joktoIndex = 0;
+            //         var jokerValue = CardUtil.serverCardValueToClient(config.joker);
+            //         var jokto = self.prejokto;
+            //         for(var i=0;i<pokerdata.length;i++){
+            //             if(jokto[joktoIndex] && pokerdata[i].showTxt == jokerValue){
+            //                 var joktoValue = CardUtil.serverCardValueToClient(jokto[joktoIndex]);
+            //                 cards.push(joktoValue);
+            //                 joktoIndex++;
+            //             }else{
+            //                 cards.push(pokerdata[i].showTxt);
+            //             }
+            //         }
+            //     }else{
+            //         for(var i =0;i<pokerdata.length;i++){
+            //             cards.push(pokerdata[i].showTxt);
+            //         }
+            //     }
+            // }
+            // cards.sort(config.arrayUp);
+            // var cardstype = CardUtil.get_topCard_type(cards,self.preCardType);
+            // var myCards = [];
+            // console.log(cardstype);
+            // for(var i = self.myPokerData.length - 1; i > -1;i--){
+            //     var cardValue = CardUtil.StringToNumber(self.myPokerData[i].showTxt);
+            //     myCards.push(cardValue); 
+            // }
+            // var tishicards = null;
+            // if(config.joker != ""){
+            //     tishicards = LazarilloCardUtil.get_cards_larger(cardstype,myCards);
+            // }else{
+            //     tishicards = CardUtil.get_cards_larger(cardstype,myCards);
+            // }
+            if(tishicards && tishicards.length == 0){
                 console.log("没有符合的牌型可供提示");
                 if(self.myOpratShow){
-                    // self.myOpratShow.chupaiClick(-2);
                     buchuFunc();
                 }
                 return;
             }
-            cards = tishicards[tishiNum];
+            if(tishicards){
+                cards = tishicards[tishiNum];
+            }
             if(tishiNum<tishicards.length-1){
                 tishiNum++;
             }else{
@@ -812,12 +850,21 @@ cc.Class({
         if(time){
             curTime = time;
         }
+        //new
+        var chupaiType = 0;
+        if(this.playerme_.getCardCount()==20 || this.mySeatId == this.preSeatId){
+        }else{
+            if(tishicards && tishicards.length == 0){
+                curTime = 3;
+                chupaiType = 2;
+            }
+        }
 
         if(this.myOpratShow){
             if(this.playerme_.getCardCount()==20 || this.mySeatId == this.preSeatId){
                 this.myOpratShow.show(curTime,buchuFunc,tishiFunc,chupaiFunc,1);
             }else{
-                this.myOpratShow.show(curTime,buchuFunc,tishiFunc,chupaiFunc);
+                this.myOpratShow.show(curTime,buchuFunc,tishiFunc,chupaiFunc,chupaiType);
             }
             return;
         }
@@ -832,7 +879,7 @@ cc.Class({
             var opOutCard = cc.instantiate(this.opratOutCard);
             cc.director.getScene().addChild(opOutCard,999);
             var opOutCardControl = opOutCard.getComponent(opratOutCardControl);
-            opOutCardControl.show(curTime,buchuFunc,tishiFunc,chupaiFunc);
+            opOutCardControl.show(curTime,buchuFunc,tishiFunc,chupaiFunc,chupaiType);
             this.myOpratShow = opOutCardControl;
         }
     },
@@ -1401,6 +1448,7 @@ cc.Class({
 
         var mySocre = 0;
         var myStwin = 0;//连胜
+        var myRate = rate;
 
         for (var i=0;i<3;i++){
             var socre = data.total[""+i];
@@ -1457,6 +1505,18 @@ cc.Class({
             //弹出奖品分享
             dialogManager.showTaskCompleteShare("lequan");
             config.leQuanShareSucss = true;
+            showShare = true;
+        }
+
+        var maxRate = 120;
+        if(config.joker != ""){
+            maxRate = 360;
+        }
+
+        //高倍数分享
+        if(myRate>=maxRate && mySocre>0 && !showShare){
+            config.maxRateShare = myRate;
+            dialogManager.showTaskCompleteShare("gaobei");
             showShare = true;
         }
     },
@@ -1774,16 +1834,16 @@ cc.Class({
         var self = this;
         console.log("叫地主结束---");
         self.gameState = config.gameState.ST_GAME_CallLordOver;
-        // self.playerme_.hideHint();
-        // self.left_player.hideHint();
-        // self.right_player.hideHint();
+        self.playerme_.hideHint();
+        self.left_player.hideHint();
+        self.right_player.hideHint();
 
-        var hideHint = function(){
-            self.playerme_.hideHint();
-            self.left_player.hideHint();
-            self.right_player.hideHint();
-        }
-        setTimeout(hideHint,500);
+        // var hideHint = function(){
+        //     self.playerme_.hideHint();
+        //     self.left_player.hideHint();
+        //     self.right_player.hideHint();
+        // }
+        // setTimeout(hideHint,500);
     
         var response = event.getUserData();
         var lordId = response["data"]["lordId"];
@@ -1932,7 +1992,8 @@ cc.Class({
                     GameNetMgr.sendRequest("Game","giveupSendCard");
                 }
             }else{
-                self.onMyOutCard();
+                var largerCards = self.getCardsLarger();
+                self.onMyOutCard(0,largerCards);
             }
 
             // self.playerme_.neatenPoker(self.myPokerNode,config.seatPos.center,self.sceneWidth);
@@ -2225,8 +2286,6 @@ cc.Class({
         console.log("有用户退出 通知桌上的玩家重新进入队列---");
         self.gameState = config.gameState.ST_GAME_WAIT_NEXTROUND;
         // var response = event.getUserData();
-        // self.clearTable();
-
         if(self.LazarilloPokerSelected){
             self.LazarilloPokerSelected.closeClick();
             self.LazarilloPokerSelected = null;
@@ -2235,16 +2294,16 @@ cc.Class({
     onInvalidCardNum(event){
         var self = this;
         console.log("出的牌不够大 [非法出牌]---");
-        var response = event.getUserData();
+        // var response = event.getUserData();
         if(self.myOpratShow){
-            self.myOpratShow.chupaiClick(-1);
+            self.myOpratShow.showTips("showTips/p_tips_seletcedCardTypeError");
         }
     },  
     onInvalidCardType(event){
         var self = this;
         console.log("出牌有非法数据 [非法出牌]---");
         if(self.myOpratShow){
-            self.myOpratShow.chupaiClick(-1);
+            self.myOpratShow.showTips("showTips/p_tips_seletcedCardTypeError");
         }
     },
     onSayToTableInfo(event){
@@ -2557,7 +2616,8 @@ cc.Class({
                     self.myOpratShow.close()
                     // self.myOpratShow = null;
                 }
-                self.onMyOutCard(players.time);//players.time 23
+                var largerCards = self.getCardsLarger();
+                self.onMyOutCard(players.time,largerCards);//players.time 23
                 self.playerme_.hideHint();
                 self.playerme_.clearTableCard(self.dispatchCard);
             }
@@ -2645,7 +2705,7 @@ cc.Class({
         });
     },
     onRefreshDataResult(event){
-        console.log("刷新用户信息数据222------");
+        console.log("gametable 刷新用户信息数据------");
         var self = this;
         var data = event.getUserData();
         console.log(data);
@@ -2810,7 +2870,7 @@ cc.Class({
         // this.clearTable3Card();
         this.setTable3Card(this.table3Cards);
 
-        if(response.data.myCard){ //插3张牌
+        if(response.data.myCard){
             if(self.myPokerNode.length > 0){ //先清理桌上的牌
                 for(var i = 0; i < self.myPokerNode.length; i++){
                     self.myPokerNode[i].getComponent(PokerControl).node.removeFromParent();
@@ -2818,13 +2878,12 @@ cc.Class({
                 self.myPokerNode = [];
             }
             self.myPokerData = [];
-    
             self.myPokerData = CardUtil.serverCardsToClient(response.data.myCard);
             self.myPokerNode = self.playerme_.initMyCards(self.myPokerData,self.myPokerNode,self.scene,self.sceneWidth);
             self.myHandCards = response.data.myCard;
         }
         var showCardInfo = response.data.showCardInfo;
-        console.log("showCardInfo>>>",showCardInfo);
+        // console.log("showCardInfo>>>",showCardInfo);
         if(showCardInfo){
             for(var index=0;index<showCardInfo.length;index++){
                 var sendSeatNum = config.getPlayerSeatNum(self.mySeatId,index);
@@ -2838,7 +2897,7 @@ cc.Class({
                             self.rightPokerNode = [];
                         }
                         self.rightPokerData = [];
-                        console.log(index+" : ",showCardInfo[index])
+                        // console.log(index+" : ",showCardInfo[index])
                         self.rightPokerData = CardUtil.serverCardsToClient(showCardInfo[index]);
                         self.right_player.playerRightShowCard(self.rightPokerData,self.rightPokerNode,self.pokerLayerRight,self.sceneWidth);
                     }
@@ -2851,7 +2910,7 @@ cc.Class({
                             self.leftPokerNode = [];
                         }
                         self.leftPokerData = [];
-                        console.log(index+" : ",showCardInfo[index])
+                        // console.log(index+" : ",showCardInfo[index])
                         self.leftPokerData = CardUtil.serverCardsToClient(showCardInfo[index]);
                         self.left_player.playerLeftShowCard(self.leftPokerData,self.leftPokerNode,self.pokerLayerLeft,self.sceneWidth);
                     }
@@ -2910,6 +2969,7 @@ cc.Class({
             dialogManager.showAnimGetProp(list);
         }
         config.adCdTime = award.watch_advertisement_cd;
+        config.canSeeVideoAd = award.weichatgame_can_watch_advertisement;
     },
 ////////////
     preloadNextScene(){

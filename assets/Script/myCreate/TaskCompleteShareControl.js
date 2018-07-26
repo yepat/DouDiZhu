@@ -23,10 +23,21 @@ cc.Class({
             type : cc.Node,
             opentype : "share"
         },
+        lab_rate : {
+            default : null,
+            type : cc.Label
+        },
+
     },
     onLoad () {
         // 获取乐券和打出春天公用
         this.dialogName = "";
+        this.lab_rate.string = "";
+
+        if(!config.canSeeVideoAd){
+            this.btn_1.active = false;
+            this.btn_2.x = 0;
+        }
     },
     start () {
         // this.show("chuntian");
@@ -39,6 +50,9 @@ cc.Class({
             config.loadImage(this.img_bg,"p_chuntian");
         }else if(dialogName == "liansheng_3"){
             config.loadImage(this.img_bg,"p_liansheng_3");
+        }else if(dialogName == "gaobei"){
+            config.loadImage(this.img_bg,"p_gaobei");
+            this.lab_rate.string = ""+config.maxRateShare;
         }
         this.setHeadUrl();
     },
@@ -47,9 +61,9 @@ cc.Class({
          //设置微信头像
          var imgUrl=config.wxInfo.avatarUrl;
          if(imgUrl==""){
-            var headUrl = "p_head_woman";
+            var headUrl = "common/p_head_woman";
             if(PlayerDetailModel.getGender() == 1){
-                headUrl = "p_head_man";
+                headUrl = "common/p_head_man";
             }
             cc.loader.loadRes(headUrl,cc.SpriteFrame,function(err,spriteFrame){
                 self.img_head.getComponent(cc.Sprite).spriteFrame = spriteFrame;
@@ -75,6 +89,8 @@ cc.Class({
         }else if(dialogName == "chuntian"){
             shareType = 5;
         }else if(dialogName == "liansheng_3"){
+            shareType = 5;
+        }else if(dialogName == "gaobei"){
             shareType = 5;
         }
 

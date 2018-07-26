@@ -259,7 +259,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "198wd+rFNGuJ2TxVcuUktQ",
+    "fileId": "d6fRAuEYxCg5NnWC+wE1Ll",
     "sync": false
   },
   {
@@ -350,7 +350,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "09Ct67l0dDW5ZmKSMZwXxw",
+    "fileId": "9fufW6qXZCV7SmT1FPlQMV",
     "sync": false
   },
   {
@@ -509,7 +509,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "fcVkkHQJNM5JdherQ7x1Cq",
+    "fileId": "aauN5NqelB1JWYmwwjJIHa",
     "sync": false
   },
   {
@@ -661,7 +661,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "47TG/cAxBBeKjN8Xk+7QRn",
+    "fileId": "e7A+9DKDNIkY+tNQ36N4OO",
     "sync": false
   },
   {
@@ -763,7 +763,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "dcf7kY541Aa78Ocw95Mx2q",
+    "fileId": "4cngCPlKtG4Ire0o1rFIjo",
     "sync": false
   },
   {
@@ -836,7 +836,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "温馨提示",
+    "_N$string": "授权失败",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -850,7 +850,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "ebp2NOaVZLkqaqfBDn/jla",
+    "fileId": "cbD1i1X0ZCpp3hwaQYq7bV",
     "sync": false
   },
   {
@@ -923,7 +923,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "授权失败，请重新授权。",
+    "_N$string": "请点右上角“...”关于小游戏里面重新设置权限。",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -937,7 +937,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "34gPbs/ihPvZl6RxUTigBD",
+    "fileId": "01OUephPtFdqfC3nilRQ+O",
     "sync": false
   },
   {
@@ -992,7 +992,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "e0uVkhCApDaITAcWLSrhB+",
+    "fileId": "069eTTBOhEHKFS/A4//xWO",
     "sync": false
   }
 ]

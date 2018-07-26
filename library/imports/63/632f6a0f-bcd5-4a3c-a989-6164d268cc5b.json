@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "p_gaobei",
+    "texture": "8b97aa33-8677-404e-b1a3-6a8084b2a676",
+    "atlas": "",
+    "rect": [
+      3,
+      0,
+      682,
+      358
+    ],
+    "offset": [
+      1,
+      0.5
+    ],
+    "originalSize": [
+      686,
+      359
+    ]
+  }
+}

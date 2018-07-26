@@ -10,8 +10,9 @@ var playerInfoControl = require("playerInfoControl");
 var TableShareGetControl = require("TableShareGetControl");
 var TaskCompleteShareControl = require("TaskCompleteShareControl");
 var huodedaojuControl = require("huodedaojuControl");
-
 var AuthorizeControl = require("AuthorizeControl");
+
+var ShouCangControl = require("ShouCangControl");
 
 var dialogManager = cc.Class({
     extends: cc.Component,
@@ -89,6 +90,10 @@ var dialogManager = cc.Class({
         //个人信息
         showPlayerInfo(args){
             this.showDialog("prefab/playerInfoDialog",playerInfoControl,args);
+        },
+        //收藏
+        showShouCangDialog(){
+            this.showDialog("prefab/shouCangDialog",ShouCangControl);
         },
 
 

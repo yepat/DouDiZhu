@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_shoucang",
+    "texture": "7d78ef21-3563-45d4-bfd1-ccb511ccf348",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      111,
+      136
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      111,
+      136
+    ]
+  }
+}

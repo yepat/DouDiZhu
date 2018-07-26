@@ -135,9 +135,9 @@ cc.Class({
         }
 
         if (imgUrl == "") {
-            var headUrl = "p_head_woman";
+            var headUrl = "common/p_head_woman";
             if (gender == 1) {
-                headUrl = "p_head_man";
+                headUrl = "common/p_head_man";
             }
             cc.loader.loadRes(headUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.head.getComponent(cc.Sprite).spriteFrame = spriteFrame;

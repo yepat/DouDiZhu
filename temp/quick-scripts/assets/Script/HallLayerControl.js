@@ -26,6 +26,10 @@ cc.Class({
             default: null,
             type: cc.Sprite
         },
+        videoAdTip: {
+            default: null,
+            type: cc.Sprite
+        },
         btn_videoAd: {
             default: null,
             type: cc.Sprite
@@ -82,12 +86,25 @@ cc.Class({
             this.btn_videoAd.enabled = true;
         }
         this.initWxVideoAd();
+
+        if (config.device) {
+            console.log(">>>>>>>>device:", config.device);
+        }
+
+        if (!config.canSeeVideoAd) {
+            this.videoAdTip.enabled = false;
+            this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+        }
     },
     onEnable: function onEnable() {
         console.log(" HallLayer onEnable");
         if (config.adCdTime > 1) {
             this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
             this.adCanTouch = false;
+        }
+        if (!config.canSeeVideoAd) {
+            this.videoAdTip.enabled = false;
+            this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
         }
     },
     onDisable: function onDisable() {
@@ -103,6 +120,7 @@ cc.Class({
         if (config.adCdTime > 1) {
             this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
             this.adCanTouch = false;
+            this.videoAdTip.enabled = false;
         }
 
         //计时器
@@ -115,6 +133,7 @@ cc.Class({
                     this.ad_time.string = "";
                     this.btn_videoAd.node.color = new cc.Color(255, 255, 255);
                     this.adCanTouch = true;
+                    this.videoAdTip.enabled = true;
                 }
             }
         }, 1);
@@ -243,6 +262,10 @@ cc.Class({
         // console.log("btnShopClick");
         // dialogManager.showShopDialog();
     },
+    btnShouCangClick: function btnShouCangClick() {
+        console.log("btnShouCangClick");
+        dialogManager.showShouCangDialog();
+    },
     btnShareClick: function btnShareClick() {
         // console.log("btnShareClick");
         dialogManager.showShareDialog();
@@ -250,6 +273,13 @@ cc.Class({
     },
     btnVideoAdClick: function btnVideoAdClick() {
         // console.log("btnVideoAdClick");
+        if (!config.canSeeVideoAd) {
+            dialogManager.showCommonDialog("温馨提示", "今日看广告机会已经用完，请明天再来", null, null);
+            this.videoAdTip.enabled = false;
+            this.btn_videoAd.node.color = new cc.Color(218, 218, 218);
+            return;
+        }
+
         if (!this.adCanTouch) {
             // console.log("cd中。。。。。。。。")
             return;
@@ -264,6 +294,7 @@ cc.Class({
             var videoEndFuc = function videoEndFuc() {
                 self.btn_videoAd.node.color = new cc.Color(218, 218, 218);
                 self.adCanTouch = false;
+                self.videoAdTip.enabled = false;
             };
             config.videoEndFuc = videoEndFuc;
             config.rewardedVideoAd.show().then(); //() => cc.vv.audioMgr.stopMusic()
@@ -363,6 +394,8 @@ cc.Class({
         }
         config.adCdTime = award.watch_advertisement_cd;
         this.timeCount = config.adCdTime;
+
+        config.canSeeVideoAd = award.weichatgame_can_watch_advertisement;
     }
 });
 

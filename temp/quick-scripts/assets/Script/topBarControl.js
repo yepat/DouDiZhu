@@ -143,9 +143,9 @@ cc.Class({
         var imgUrl = config.wxInfo.avatarUrl;
 
         if (imgUrl == "") {
-            var headUrl = "p_head_woman";
+            var headUrl = "common/p_head_woman";
             if (PlayerDetailModel.getGender() == 1) {
-                headUrl = "p_head_man";
+                headUrl = "common/p_head_man";
             }
             cc.loader.loadRes(headUrl, cc.SpriteFrame, function (err, spriteFrame) {
                 self.headImg.getComponent(cc.Sprite).spriteFrame = spriteFrame;

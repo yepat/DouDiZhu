@@ -1263,7 +1263,7 @@ LazarilloCardUtil.get_cards_larger = function (last_cards_type, myCards) {
 
     var cardsType = last_cards_type.type;
     if (cardsType == config.CardType.Single) {
-        all_result = LazarilloCardUtil.find_single_card(last_cards_type, prop, myCards);
+        all_result = LazarilloCardUtil.find_single_card(last_cards_type, prop, myCards, lzLen, lzValue);
     } else if (cardsType == config.CardType.Pair) {
         all_result = LazarilloCardUtil.find_pair_card(last_cards_type, prop, myCards, lzLen, lzValue);
     } else if (cardsType == config.CardType.ThreeOfKind) {
@@ -1456,9 +1456,6 @@ LazarilloCardUtil.find_allBomb_card = function (last_cards_type, prop, myCards, 
     var pair = PopCardUtil.getPair();
     var three = PopCardUtil.getThree();
     var four = PopCardUtil.getFour();
-    var rank = parseInt(last_cards_type.rank);
-
-    console.log("赖子场所有的炸弹牌---");
 
     if (lzLen >= 1) {
         if (three.count > 0) {
@@ -1501,14 +1498,7 @@ LazarilloCardUtil.find_allBomb_card = function (last_cards_type, prop, myCards, 
     if (four.count > 0) {
         for (var k in four.cards) {
             var v = four.cards[k];
-            // console.log("v:"+v[0]+"  k:"+k);
-            // if (rank < v[0]){
             all_result.push(v);
-            // }else{
-            //     if(v[0] == lzValue){
-            //         all_result.push(v);//纯赖子炸弹
-            //     }
-            // }
         }
     }
     if (prop[16] && prop[17]) {
@@ -1615,8 +1605,6 @@ LazarilloCardUtil.find_bomb_card = function (last_cards_type, prop, myCards, lzL
         console.log("有王炸");
         var values = [16, 17];
         all_result.push(values);
-    } else {
-        console.log("没有王炸");
     }
     return all_result;
 };
@@ -2040,131 +2028,61 @@ LazarilloCardUtil.find_pair_straight = function (last_cards_type, prop, myCards,
         return all_result;
     }
 
-    var pair = PopCardUtil.getPair();
-    var three = PopCardUtil.getThree();
-    var four = PopCardUtil.getFour();
-    var allpair = [];
-
-    for (var i = 0; i < pair.count; i++) {
-        allpair.push(pair.cards[i][0]);
-    }
-    for (var i = 0; i < three.count; i++) {
-        allpair.push(three.cards[i][0]);
-    }
-    for (var i = 0; i < four.count; i++) {
-        allpair.push(four.cards[i][0]);
-    }
-
-    allpair.sort(config.arrayUp);
-
-    // console.log("allpair:",allpair)
-
-    var autoCards = [];
-    var tempCards = [];
-    var tempNum = 0;
-    for (var i = 0; i < allpair.length; i++) {
-
-        if (allpair[i] < CardUtil.cardGrade["2"] && allpair[i] > rank) {
-            // console.log("i:"+i);
-            if (allpair[i] + 1 == allpair[i + 1] && allpair[i + 1] < CardUtil.cardGrade["2"]) {
-                // console.log("i2:"+i);
-                // console.log("tempNum:",tempNum)
-                if (tempNum + 1 == allpair[i + 1]) {
-                    autoCards.push(tempNum);
-                    // tempNum++;//--new
-                }
-                if (i == 0) {
-                    autoCards.push(allpair[i]);
-                }
-                // console.log("allpair[i+1]:",allpair[i+1])
-                autoCards.push(allpair[i + 1]);
-            } else {
-                tempNum = allpair[i + 1];
-                // console.log("---tempNum:",tempNum)
-                if (autoCards.length >= repeatCount) {
-                    tempCards.push(autoCards);
-                }
-                autoCards = [];
-                continue;
+    //找到所有符合的连队
+    if (true) {
+        console.log("-------所有顺子赖子补齐");
+        var tempAllcards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        var begin = rank + 1;
+        var tempCards = config.arraySub(begin, tempAllcards.length, tempAllcards, 1);
+        var tempAll_result = [];
+        var len = tempCards.length - repeatCount;
+        var temparr = [];
+        for (var i = 0; i <= len; i++) {
+            if (tempCards.length >= repeatCount + i) {
+                temparr = config.arraySub(i, repeatCount + i, tempCards, 1);
+                tempAll_result.push(temparr);
             }
         }
-    }
+        console.log("tempAll_result:", tempAll_result);
 
-    // console.log("tempCards:",tempCards)
-    for (var i = 0; i < tempCards.length; i++) {
-        if (tempCards[i].length >= repeatCount) {
-            var len = tempCards[i].length - repeatCount;
-            var temparr = [];
-            for (var j = 0; j <= len; j++) {
-                if (tempCards[i].length >= repeatCount + j) {
-                    temparr = config.arraySub(j, repeatCount + j, tempCards[i], 2);
-                    all_result.push(temparr);
+        var xx_All_result = [];
+        for (var i = 0; i < tempAll_result.length; i++) {
+            // console.log("xxx:",tempAll_result[i]);
+            var xx_temp = [];
+            var len = 0;
+            for (var j = 0; j < tempAll_result[i].length; j++) {
+                if (prop[tempAll_result[i][j]]) {
+                    len = prop[tempAll_result[i][j]].length;
+                    console.log(">>>>len:", len);
+                    if (len > 2) {
+                        len = 2;
+                    }
+                    for (var m = 0; m < len; m++) {
+                        xx_temp.push(tempAll_result[i][j]);
+                    }
                 }
             }
+            xx_All_result.push(xx_temp);
         }
-    }
-
-    if (all_result.length < 1) {
-        all_result = [];
-        autoCards = [];
-        tempCards = [];
-        var key = rank;
-        for (var i = 1; i < 20; i++) {
-            if (prop[key + i] && key + i < CardUtil.cardGrade["2"]) {
-                //满足组成顺子的牌
-                autoCards.push(prop[key + i][0]);
-            } else {
-                if (autoCards.length >= repeatCount) {
-                    tempCards.push(autoCards);
-                }
-                autoCards = [];
-                continue;
-            }
-        }
-        // lzLen,lzValue
-        console.log("tempCards", tempCards);
-
-        var copyTempCards = [];
-        for (var m = 0; m < tempCards.length; m++) {
-            var len = tempCards[m].length - repeatCount;
-            var temparr = [];
-            for (var i = 0; i <= len; i++) {
-                if (tempCards[m].length >= repeatCount + i) {
-                    temparr = config.arraySub(i, repeatCount + i, tempCards[m], 1);
-                    copyTempCards.push(temparr);
-                }
-            }
-        }
-        console.log("copyTempCards", copyTempCards);
-
-        for (var i = 0; i < copyTempCards.length; i++) {
+        console.log("xx_All_result:", xx_All_result);
+        for (var i = 0; i < xx_All_result.length; i++) {
             //要补齐的张数
-            var repCount = 0;
-            var addCards = [];
-            for (var n = 0; n < copyTempCards[i].length; n++) {
-                var value = copyTempCards[i][n];
-                if (prop[value].length > 1) {
-                    addCards.push(value);
-                } else {
-                    repCount++;
-                }
-            }
-            // var repCount = repeatCount - copyTempCards[i].length;
+            var lznum = 0;
+            var repCount = repeatCount * 2 - xx_All_result[i].length;
             if (lzLen >= repCount) {
-                for (var j = 0; j < addCards.length; j++) {
-                    copyTempCards[i].push(addCards[j]);
+                for (var m = 0; m < repCount; m++) {
+                    xx_All_result[i].push(lzValue);
                 }
-                copyTempCards[i].sort(config.arrayUp);
-                for (var j = 0; j < repCount; j++) {
-                    copyTempCards[i].push(lzValue);
+                for (var j = 0; j < xx_All_result[i].length; j++) {
+                    if (xx_All_result[i][j] == lzValue) {
+                        lznum++;
+                    }
                 }
-                if (copyTempCards[i].length == repeatCount * 2) {
-                    all_result[all_result.length] = copyTempCards[i];
-                }
+                // console.log("-------lznum:",lznum);
+                if (lznum <= lzLen) all_result.push(xx_All_result[i]);
             }
         }
     }
-
     console.log(all_result);
     return all_result;
 };

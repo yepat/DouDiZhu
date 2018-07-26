@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "67288a02-d7c5-4e70-9ddf-80781ae03600",
+  "atlasJson": "{\"imagePath\":\"dianyidian_tex.png\",\"width\":128,\"SubTexture\":[{\"width\":88,\"y\":1,\"height\":125,\"name\":\"dianyidian\",\"x\":1}],\"height\":128,\"name\":\"dianyidian\"}",
+  "texture": "17163319-bd3f-4e9f-b2aa-c46dbd7a2e7e",
+  "subMetas": {}
+}

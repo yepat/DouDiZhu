@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dianyidian_tex",
+    "texture": "17163319-bd3f-4e9f-b2aa-c46dbd7a2e7e",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      88,
+      125
+    ],
+    "offset": [
+      -19,
+      0.5
+    ],
+    "originalSize": [
+      128,
+      128
+    ]
+  }
+}

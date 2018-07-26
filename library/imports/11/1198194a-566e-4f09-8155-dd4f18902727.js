@@ -1,9 +1,10 @@
 "use strict";
 cc._RF.push(module, '11981lKVm5PCYFV3U8YkCcn', 'opratOutCardControl');
-// Script/opratOutCardControl.js
+// Script/operate/opratOutCardControl.js
 
 "use strict";
 
+var GameNetMgr = require("GameNetMgr");
 cc.Class({
     extends: cc.Component,
 
@@ -46,12 +47,17 @@ cc.Class({
                 this.timeCount -= 1;
                 if (this.timeCount <= 5 && this.timeCount >= 1) {
                     // cc.vv.audioMgr.playSFX("timeup_alarm.mp3");
-                    this.shakeClock();
+                    if (this.type && this.type == 2) {} else {
+                        this.shakeClock();
+                    }
                 }
                 var pre = "";
                 if (this.timeCount <= 0) {
                     this.timeCount = 0;
                     // this.node.destroy();
+                    if (this.type && this.type == 2) {
+                        GameNetMgr.sendRequest("Game", "giveupSendCard");
+                    }
                     this.node.active = false;
                 }
                 var t = Math.ceil(this.timeCount);
@@ -78,10 +84,13 @@ cc.Class({
         this.buchuBtn.active = true;
         this.tishiBtn.active = true;
         this.chupaiBtn.active = true;
+        this.tishi.enabled = false;
         this.buchuBtn.x = -370;
         this.tishiBtn.x = 79;
         this.chupaiBtn.x = 387;
         this.clock.x = -147;
+
+        this.type = type;
 
         if (type == 1) {
             this.clock.x = -163;
@@ -93,6 +102,7 @@ cc.Class({
             this.buchuBtn.x = 63;
             this.tishiBtn.active = false;
             this.chupaiBtn.active = false;
+            this.showTips("showTips/p_tips_noCard");
         }
     },
     close: function close() {

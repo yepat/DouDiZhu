@@ -1,59 +1,58 @@
-2018-07-20T01:52:03.797Z - normal: Load ~/.CocosCreator/settings.json
-2018-07-20T01:52:03.801Z - normal: checking language setting...
-2018-07-20T01:52:03.801Z - normal: Language: zh
-2018-07-20T01:52:04.767Z - success: protocol editor-framework registered
-2018-07-20T01:52:04.767Z - success: protocol app registered
-2018-07-20T01:52:04.767Z - success: protocol theme registered
-2018-07-20T01:52:04.767Z - success: protocol packages registered
-2018-07-20T01:52:04.767Z - success: protocol unpack registerred
-2018-07-20T01:52:04.768Z - success: protocol disable-commonjs registerred
-2018-07-20T01:52:04.932Z - normal: connected!
-2018-07-20T01:52:04.933Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-20T01:52:04.934Z - normal: Initializing Cocos2d
-2018-07-20T01:52:05.195Z - normal: Initializing Asset Database
-2018-07-20T01:52:05.234Z - success: protocol uuid registerred
-2018-07-20T01:52:05.234Z - success: protocol db registerred
-2018-07-20T01:52:05.235Z - success: protocol thumbnail registerred
-2018-07-20T01:52:05.235Z - normal: Loading editor/builtin packages
-2018-07-20T01:52:05.259Z - success: anysdk loaded
-2018-07-20T01:52:05.392Z - success: assets loaded
-2018-07-20T01:52:05.395Z - success: builder loaded
-2018-07-20T01:52:05.399Z - success: cocos-analytics loaded
-2018-07-20T01:52:05.403Z - success: console loaded
-2018-07-20T01:52:05.433Z - success: fb-instant-games loaded
-2018-07-20T01:52:05.439Z - success: hierarchy loaded
-2018-07-20T01:52:05.444Z - success: inspector loaded
-2018-07-20T01:52:05.447Z - success: keystore loaded
-2018-07-20T01:52:05.455Z - success: node-library loaded
-2018-07-20T01:52:05.457Z - success: package-asset loaded
-2018-07-20T01:52:05.461Z - success: preferences loaded
-2018-07-20T01:52:05.464Z - success: project-exporter loaded
-2018-07-20T01:52:05.481Z - success: project-importer loaded
-2018-07-20T01:52:05.484Z - success: project-settings loaded
-2018-07-20T01:52:05.488Z - success: ui-kit loaded
-2018-07-20T01:52:05.492Z - success: ui-grid loaded
-2018-07-20T01:52:05.496Z - success: scene loaded
-2018-07-20T01:52:05.498Z - success: sprite-editor loaded
-2018-07-20T01:52:05.502Z - success: store loaded
-2018-07-20T01:52:05.509Z - success: timeline loaded
-2018-07-20T01:52:05.509Z - normal: Loading builtin packages
-2018-07-20T01:52:05.513Z - success: asset-db-debugger loaded
-2018-07-20T01:52:05.514Z - success: color-picker loaded
-2018-07-20T01:52:05.519Z - success: package-manager loaded
-2018-07-20T01:52:05.525Z - success: sdkbox loaded
-2018-07-20T01:52:05.530Z - success: tester loaded
-2018-07-20T01:52:05.533Z - success: ui-kit-preview-extra loaded
-2018-07-20T01:52:05.536Z - success: ui-kit-preview loaded
-2018-07-20T01:52:05.540Z - success: ui-tree loaded
-2018-07-20T01:52:06.585Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-20T01:52:06.587Z - normal: Loading packages
-2018-07-20T01:52:06.591Z - normal: Watching packages
-2018-07-20T01:52:06.600Z - normal: Run Application
-2018-07-20T01:52:07.824Z - success: preview server running at http://localhost:7456
-2018-07-20T01:52:12.750Z - normal: 1.9.1
-2018-07-20T01:52:13.993Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-20T01:56:00.122Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-20T01:56:06.720Z - normal: Start building with options : {
+2018-07-26T03:11:20.729Z - normal: Load ~/.CocosCreator/settings.json
+2018-07-26T03:11:20.732Z - normal: checking language setting...
+2018-07-26T03:11:20.732Z - normal: Language: zh
+2018-07-26T03:11:21.290Z - success: protocol editor-framework registered
+2018-07-26T03:11:21.291Z - success: protocol app registered
+2018-07-26T03:11:21.291Z - success: protocol theme registered
+2018-07-26T03:11:21.291Z - success: protocol packages registered
+2018-07-26T03:11:21.291Z - success: protocol unpack registerred
+2018-07-26T03:11:21.291Z - success: protocol disable-commonjs registerred
+2018-07-26T03:11:21.426Z - normal: connected!
+2018-07-26T03:11:21.429Z - normal: Check project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-26T03:11:21.440Z - normal: Initializing Cocos2d
+2018-07-26T03:11:21.594Z - normal: Initializing Asset Database
+2018-07-26T03:11:21.625Z - success: protocol uuid registerred
+2018-07-26T03:11:21.626Z - success: protocol db registerred
+2018-07-26T03:11:21.626Z - success: protocol thumbnail registerred
+2018-07-26T03:11:21.626Z - normal: Loading editor/builtin packages
+2018-07-26T03:11:21.647Z - success: anysdk loaded
+2018-07-26T03:11:21.760Z - success: assets loaded
+2018-07-26T03:11:21.764Z - success: builder loaded
+2018-07-26T03:11:21.765Z - success: cocos-analytics loaded
+2018-07-26T03:11:21.769Z - success: console loaded
+2018-07-26T03:11:21.797Z - success: fb-instant-games loaded
+2018-07-26T03:11:21.801Z - success: hierarchy loaded
+2018-07-26T03:11:21.804Z - success: inspector loaded
+2018-07-26T03:11:21.806Z - success: keystore loaded
+2018-07-26T03:11:21.813Z - success: node-library loaded
+2018-07-26T03:11:21.816Z - success: package-asset loaded
+2018-07-26T03:11:21.818Z - success: preferences loaded
+2018-07-26T03:11:21.821Z - success: project-exporter loaded
+2018-07-26T03:11:21.833Z - success: project-importer loaded
+2018-07-26T03:11:21.836Z - success: project-settings loaded
+2018-07-26T03:11:21.840Z - success: ui-kit loaded
+2018-07-26T03:11:21.844Z - success: ui-grid loaded
+2018-07-26T03:11:21.848Z - success: scene loaded
+2018-07-26T03:11:21.849Z - success: sprite-editor loaded
+2018-07-26T03:11:21.853Z - success: store loaded
+2018-07-26T03:11:21.859Z - success: timeline loaded
+2018-07-26T03:11:21.859Z - normal: Loading builtin packages
+2018-07-26T03:11:21.863Z - success: asset-db-debugger loaded
+2018-07-26T03:11:21.864Z - success: color-picker loaded
+2018-07-26T03:11:21.867Z - success: package-manager loaded
+2018-07-26T03:11:21.871Z - success: sdkbox loaded
+2018-07-26T03:11:21.876Z - success: tester loaded
+2018-07-26T03:11:21.880Z - success: ui-kit-preview-extra loaded
+2018-07-26T03:11:21.883Z - success: ui-kit-preview loaded
+2018-07-26T03:11:21.885Z - success: ui-tree loaded
+2018-07-26T03:11:22.767Z - normal: Initializing project /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-26T03:11:22.770Z - normal: Loading packages
+2018-07-26T03:11:22.773Z - normal: Watching packages
+2018-07-26T03:11:22.783Z - normal: Run Application
+2018-07-26T03:11:23.794Z - success: preview server running at http://localhost:7456
+2018-07-26T03:11:28.345Z - normal: 1.9.1
+2018-07-26T03:11:29.450Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T03:22:45.686Z - normal: Start building with options : {
   "androidStudio": true,
   "apiLevel": "android-10",
   "appABIs": [],
@@ -125,43 +124,48 @@
   "projectName": "doudizhu",
   "debugBuildWorker": false
 }
-2018-07-20T01:56:06.722Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-20T01:56:06.723Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
-2018-07-20T01:56:07.056Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
-2018-07-20T01:56:11.845Z - normal: Compiled project javascript file successfully
-2018-07-20T01:56:11.845Z - normal: Start building assets
-2018-07-20T01:56:11.845Z - normal: Start spawn build-worker
-2018-07-20T01:56:12.419Z - normal: Finish spawn build-worker
-2018-07-20T01:56:12.419Z - normal: Start init build-worker
-2018-07-20T01:56:14.030Z - normal: 1.9.1
-2018-07-20T01:56:14.260Z - normal: Finish init build-worker
-2018-07-20T01:56:14.260Z - normal: Start build-assets in worker
-2018-07-20T01:56:16.530Z - normal: Finish build-assets in worker
-2018-07-20T01:56:16.534Z - normal: Finish building assets
-2018-07-20T01:56:16.622Z - normal: Start building raw assets
-2018-07-20T01:56:16.624Z - normal: Start building plugin scripts
-2018-07-20T01:56:16.972Z - normal: Finish building raw assets
-2018-07-20T01:56:16.976Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-07-20T01:56:17.040Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
-2018-07-20T01:56:18.671Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
-2018-07-20T01:56:18.671Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
-2018-07-20T01:56:19.201Z - normal: Initializing...
+2018-07-26T03:22:45.690Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-26T03:22:45.691Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-26T03:22:46.087Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-26T03:22:50.875Z - normal: Compiled project javascript file successfully
+2018-07-26T03:22:50.875Z - normal: Start building assets
+2018-07-26T03:22:50.875Z - normal: Start spawn build-worker
+2018-07-26T03:22:51.452Z - normal: Finish spawn build-worker
+2018-07-26T03:22:51.452Z - normal: Start init build-worker
+2018-07-26T03:22:53.001Z - normal: 1.9.1
+2018-07-26T03:22:53.183Z - normal: Finish init build-worker
+2018-07-26T03:22:53.183Z - normal: Start build-assets in worker
+2018-07-26T03:22:55.418Z - normal: Finish build-assets in worker
+2018-07-26T03:22:55.423Z - normal: Finish building assets
+2018-07-26T03:22:55.523Z - normal: Start building raw assets
+2018-07-26T03:22:55.524Z - normal: Start building plugin scripts
+2018-07-26T03:22:55.895Z - normal: Finish building raw assets
+2018-07-26T03:22:55.900Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-26T03:22:55.998Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
+2018-07-26T03:22:58.873Z - warn: 找不到微信开发程序版本信息路径 [/Applications/wechatwebdevtools.app/Contents/Resources/app.nw/package.json]。
+2018-07-26T03:22:58.873Z - warn: 微信开发程序版本过低，不能享用所有功能，请尽快升级。
+2018-07-26T03:22:59.421Z - normal: Initializing...
 
-2018-07-20T01:56:19.207Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
+2018-07-26T03:22:59.430Z - normal: idePortFile: /Users/yepat/Library/Application Support/微信web开发者工具/Default/.ide
 
-2018-07-20T01:56:19.222Z - normal: starting ide...
+2018-07-26T03:22:59.448Z - normal: starting ide...
 
-2018-07-20T01:56:22.448Z - normal: IDE server has started, listening on http://127.0.0.1:12074
+2018-07-26T03:23:03.139Z - normal: IDE server has started, listening on http://127.0.0.1:58682
 
-2018-07-20T01:56:22.452Z - normal: initialization finished
+2018-07-26T03:23:03.144Z - normal: initialization finished
 
-2018-07-20T01:56:22.797Z - normal: open IDE success
+2018-07-26T03:23:03.514Z - normal: open IDE success
 
-2018-07-20T02:45:44.292Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-20T02:46:31.071Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-20T02:54:22.239Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-20T06:02:15.077Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
-2018-07-20T06:02:23.226Z - normal: Start building with options : {
+2018-07-26T06:52:34.287Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T06:57:02.310Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T06:57:28.357Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T07:11:01.390Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T07:12:32.235Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T07:32:48.148Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T07:50:31.365Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T07:59:49.721Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T08:07:45.756Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T08:10:37.453Z - normal: Start building with options : {
   "androidStudio": true,
   "apiLevel": "android-10",
   "appABIs": [],
@@ -233,22 +237,21 @@
   "projectName": "doudizhu",
   "debugBuildWorker": false
 }
-2018-07-20T06:02:23.230Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
-2018-07-20T06:02:23.230Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
-2018-07-20T06:02:23.231Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
-2018-07-20T06:02:29.768Z - normal: Compiled project javascript file successfully
-2018-07-20T06:02:29.768Z - normal: Start building assets
-2018-07-20T06:02:29.769Z - normal: Start spawn build-worker
-2018-07-20T06:02:30.387Z - normal: Finish spawn build-worker
-2018-07-20T06:02:30.387Z - normal: Start init build-worker
-2018-07-20T06:02:32.199Z - normal: 1.9.1
-2018-07-20T06:02:32.411Z - normal: Finish init build-worker
-2018-07-20T06:02:32.411Z - normal: Start build-assets in worker
-2018-07-20T06:02:35.336Z - normal: Finish build-assets in worker
-2018-07-20T06:02:35.343Z - normal: Finish building assets
-2018-07-20T06:02:35.472Z - normal: Start building raw assets
-2018-07-20T06:02:35.473Z - normal: Start building plugin scripts
-2018-07-20T06:02:36.134Z - normal: Finish building raw assets
-2018-07-20T06:02:36.162Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-07-20T06:02:36.357Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
-2018-07-20T07:09:21.494Z - warn: ctor of CCClass 'undefined' should not accept any arguments.
+2018-07-26T08:10:37.458Z - normal: Building /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1
+2018-07-26T08:10:37.458Z - normal: Destination /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame
+2018-07-26T08:10:37.459Z - normal: Delete /Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame/**/*
+2018-07-26T08:10:46.932Z - normal: Compiled project javascript file successfully
+2018-07-26T08:10:46.933Z - normal: Start building assets
+2018-07-26T08:10:46.933Z - normal: Start spawn build-worker
+2018-07-26T08:10:47.800Z - normal: Finish spawn build-worker
+2018-07-26T08:10:47.800Z - normal: Start init build-worker
+2018-07-26T08:10:49.997Z - normal: 1.9.1
+2018-07-26T08:10:50.276Z - normal: Finish init build-worker
+2018-07-26T08:10:50.276Z - normal: Start build-assets in worker
+2018-07-26T08:10:54.233Z - normal: Finish build-assets in worker
+2018-07-26T08:10:54.266Z - normal: Finish building assets
+2018-07-26T08:10:54.422Z - normal: Start building raw assets
+2018-07-26T08:10:54.423Z - normal: Start building plugin scripts
+2018-07-26T08:10:55.164Z - normal: Finish building raw assets
+2018-07-26T08:10:55.171Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-07-26T08:10:55.362Z - normal: Built to "/Users/yepat/Documents/GitHub/doudizhu/DouDiZhu1/build/wechatgame" successfully
