@@ -1,2 +1,2 @@
-# hello-world
-Hello world new project template.
+# 斗地主
+cocos_creator
